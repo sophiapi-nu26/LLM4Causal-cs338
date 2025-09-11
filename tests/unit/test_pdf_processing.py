@@ -5,7 +5,7 @@ Tests for PDF processing and text extraction.
 import pytest
 from pathlib import Path
 import fitz  # PyMuPDF
-from matsci_llm_causality.extraction.pdf import PDFProcessor
+from matsci_llm_causality.extraction.pdf_old import PDFProcessor
 
 # Test data paths
 TEST_DATA = Path(__file__).parent.parent / "data"

@@ -14,6 +14,7 @@ from .base import (
 )
 from .llm.flan import FlanT5Model
 from .llm.gpt import GPT5RelationExtractor
+from .llm.gemini import GeminiImageRelationExtractor, GeminiTableRelationExtractor
 from .scibert import SciBERTEntityRecognizer
 
 __all__ = [
@@ -23,6 +24,8 @@ __all__ = [
     'register_model',
     'FlanT5Model',
     'GPT5RelationExtractor',
+    'GeminiImageRelationExtractor',
+    'GeminiTableRelationExtractor',
     'SciBERTEntityRecognizer',
     'ModelConfig',
     'ExtractionResult'

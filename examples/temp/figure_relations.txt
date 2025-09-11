@@ -1,0 +1,39 @@
+Toughness (GJ/m³) <Property> positively correlates with Arkyidae <Material>
+Toughness (GJ/m³) <Property> positively correlates with Pimoidae <Material>
+Toughness (GJ/m³) <Property> positively correlates with Deinopoidae <Material>
+Toughness (GJ/m³) <Property> positively correlates with Araneidae <Material>
+Toughness (GJ/m³) <Property> positively correlates with MaSp3 (group 19) <Material>
+Toughness (GJ/m³) <Property> negatively correlates with Uloboridae <Material>
+Toughness (GJ/m³) <Property> negatively correlates with Viridasiidae <Material>
+Toughness (GJ/m³) <Property> negatively correlates with Cheiracanthiidae <Material>
+Toughness (GJ/m³) <Property> negatively correlates with Thomisidae <Material>
+Toughness (GJ/m³) <Property> negatively correlates with Lycosidae <Material>
+Toughness (GJ/m³) <Property> negatively correlates with Desidae <Material>
+Toughness (GJ/m³) <Property> negatively correlates with Pholcidae <Material>
+Toughness (GJ/m³) <Property> negatively correlates with Pisauridae <Material>
+Toughness (GJ/m³) <Property> negatively correlates with Hersiliidae <Material>
+Toughness (GJ/m³) <Property> negatively correlates with Dictynidae <Material>
+Toughness (GJ/m³) <Property> negatively correlates with Philodromidae <Material>
+Toughness (GJ/m³) <Property> negatively correlates with Salticidae <Material>
+Toughness (GJ/m³) <Property> negatively correlates with Agelenidae <Material>
+Supercontraction (%) <Property> positively correlates with Deinopoidae <Material>
+Supercontraction (%) <Property> positively correlates with Tetragnathidae <Material>
+Supercontraction (%) <Property> positively correlates with Araneidae <Material>
+Supercontraction (%) <Property> positively correlates with Zoropsidae <Material>
+Supercontraction (%) <Property> positively correlates with MaSp2 (group 14) <Material>
+Supercontraction (%) <Property> positively correlates with MaSp2 (group 13) <Material>
+Supercontraction (%) <Property> positively correlates with MaSp2 (group 11) <Material>
+Supercontraction (%) <Property> positively correlates with MaSp1 (group 17) <Material>
+Supercontraction (%) <Property> negatively correlates with Oxyopidae <Material>
+Supercontraction (%) <Property> negatively correlates with Theridiidae <Material>
+Supercontraction (%) <Property> negatively correlates with Salticidae <Material>
+Supercontraction (%) <Property> negatively correlates with Thomisidae <Material>
+Supercontraction (%) <Property> negatively correlates with Philodromidae <Material>
+Supercontraction (%) <Property> negatively correlates with Psechridae <Material>
+Supercontraction (%) <Property> negatively correlates with Clubionidae <Material>
+Supercontraction (%) <Property> negatively correlates with Pisauridae <Material>
+Supercontraction (%) <Property> negatively correlates with Uloboridae <Material>
+Supercontraction (%) <Property> negatively correlates with Desidae <Material>
+MaSp1: AGQG <Structure> positively correlates with Supercontraction (%) <Property>
+MaSp2: AAAAAAAA <Structure> negatively correlates with Supercontraction (%) <Property>
+MaSp1: YGQGG <Structure> positively correlates with Toughness (GJ/m³) <Property>

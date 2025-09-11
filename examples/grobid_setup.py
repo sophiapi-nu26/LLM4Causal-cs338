@@ -93,9 +93,9 @@ def extract_tables(root):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--pdf", default="D:\\llm4mat\\LLM4Causal\\tests\\data\\sciadv.abo6043.pdf", help="Path to local PDF file")
+    parser.add_argument("--pdf", default="../tests/data/sciadv.abo6043.pdf", help="Path to local PDF file")
     parser.add_argument("--grobid-url", default="http://localhost:8070", help="Base GROBID URL")
-    parser.add_argument("--outdir", default="D:\llm4mat\LLM4Causal\examples", help="Output directory")
+    parser.add_argument("--outdir", default="./temp/text", help="Output directory")
     args = parser.parse_args()
 
     # 1. Ensure grobid is available (launch docker if needed)
@@ -112,8 +112,8 @@ def main():
     root = etree.fromstring(tei_bytes)
 
     (outdir / "text.txt").write_text(extract_text(root), encoding="utf-8")
-    (outdir / "figures.json").write_text(json.dumps(extract_figures(root), indent=2, ensure_ascii=False))
-    (outdir / "tables.json").write_text(json.dumps(extract_tables(root), indent=2, ensure_ascii=False))
+    # (outdir / "figures.json").write_text(json.dumps(extract_figures(root), indent=2, ensure_ascii=False))
+    # (outdir / "tables.json").write_text(json.dumps(extract_tables(root), indent=2, ensure_ascii=False))
 
     print(f"Done. Results in {outdir}")
 

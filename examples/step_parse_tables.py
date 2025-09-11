@@ -10,7 +10,7 @@ from docling.document_converter import DocumentConverter
 _log = logging.getLogger(__name__)
 
 
-def parse4table(input_doc_path: str = None) -> None:
+def parse4table(input_doc_path: str = None, output_dir: str = "../tables_html") -> None:
     """
     Parse a document with Docling, extract tables, and export them as CSV and HTML.
 
@@ -32,7 +32,7 @@ def parse4table(input_doc_path: str = None) -> None:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
     # Define the output directory for tables
-    output_dir = Path("tables_html")
+    output_dir = Path(output_dir)
 
     # Clear old results if the directory already exists
     if output_dir.is_dir():
@@ -83,4 +83,4 @@ def parse4table(input_doc_path: str = None) -> None:
 
 if __name__ == "__main__":
     # Example usage: change this path to your input file
-    parse4table(input_doc_path="1000_silkomes.pdf")
+    parse4table(input_doc_path="../tests/data/sciadv.abo6043.pdf")
