@@ -28,7 +28,8 @@ __all__ = [
     'GeminiTableRelationExtractor',
     'SciBERTEntityRecognizer',
     'ModelConfig',
-    'ExtractionResult'
+    'ExtractionResult',
+    'LlamaRelationExtractor',
 ]
 
 # Dictionary of available models
