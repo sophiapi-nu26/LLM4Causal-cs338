@@ -25,7 +25,8 @@ __all__ = [
     'GPT5RelationExtractor',
     'SciBERTEntityRecognizer',
     'ModelConfig',
-    'ExtractionResult'
+    'ExtractionResult',
+    'LlamaRelationExtractor',
 ]
 
 # Dictionary of available models
