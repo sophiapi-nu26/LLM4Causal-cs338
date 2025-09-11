@@ -1,0 +1,784 @@
+[
+    {
+        "subject": {
+            "id": "entity_0",
+            "text": "\"spider silk\"",
+            "type": "material"
+        },
+        "object": {
+            "id": "entity_0",
+            "text": "\"spider silk\"",
+            "type": "material"
+        },
+        "relation_type": "correlates_with",
+        "polarity": 0,
+        "confidence": 0.6,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_0",
+            "text": "\"spider silk\"",
+            "type": "material"
+        },
+        "object": {
+            "id": "entity_0",
+            "text": "\"spider silk\"",
+            "type": "material"
+        },
+        "relation_type": "causes",
+        "polarity": 1,
+        "confidence": 0.8,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_2",
+            "text": "polyalanine sequences",
+            "type": "material"
+        },
+        "object": {
+            "id": "entity_17",
+            "text": "intermolecular chain packing",
+            "type": "process"
+        },
+        "relation_type": "increases",
+        "polarity": 1,
+        "confidence": 0.8,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_0",
+            "text": "\"spider silk\"",
+            "type": "material"
+        },
+        "object": {
+            "id": "entity_1",
+            "text": "amino acid motifs",
+            "type": "structure"
+        },
+        "relation_type": "correlates_with",
+        "polarity": 0,
+        "confidence": 0.6,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_0",
+            "text": "\"spider silk\"",
+            "type": "material"
+        },
+        "object": {
+            "id": "entity_3",
+            "text": "amorphous regions",
+            "type": "structure"
+        },
+        "relation_type": "correlates_with",
+        "polarity": 0,
+        "confidence": 0.7,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_4",
+            "text": "G",
+            "type": "material"
+        },
+        "object": {
+            "id": "entity_5",
+            "text": "GG",
+            "type": "material"
+        },
+        "relation_type": "correlates_with",
+        "polarity": 1,
+        "confidence": 0.95,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_4",
+            "text": "G",
+            "type": "material"
+        },
+        "object": {
+            "id": "entity_6",
+            "text": "AGQG",
+            "type": "material"
+        },
+        "relation_type": "correlates_with",
+        "polarity": 1,
+        "confidence": 0.8,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_0",
+            "text": "\"spider silk\"",
+            "type": "material"
+        },
+        "object": {
+            "id": "entity_2",
+            "text": "polyalanine sequences",
+            "type": "material"
+        },
+        "relation_type": "correlates_with",
+        "polarity": 1,
+        "confidence": 0.8,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_2",
+            "text": "polyalanine sequences",
+            "type": "material"
+        },
+        "object": {
+            "id": "entity_0",
+            "text": "\"spider silk\"",
+            "type": "material"
+        },
+        "relation_type": "causes",
+        "polarity": 1,
+        "confidence": 0.8,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_2",
+            "text": "polyalanine sequences",
+            "type": "material"
+        },
+        "object": {
+            "id": "entity_0",
+            "text": "\"spider silk\"",
+            "type": "material"
+        },
+        "relation_type": "correlates_with",
+        "polarity": 0,
+        "confidence": 0.8,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_0",
+            "text": "\"spider silk\"",
+            "type": "material"
+        },
+        "object": {
+            "id": "entity_4",
+            "text": "G",
+            "type": "material"
+        },
+        "relation_type": "correlates_with",
+        "polarity": 0,
+        "confidence": 0.8,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_2",
+            "text": "polyalanine sequences",
+            "type": "material"
+        },
+        "object": {
+            "id": "entity_1",
+            "text": "amino acid motifs",
+            "type": "structure"
+        },
+        "relation_type": "correlates_with",
+        "polarity": 1,
+        "confidence": 0.7,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_2",
+            "text": "polyalanine sequences",
+            "type": "material"
+        },
+        "object": {
+            "id": "entity_4",
+            "text": "G",
+            "type": "material"
+        },
+        "relation_type": "causes",
+        "polarity": 1,
+        "confidence": 0.9,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_3",
+            "text": "amorphous regions",
+            "type": "structure"
+        },
+        "object": {
+            "id": "entity_10",
+            "text": "sample-to-detector distance of 179.6 mm",
+            "type": "property"
+        },
+        "relation_type": "correlates_with",
+        "polarity": 0,
+        "confidence": 0.7,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_14",
+            "text": "GYGQGG motif",
+            "type": "material"
+        },
+        "object": {
+            "id": "entity_2",
+            "text": "polyalanine sequences",
+            "type": "material"
+        },
+        "relation_type": "causes",
+        "polarity": 1,
+        "confidence": 0.9,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_14",
+            "text": "GYGQGG motif",
+            "type": "material"
+        },
+        "object": {
+            "id": "entity_13",
+            "text": "Ser",
+            "type": "material"
+        },
+        "relation_type": "causes",
+        "polarity": 1,
+        "confidence": 0.8,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_2",
+            "text": "polyalanine sequences",
+            "type": "material"
+        },
+        "object": {
+            "id": "entity_5",
+            "text": "GG",
+            "type": "material"
+        },
+        "relation_type": "correlates_with",
+        "polarity": 0,
+        "confidence": 0.8,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_2",
+            "text": "polyalanine sequences",
+            "type": "material"
+        },
+        "object": {
+            "id": "entity_4",
+            "text": "G",
+            "type": "material"
+        },
+        "relation_type": "correlates_with",
+        "polarity": 0,
+        "confidence": 0.8,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_5",
+            "text": "GG",
+            "type": "material"
+        },
+        "object": {
+            "id": "entity_18",
+            "text": "spider dragline",
+            "type": "material"
+        },
+        "relation_type": "causes",
+        "polarity": 1,
+        "confidence": 0.8,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_15",
+            "text": "\"elasticity\"",
+            "type": "property"
+        },
+        "object": {
+            "id": "entity_17",
+            "text": "intermolecular chain packing",
+            "type": "process"
+        },
+        "relation_type": "correlates_with",
+        "polarity": 1,
+        "confidence": 0.7,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_1",
+            "text": "amino acid motifs",
+            "type": "structure"
+        },
+        "object": {
+            "id": "entity_2",
+            "text": "polyalanine sequences",
+            "type": "material"
+        },
+        "relation_type": "correlates_with",
+        "polarity": 0,
+        "confidence": 0.8,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_2",
+            "text": "polyalanine sequences",
+            "type": "material"
+        },
+        "object": {
+            "id": "entity_3",
+            "text": "amorphous regions",
+            "type": "structure"
+        },
+        "relation_type": "correlates_with",
+        "polarity": 0,
+        "confidence": 0.8,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_11",
+            "text": "\"draglines\"",
+            "type": "material"
+        },
+        "object": {
+            "id": "entity_23",
+            "text": "\"supercontraction\"",
+            "type": "property"
+        },
+        "relation_type": "correlates_with",
+        "polarity": -1,
+        "confidence": 0.9,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_2",
+            "text": "polyalanine sequences",
+            "type": "material"
+        },
+        "object": {
+            "id": "entity_23",
+            "text": "\"supercontraction\"",
+            "type": "property"
+        },
+        "relation_type": "correlates_with",
+        "polarity": -1,
+        "confidence": 0.8,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_11",
+            "text": "\"draglines\"",
+            "type": "material"
+        },
+        "object": {
+            "id": "entity_7",
+            "text": "\"strain at break\"",
+            "type": "property"
+        },
+        "relation_type": "correlates_with",
+        "polarity": 1,
+        "confidence": 0.8,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_6",
+            "text": "AGQG",
+            "type": "material"
+        },
+        "object": {
+            "id": "entity_7",
+            "text": "\"strain at break\"",
+            "type": "property"
+        },
+        "relation_type": "correlates_with",
+        "polarity": 1,
+        "confidence": 0.9,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_12",
+            "text": "Ala",
+            "type": "material"
+        },
+        "object": {
+            "id": "entity_6",
+            "text": "AGQG",
+            "type": "material"
+        },
+        "relation_type": "correlates_with",
+        "polarity": -1,
+        "confidence": 0.9,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_12",
+            "text": "Ala",
+            "type": "material"
+        },
+        "object": {
+            "id": "entity_10",
+            "text": "sample-to-detector distance of 179.6 mm",
+            "type": "property"
+        },
+        "relation_type": "correlates_with",
+        "polarity": -1,
+        "confidence": 0.8,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_13",
+            "text": "Ser",
+            "type": "material"
+        },
+        "object": {
+            "id": "entity_10",
+            "text": "sample-to-detector distance of 179.6 mm",
+            "type": "property"
+        },
+        "relation_type": "correlates_with",
+        "polarity": 1,
+        "confidence": 0.8,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_14",
+            "text": "GYGQGG motif",
+            "type": "material"
+        },
+        "object": {
+            "id": "entity_10",
+            "text": "sample-to-detector distance of 179.6 mm",
+            "type": "property"
+        },
+        "relation_type": "correlates_with",
+        "polarity": 1,
+        "confidence": 0.9,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_16",
+            "text": "Tyr residues",
+            "type": "material"
+        },
+        "object": {
+            "id": "entity_19",
+            "text": "inter-molecular interactions",
+            "type": "process"
+        },
+        "relation_type": "causes",
+        "polarity": 1,
+        "confidence": 0.8,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_11",
+            "text": "\"draglines\"",
+            "type": "material"
+        },
+        "object": {
+            "id": "entity_6",
+            "text": "AGQG",
+            "type": "material"
+        },
+        "relation_type": "correlates_with",
+        "polarity": 1,
+        "confidence": 0.9,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_2",
+            "text": "polyalanine sequences",
+            "type": "material"
+        },
+        "object": {
+            "id": "entity_27",
+            "text": "\"mechanical, physical, structural, thermal, and water-based properties\"",
+            "type": "property"
+        },
+        "relation_type": "increases",
+        "polarity": 1,
+        "confidence": 0.8,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_17",
+            "text": "intermolecular chain packing",
+            "type": "process"
+        },
+        "object": {
+            "id": "entity_14",
+            "text": "GYGQGG motif",
+            "type": "material"
+        },
+        "relation_type": "correlates_with",
+        "polarity": 1,
+        "confidence": 0.85,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_4",
+            "text": "G",
+            "type": "material"
+        },
+        "object": {
+            "id": "entity_8",
+            "text": "MaSp1/2 amorphous regions",
+            "type": "structure"
+        },
+        "relation_type": "correlates_with",
+        "polarity": 1,
+        "confidence": 0.75,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_17",
+            "text": "intermolecular chain packing",
+            "type": "process"
+        },
+        "object": {
+            "id": "entity_8",
+            "text": "MaSp1/2 amorphous regions",
+            "type": "structure"
+        },
+        "relation_type": "correlates_with",
+        "polarity": 1,
+        "confidence": 0.8,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_24",
+            "text": "polyalanine region",
+            "type": "material"
+        },
+        "object": {
+            "id": "entity_16",
+            "text": "Tyr residues",
+            "type": "material"
+        },
+        "relation_type": "correlates_with",
+        "polarity": 1,
+        "confidence": 0.8,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_24",
+            "text": "polyalanine region",
+            "type": "material"
+        },
+        "object": {
+            "id": "entity_23",
+            "text": "\"supercontraction\"",
+            "type": "property"
+        },
+        "relation_type": "correlates_with",
+        "polarity": 0,
+        "confidence": 0.7,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_10",
+            "text": "sample-to-detector distance of 179.6 mm",
+            "type": "property"
+        },
+        "object": {
+            "id": "entity_4",
+            "text": "G",
+            "type": "material"
+        },
+        "relation_type": "correlates_with",
+        "polarity": 1,
+        "confidence": 0.7,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_5",
+            "text": "GG",
+            "type": "material"
+        },
+        "object": {
+            "id": "entity_10",
+            "text": "sample-to-detector distance of 179.6 mm",
+            "type": "property"
+        },
+        "relation_type": "correlates_with",
+        "polarity": 1,
+        "confidence": 0.9,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_5",
+            "text": "GG",
+            "type": "material"
+        },
+        "object": {
+            "id": "entity_9",
+            "text": "Pro",
+            "type": "material"
+        },
+        "relation_type": "increases",
+        "polarity": 1,
+        "confidence": 0.9,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_6",
+            "text": "AGQG",
+            "type": "material"
+        },
+        "object": {
+            "id": "entity_9",
+            "text": "Pro",
+            "type": "material"
+        },
+        "relation_type": "increases",
+        "polarity": 1,
+        "confidence": 0.9,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_7",
+            "text": "\"strain at break\"",
+            "type": "property"
+        },
+        "object": {
+            "id": "entity_6",
+            "text": "AGQG",
+            "type": "material"
+        },
+        "relation_type": "increases",
+        "polarity": 1,
+        "confidence": 0.9,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_7",
+            "text": "\"strain at break\"",
+            "type": "property"
+        },
+        "object": {
+            "id": "entity_9",
+            "text": "Pro",
+            "type": "material"
+        },
+        "relation_type": "increases",
+        "polarity": 1,
+        "confidence": 0.9,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_1",
+            "text": "amino acid motifs",
+            "type": "structure"
+        },
+        "object": {
+            "id": "entity_10",
+            "text": "sample-to-detector distance of 179.6 mm",
+            "type": "property"
+        },
+        "relation_type": "increases",
+        "polarity": 1,
+        "confidence": 0.8,
+        "evidence": "[ ]",
+        "metadata": {}
+    },
+    {
+        "subject": {
+            "id": "entity_3",
+            "text": "amorphous regions",
+            "type": "structure"
+        },
+        "object": {
+            "id": "entity_10",
+            "text": "sample-to-detector distance of 179.6 mm",
+            "type": "property"
+        },
+        "relation_type": "increases",
+        "polarity": 1,
+        "confidence": 0.8,
+        "evidence": "[ ]",
+        "metadata": {}
+    }
+]

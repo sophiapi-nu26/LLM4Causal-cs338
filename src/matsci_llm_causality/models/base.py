@@ -47,8 +47,8 @@ def create_model(model_type: str, config: Optional[ModelConfig] = None) -> BaseL
     
     if config is None:
         config = ModelConfig(
-            model_type=model_type,
-            temperature=0.7,
+            model_type = model_type,
+            temperature=1.0,
             max_length=512,
             device="cuda" if torch.cuda.is_available() else "cpu"
         )

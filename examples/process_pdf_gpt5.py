@@ -21,11 +21,11 @@ from matsci_llm_causality.models import create_model
 def main():
     # Initialize components
     pdf_processor = PDFProcessor()
-    entity_recognizer = create_model("scibert")
-    relation_extractor = create_model("gpt5-nano")
+    entity_recognizer = create_model("gpt-5-entity")
+    relation_extractor = create_model("gpt-5-relation")
 
     # Path to your PDF
-    pdf_path = Path("/Users/gouravkumbhojkar/Library/CloudStorage/OneDrive-NorthwesternUniversity/Documents/NU/Projects/llm4mat/fresh_gpt_written/matsci_llm_causality/tests/data/sciadv.abo6043.pdf")  # Replace with your PDF path
+    pdf_path = Path("D:/Research/LLM4Causal/tests/data/sciadv.abo6043.pdf")  # Replace with your PDF path
     
     # 1. Extract text from PDF
     print("Extracting text from PDF...")
@@ -41,16 +41,15 @@ def main():
     
     # 3. Extract relationships using FLAN-T5
     print("\nExtracting relationships...")
-    result = relation_extractor.extract_relations(text)
+    relationships = relation_extractor.extract_relations(text, entities)
     
     # 4. Print results
     print("\nExtracted relationships:")
-    if result.relationships:
-        for rel in result.relationships:
+    if relationships:
+        for rel in relationships:
             print(f"- {rel}")
     else:
-        print("Raw FLAN-T5 response:")
-        print(result.metadata["raw_response"])
+        print("No Relationships")
 
 if __name__ == "__main__":
     main()

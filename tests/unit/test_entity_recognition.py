@@ -5,8 +5,9 @@ Tests for entity recognition using SciBERT.
 import pytest
 from pathlib import Path
 import torch
-from matsci_llm_causality.models.scibert import SciBERTEntityRecognizer
-from matsci_llm_causality.schema import EntityType
+from src.matsci_llm_causality.models.scibert import SciBERTEntityRecognizer
+from src.matsci_llm_causality.models.llm.gpt import GPT5EntityRecognizer
+from src.matsci_llm_causality.schema import EntityType
 
 # Test samples with known entities
 TEST_SAMPLES = [
@@ -30,7 +31,7 @@ TEST_SAMPLES = [
 @pytest.fixture
 def entity_recognizer():
     """Fixture for SciBERT entity recognizer."""
-    return SciBERTEntityRecognizer()
+    return GPT5EntityRecognizer()
 
 def test_entity_recognition_basic(entity_recognizer):
     """Test basic entity recognition capabilities."""
