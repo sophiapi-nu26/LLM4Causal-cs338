@@ -1,0 +1,9 @@
+Examine this scientific figure and provide two outputs:
+Caption – Write a clear, concise caption describing the variables and their relationships. Save this caption as plain text in a separate .txt file.
+Relationships – Identify all causal or correlative relationships between the variables shown, using only the following relationship types: increases, decreases, positively correlates with, negatively correlates with, and causes.
+Output these relationships in CSV format with three columns:
+Variable_A
+Variable_B
+Relationship_Type
+Each row should represent one relationship in the form: [Variable A], [Variable B], [relationship type].
+Focus on material science contexts (e.g., processing, structure, property, or performance variables). Ensure that relationships are strictly grounded in the visual evidence of the figure, avoiding speculation beyond what is shown.
