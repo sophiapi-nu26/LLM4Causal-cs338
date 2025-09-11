@@ -1,0 +1,3254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">000 spider silkomes: Linking sequences to silk physical properties</title>
+				<funder>
+					<orgName type="full">Yamagata Prefectural Government and Tsuruoka City, Japan</orgName>
+				</funder>
+				<funder>
+					<orgName type="full">MICET (especially, T. Vololontiana)</orgName>
+				</funder>
+				<funder>
+					<orgName type="full">ImPACT Program of Council for Science, Technology and Innovation (Cabinet Office, Government of Japan</orgName>
+				</funder>
+				<funder ref="#_Q2ryvDJ">
+					<orgName type="full">JST ERATO</orgName>
+				</funder>
+				<funder ref="#_RgXNqKv">
+					<orgName type="full">Ministry of Environment and Sustainable Development (Ministère de l&apos;Environnement de l&apos;Ecologie et des Forêts</orgName>
+				</funder>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability  status="unknown">
+					<licence/>
+				</availability>
+				<date type="published" when="2025-09-05">September 05, 2025</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Kazuharu</forename><surname>Arakawa</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Institute for Advanced Biosciences</orgName>
+								<orgName type="institution">Keio University</orgName>
+								<address>
+									<postCode>997-0017</postCode>
+									<settlement>Tsuruoka</settlement>
+									<region>Yamagata</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="department">Faculty of Environment and Information Studies</orgName>
+								<orgName type="institution">Keio University</orgName>
+								<address>
+									<postCode>252-8520</postCode>
+									<settlement>Fujisawa</settlement>
+									<region>Kanagawa</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff2">
+								<orgName type="department">Graduate School of Media and Governance</orgName>
+								<orgName type="institution">Keio University</orgName>
+								<address>
+									<postCode>252-8520</postCode>
+									<settlement>Fujisawa</settlement>
+									<region>Kanagawa</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff3">
+								<orgName type="laboratory">Exploratory Research Center on Life and Living Systems (ExCELLS)</orgName>
+								<orgName type="institution">National Institutes of Natural Sciences</orgName>
+								<address>
+									<postCode>444-8787</postCode>
+									<settlement>Okazaki</settlement>
+									<region>Aichi</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Nobuaki</forename><surname>Kono</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Institute for Advanced Biosciences</orgName>
+								<orgName type="institution">Keio University</orgName>
+								<address>
+									<postCode>997-0017</postCode>
+									<settlement>Tsuruoka</settlement>
+									<region>Yamagata</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff2">
+								<orgName type="department">Graduate School of Media and Governance</orgName>
+								<orgName type="institution">Keio University</orgName>
+								<address>
+									<postCode>252-8520</postCode>
+									<settlement>Fujisawa</settlement>
+									<region>Kanagawa</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Ali</forename><forename type="middle">D</forename><surname>Malay</surname></persName>
+							<affiliation key="aff4">
+								<orgName type="department">RIKEN Center for Sustainable Resource Science</orgName>
+								<orgName type="laboratory">Biomacromolecules Research Team</orgName>
+								<address>
+									<postCode>351-0198</postCode>
+									<settlement>Wako</settlement>
+									<region>Saitama</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Ayaka</forename><surname>Tateishi</surname></persName>
+							<affiliation key="aff4">
+								<orgName type="department">RIKEN Center for Sustainable Resource Science</orgName>
+								<orgName type="laboratory">Biomacromolecules Research Team</orgName>
+								<address>
+									<postCode>351-0198</postCode>
+									<settlement>Wako</settlement>
+									<region>Saitama</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff5">
+								<orgName type="department">Department of Material Chemistry</orgName>
+								<orgName type="institution">Kyoto University</orgName>
+								<address>
+									<postCode>615-8510</postCode>
+									<settlement>Nishikyo</settlement>
+									<region>Kyoto</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Nao</forename><surname>Ifuku</surname></persName>
+							<affiliation key="aff4">
+								<orgName type="department">RIKEN Center for Sustainable Resource Science</orgName>
+								<orgName type="laboratory">Biomacromolecules Research Team</orgName>
+								<address>
+									<postCode>351-0198</postCode>
+									<settlement>Wako</settlement>
+									<region>Saitama</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Hiroyasu</forename><surname>Masunaga</surname></persName>
+							<affiliation key="aff6">
+								<orgName type="institution">Japan Synchrotron Radiation Research Institute</orgName>
+								<address>
+									<addrLine>Sayo-gun</addrLine>
+									<postCode>679-5198</postCode>
+									<settlement>Hyogo</settlement>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Ryota</forename><surname>Sato</surname></persName>
+							<affiliation key="aff4">
+								<orgName type="department">RIKEN Center for Sustainable Resource Science</orgName>
+								<orgName type="laboratory">Biomacromolecules Research Team</orgName>
+								<address>
+									<postCode>351-0198</postCode>
+									<settlement>Wako</settlement>
+									<region>Saitama</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff7">
+								<orgName type="institution">Spiber Inc</orgName>
+								<address>
+									<postCode>997-0052</postCode>
+									<settlement>Tsuruoka</settlement>
+									<region>Yamagata</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Kousuke</forename><surname>Tsuchiya</surname></persName>
+							<affiliation key="aff4">
+								<orgName type="department">RIKEN Center for Sustainable Resource Science</orgName>
+								<orgName type="laboratory">Biomacromolecules Research Team</orgName>
+								<address>
+									<postCode>351-0198</postCode>
+									<settlement>Wako</settlement>
+									<region>Saitama</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff5">
+								<orgName type="department">Department of Material Chemistry</orgName>
+								<orgName type="institution">Kyoto University</orgName>
+								<address>
+									<postCode>615-8510</postCode>
+									<settlement>Nishikyo</settlement>
+									<region>Kyoto</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Rintaro</forename><surname>Ohtoshi</surname></persName>
+							<affiliation key="aff4">
+								<orgName type="department">RIKEN Center for Sustainable Resource Science</orgName>
+								<orgName type="laboratory">Biomacromolecules Research Team</orgName>
+								<address>
+									<postCode>351-0198</postCode>
+									<settlement>Wako</settlement>
+									<region>Saitama</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff7">
+								<orgName type="institution">Spiber Inc</orgName>
+								<address>
+									<postCode>997-0052</postCode>
+									<settlement>Tsuruoka</settlement>
+									<region>Yamagata</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Daniel</forename><surname>Pedrazzoli</surname></persName>
+							<affiliation key="aff7">
+								<orgName type="institution">Spiber Inc</orgName>
+								<address>
+									<postCode>997-0052</postCode>
+									<settlement>Tsuruoka</settlement>
+									<region>Yamagata</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Asaka</forename><surname>Shinohara</surname></persName>
+							<affiliation key="aff7">
+								<orgName type="institution">Spiber Inc</orgName>
+								<address>
+									<postCode>997-0052</postCode>
+									<settlement>Tsuruoka</settlement>
+									<region>Yamagata</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Yusuke</forename><surname>Ito</surname></persName>
+							<affiliation key="aff7">
+								<orgName type="institution">Spiber Inc</orgName>
+								<address>
+									<postCode>997-0052</postCode>
+									<settlement>Tsuruoka</settlement>
+									<region>Yamagata</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Hiroyuki</forename><surname>Nakamura</surname></persName>
+							<affiliation key="aff4">
+								<orgName type="department">RIKEN Center for Sustainable Resource Science</orgName>
+								<orgName type="laboratory">Biomacromolecules Research Team</orgName>
+								<address>
+									<postCode>351-0198</postCode>
+									<settlement>Wako</settlement>
+									<region>Saitama</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff7">
+								<orgName type="institution">Spiber Inc</orgName>
+								<address>
+									<postCode>997-0052</postCode>
+									<settlement>Tsuruoka</settlement>
+									<region>Yamagata</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Akio</forename><surname>Tanikawa</surname></persName>
+							<affiliation key="aff8">
+								<orgName type="department">Graduate School of Agricultural and Life Sciences</orgName>
+								<orgName type="institution">University of Tokyo</orgName>
+								<address>
+									<postCode>113-8657</postCode>
+									<settlement>Yayoi Bunkyo</settlement>
+									<region>Tokyo</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Yuya</forename><surname>Suzuki</surname></persName>
+							<affiliation key="aff9">
+								<orgName type="department">Graduate School of Life and Environmental Sciences</orgName>
+								<orgName type="institution">University of Tsukuba</orgName>
+								<address>
+									<postCode>305-8572</postCode>
+									<settlement>Tsukuba</settlement>
+									<region>Tennodai Ibaraki</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff10">
+								<orgName type="department">The United Graduate School of Agricultural Sciences</orgName>
+								<orgName type="institution">Kagoshima University</orgName>
+								<address>
+									<postCode>890-0065</postCode>
+									<settlement>Korimoto</settlement>
+									<region>Kagoshima</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Takeaki</forename><surname>Ichikawa</surname></persName>
+							<affiliation key="aff11">
+								<orgName type="institution">Kokugakuin Kugayama High School</orgName>
+								<address>
+									<postCode>168-0082</postCode>
+									<settlement>Suginami</settlement>
+									<region>Tokyo</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Shohei</forename><surname>Fujita</surname></persName>
+							<affiliation key="aff12">
+								<orgName type="department">Graduate School of Agriculture</orgName>
+								<orgName type="institution">Saga University</orgName>
+								<address>
+									<postCode>840-8502</postCode>
+									<settlement>Saga</settlement>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Masayuki</forename><surname>Fujiwara</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Institute for Advanced Biosciences</orgName>
+								<orgName type="institution">Keio University</orgName>
+								<address>
+									<postCode>997-0017</postCode>
+									<settlement>Tsuruoka</settlement>
+									<region>Yamagata</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Masaru</forename><surname>Tomita</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Institute for Advanced Biosciences</orgName>
+								<orgName type="institution">Keio University</orgName>
+								<address>
+									<postCode>997-0017</postCode>
+									<settlement>Tsuruoka</settlement>
+									<region>Yamagata</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="department">Faculty of Environment and Information Studies</orgName>
+								<orgName type="institution">Keio University</orgName>
+								<address>
+									<postCode>252-8520</postCode>
+									<settlement>Fujisawa</settlement>
+									<region>Kanagawa</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff2">
+								<orgName type="department">Graduate School of Media and Governance</orgName>
+								<orgName type="institution">Keio University</orgName>
+								<address>
+									<postCode>252-8520</postCode>
+									<settlement>Fujisawa</settlement>
+									<region>Kanagawa</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Sean</forename><forename type="middle">J</forename><surname>Blamires</surname></persName>
+							<affiliation key="aff13">
+								<orgName type="department">Evolution and Ecology Research Centre</orgName>
+								<orgName type="institution">University of New South Wales</orgName>
+								<address>
+									<postCode>2052</postCode>
+									<settlement>Sydney</settlement>
+									<region>NSW</region>
+									<country key="AU">Australia</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Jo-Ann</forename><surname>Chuah</surname></persName>
+							<affiliation key="aff4">
+								<orgName type="department">RIKEN Center for Sustainable Resource Science</orgName>
+								<orgName type="laboratory">Biomacromolecules Research Team</orgName>
+								<address>
+									<postCode>351-0198</postCode>
+									<settlement>Wako</settlement>
+									<region>Saitama</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Hamish</forename><surname>Craig</surname></persName>
+							<affiliation key="aff4">
+								<orgName type="department">RIKEN Center for Sustainable Resource Science</orgName>
+								<orgName type="laboratory">Biomacromolecules Research Team</orgName>
+								<address>
+									<postCode>351-0198</postCode>
+									<settlement>Wako</settlement>
+									<region>Saitama</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff13">
+								<orgName type="department">Evolution and Ecology Research Centre</orgName>
+								<orgName type="institution">University of New South Wales</orgName>
+								<address>
+									<postCode>2052</postCode>
+									<settlement>Sydney</settlement>
+									<region>NSW</region>
+									<country key="AU">Australia</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Choon</forename><forename type="middle">P</forename><surname>Foong</surname></persName>
+							<affiliation key="aff4">
+								<orgName type="department">RIKEN Center for Sustainable Resource Science</orgName>
+								<orgName type="laboratory">Biomacromolecules Research Team</orgName>
+								<address>
+									<postCode>351-0198</postCode>
+									<settlement>Wako</settlement>
+									<region>Saitama</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff5">
+								<orgName type="department">Department of Material Chemistry</orgName>
+								<orgName type="institution">Kyoto University</orgName>
+								<address>
+									<postCode>615-8510</postCode>
+									<settlement>Nishikyo</settlement>
+									<region>Kyoto</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Gabriele</forename><surname>Greco</surname></persName>
+							<affiliation key="aff14">
+								<orgName type="department" key="dep1">Department of Civil</orgName>
+								<orgName type="department" key="dep2">Environmental and Mechanical Engineering</orgName>
+								<orgName type="institution">University of Trento</orgName>
+								<address>
+									<addrLine>Via Mesiano 77</addrLine>
+									<postCode>I-38123</postCode>
+									<settlement>Trento</settlement>
+									<country key="IT">Italy</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Juan</forename><surname>Guan</surname></persName>
+							<affiliation key="aff15">
+								<orgName type="department" key="dep1">Beijing Advanced Innovation Center for Biomedical Engineering</orgName>
+								<orgName type="department" key="dep2">School of Materials Science and Engineering</orgName>
+								<orgName type="institution">Beihang University</orgName>
+								<address>
+									<postCode>100191</postCode>
+									<settlement>Beijing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Chris</forename><surname>Holland</surname></persName>
+							<affiliation key="aff16">
+								<orgName type="department">Department of Materials Science and Engineering</orgName>
+								<orgName type="laboratory">Natural Materials Group</orgName>
+								<orgName type="institution">The University of Sheffield</orgName>
+								<address>
+									<addrLine>Mappin Street</addrLine>
+									<postCode>S1 3JD</postCode>
+									<settlement>Sheffield</settlement>
+									<country key="GB">UK</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">David</forename><forename type="middle">L</forename><surname>Kaplan</surname></persName>
+							<affiliation key="aff17">
+								<orgName type="department">Department of Biomedical Engineering</orgName>
+								<orgName type="institution">Tufts University</orgName>
+								<address>
+									<postCode>02155</postCode>
+									<settlement>Medford</settlement>
+									<region>MA</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Kumar</forename><surname>Sudesh</surname></persName>
+							<affiliation key="aff18">
+								<orgName type="department">School of Biological Sciences</orgName>
+								<orgName type="institution">Universiti Sains Malaysia</orgName>
+								<address>
+									<postCode>11800</postCode>
+									<settlement>Penang</settlement>
+									<country key="MY">Malaysia</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Biman</forename><forename type="middle">B</forename><surname>Mandal</surname></persName>
+							<affiliation key="aff19">
+								<orgName type="department">Department of Biosciences and Bioengineering</orgName>
+								<orgName type="institution">Indian Institute of Technology Guwahati (IITG)</orgName>
+								<address>
+									<postCode>781 039</postCode>
+									<settlement>Guwahati Assam</settlement>
+									<country key="IN">India</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff20">
+								<orgName type="department">Center for Nanotechnology</orgName>
+								<orgName type="institution">IITG</orgName>
+								<address>
+									<postCode>781 039</postCode>
+									<settlement>Assam</settlement>
+									<region>Guwahati</region>
+									<country key="IN">India</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff21">
+								<orgName type="department">School of Health Sciences and Technology</orgName>
+								<orgName type="institution">IITG</orgName>
+								<address>
+									<postCode>781 039</postCode>
+									<settlement>Assam</settlement>
+									<region>Guwahati</region>
+									<country key="IN">India</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Y</forename><surname>Norma-Rashid</surname></persName>
+							<affiliation key="aff22">
+								<orgName type="department" key="dep1">Institute of Biological Sciences</orgName>
+								<orgName type="department" key="dep2">Faculty of Science</orgName>
+								<orgName type="institution">University of Malaya</orgName>
+								<address>
+									<postCode>50603</postCode>
+									<settlement>Kuala Lumpur</settlement>
+									<country key="MY">Malaysia</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Nur</forename><forename type="middle">A</forename><surname>Oktaviani</surname></persName>
+							<affiliation key="aff4">
+								<orgName type="department">RIKEN Center for Sustainable Resource Science</orgName>
+								<orgName type="laboratory">Biomacromolecules Research Team</orgName>
+								<address>
+									<postCode>351-0198</postCode>
+									<settlement>Wako</settlement>
+									<region>Saitama</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Rucsanda</forename><forename type="middle">C</forename><surname>Preda</surname></persName>
+							<affiliation key="aff17">
+								<orgName type="department">Department of Biomedical Engineering</orgName>
+								<orgName type="institution">Tufts University</orgName>
+								<address>
+									<postCode>02155</postCode>
+									<settlement>Medford</settlement>
+									<region>MA</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Nicola</forename><forename type="middle">M</forename><surname>Pugno</surname></persName>
+							<affiliation key="aff14">
+								<orgName type="department" key="dep1">Department of Civil</orgName>
+								<orgName type="department" key="dep2">Environmental and Mechanical Engineering</orgName>
+								<orgName type="institution">University of Trento</orgName>
+								<address>
+									<addrLine>Via Mesiano 77</addrLine>
+									<postCode>I-38123</postCode>
+									<settlement>Trento</settlement>
+									<country key="IT">Italy</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff23">
+								<orgName type="department">School of Engineering and Materials Science</orgName>
+								<orgName type="institution">Queen Mary University of London</orgName>
+								<address>
+									<addrLine>Mile End Road</addrLine>
+									<postCode>E1 4NS</postCode>
+									<settlement>London</settlement>
+									<country key="GB">UK</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Rangam</forename><surname>Rajkhowa</surname></persName>
+							<affiliation key="aff24">
+								<orgName type="institution" key="instit1">Institute for Frontier Materials</orgName>
+								<orgName type="institution" key="instit2">Deakin University</orgName>
+								<address>
+									<addrLine>Waurn Ponds</addrLine>
+									<postCode>3216</postCode>
+									<region>VIC</region>
+									<country key="AU">Australia</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Xiaoqin</forename><surname>Wang</surname></persName>
+							<affiliation key="aff25">
+								<orgName type="department">College of Textile and Clothing Engineering</orgName>
+								<orgName type="institution">Soochow University</orgName>
+								<address>
+									<postCode>215123</postCode>
+									<settlement>Suzhou</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Kenjiro</forename><surname>Yazawa</surname></persName>
+							<affiliation key="aff4">
+								<orgName type="department">RIKEN Center for Sustainable Resource Science</orgName>
+								<orgName type="laboratory">Biomacromolecules Research Team</orgName>
+								<address>
+									<postCode>351-0198</postCode>
+									<settlement>Wako</settlement>
+									<region>Saitama</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Zhaozhu</forename><surname>Zheng</surname></persName>
+							<affiliation key="aff25">
+								<orgName type="department">College of Textile and Clothing Engineering</orgName>
+								<orgName type="institution">Soochow University</orgName>
+								<address>
+									<postCode>215123</postCode>
+									<settlement>Suzhou</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author role="corresp">
+							<persName><forename type="first">Keiji</forename><surname>Numata</surname></persName>
+							<email>numata.keiji.3n@kyoto-u.ac.jp</email>
+							<affiliation key="aff4">
+								<orgName type="department">RIKEN Center for Sustainable Resource Science</orgName>
+								<orgName type="laboratory">Biomacromolecules Research Team</orgName>
+								<address>
+									<postCode>351-0198</postCode>
+									<settlement>Wako</settlement>
+									<region>Saitama</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff5">
+								<orgName type="department">Department of Material Chemistry</orgName>
+								<orgName type="institution">Kyoto University</orgName>
+								<address>
+									<postCode>615-8510</postCode>
+									<settlement>Nishikyo</settlement>
+									<region>Kyoto</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff26">
+								<orgName type="department">Mark Wainwright Analytical Centre</orgName>
+								<orgName type="institution" key="instit1">NMR Facility</orgName>
+								<orgName type="institution" key="instit2">University of New South Wales</orgName>
+								<address>
+									<postCode>2052</postCode>
+									<settlement>Sydney</settlement>
+									<region>NSW</region>
+									<country key="AU">Australia</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff27">
+								<orgName type="institution">Northwestern University</orgName>
+							</affiliation>
+						</author>
+						<title level="a" type="main">000 spider silkomes: Linking sequences to silk physical properties</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2025-09-05">September 05, 2025</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">05A7A7D4AD89426326E712B4619D1B0B</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.8.2" ident="GROBID" when="2025-09-08T22:44+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<label type="revision">a91ee48</label>
+					<label type="parameters">startPage=-1, endPage=-1, consolidateCitations=1, consolidateHeader=0, consolidateFunders=0, includeRawAffiliations=false, includeRawCitations=false, includeRawCopyrights=false, generateTeiIds=false, generateTeiCoordinates=[biblStruct,ref,figure,figDesc,table], sentenceSegmentation=false, flavor=null</label>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Spider silks are among the toughest known materials and thus provide models for renewable, biodegradable, and sustainable biopolymers. However, the entirety of their diversity still remains elusive, and silks that exceed the performance limits of industrial fibers are constantly being found. We obtained transcriptome assemblies from 1098 species of spiders to comprehensively catalog silk gene sequences and measured the mechanical, thermal, structural, and hydration properties of the dragline silks of 446 species. The combination of these silk protein genotype-phenotype data revealed essential contributions of multicomponent structures with major ampullate spidroin 1 to 3 paralogs in high-performance dragline silks and numerous amino acid motifs contributing to each of the measured properties. We hope that our global sampling, comprehensive testing, integrated analysis, and open data will provide a solid starting point for future biomaterial designs.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<facsimile>
+		<surface n="1" ulx="0.0" uly="0.0" lrx="594.0" lry="756.0"/>
+		<surface n="2" ulx="0.0" uly="0.0" lrx="594.0" lry="756.0"/>
+		<surface n="3" ulx="0.0" uly="0.0" lrx="594.0" lry="756.0"/>
+		<surface n="4" ulx="0.0" uly="0.0" lrx="594.0" lry="756.0"/>
+		<surface n="5" ulx="0.0" uly="0.0" lrx="594.0" lry="756.0"/>
+		<surface n="6" ulx="0.0" uly="0.0" lrx="594.0" lry="756.0"/>
+		<surface n="7" ulx="0.0" uly="0.0" lrx="594.0" lry="756.0"/>
+		<surface n="8" ulx="0.0" uly="0.0" lrx="594.0" lry="756.0"/>
+		<surface n="9" ulx="0.0" uly="0.0" lrx="594.0" lry="756.0"/>
+		<surface n="10" ulx="0.0" uly="0.0" lrx="594.0" lry="756.0"/>
+		<surface n="11" ulx="0.0" uly="0.0" lrx="594.0" lry="756.0"/>
+		<surface n="12" ulx="0.0" uly="0.0" lrx="594.0" lry="756.0"/>
+		<surface n="13" ulx="0.0" uly="0.0" lrx="594.0" lry="756.0"/>
+	</facsimile>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>INTRODUCTION</head><p>Modern genomics combined with advanced bioinformatics methodologies allow us to understand much more about complex living systems than was ever previously possible. In the realm of human biology, for instance, recent developments have given us the ability to pinpoint the genes influencing diseases such as cancers. One area where these novel technologies can be anticipated to exert a huge impact but have thus far remained underused is the study of structural biomaterials. Spider silk is a prime example of an extended phenotype, whose extraordinary mechanical properties are governed by the underlying composition and structure of protein building blocks called spidroins.</p><p>All spiders use silk for various critical purposes, including foraging, locomotion, nesting, mating, egg protection, and communication <ref type="bibr" target="#b0">(1)</ref>. Different types of threads are used for diverse purposes, each produced in specific glands in the abdomen <ref type="bibr" target="#b1">(2)</ref>. For example, orb-weaving spiders use up to seven different types of silks, named after the gland that produces these threads. Major ampullate silk is the toughest silk used as draglines and as frames of orb webs, minor ampullate silk is used as scaffold during orb web weaving, piriform silk adheres the frame of the orb web to wood or other substrates, and capture thread of the orb web is composed of flagelliform silk backbone and aggregate glue. Aciniform silk is used for prey wrapping and sometimes for decorations of the web, and tubiform (or cylindrical) silk is used to make an egg sac. While spiders are successful predators and are often associated with orb webs, orb-weaving spiders of superfamily Araneoidea only comprise about 25% of spider species. A more ancestral clade of spiders such as those belonging to the infraorder Mygalomorphae is comprised mostly of ground-wandering spiders that produce sheet and maze webs for prey capture. Wandering hunters and abandoned silk capture webs make up a more modern clade of spiders in the retrolateral tibial apophysis (RTA) clade; this group comprises as much as 50% of all spider species <ref type="bibr" target="#b2">(3)</ref>. Therefore, spiders have diversified, selected, and specialized various uses of silk adapting to their ecological needs. Such extraordinary plasticity and university of silk and silk proteins is an ideal target to model the link between sequence and its physical property to fully understand the underlying design principles to apply the wide range of physical properties as biomaterials.</p><p>Spider silks are renowned for their diverse and impressive mechanical properties, frequently displaying a combination of high tensile strength, extensibility, and exceptional toughness that is unmatched industrially. Hence, the processing-property space that these silks occupy makes them a unique source of inspiration for protein biopolymer materials with low embodied energy and high performance <ref type="bibr" target="#b3">(4)</ref><ref type="bibr" target="#b4">(5)</ref><ref type="bibr" target="#b5">(6)</ref>. However, this property space has yet to be fully explored, defined, and exploited. Silk fiber diversity scales rapidly, as spiders produce multiple types of silk, each of which are composed of specific proteins known as spidroins, whose mostly monophyletic origins <ref type="bibr" target="#b6">(7)</ref> endow them with specific mechanical properties <ref type="bibr" target="#b1">(2,</ref><ref type="bibr" target="#b7">8)</ref>. One type of spider silk protein, major ampullate spidroin (MaSp; which is often included in dragline threads), has received substantial academic and industrial attention, as this silk typically shows strength and toughness comparable to those of synthetic high-performance fibers, with an approximately 1-GPa breaking strength, a 30% breaking strain, and a toughness of 130 to 200 MJ/m 3 <ref type="bibr" target="#b8">(9)</ref><ref type="bibr" target="#b9">(10)</ref><ref type="bibr" target="#b10">(11)</ref>. However, there are lesser-known taxa and species of spiders, suggesting that the limits of silk properties are yet to be defined <ref type="bibr" target="#b11">(12)</ref>. On the other hand, a unique property known as supercontraction, where the dragline silk shrinks in length by up to 60% when wetted, is often considered undesirable industrially, and expectations are high for protein engineering methods to reduce such property by modifying the primary sequence. Hence, a comprehensive, coordinated global effort combining taxonomy, genomics, and materiomics is required to first understand and then unlock the true potential of these materials <ref type="bibr" target="#b12">(13)</ref>.</p><p>The diversity of spidroin sequences has been explored for decades. Pioneering work by Gatesy et al. <ref type="bibr" target="#b13">(14)</ref> identified and analyzed spidroin sequences from several spider lineages, including basal spider groups, thus enabling a glimpse into the complex evolution of spidroin sequences. Subsequently, there have been a large number of studies that have explored the subject of spidroin sequence diversity and evolution, including focused studies on various spidroin paralogs <ref type="bibr" target="#b14">(15)</ref><ref type="bibr" target="#b15">(16)</ref><ref type="bibr" target="#b16">(17)</ref><ref type="bibr" target="#b17">(18)</ref><ref type="bibr" target="#b18">(19)</ref><ref type="bibr" target="#b19">(20)</ref><ref type="bibr" target="#b20">(21)</ref><ref type="bibr" target="#b21">(22)</ref><ref type="bibr" target="#b22">(23)</ref><ref type="bibr" target="#b23">(24)</ref><ref type="bibr" target="#b24">(25)</ref><ref type="bibr" target="#b25">(26)</ref><ref type="bibr" target="#b26">(27)</ref><ref type="bibr" target="#b27">(28)</ref><ref type="bibr" target="#b28">(29)</ref>, and those from more phylogenetic perspective <ref type="bibr" target="#b6">(7,</ref><ref type="bibr" target="#b29">(30)</ref><ref type="bibr" target="#b30">(31)</ref><ref type="bibr" target="#b31">(32)</ref><ref type="bibr" target="#b32">(33)</ref><ref type="bibr" target="#b33">(34)</ref>, predominantly based on the conserved terminal sequences. On the other hand, the mechanical properties of silk fibers are governed largely through the repetitive regions that dominate the silk protein sequence, and the study on the diversity of spidroin repetitive regions, particularly in the more evolutionarily divergent taxa, has been limited to date. Thus, there is still an unmet need to map out the evolutionary design space of silk sequences and mechanical performance. This is especially relevant in light of the recent major breakthroughs in the field of spider phylogenomics <ref type="bibr" target="#b2">(3,</ref><ref type="bibr" target="#b34">35,</ref><ref type="bibr" target="#b35">36)</ref>. Undoubtedly, part of the reason for the scarcity of data on spidroin repetitive sequences has been the serious technical challenges faced when attempting to sequence highly repetitive low-complexity sequences such as found in silk proteins (compounded by the presence of multiple paralogs in the case of spider silk proteins). Recent advances in sequencing methods <ref type="bibr" target="#b36">(37)</ref>, however, have made such initiatives possible, as we present in this work. To address this need, we sequenced the silk genes of more than 1000 spider species encompassing the entire order Araneae using de novo transcriptome sequencing and assembly, alongside the comprehensive measurement of the material properties of their dragline silk fibers.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>RESULTS AND DISCUSSION</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Expanding the repertoire of silk genes</head><p>The transcriptomes of 1774 individual spiders were sequenced, which included 1098 species belonging to 441 genera and 76 families, globally sampled from four continents. Redundant sampling was performed for certain species to observe locality or sex differences in spidroin expression <ref type="bibr" target="#b21">(22,</ref><ref type="bibr" target="#b37">38)</ref> and sequence variations within species. After the curation of the assembled transcripts, a total of 11,155 putative spidroin genes were identified (Fig. <ref type="figure" target="#fig_0">1</ref> and data file S1). All of the data are openly accessible from the Spider Silkome Database (<ref type="url" target="https://spider-silkome.org">https://spider-silkome.org</ref>).</p><p>The present study greatly expands the number and diversity of known spidroin sequences; we report sequences from 58 spider families not previously represented in public database, including members of basal taxa (Mesothelae, Mygalomorphae, Synspermiata, and allied groups), Araneoidea (which comprises the ecribellate orb weavers), and previously poorly sampled but extremely diverse groups such as the RTA clade and other taxa. At the time of writing this manuscript, spidroin sequences in the National Center for Biotechnology Information (NCBI) Protein database come from only 52 species in 18 families, and 23% of these sequence is derived from the single genus Trichonephila, and majority (73%) of the registered sequences are of major/minor ampullate spidroins (MiSps). In Fig. <ref type="figure" target="#fig_0">1</ref>, family names colored in red indicate those with species where spidroin sequence is previously unreported, and family names with orange circles in front indicate those without previously reported transcriptome data. As the number of species indicates to the right of the family names, the vast majority of species reported in this work is previously unreported for spidroins and transcriptome data.</p><p>Within the "haplogyne" spider groups (Synspermiata and allied groups), we obtained sequences from nine previously unexplored families, including the first aciniform spidroin (AcSp), pyriform spidroin (PySp), and cribellar spidroin (CrSp) from these taxa. These proteins are consistent with more specialized silk types tuned to distinct biological functions in contrast to the undifferentiated spidroins identified from more ancestral Mesothelae and Mygalomorphae.</p><p>The most extensive sampling was conducted within Araneoidea, including family Araneidae, where we identified previously-unidentified spidroin sequences from the major subdivisions within the family <ref type="bibr" target="#b38">(39)</ref>, and likewise from underrepresented web-building families such as Tetragnathidae and Linyphiidae. Our results showed that the greatest diversity of spidroin types existed within the araneoid taxa, and spidroins associated with the capture spiral and aggregate glue of orb webs [flagelliform spidroin (Flag) and aggregate spidroin (AgSp)] were conserved only within the superfamily. Enrichment of the diversity of paralogs of the MaSp dragline gene was also observed in the group, and clear distinctions were possible among the different ampullate sequences (MaSp and MiSp) in terms of both terminal domain and repetitive sequences [for instance, MaSp2 is characterized by the presence of glutamine (Q)-containing dipeptide motifs in diglutamine (QQ)/proline-glutamine (PQ)/serine-glutamine (SQ)] (40). This is in contrast to Synspermiata and RTA clade sequences, where it is often difficult to distinguish between MaSp and MiSp types. The existence of a third type of MaSp (MaSp3), including the nephilid variant MaSp3B, appears to be specific to Araneidae (see below) <ref type="bibr" target="#b40">(41,</ref><ref type="bibr" target="#b41">42)</ref>.</p><p>The RTA clade accounts for approximately half of all spider biodiversity, yet silk sequences from these mostly non-web-building groups have thus far received little attention. Our sampling identified a wide range of spidroin types from the RTA clade. To illustrate, we have identified the first spidroin sequences originating from jumping spiders (Salticidae), which has the highest species diversity among all spider families, with multiple representatives of MaSp, MiSp, AcSp, and cyllindrical spidroin (CySp), as well as unclassified spidroins from 63 different genera. We also extensively sampled spider groups situated between the araneoid and RTA clades [the so-called Uloboridae, Deinopidae, Oecobiidae, and Hersiliidae (UDOH) grade] and obtained the first reported spidroin sequences for Nicodamidae, Oecobiidae, and Hersilidae.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Insights from sequence analysis: Some highlights</head><p>The sequencing and annotation of the huge number and high diversity of spidroin genes from diverse spider taxa enable a deeper look into the more poorly resolved spidroin classes than previously possible. Here, we provide some examples of analyses made possible by access to such an extensive spidroin sequence database.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Cribellar spidroins: Highly conserved through evolution</head><p>From analysis of data from the most basal spider group (suborder Mesothelae: family Liphistiidae), we identified several new spidroin sequences that include the N-terminal domain region. We found that these sequences bear a close similarity with cribellar spidroins (CrSps), recently identified as a main constituent of the nonsticky capture threads of cribellate spiders (Fig. <ref type="figure" target="#fig_1">2A</ref>). In addition, on the basis of analysis of sequences from the C-terminal side, we identified CrSp sequences from eight new families that encompass a wide phylogenetic spread (Fig. <ref type="figure" target="#fig_0">1</ref>). Notably, we obtained the CrSp sequences from Hickmania troglodytes (Austrochilidae), a basal araneomorph species, in addition to representatives from Eresidae, Deinopoidae, and Oecobiidae, and a number of families from the diverse RTA clade. Analysis of the core repetitive regions of CrSp sequences showed a high degree of conservation of the amino acid composition even among widely separated groups (Fig. <ref type="figure" target="#fig_1">2B</ref>). The most notable feature of these repetitive sequences is the high abundance of charged residues (around 20%) and particularly of negatively charged glutamate (E) residues that occur as clusters interspersed throughout the sequence along with a relatively high proportion of hydrophobic amino acids leucine, isoleucine, valine, and phenylalanine (L, I, V, and F, respectively; collectively around 25%), a combination unique to CrSp sequences and not seen in other spidroin types.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Flag: One framework, diverse compositions</head><p>Flagelliform silk refers to the stretchable silk fibers produced by araneoid spiders (superfamily Araneoidea) and known particularly as making up the prey capture spirals of orb-weaver spiders. The sequence of the constituent Flag had previously been reported from only two families (Araneidae and Theridiidae), with the core repetitive sequences only available from Araneidae. Here, we have Downloaded from <ref type="url" target="https://www.science.org">https://www.science.org</ref> at Northwestern University on September 05, 2025</p><p>considerably expanded the availability of Flag sequences by including previously unrepresented core repetitive and terminal sequences from the web-building families Theridiidae, Linyphiidae, Pimoidae, and Tetragnathidae (Fig. <ref type="figure" target="#fig_0">1</ref>). Figure <ref type="figure" target="#fig_1">2C</ref> shows the amino acid composition of Flag repetitive regions from a number of species from different families, wherein a diversity in the abundance of amino acid residues is clearly apparent. The most divergent repetitive sequences were found in Theridiidae, at the base of the araneoid clade, which also showed a larger number of residues represented compared to the more derived families. Some Flag repeat sequences from Theridiidae showed a marked resemblance to CrSp in terms of amino acid composition [as exemplified by Episinus affinis in Fig. <ref type="figure" target="#fig_1">2C</ref>; compare with Fig. <ref type="figure" target="#fig_1">2B</ref>]; this might reflect the close evolutionary link between Flag and CrSp, as previous studies have suggested <ref type="bibr" target="#b20">(21,</ref><ref type="bibr" target="#b25">26)</ref>. The Flag repetitive regions from other theridiid species tend to have a more reduced set of residues, with an abundance of proline and glycine residues. The species-rich Linyphiidae, predominantly sheet web builders, also exhibited somewhat divergent Flag sequences that feature short repeating motifs enriched in glycine (G), proline (P), asparagine (N), and serine (S). In contrast, Flag repeat sequences from the canonical orb-weaving families Araneidae and Tetragnathidae showed the most compositionally simplified Flag sequences, converging on a design that features a hyperabundance of glycine (G) residues (sometimes exceeding 50%) as well as proline (P) and/or serine (S) residues. It might be hypothesized that different araneoid spider groups have adapted the Flag repetitive sequences to fulfill different prey capture strategies; for instance, spiders that build orb webs designed to catch insects in flight (e.g., Araneidae and Tetragnathidae), where fiber extensibility is most important, correlate with the highest proportion of glycine in the repetitive regions.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Spider silkome: An integrated database of sequences and material properties</head><p>Along with the spidroin sequence data, dragline silk fibers were collected from selected spider species, which were then subjected to a comprehensive array of analyses to obtain the individual profiles across 12 index parameters, including mechanical performance (toughness, Young's modulus, tensile strength, and strain at break), morphological and structural properties [fiber diameter, birefringence, and degree of crystallinity based on wide-angle x-ray scattering (WAXS) analysis], thermal degradation profiles (onset temperature for 1, 5, and 10% weight loss), and hydration properties (fiber water content and degree of maximum supercontraction), for the reeled dragline silk of 446 spider species (Fig. <ref type="figure" target="#fig_2">3</ref> and fig. <ref type="figure" target="#fig_0">S1</ref>). Spiders belonging to Araneoidea show particularly diverse uses of threads <ref type="bibr" target="#b42">(43)</ref>, and the majority of the dragline samples included in this project was obtained from this superfamily, because the relatively large body size and copious fiber production of these species facilitate extended fiber collection.</p><p>Together, these data represent the largest collection obtained to date linking genotype to phenotype for a particular type of protein biopolymer (Spider Silkome Database; Fig. <ref type="figure" target="#fig_2">3C</ref>), a fully searchable platform with integrated Basic Local Alignment Search Tool (BLAST) search capability. All sequence data are also available from DNA Data Bank of Japan (data files S1 and S2).</p><p>Study on the sequence to property linkage of spider silk has been a challenge, since the source of variability is threefold: interspecific, intraspecific, and intraindividual <ref type="bibr" target="#b43">(44)</ref>. Varying protocols for silking and mechanical property measurement also complicate meta-analysis, for which the silking strain rate and humidity is known to have significant effects <ref type="bibr" target="#b44">(45)</ref>. Our data are entirely obtained under a single standardized protocol and realize comprehensive comparisons. We therefore first observed the distribution of mechanical properties by families and genera. The mechanical property data obtained in this project represent an almost continuous spectrum of toughness reaching up to 0.45 GJ/m 3 , a strain at break up to 60%, and a tensile strength up to 3 GPa (Fig. <ref type="figure" target="#fig_2">3B</ref> and figs. S1 and S2); thus, this dataset seems promising for ascertaining relationships between the amino acid sequences of silk proteins and the physical properties of draglines across the spider phylogeny [see also <ref type="bibr">Craig et al. (46)</ref>]. Toughness is highly correlated with the tensile strength and strain at break, as expected from its definition. Notably, the correlation between tensile strength and strain at break is low, indicating that the strength and elasticity of silk are independent factors (Fig. <ref type="figure" target="#fig_2">3A</ref> and table <ref type="table" target="#tab_1">S1</ref>). Birefringence reflects the degree of molecular orientation of silk protein chains and is a good predictor of tensile strength; crystallinity is a similar predictor for strain at break. Silk diameter is correlated with strain at break and supercontraction, but the latter probably represents a pseudo-correlation with Sparassidae and Araneidae silks, which tend to exhibit large diameters and high supercontraction. Overall, web-weaving spiders, or those belonging to the superfamily Araneoidea, tend to express superior mechanical, physical, structural, thermal, and water-based properties relative to basal spider groups (Fig. <ref type="figure" target="#fig_2">3B</ref> and fig. <ref type="figure" target="#fig_0">S1</ref>). Diversity in the mechanical properties was also the largest in the family Araneidae, mirrored by the high variability in the repetitive region sequences of MaSp-type spidroins (fig. <ref type="figure" target="#fig_2">S3</ref>), whose diversity nearly covers the entire variability within the 1000 spiders encompassing 76 families.</p><p>We conducted variable selection to probe structure-function associations in dragline silks based on the mean differences in the physical properties of the silks according to taxonomic categories and spidroin types (figs. S4 to S6). Briefly, the different ampullate-like spidroin sequences found across the different spider taxa were classified according to conserved patterns within repetitive domains; this led to the categorization into 20 sequence groups, which comprised seven MiSp subtypes, seven MaSp1 subtypes, four MaSp2 subtypes, and two MaSp3 subtypes, including MaSpN. We then analyzed the contributions of the different groups to the different physical properties of the corresponding dragline fibers. For instance, the silks of spiders from the genus Argiope and family Araneidae showed significantly higher toughness (mean differences of +0.068 and +0.039 GJ/m 3 , respectively) and expressed unique spidroins, including MaSp3 (group 19), MaSp2 (group 11), and MaSp1 (group 17), resulting in mean differences in silk toughness of +0.041, +0.031, and +0.035 GJ/m 3 , respectively (Fig. <ref type="figure" target="#fig_3">4A</ref> and fig. <ref type="figure">S7A</ref>). This suggests that the possession of MaSp3 (group 19) resulted in an increase in toughness of at least 0.041 GJ/m 3 , corresponding to an increase of approximately 32% relative to the overall average of 0.127 GJ/m 3 . However, this was most likely as combined effect of Araneidae-type MaSps, including MaSp2 (group 11) and MaSp1 (group 17), coinciding with the existence of MaSp3 (group 19). A similar significant superiority of Araneidae dragline fibers was observed in terms of strain at break, crystallinity, diameter, thermal degradation temperature, and supercontraction. Strain at break and supercontraction were the only properties for which the possession of the MaSp2 subtype was a greater determinant than belonging to family Araneidae, as tensile strength increased 3.7% in association with MaSp2 (group 13) and supercontraction increased 15.7, 15.8, 14.3, and 11.0% in association with MaSp2 (group 14), MaSp2 (group 13), MaSp2 (group 11), and MaSp1 (group 17), respectively (Fig. <ref type="figure" target="#fig_3">4B</ref> and fig. <ref type="figure">S7B</ref>). The significant contribution of MaSp2 to spider dragline supercontraction and elasticity was in line with previous suggestions regarding the different roles of MaSp1 and MaSp2 <ref type="bibr" target="#b46">(47,</ref><ref type="bibr" target="#b47">48)</ref>, but one spidroin subtype, MaSp2 (group 15), conversely influenced supercontraction (-8.3%; see fig. <ref type="figure">S7B</ref>). A close inspection of the repetitive motifs of MaSp2 (group 15) revealed longer polyalanine regions. Accordingly, the average  sheet region length (typically the polyalanine region but defined as stretches of multiple A, S, and V for more than five amino acid residues, as these amino acids tend to substitute for polyalanine) was negatively correlated with supercontraction (-0.508 for MaSp1 and -0.306 for MaSp2  sheet regions). Furthermore, the correlation was higher when both the amorphous region and the polyalanine lengths were taken together in the ratio (figs. S8 and S9). The average amorphous to  sheet region length ratios for all repeats within the spidroins of interest were 0.526 for MaSp1 and 0.394 for MaSp2. Therefore, the proportion of amorphous regions within the spidroin is the key factor contributing to supercontraction. The contribution of the relaxation of orientation in the amorphous region of spidroins to supercontraction was suggested in previous works <ref type="bibr" target="#b48">(49,</ref><ref type="bibr" target="#b49">50)</ref> and was confirmed by the analysis of our comprehensive dataset. Considering the effects of the amorphous and crystalline regions on the measured physical properties, as described above, the repetitive sequences, rather than the terminal domains, can be considered to play the main roles in determining these physical and mechanical properties. Shrinkage of artificial spider silk threads and textiles due to supercontraction is often considered an undesirable property for industrial use, and these findings may contribute in designing primary sequences, avoiding supercontraction while preserving toughness of the material.</p><p>To further extract the sequence features contributing to the physical properties of spider silk, we screened the amino acid motifs correlated with the measured properties (data file S4), and the main findings are summarized in Table <ref type="table" target="#tab_1">1</ref>. Confirming the above analysis of categorical variable selection according to gene class and taxonomy, the degree of supercontraction was strongly negatively correlated with the frequency of the appearance of polyalanine sequences and was correlated with short (one-to four-amino acid) motifs corresponding to amorphous regions such as G, GG, and AGQG (Fig. <ref type="figure" target="#fig_3">4C</ref> and data file S4). Likewise, strain at break was negatively correlated with polyalanine prefixed with Ser in MaSp2 and positively correlated with MaSp1/2 amorphous regions including Pro, which presumably adds to the elasticity of this region <ref type="bibr" target="#b50">(51)</ref>. Concerning tensile strength, the inclusion of Ala in the amorphous region of MaSp1 and Pro in that of MaSp2 had a negative effect, while the inclusion of Ser in the amorphous region of MaSp1 had a positive influence. The GYGQGG motif in MaSp1 was most strongly correlated with both tensile strength (r = 0.377) and strain at break (r = 0.416) and was consequently also correlated with toughness [YGQGG was ranked 1 (r = 0.547), and GYGQGG was ranked 2 (r = 0.531)] (Fig. <ref type="figure" target="#fig_3">4C</ref>). The Tyr residues in the amorphous regions of MaSp1 may play a critical role in intermolecular chain packing in the spider dragline, similar to the intermolecular interactions suggested from the structural analysis of silkworm silk <ref type="bibr" target="#b51">(52)</ref> . The inclusion of Pro in the MaSp2 amorphous region, along with the SY and SV motifs in MaSp1, was negatively correlated with toughness. The presence of GGS after the polyalanine region in MaSp1 was positively correlated with toughness. Confirmation of the contribution of these motifs to the physical properties using recombinant properties would be a future direction to fully understand the primary sequence designs, leading to the extraordinary mechanical properties of spider silk.</p><p>Arkyidae Pimoidae Deinopoidae Segestriidae Zoropsidae Araneidae Mimetidae Clubionidae Sparassidae Theridiidae Psechridae Oxyopidae Tetragnathidae Uloboridae Viridasiidae Cheiracanthiidae Thomisidae Lycosidae Desidae Pholcidae Pisauridae Hersiliidae Dictynidae Philodromidae Salticidae Agelenidae MaSp3 (group 19) MaSp2 (group 11) MaSp1 (group 17) + -+ -+ -Supercontraction (%) Toughness (GJ/m 3 ) Deinopoidae Zoropsidae Araneidae Clubionidae Theridiidae Psechridae Oxyopidae Tetragnathidae Uloboridae Thomisidae Desidae Pisauridae Philodromidae Salticidae MaSp2 (group 14) MaSp2 (group 13) MaSp2 (group 11) MaSp1 (group 17) + -+ -+ -+ - Together, our findings provide a thorough mechanistic evaluation of the pathways of spidroin evolution. First, the physical properties of spider dragline silk have significantly diversified and specialized with the deployment of orb webs related to Araneoidea species <ref type="bibr" target="#b42">(43)</ref>, and this is mirrored by the diversification of MaSp paralogs, as previously suggested through meta-analysis of silk mechanics and sequence motifs <ref type="bibr" target="#b45">(46)</ref> . We propose that MaSp1 is specialized to increase fiber strength, while MaSp2 is specialized to increase fiber elasticity, and the combination of these paralogs results in the high toughness of dragline silk. Furthermore, species requiring extraordinary fiber toughness have evolved to produce a third paralog, MaSp3, whose presence was clearly shown to be one of the strongest determinants of high toughness in our analysis. The full complexity of the proteome composition of dragline silk is beginning to be elucidated. However, MaSp3 was shown to be the major component of Nephilinae and Araneus dragline silks, and the complexity of these silks extends beyond the composition of spidroins <ref type="bibr" target="#b41">(42)</ref>, involving other essential components referred to as spider silk-constituting elements (SpiCE), which has been shown to double the tensile strength of an artificial spider silk-based film in vitro <ref type="bibr" target="#b40">(41)</ref> . Elasticity and supercontraction are related properties of dragline silk that are likely linked to the sequence features of MaSp2, in which the ratio of amorphous to  sheet regions plays critical roles. Similarly, the compositions of several amino acid motifs in the amorphous regions of MaSp1 were shown to be highly correlated with the toughness of dragline silk; these sequence-level design elements derived from the comprehensive analysis of 1000 spiders provide a foundation for the design and production of artificial spider silks. Many of these designs may also be applicable to other protein-based and polymeric materials.</p><p>In this study, we have provided a comprehensive dataset encompassing the genotypes and phenotypes (including the mechanotypes) of spider silks and identified the design elements responsible for the extraordinary mechanical and physical performances of these silks. Silk proteins have convergently evolved in various lineages <ref type="bibr" target="#b52">(53)</ref>, but the sequence motifs <ref type="bibr" target="#b53">(54)</ref>, amino acid composition <ref type="bibr" target="#b54">(55)</ref>, and the trade-off between tensile strength and elasticity as a function of ratio between amorphous and crystalline regions <ref type="bibr" target="#b55">(56)</ref> have been shown to have a certain degree of shared characteristics, something supported by our spider silk data. Therefore, these data will serve as a framework for the future analysis of silk proteins and other structural proteins as biomaterials. Similar data-driven approaches encompassing protein materials excelling in properties other than toughness, such as elastomers and adhesive proteins, could also accelerate our understanding on the genetic design principles of the biomaterials. Methods including computational modeling and simulation that allow the prediction of the outcomes of molecular interactions between the multiple components of these biomaterials, such as multiple MaSp-type spidroins and SpiCE proteins, would be an important future direction. We focused on the silk mechanics in this work, but the 1000 spider transcriptome data should also facilitate arachnid and arthropod phylogenomics.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>MATERIALS AND METHODS</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Spider sampling</head><p>Field work took place from 2014 to 2019 in Japan, Malaysia, United States, China, India, United Kingdom, Australia, Madagascar, and Italy (data file S1). In each field work session, the collected spiders were stored in a New PP Sample Tube (Maruemu Corporation, Osaka, Japan) and transported live back to the laboratory. Spider specimens were identified by the method described in the "Species identification" section. Immediately after arrival at the laboratory, photographs of the collected spiders were taken on 1-cm by 1-cm grids to measure their total body length, silk was sampled by the method described in the "Silk sampling" section, and specimens were preserved or RNA was extracted for transcriptome sequencing. In field work conducted in countries other than Japan, preserved specimens or RNA samples were transported back to the laboratory. The total body length of spiders was measured from the photographs by using ImageJ. Silk sampling Spider silks were forcibly silked from captured spiders immobilized using two pieces of sponge and locked with rubber bands. After immobilization, the silks spun from spinnerets were obtained with tweezers and attached to the end of the bobbin. Dedicated reeling devices were used for silking with a constant reeling speed (1.28 m/min). The duration of forcible silking was 1 hour at most. After silking, the bobbin with the reeled silk was placed in a plastic bag and stored in a cardboard preservation box at room temperature.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Species identification</head><p>All spiders were morphologically identified by A. Tanikawa and subsequently confirmed by Cytochrome c oxidase subunit I (COI) sequencing from the transcriptome assembly based on BLAST searches in the Barcode of Life database with a 90% identity threshold. If the COI sequence could not be recovered from the transcriptome assembly, additional Sanger sequencing was conducted by amplifying the cDNA with the primer sets COI1490 (5′-GGTCAACA AATCATAAAGATA-TTGG-3′)-COI2198 (5′-TAAACTTCAGGGTGACCAAAAAATCA-3′) and COI1718 (5′-GGAGGATTTGGAAATTGATTAGTTCC-3′)-COI2776 (5′-GGATAATCAGAATATCGTCGAGG-3′) <ref type="bibr" target="#b56">(57,</ref><ref type="bibr" target="#b57">58)</ref>. Spiders that were difficult to identify on the basis of morphology or COI database searches were clustered into groups of operational taxonomic units (OTUs). The OTU clusters were defined by a 98% identity threshold in BLAST searches.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Transcriptome sequencing and assembly</head><p>Sample preservation, RNA extraction, sequencing, and assembly were conducted on the basis of methods previously described ( <ref type="formula">59</ref>) with some modifications. Briefly, a single specimen of each of the spiders brought to the lab alive was flash frozen with liquid nitrogen and stored at -80°C until use. Samples of spiders that were difficult to transport alive were stored in RNAlater, in which they were initially held at 4°C for 24 hours and then stored below -20°C. RNA was extracted after homogenization on a multibead shocker with metal cones (Yasui Kikai) using TRIzol (Thermo Fisher Scientific), followed by purification with an RNeasy Plus Mini kit. Small specimens (body size, &lt;5 mm) were extracted using a Direct-zol RNA Microprep kit (Zymo Research). RNA quality was checked using RNA ScreenTape on a TapeStation 2100 (Agilent) according to an RNA integrity number (RIN) of &gt;6 and was quantified using Qubit v.3 (Life Technologies) and NanoDrop 2000 (Life Technologies) systems. The Illumina library was prepared using the NEBNext Ultra II RNA Library Prep Kit for Illumina (New England Biolabs); however, for samples with available amounts below the required input amount (&lt;20 ng of total RNA), preparation was performed using the SMART-Seq v4 Ultra Low Input RNA Kit for Sequencing (Clontech), followed by fragmentation and cDNA library preparation with the KAPA HyperPlus Kit (KAPA Biosystems). The sequence library was then sequenced as paired-end reads on the NextSeq 500 platform (Illumina) via 300 cycles in high-output mode. The sequences were subjected to base calling and demultiplexing, and adaptor sequences were removed with bcls2fastq v.2 software (Illumina). Transcriptome assembly was performed using Bridger software with the default parameters using Illumina reads <ref type="bibr" target="#b59">(60)</ref>. To eliminate possible cross-contamination, transcripts with mapped read count per million values of less than 1 and "comp" numbers greater than 30,000 in the Bridger assembly were removed. See data file S1 for the list of Sequence Read Archive (SRA) and Transcriptome Shotgun Assembly (TSA) accession numbers.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Direct RNA sequencing</head><p>The direct RNA sequencing library was constructed with the SQK-RNA001 kit (Oxford Nanopore Technologies). More than 500 ng of mRNA was prepared from the extracted total RNA using the NucleoTrap mRNA Mini Kit (Clontech), and library generation was completed following the manufacturer's protocol. Appropriate numbers of individual samples were prepared according to the amount of total RNA from each species (data file S2). Direct RNA sequencing was performed using a MinION device, and one v9.4 SpotON MinION flow cell (FLO-MIN106, Oxford Nanopore Technologies) per species was used. The produced reads were corrected by using proovread (v2.13.4) <ref type="bibr" target="#b60">(61)</ref> .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Spidroin curation and nomenclature</head><p>Spidroin gene curation was performed using a previously reported spidroin motif collection algorithm <ref type="bibr" target="#b36">(37,</ref><ref type="bibr" target="#b41">42)</ref> . The BLAST search detected contigs, including the spidroin gene N/C termini (nonrepetitive region). The obtained spidroin terminus contigs were used as seeds to screen the short reads harboring exact matches of extremely large k-nucleotide oligomers (approximately 100) up to the 5′-end of the seed. The selected short reads were aligned on the 3′side seed of the matching k-nucleotide oligomer to build a position weight matrix (PWM). Using very stringent thresholds, the seed sequence was extended on the basis of the PWM until there was a split in the graph (i.e., the neighboring repeats were not resolvable). By iterating this overlap-based extension process, we obtained the full subsets of the repeat units. The collected repeat units were mapped onto error-corrected long reads obtained by direct RNA sequencing. Last, the spidroin gene length or architecture data were manually curated on the basis of the mapped long reads. The obtained spidroins were categorized into the following groups based on sequence homology with known spidroin data: AcSp, AgSp1/ AgSp2, CrSp, CySp, Flag, MaSp1 to MaSp3, MiSp, Pflag, PySp, ampullate spidroin (MaSp or MiSp), spidroin, and putative spidroin (no homology but a spidroin-like structure).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Spidroin grouping</head><p>Curated MaSp/MiSp/spidroins were categorized into groups based on repetitive motifs. The repetitive regions and terminal sequences of the curated spidroins were separated computationally using the frequency of 5-nucleotide oligomer amino acids. The tree containing all spidroins was created on the basis of the N-terminal region sequences. The phylogenetic trees were created with FastTree (v2.1.10, default option) (62) after alignment with MAFFT (v. 7.273, maxiterate option 1000) <ref type="bibr" target="#b62">(63)</ref> and trimming with trimAl (v. 1.2rev59, gt option 0.2) <ref type="bibr" target="#b63">(64)</ref>. Because the definition of MaSp and MiSp proteins based on sequence information was ambiguous, very MiSp-like MaSp (or vice versa) proteins were scattered. Therefore, we redefined the groups by clade to discuss them separately.</p><p>A clade consisting of only spidroins of the same type was defined as a group.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Measurements of morphological and structural properties</head><p>The surface morphology and cross sections of the dragline silk fibers were assessed via scanning electron microscopy (SEM) (JCM-6000, JEOL Ltd., Tokyo, Japan) according to a previous report <ref type="bibr" target="#b64">(65)</ref> . The samples were mounted on an aluminum stub with conductive tape and sputter-coated with gold for 1 min with a Smart Coater (JEOL, Tokyo, Japan) before SEM visualization at 5 kV.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Birefringence measurements</head><p>The retardation provided by the silk fiber was measured with a WPA-100 birefringence measurement system (Photonic Lattice Inc., Miyagi, Japan) and was analyzed with WPA-VIEW (version 1.05) software in accordance with a previously reported method <ref type="bibr" target="#b64">(65)</ref>. The birefringence of the dragline silk fiber was calculated from the retardation value and silk fiber diameter, which was determined via SEM.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Measurements silk of mechanics</head><p>Tensility tests of the single dragline silk fibers were conducted with a mechanical testing apparatus (EZ-LX/TRAPEZIUM X, Shimadzu, Kyoto, Japan) at 25°C and a relative humidity of approximately 50% according to a previous report <ref type="bibr" target="#b44">(45)</ref> . The initial length of the single dragline silk fiber was set to 5 mm. The extension speed was applied at 10 mm/min, and the force during testing was measured with a 1-N load cell. The tensile strength, Young's modulus, elongation at break, and toughness were obtained from the resultant stress-strain curves. To assess the tensile strength, the cross-sectional areas of the fiber samples were calculated on the basis of the diameters determined by SEM observations.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Thermal property measurements</head><p>Simultaneous thermogravimetric analysis (TGA) and differential scanning calorimetry (DSC) were conducted in triplicate using spider silk samples with a total mass of 0.5 to 1.0 mg according to a previous report <ref type="bibr" target="#b64">(65)</ref> . Samples were encapsulated in aluminum pans and heated under a nitrogen atmosphere at a rate of 20°C/min from 30° to 500°C using a TGA/DSC 2 instrument (Mettler Toledo, Greifensee, Switzerland). The device was calibrated with an empty cell baseline and with indium for heat flow and temperature. The degradation temperatures that yielded 1, 5, and 10% weight losses in the silk samples were defined as degradation temperatures of 1, 5, and 10% (T d1 , T d5 , and T d10 ). The water content was calculated from the percent weight loss associated with the evaporation of bound water from the TGA data based on a previous silkworm silk study <ref type="bibr" target="#b64">(65)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Synchrotron WAXS measurements</head><p>Spider silk fibers were aligned in bundles and subjected to synchrotron WAXS at 12.4 keV at the BL45XU beam line at SPring-8 (Harima, Japan), as described in previous literature <ref type="bibr" target="#b44">(45,</ref><ref type="bibr" target="#b65">66)</ref>. The data collection parameters included a wavelength of 1.00 Å, a beam size of 250 m by 150 m (H × V), and an exposure time of 10 s at 25°C and 40% relative humidity. Diffraction patterns were recorded using Pilatus 2 M (Dectris Ltd., Switzerland) with a sample-to-detector distance of 179.6 mm. The module gaps of the detector according to offset measurement were complemented. The two-dimensional (2D) diffraction patterns were converted into 1D profiles using FIT2D (67), with corrections made for background scattering and detector geometry. The degree of crystallinity of the silks was calculated from the 1D profile. Each dataset was separated into crystalline and amorphous scattering components by curve fitting using Gaussian functions. The ratio of the total area of the separated crystalline scattering components to that of the crystalline and amorphous scattering components was used to determine the degree of crystallinity.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Maximum supercontraction</head><p>The supercontraction of spider silks was evaluated according to a previous method <ref type="bibr" target="#b67">(68)</ref>. Individual dragline fibers were prepared by cutting fragments of 5 to 10 cm (L 0 ), to which a small piece of vinyl tape was affixed on either end. The fibers were immersed in Milli-Q water for 1 min to allow supercontraction and then allowed to air dry overnight in an unrestrained state. The final length of the fiber (L f ) was measured, and the maximum supercontraction (%) was calculated as (L 0 -L f )/L 0 × 100. At least six replicates were performed for each sample; all measurements were performed with a caliper.</p><p>Silkome database (<ref type="url" target="https://spider-silkome.org">https://spider-silkome.org</ref>)</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Top page</head><p>On the top page of Spider Silkome Database, there are full-text search menu buttons linked to the "Browse Mechanical Properties," "Browse Organisms," and "BLAST Search" pages. Under the menu buttons, there is a world map and phylogenetic tree. The world map shows the regions where we performed field work, indicated in yellow.</p><p>Clicking the indicated areas results in a pop-up display of the numbers of collected spiders and a link to a list of these individuals. Users can search individual spiders with the area where they were collected. The phylogenetic tree shows the names of clades, infraorders, superfamilies, and families of spiders. Clicking the branches of the phylogenetic tree shows a list of families in the clicked branch next to the tree. These family names are linked to organism pages so users can view the spiders in the phylogenetic tree.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Browse mechanical properties</head><p>On the Browse Mechanical Properties page, there is a table of the properties of the silk samples. The properties include mechanical properties, thermal properties, morphological properties, and structural properties as well as wet properties (water content and supercontraction). By clicking the checkboxes for each property, the visibility of property columns in the table can be toggled. The interactive search box at the top of the page can be used to narrow down the results by scientific name interactively. The "Scatter graph" button next to the property check boxes opens scatter graphs of the properties of silks in a new window. Each data point in the scatter graph is linked to an individual page. Users can change the type of properties for the x and y axes to easily view the relationships between properties. The "Download CSV" button can be used for exporting data on the properties of silk samples. By selecting check boxes on the left of each row, users can select data to export. There are sliders on the top of the property columns to narrow the results by the value of the property. To narrow the results according to a lower threshold, the user first right clicks "&lt;" and the number and then moves the slider. To narrow the results according to an upper threshold, the user first left clicks the "&lt;" symbol and the number before moving the slider.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>BLAST searches</head><p>On the BLAST Search page, users can search spidroins with protein sequences or nucleotide sequences. The "DB: Protein" and "DB: Nucleotide" tabs are used to select the database of the BLAST search, and the "Query type" select button is used for selecting the query type of the search. The program for searching is automatically selected by the combination of the tab (database) and select button (query). When the tab is DB: Protein and the select button is "Protein," then blastp is used for searching. When the tab is DB: Protein and the select button is "Nucleotide," then tblastn is used for searching. When the tab is DB: Nucleotide and the select button is Protein, then blastx is used for searching. When the tab is DB: Nucleotide and the select button is Nucleotide, then blastn is used for searching. By clicking the "Download FASTA" button on the results page, users can export result sequences to FASTA format files.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Spider entity page</head><p>The entity page represents the species of the spider. The scatter plot on the right side of the top area is a plot of the tensile strength and strain at break data of all spiders. Pink circles indicate data from the same family as the entity page species. Large red circles indicate the data of the species of the entity page. The property table under the scatter plot shows the median values of each property. Below the top area, photographs, silk sample properties, and spidroin sequences of each individual are provided. The links to the top right of the individual are external links to the NCBI BioSamples, SRA, and TSA databases. In the properties of silk fibers section, tables of each type of property, WAXS 2D profiles, SEM images, and stress-strain curves of the silk samples are provided. In the spidroin sequences section, the amino acid sequences of spidroins are provided. By clicking the "Amino acid" and "Nucleic acid" tabs, users can toggle the sequence panels. Users can download FASTA sequences by clicking the "FASTA" button on the upper right of the sequence.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Statistical analyses</head><p>For categorical variable selection, mechanical properties were tested to evaluate differences between their mean values for those belonging to the category and those not in the category, with the unpaired Student's t test with a P value threshold of &lt;0.01 using the G-language Genome Analysis Environment v.1.9.1 <ref type="bibr" target="#b68">(69)</ref><ref type="bibr" target="#b69">(70)</ref><ref type="bibr" target="#b70">(71)</ref> . The categories used in this analysis were the family and genus of the spiders as well as the spidroin type. For example, the toughness value distribution of family Araneidae was compared with those of all other families. A minimum of five samples was required to belong to a category.</p><p>For motif extraction, repetitive regions of spidroin sequences were first extracted as the longest segments, spanning an amino acid motif composed of S, A, or V with a length greater than four. Subsequently, these regions were split into repeat units segmented by SAV motifs with a length greater than five. This SAV region was defined as the crystalline region, and the remaining amino acids within the repeat were considered the amorphous region. Amino acid motifs with lengths of one to eight were counted in the repetitive region and divided by the number of repeats. This occurrence value was averaged for all MaSp1, MaSp2, and MaSp3 paralogs, and the correlations of these values with the mechanical properties were calculated using Pearson correlation in the G-language Genome Analysis Environment v.1.9.1 <ref type="bibr" target="#b68">(69)</ref><ref type="bibr" target="#b69">(70)</ref><ref type="bibr" target="#b70">(71)</ref> . Motifs appearing less than 100 times in total among all spidroin sequences and motifs appearing in less than 30 samples were discarded. Graphs were visualized using JMP v.15 software.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 1 .</head><label>1</label><figDesc>Fig. 1. Overview of the taxonomic distribution of spidroins and physical properties of dragline silks. Left: The phylogenetic tree of spider families constructed from the transcriptome data obtained from 1000 spiders in this work. The Araneoidea superfamily and the RTA clade are highlighted in red and blue, respectively. Family names in red represent those without previous report of spidroins in the NCBI Protein Database. Family names marked with orange circle represent those without previous transcriptome data. Total number of species sequenced in this work for each family, as well as species-level decomposition of unreported spidroin and transcriptome, are shown to the right of the family names. As this table shows, the vast majority of species reported in this work is previously unreported for their spidroin sequences or transcriptome. Middle: Heatmap of the conservation level of spidroin types within the spider families. For example, MaSp3 of family Araneidae has a value of around 0.5, as can be seen from the color code shown in the bottom left corner, which indicates that around 50% of the 191 species studied in this work contains MaSp3. The orb-weaving spiders in the superfamily Araneoidea (highlighted in pink) have greater diversity of spidroin types, and the RTA clade (highlighted in light blue) lost the capture web silks Flag and AgSp. MaSp sequence subtypes are not well differentiated in the RTA clade, where MiSp, ampullate spidroin (AmSp), and MaSp are more conserved than MaSp1 and MaSp2. Right: Distribution of physical properties among the spider families. Mirrored with the diversity of spidroins, orb-weaving Araneoidea spiders tend to have higher performance than other clades.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Fig. 2 .</head><label>2</label><figDesc>Fig. 2. Some insights from analysis of large spidroin dataset. (A) Spidroin N-terminal domains obtained from basal Mesothelae bear close resemblance to CrSp sequences. H.k., Heptathela kimurai (Liphistiidae); H.y., Heptathela yanbaruensis (Liphistiidae); R.n., Ryuthela nishihirai (Liphistiidae); S.sp., Stegodyphus sp. (Eresidae); O.s., Octonoba sybotides (Uloboridae). (B and C) Analysis of residue composition in spidroin repetitive regions, with residue types colored according to the legend. (B) Conservation of amino acid abundance in CrSp repetitive sequences across spider taxa. H.t., H. troglodytes; D.sp., Deinopis sp.; M.o., Miagrammopes orientalis; N.a., Nurscia albofasciata; C.h., Callobius hokkaido. (C) Conservation of amino acid abundance in Flag repetitive sequence among araneoid species. E.a., E. affinis; N.r., Nesticodes rufipes; C.b., Coleosoma blandum; D.p., Doenitzius peniculus; L.m., Lepthyphantes minutus; U.o., Ummelatia osakaensis; W.c., Weintrauboa contortripes; Z.h., Zygiella hiramatsui; N.l., Nephilingis livida; C.d., Caerostris darwini; C.y., Cyrtarachne yunoharuensis; G.k., Gasteracantha kuhli; T.e., Tetragnatha extensa; L.s., Leucauge subgemmea; M.sp., Mesida sp.</figDesc><graphic coords="4,81.00,60.00,432.00,482.86" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Fig. 3 .</head><label>3</label><figDesc>Fig. 3. Overview of the physical properties of 446 spider silk samples. (A) Pearson correlation heatmap of the physical properties of dragline silk fibers measured in this work. Toughness is not only correlated with tensile strength and strain at break but also correlated with Young's modulus. Supercontraction is correlated with strain at break. (B) Scatter plot of toughness versus strain at break (with spot size proportional to tensile strength). The collected samples represent an almost continuous spectrum of toughness from &lt;0.01 to &gt;0.40 GJ/m 3 . Spots are colored according to broad phylogenetic grouping: Araneoidea (red) includes the orb-weaving spiders and tends to show a relatively high toughness distribution relative to wandering species (such as the RTA clade, indicated in light blue). (C) Screenshots of the Spider Silkome Database (https://spider-silkome.org), a fully searchable, public repository of all spidroin sequences and material property data generated from the 1000 spider silkome project (the main page and individual profile data for Trichonephila clavata are shown). Downloaded from https://www.science.org at Northwestern University on September 05, 2025</figDesc><graphic coords="6,83.39,254.56,429.86,215.30" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Fig. 4 .</head><label>4</label><figDesc>Fig. 4. Linking sequences to the physical properties of dragline silk. The different ampullate-like spidroin sequences found across the different spider taxa were classified according to conserved patterns within repetitive domains; this led to the categorization into 20 sequence groups, which comprised seven MiSp subtypes, seven MaSp1 subtypes, four MaSp2 subtypes, and two MaSp3 subtypes (figs. S3 to S5). MaSp groups most strongly contributing to the physical properties were selected through statistical screening (see Materials and Methods). (A) Toughness distribution among different spider families, as correlated with the presence or absence of selected MaSp subtypes: MaSp3 (group 19), MaSp2 (group 17), and MaSp1 (group 17). (B) Supercontraction distribution among different spider families, compared with the presence (+) or absence (-) of specific MaSp subtypes. Four MaSp2 groups (groups 14, 13, 11, and 17) showed higher average supercontraction than Araneidae. (C) Scatterplot of physical properties (toughness or supercontraction) as a function of the average abundance per repeat (%) of certain amino acid motifs. See data file S4 for comprehensive screening of amino acid sequence motifs contributing to the physical properties. Abundance of motifs was normalized by the number of repetitive sequences within a spidroin fragment, and this normalized abundance was correlated with the physical properties to screen for highly contributing motifs. Spot color denotes the spider family, and Pearson correlation values are shown in the top right corners. Here, AGQG motif in MaSp1 is positively correlated with supercontraction, and AAAAAAAA motif of MaSp2 is negatively correlated. Likewise, YGQGG motif in MaSp1 is positively correlated with toughness. Downloaded from https://www.science.org at Northwestern University on September 05, 2025</figDesc><graphic coords="7,59.39,253.81,446.66,124.10" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Table 1 .</head><label>1</label><figDesc>Feature extraction summary. Amino acid sequence features of the underlying MaSp repetitive domains that have positive and negative effects on the different physical properties of spider dragline silks are presented. Poly-Ala, polyalanine.</figDesc><table><row><cell></cell><cell>Positive effect</cell><cell>Negative effect</cell></row><row><cell></cell><cell>MaSp1-GYGQGG</cell><cell>P, SQGP in MaSp2</cell></row><row><cell>Toughness</cell><cell>MaSp1-poly-Ala ending with GGS</cell><cell>SY, SV in MaSp1</cell></row><row><cell></cell><cell>MaSp1-GGGQ</cell><cell></cell></row><row><cell></cell><cell>MaSp1-GYGQGG</cell><cell>MaSp2-PQ</cell></row><row><cell></cell><cell>MaSp1-SS before</cell><cell>Lacking S in GQG</cell></row><row><cell>Tensile strength</cell><cell>poly-Ala</cell><cell>motif in MaSp1</cell></row><row><cell></cell><cell>MaSp1-QGGS</cell><cell>A before GQG motif in MaSp1</cell></row><row><cell>Strain at break</cell><cell>MaSp1-GYGQGG QGP, PGA in MaSp1</cell><cell>ASA before poly-Ala</cell></row><row><cell></cell><cell>PA in MaSp2</cell><cell>Q in MaSp2</cell></row><row><cell>Young's modulus</cell><cell>GL in MaSp1 and MaSp2</cell><cell>MaSp1-GGQ</cell></row><row><cell></cell><cell>MaSp1-GQ</cell><cell></cell></row><row><cell>Crystallinity</cell><cell>PA, N, A, GA in MaSp2 MaSp1-GQ</cell><cell>GT in MaSp1 MaSp1-GGQ</cell></row><row><cell>Birefringence</cell><cell>SS, N, GQQ in MaSp2 TGG in MaSp1</cell><cell>MaSp1-GQGGAGAA</cell></row><row><cell></cell><cell>MaSp1-GAAAAAAG</cell><cell>MaSp2-PSGPGS</cell></row><row><cell>Diameter</cell><cell>MaSp1-AAGGAGQG MaSp2-PQG</cell><cell>MaSp2-SQG MaSp2-AAGGY MaSp1-QS</cell></row><row><cell></cell><cell>MaSp2-PGGYGP</cell><cell>MaSp1-SQGAG</cell></row><row><cell>N% water loss</cell><cell>MaSp2 poly-Ala</cell><cell>V in MaSp2</cell></row><row><cell></cell><cell></cell><cell>GT in MaSp1</cell></row><row><cell></cell><cell>MaSp1-GSG</cell><cell>MaSp2-QQGPG</cell></row><row><cell>Water content</cell><cell>MaSp2-GAS</cell><cell>MaSp1-PGAA A in MaSp1 and</cell></row><row><cell></cell><cell></cell><cell>MaSp2</cell></row><row><cell>Supercontraction</cell><cell>MaSp2 presence MaSp1-AGQG</cell><cell>Poly-Ala in MaSp1 and MaSp2</cell></row><row><cell></cell><cell>MaSp1-GLG</cell><cell></cell></row></table><note><p>Downloaded from https://www.science.org at Northwestern University on September 05, 2025</p></note></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_0"><p>Downloaded from https://www.science.org at Northwestern University on September 05, 2025</p></note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div><p>Acknowledgments: We acknowledge the <rs type="funder">MICET (especially, T. Vololontiana)</rs>, the <rs type="funder">Ministry of Environment and Sustainable Development (Ministère de l'Environnement de l'Ecologie et des Forêts</rs> at that time), the <rs type="projectName">MZBA</rs>, and the <rs type="institution">University of Antananarivo</rs> for spider sampling in Madagascar. We thank <rs type="person">Y. Takai</rs>, <rs type="person">N. Ishii</rs>, and <rs type="person">Y. Onozawa</rs> for technical support in sequencing; <rs type="person">H. Ozaki</rs> and <rs type="person">M. Sato</rs> for meaningful discussion; and <rs type="person">H. Kano</rs>, <rs type="person">R. Sato</rs>, and <rs type="person">H. Nishijima</rs> for the development of reeling machines. Funding: This work was supported by grants from the <rs type="funder">ImPACT Program of Council for Science, Technology and Innovation (Cabinet Office, Government of Japan</rs>) to K.A., H.N., and K.N.; by research funds from the <rs type="funder">Yamagata Prefectural Government and Tsuruoka City, Japan</rs>, to K.A., N.K., and M.T.; and by <rs type="funder">JST ERATO</rs> grant number <rs type="grantNumber">JPMJER1602</rs>, <rs type="grantName">Grant-in-Aid for Transformative Research Areas</rs> (B), and Material DX to K.N. Author contributions: Conceptualization: K.A. and K.N. Data curation: K.A., N.K., A.D.M., H.N., M.T., and K.N. Formal analysis: K.A., N.K., A.D.M., A.Tat., N.I., H.M., R.S., H.N., K.Y., N.A.O., and K.N. Resources: K.A., A.D.M., R.S., K.T., R.O., D.P., A.S., Y.I., H.N., A.Tan., Y.S., T.I., S.F., M.F., S.J.B., J.-A.C., H.C., C.P.F., G.G., J.G., C.H., D.L.K., K.S., B.B.M., Y.N.-R., R.C.P., N.M.P., R.R., X.W., K.Y., Z.Z., Downloaded from <ref type="url" target="https://www.science.org">https://www.science.org</ref> at <rs type="affiliation">Northwestern University</rs> on September 05, 2025</p></div>
+			</div>
+			<listOrg type="funding">
+				<org type="funded-project" xml:id="_RgXNqKv">
+					<orgName type="project" subtype="full">MZBA</orgName>
+				</org>
+				<org type="funding" xml:id="_Q2ryvDJ">
+					<idno type="grant-number">JPMJER1602</idno>
+					<orgName type="grant-name">Grant-in-Aid for Transformative Research Areas</orgName>
+				</org>
+			</listOrg>
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>SUPPLEMENTARY MATERIALS</head><p>Supplementary material for this article is available at <ref type="url" target="https://science.org/doi/10.1126/sciadv.abo6043">https://science.org/doi/10.1126/  sciadv.abo6043</ref> View/request a protocol for this paper from Bio-protocol.</p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">The Role of Behavior in the Evolution of Spiders, Silks, and Webs</title>
+		<author>
+			<persName><forename type="first">Fritz</forename><surname>Vollrath</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Paul</forename><surname>Selden</surname></persName>
+		</author>
+		<idno type="DOI">10.1146/annurev.ecolsys.37.091305.110221</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Annual Review of Ecology, Evolution, and Systematics</title>
+		<title level="j" type="abbrev">Annu. Rev. Ecol. Evol. Syst.</title>
+		<idno type="ISSN">1543-592X</idno>
+		<idno type="ISSNe">1545-2069</idno>
+		<imprint>
+			<biblScope unit="volume">38</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="819" to="846" />
+			<date type="published" when="2007-12-01">2007</date>
+			<publisher>Annual Reviews</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Spider silk as archetypal protein elastomer</title>
+		<author>
+			<persName><forename type="first">Fritz</forename><surname>Vollrath</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">David</forename><surname>Porter</surname></persName>
+		</author>
+		<idno type="DOI">10.1039/b600098n</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Soft Matter</title>
+		<title level="j" type="abbrev">Soft Matter</title>
+		<idno type="ISSN">1744-683X</idno>
+		<idno type="ISSNe">1744-6848</idno>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page">377</biblScope>
+			<date type="published" when="2006">2006</date>
+			<publisher>Royal Society of Chemistry (RSC)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Phylogenomics, Diversification Dynamics, and Comparative Transcriptomics across the Spider Tree of Life</title>
+		<author>
+			<persName><forename type="first">Rosa</forename><surname>Fernández</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Robert</forename><forename type="middle">J</forename><surname>Kallal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dimitar</forename><surname>Dimitrov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jesús</forename><forename type="middle">A</forename><surname>Ballesteros</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Miquel</forename><forename type="middle">A</forename><surname>Arnedo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Gonzalo</forename><surname>Giribet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Gustavo</forename><surname>Hormiga</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.cub.2018.06.018</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Current Biology</title>
+		<title level="j" type="abbrev">Current Biology</title>
+		<idno type="ISSN">0960-9822</idno>
+		<imprint>
+			<biblScope unit="volume">28</biblScope>
+			<biblScope unit="issue">13</biblScope>
+			<biblScope unit="page" from="2190" to="2193" />
+			<date type="published" when="2018-07">2018</date>
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">The past, present and future of protein-based materials</title>
+		<author>
+			<persName><forename type="first">Nadia</forename><forename type="middle">C</forename><surname>Abascal</surname></persName>
+			<idno type="ORCID">0000-0001-7611-3835</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Lynne</forename><surname>Regan</surname></persName>
+		</author>
+		<idno type="DOI">10.1098/rsob.180113</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Open Biology</title>
+		<title level="j" type="abbrev">Open Biol.</title>
+		<idno type="ISSNe">2046-2441</idno>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="issue">10</biblScope>
+			<biblScope unit="page">180113</biblScope>
+			<date type="published" when="2018-10">2018</date>
+			<publisher>The Royal Society</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Spider silks and their applications</title>
+		<author>
+			<persName><forename type="first">Jonathan</forename><forename type="middle">A</forename><surname>Kluge</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Olena</forename><surname>Rabotyagova</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Gary</forename><forename type="middle">G</forename><surname>Leisk</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">David</forename><forename type="middle">L</forename><surname>Kaplan</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.tibtech.2008.02.006</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Trends in Biotechnology</title>
+		<title level="j" type="abbrev">Trends in Biotechnology</title>
+		<idno type="ISSN">0167-7799</idno>
+		<imprint>
+			<biblScope unit="volume">26</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="244" to="251" />
+			<date type="published" when="2008-05">2008</date>
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<author>
+			<persName><forename type="first">K</forename><surname>Numata</surname></persName>
+		</author>
+		<title level="m">Biopolymer Science for Proteins and Peptides</title>
+		<imprint>
+			<publisher>Elsevier</publisher>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Untangling spider silk evolution with spidroin terminal domains</title>
+		<author>
+			<persName><forename type="first">Jessica</forename><forename type="middle">E</forename><surname>Garb</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nadia</forename><forename type="middle">A</forename><surname>Ayoub</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Cheryl</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
+		</author>
+		<idno type="DOI">10.1186/1471-2148-10-243</idno>
+	</analytic>
+	<monogr>
+		<title level="j">BMC Evolutionary Biology</title>
+		<title level="j" type="abbrev">BMC Evol Biol</title>
+		<idno type="ISSN">1471-2148</idno>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page">243</biblScope>
+			<date type="published" when="2010">2010</date>
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Spider Silk</title>
+		<author>
+			<persName><forename type="first">Martin</forename><surname>Humenik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thomas</forename><surname>Scheibel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andrew</forename><surname>Smith</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/b978-0-12-415906-8.00007-8</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Progress in Molecular Biology and Translational Science</title>
+		<imprint>
+			<publisher>Elsevier</publisher>
+			<date type="published" when="2011">2011</date>
+			<biblScope unit="volume">103</biblScope>
+			<biblScope unit="page" from="131" to="185" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Material properties of evolutionary diverse spider silks described by variation in a single structural parameter</title>
+		<author>
+			<persName><forename type="first">Rodrigo</forename><surname>Madurga</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Gustavo</forename><forename type="middle">R</forename><surname>Plaza</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Todd</forename><forename type="middle">A</forename><surname>Blackledge</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Gustavo.</forename><forename type="middle">V</forename><surname>Guinea</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Manuel</forename><surname>Elices</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">José</forename><surname>Pérez-Rigueiro</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/srep18991</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Scientific Reports</title>
+		<title level="j" type="abbrev">Sci Rep</title>
+		<idno type="ISSNe">2045-2322</idno>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page">18991</biblScope>
+			<date type="published" when="2016-01-12">2016</date>
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">New Opportunities for an Ancient Material</title>
+		<author>
+			<persName><forename type="first">Fiorenzo</forename><forename type="middle">G</forename><surname>Omenetto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">David</forename><forename type="middle">L</forename><surname>Kaplan</surname></persName>
+		</author>
+		<idno type="DOI">10.1126/science.1188936</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Science</title>
+		<title level="j" type="abbrev">Science</title>
+		<idno type="ISSN">0036-8075</idno>
+		<idno type="ISSNe">1095-9203</idno>
+		<imprint>
+			<biblScope unit="volume">329</biblScope>
+			<biblScope unit="issue">5991</biblScope>
+			<biblScope unit="page" from="528" to="531" />
+			<date type="published" when="2010-07-30">2010</date>
+			<publisher>American Association for the Advancement of Science (AAAS)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Spider Silk: Super Material or Thin Fibre?</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Porter</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Guan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Vollrath</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/adma.201204158</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Advanced Materials</title>
+		<title level="j" type="abbrev">Advanced Materials</title>
+		<idno type="ISSN">0935-9648</idno>
+		<idno type="ISSNe">1521-4095</idno>
+		<imprint>
+			<biblScope unit="volume">25</biblScope>
+			<biblScope unit="issue">9</biblScope>
+			<biblScope unit="page" from="1275" to="1279" />
+			<date type="published" when="2013">2013</date>
+			<publisher>Wiley</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Bioprospecting finds the toughest biological material: Extraordinary silk from a giant riverine orb spider</title>
+		<author>
+			<persName><forename type="first">I</forename><surname>Agnarsson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Kuntner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">A</forename><surname>Blackledge</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">PLOS ONE</title>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page">11234</biblScope>
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Spider Silk Proteins – Mechanical Property and Gene Sequence</title>
+		<author>
+			<persName><forename type="first">Anna</forename><surname>Rising</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Helena</forename><surname>Nimmervoll</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Stefan</forename><surname>Grip</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Armando</forename><surname>Fernandez-Arias</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Erica</forename><surname>Storckenfeldt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">David</forename><forename type="middle">P</forename><surname>Knight</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Fritz</forename><surname>Vollrath</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wilhelm</forename><surname>Engström</surname></persName>
+		</author>
+		<idno type="DOI">10.2108/zsj.22.273</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Zoological Science</title>
+		<title level="j" type="abbrev">Zoological Science</title>
+		<idno type="ISSN">0289-0003</idno>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="273" to="281" />
+			<date type="published" when="2005-03">2005</date>
+			<publisher>Zoological Society of Japan</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Extreme diversity, conservation, and convergence of spider silk fibroin sequences</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Gatesy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Hayashi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Motriuk</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Woods</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Lewis</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Science</title>
+		<imprint>
+			<biblScope unit="volume">291</biblScope>
+			<biblScope unit="page" from="2603" to="2605" />
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Protein composition and associated material properties of cobweb spiders’ gumfoot glue droplets</title>
+		<author>
+			<persName><forename type="first">Nadia</forename><forename type="middle">A</forename><surname>Ayoub</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kyle</forename><surname>Friend</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thomas</forename><surname>Clarke</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Richard</forename><surname>Baker</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sandra</forename><surname>Correa-Garhwal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andrew</forename><surname>Crean</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Enkhbileg</forename><surname>Dendev</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Delaney</forename><surname>Foster</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lorden</forename><surname>Hoff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sean</forename><surname>Kelly</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wade</forename><surname>Patterson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Cheryl</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Brent</forename><forename type="middle">D</forename><surname>Opell</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/icb/icab086</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Integrative and Comparative Biology</title>
+		<idno type="ISSN">1540-7063</idno>
+		<idno type="ISSNe">1557-7023</idno>
+		<imprint>
+			<biblScope unit="volume">61</biblScope>
+			<biblScope unit="page" from="1459" to="1480" />
+			<date type="published" when="2021-05-18">2021</date>
+			<publisher>Oxford University Press (OUP)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Ancient Properties of Spider Silks Revealed by the Complete Gene Sequence of the Prey-Wrapping Silk Protein (AcSp1)</title>
+		<author>
+			<persName><forename type="first">Nadia</forename><forename type="middle">A</forename><surname>Ayoub</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jessica</forename><forename type="middle">E</forename><surname>Garb</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Amanda</forename><surname>Kuelbs</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Cheryl</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/molbev/mss254</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Molecular Biology and Evolution</title>
+		<idno type="ISSN">0737-4038</idno>
+		<idno type="ISSNe">1537-1719</idno>
+		<imprint>
+			<biblScope unit="volume">30</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="589" to="601" />
+			<date type="published" when="2013">2013</date>
+			<publisher>Oxford University Press (OUP)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Blueprint for a High-Performance Biomaterial: Full-Length Spider Dragline Silk Genes</title>
+		<author>
+			<persName><forename type="first">Nadia</forename><forename type="middle">A</forename><surname>Ayoub</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jessica</forename><forename type="middle">E</forename><surname>Garb</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Robin</forename><forename type="middle">M</forename><surname>Tinghitella</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Matthew</forename><forename type="middle">A</forename><surname>Collin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Cheryl</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
+		</author>
+		<idno type="DOI">10.1371/journal.pone.0000514</idno>
+	</analytic>
+	<monogr>
+		<title level="j">PLoS ONE</title>
+		<title level="j" type="abbrev">PLoS ONE</title>
+		<idno type="ISSNe">1932-6203</idno>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page">e514</biblScope>
+			<date type="published" when="2007-06-13">2007</date>
+			<publisher>Public Library of Science (PLoS)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">The Nephila clavipes genome highlights the diversity of spider silk genes and their complex expression</title>
+		<author>
+			<persName><forename type="first">Paul</forename><forename type="middle">L</forename><surname>Babb</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nicholas</forename><forename type="middle">F</forename><surname>Lahens</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sandra</forename><forename type="middle">M</forename><surname>Correa-Garhwal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">David</forename><forename type="middle">N</forename><surname>Nicholson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Eun</forename><forename type="middle">Ji</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">John</forename><forename type="middle">B</forename><surname>Hogenesch</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Matjaž</forename><surname>Kuntner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Linden</forename><surname>Higgins</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Cheryl</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ingi</forename><surname>Agnarsson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Benjamin</forename><forename type="middle">F</forename><surname>Voight</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/ng.3852</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Nature Genetics</title>
+		<title level="j" type="abbrev">Nat Genet</title>
+		<idno type="ISSN">1061-4036</idno>
+		<idno type="ISSNe">1546-1718</idno>
+		<imprint>
+			<biblScope unit="volume">49</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="895" to="903" />
+			<date type="published" when="2017-05-01">2017</date>
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">A MaSp2-like gene found in the Amazon mygalomorph spider Avicularia juruensis</title>
+		<author>
+			<persName><forename type="first">Daniela</forename><surname>Bittencourt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Katharina</forename><surname>Dittmar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Randolph</forename><forename type="middle">V</forename><surname>Lewis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Elíbio</forename><forename type="middle">L</forename><surname>Rech</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.cbpb.2010.01.005</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Comparative Biochemistry and Physiology Part B: Biochemistry and Molecular Biology</title>
+		<title level="j" type="abbrev">Comparative Biochemistry and Physiology Part B: Biochemistry and Molecular Biology</title>
+		<idno type="ISSN">1096-4959</idno>
+		<imprint>
+			<biblScope unit="volume">155</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="419" to="426" />
+			<date type="published" when="2010-04">2010</date>
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Golden orb-weaving spider (&lt;i&gt;Trichonephila clavipes&lt;/i&gt;) silk genes with sex-biased expression and atypical architectures</title>
+		<author>
+			<persName><forename type="first">Sandra</forename><forename type="middle">M</forename><surname>Correa-Garhwal</surname></persName>
+			<idno type="ORCID">0000-0002-6889-2688</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Paul</forename><forename type="middle">L</forename><surname>Babb</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Benjamin</forename><forename type="middle">F</forename><surname>Voight</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Cheryl</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/g3journal/jkaa039</idno>
+	</analytic>
+	<monogr>
+		<title level="j">G3 Genes|Genomes|Genetics</title>
+		<idno type="ISSNe">2160-1836</idno>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page">39</biblScope>
+			<date type="published" when="2021">2021</date>
+			<publisher>Oxford University Press (OUP)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Silk genes and silk gene expression in the spider Tengella perfuga (Zoropsidae), including a potential cribellar spidroin (CrSp)</title>
+		<author>
+			<persName><forename type="first">Sandra</forename><forename type="middle">M</forename><surname>Correa-Garhwal</surname></persName>
+			<idno type="ORCID">0000-0002-6889-2688</idno>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">Crystal</forename><surname>Chaw</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thomas</forename><forename type="middle">H</forename><surname>Clarke</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Liliana</forename><forename type="middle">G</forename><surname>Alaniz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Fanny</forename><forename type="middle">S</forename><surname>Chan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rachael</forename><forename type="middle">E</forename><surname>Alfaro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Cheryl</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
+		</author>
+		<idno type="DOI">10.1371/journal.pone.0203563</idno>
+	</analytic>
+	<monogr>
+		<title level="j">PLOS ONE</title>
+		<title level="j" type="abbrev">PLoS ONE</title>
+		<idno type="ISSNe">1932-6203</idno>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="issue">9</biblScope>
+			<biblScope unit="page">e0203563</biblScope>
+			<date type="published" when="2018-09-20">2018</date>
+			<publisher>Public Library of Science (PLoS)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Silk gene expression of theridiid spiders: implications for male-specific silk use</title>
+		<author>
+			<persName><forename type="first">Sandra</forename><forename type="middle">M</forename><surname>Correa-Garhwal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">Crystal</forename><surname>Chaw</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thomas</forename><forename type="middle">H</forename><surname>Clarke</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nadia</forename><forename type="middle">A</forename><surname>Ayoub</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Cheryl</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.zool.2017.04.003</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Zoology</title>
+		<title level="j" type="abbrev">Zoology</title>
+		<idno type="ISSN">0944-2006</idno>
+		<imprint>
+			<biblScope unit="volume">122</biblScope>
+			<biblScope unit="page" from="107" to="114" />
+			<date type="published" when="2017-06">2017</date>
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Semi-aquatic spider silks: Transcripts, proteins, and silk fibres of the fishing spider, Dolomedes triton (Pisauridae)</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">M</forename><surname>Correa-Garhwal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">C</forename><surname>Chaw</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Dugger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">H</forename><surname>Clarke</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Iii</forename></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">H</forename><surname>Chea</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Kisailus</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Insect Mol. Biol</title>
+		<imprint>
+			<biblScope unit="volume">28</biblScope>
+			<biblScope unit="page" from="35" to="51" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Spidroins and silk fibers of aquatic spiders</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">M</forename><surname>Correa-Garhwal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">H</forename><surname>Clarke 3rd</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Janssen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Crevecoeur</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">N</forename><surname>Mcquillan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">H</forename><surname>Simpson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">J</forename><surname>Vink</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Sci. Rep</title>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="page">13656</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Diverse formulas for spider dragline fibers demonstrated by molecular and mechanical characterization of spitting spider silk</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">M</forename><surname>Correa-Garhwal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">E</forename><surname>Garb</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Biomacromolecules</title>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="page" from="4598" to="4605" />
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Spidroin profiling of cribellate spiders provides insight into the evolution of spider prey capture strategies</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Kono</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Nakamura</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Mori</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Tomita</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Arakawa</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Sci. Rep</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="page">15721</biblScope>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Spider genomes provide insight into composition and evolution of venom and silk</title>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">W</forename><surname>Sanggaard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">S</forename><surname>Bechsgaard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Fang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Duan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">F</forename><surname>Dyrlund</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Gupta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Jiang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Cheng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Fan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Feng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Han</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Huang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Liao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Settepani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">B</forename><surname>Thogersen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Vanthournout</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Zhu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Funch</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">J</forename><surname>Enghild</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Schauser</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">U</forename><surname>Andersen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Villesen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">H</forename><surname>Schierup</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Bilde</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Wang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nat. Commun</title>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page">3765</biblScope>
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Early Events in the Evolution of Spider Silk Genes</title>
+		<author>
+			<persName><forename type="first">James</forename><surname>Starrett</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jessica</forename><forename type="middle">E</forename><surname>Garb</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Amanda</forename><surname>Kuelbs</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ugochi</forename><forename type="middle">O</forename><surname>Azubuike</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Cheryl</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
+		</author>
+		<idno type="DOI">10.1371/journal.pone.0038084</idno>
+	</analytic>
+	<monogr>
+		<title level="j">PLoS ONE</title>
+		<title level="j" type="abbrev">PLoS ONE</title>
+		<idno type="ISSNe">1932-6203</idno>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page">e38084</biblScope>
+			<date type="published" when="2012-06-22">2012</date>
+			<publisher>Public Library of Science (PLoS)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Analysis of major ampullate silk cDNAs from two non-orbweaving spiders</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Tian</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Lewis</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Biomacromolecules</title>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page" from="657" to="660" />
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">Genomic perspectives of spider silk genes through target capture sequencing: Conservation of stabilization mechanisms and homology-based structural models of spidroin terminal regions</title>
+		<author>
+			<persName><forename type="first">Matthew</forename><forename type="middle">A</forename><surname>Collin</surname></persName>
+			<idno type="ORCID">0000-0002-8206-7027</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Thomas</forename><forename type="middle">H</forename><surname>Clarke</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nadia</forename><forename type="middle">A</forename><surname>Ayoub</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Cheryl</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.ijbiomac.2018.02.032</idno>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Biological Macromolecules</title>
+		<title level="j" type="abbrev">International Journal of Biological Macromolecules</title>
+		<idno type="ISSN">0141-8130</idno>
+		<imprint>
+			<biblScope unit="volume">113</biblScope>
+			<biblScope unit="page" from="829" to="840" />
+			<date type="published" when="2018-07">2018</date>
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Silk Genes Support the Single Origin of Orb Webs</title>
+		<author>
+			<persName><forename type="first">Jessica</forename><forename type="middle">E</forename><surname>Garb</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Teresa</forename><surname>Dimauro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Victoria</forename><surname>Vo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Cheryl</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
+		</author>
+		<idno type="DOI">10.1126/science.1127946</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Science</title>
+		<title level="j" type="abbrev">Science</title>
+		<idno type="ISSN">0036-8075</idno>
+		<idno type="ISSNe">1095-9203</idno>
+		<imprint>
+			<biblScope unit="volume">312</biblScope>
+			<biblScope unit="issue">5781</biblScope>
+			<biblScope unit="page" from="1762" to="1762" />
+			<date type="published" when="2006-06-23">2006</date>
+			<publisher>American Association for the Advancement of Science (AAAS)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Modular evolution of egg case silk genes across orb-weaving spider superfamilies</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">E</forename><surname>Garb</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Proc. Natl. Acad. Sci</title>
+		<imprint>
+			<biblScope unit="volume">102</biblScope>
+			<biblScope unit="page" from="11379" to="11384" />
+			<date type="published" when="2005">2005</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">The dimerization mechanism of the N-terminal domain of spider silk proteins is conserved despite extensive sequence divergence</title>
+		<author>
+			<persName><forename type="first">Médoune</forename><surname>Sarr</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kristine</forename><surname>Kitoka</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kellie-Ann</forename><surname>Walsh-White</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Margit</forename><surname>Kaldmäe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rimants</forename><surname>Metlāns</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kaspar</forename><surname>Tārs</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alessandro</forename><surname>Mantese</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dipen</forename><surname>Shah</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Landreh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Anna</forename><surname>Rising</surname></persName>
+			<idno type="ORCID">0000-0002-1872-1207</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Jan</forename><surname>Johansson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kristaps</forename><surname>Jaudzems</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nina</forename><surname>Kronqvist</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.jbc.2022.101913</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Biological Chemistry</title>
+		<title level="j" type="abbrev">Journal of Biological Chemistry</title>
+		<idno type="ISSN">0021-9258</idno>
+		<imprint>
+			<biblScope unit="volume">298</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page">101913</biblScope>
+			<date type="published" when="2022-05">2022</date>
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Conservation of a pH-sensitive structure in the C-terminal region of spider silk extends across the entire silk gene family</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Strickland</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Tudorica</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Rezac</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">R</forename><surname>Thomas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">L</forename><surname>Goodacre</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Heredity (Edinb)</title>
+		<imprint>
+			<biblScope unit="volume">120</biblScope>
+			<biblScope unit="page" from="574" to="580" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">Phylogenomics Resolves a Spider Backbone Phylogeny and Rejects a Prevailing Paradigm for Orb Web Evolution</title>
+		<author>
+			<persName><forename type="first">Jason</forename><forename type="middle">E</forename><surname>Bond</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nicole</forename><forename type="middle">L</forename><surname>Garrison</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chris</forename><forename type="middle">A</forename><surname>Hamilton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rebecca</forename><forename type="middle">L</forename><surname>Godwin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marshal</forename><surname>Hedin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ingi</forename><surname>Agnarsson</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.cub.2014.06.034</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Current Biology</title>
+		<title level="j" type="abbrev">Current Biology</title>
+		<idno type="ISSN">0960-9822</idno>
+		<imprint>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="issue">15</biblScope>
+			<biblScope unit="page" from="1765" to="1771" />
+			<date type="published" when="2014-08">2014</date>
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">The spider tree of life: phylogeny of Araneae based on target‐gene analyses from an extensive taxon sampling</title>
+		<author>
+			<persName><forename type="first">Ward</forename><forename type="middle">C</forename><surname>Wheeler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jonathan</forename><forename type="middle">A</forename><surname>Coddington</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Louise</forename><forename type="middle">M</forename><surname>Crowley</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dimitar</forename><surname>Dimitrov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Pablo</forename><forename type="middle">A</forename><surname>Goloboff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Charles</forename><forename type="middle">E</forename><surname>Griswold</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Gustavo</forename><surname>Hormiga</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lorenzo</forename><surname>Prendini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Martín</forename><forename type="middle">J</forename><surname>Ramírez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Petra</forename><surname>Sierwald</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lina</forename><surname>Almeida‐silva</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Fernando</forename><surname>Alvarez‐padilla</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Miquel</forename><forename type="middle">A</forename><surname>Arnedo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ligia</forename><forename type="middle">R</forename><surname>Benavides Silva</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Suresh</forename><forename type="middle">P</forename><surname>Benjamin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jason</forename><forename type="middle">E</forename><surname>Bond</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Cristian</forename><forename type="middle">J</forename><surname>Grismado</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Emile</forename><surname>Hasan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marshal</forename><surname>Hedin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Matías</forename><forename type="middle">A</forename><surname>Izquierdo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Facundo</forename><forename type="middle">M</forename><surname>Labarque</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Joel</forename><surname>Ledford</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lara</forename><surname>Lopardo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wayne</forename><forename type="middle">P</forename><surname>Maddison</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jeremy</forename><forename type="middle">A</forename><surname>Miller</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Luis</forename><forename type="middle">N</forename><surname>Piacentini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Norman</forename><forename type="middle">I</forename><surname>Platnick</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Daniele</forename><surname>Polotow</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Diana</forename><surname>Silva‐dávila</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nikolaj</forename><surname>Scharff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tamás</forename><surname>Szűts</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Darrell</forename><surname>Ubick</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Cor</forename><forename type="middle">J</forename><surname>Vink</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hannah</forename><forename type="middle">M</forename><surname>Wood</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Junxia</forename><surname>Zhang</surname></persName>
+		</author>
+		<idno type="DOI">10.1111/cla.12182</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Cladistics</title>
+		<title level="j" type="abbrev">Cladistics</title>
+		<idno type="ISSN">0748-3007</idno>
+		<idno type="ISSNe">1096-0031</idno>
+		<imprint>
+			<biblScope unit="volume">33</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="574" to="616" />
+			<date type="published" when="2017">2017</date>
+			<publisher>Wiley</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<analytic>
+		<title level="a" type="main">Nanopore sequencing: Review of potential applications in functional genomics</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Kono</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Arakawa</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Dev. Growth Differ</title>
+		<imprint>
+			<biblScope unit="volume">61</biblScope>
+			<biblScope unit="page" from="316" to="326" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title level="a" type="main">Silk physico-chemical variability and mechanical robustness facilitates intercontinental invasibility of a spider</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Viera</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">F</forename><surname>Garcia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Lacava</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Fang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">M</forename><surname>Kasumovic</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">J</forename><surname>Blamires</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Sci. Rep</title>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="page">13273</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<analytic>
+		<title level="a" type="main">Phylogeny of the orb‐weaving spider family Araneidae (Araneae: Araneoidea)</title>
+		<author>
+			<persName><forename type="first">Nikolaj</forename><surname>Scharff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jonathan</forename><forename type="middle">A</forename><surname>Coddington</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Todd</forename><forename type="middle">A</forename><surname>Blackledge</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ingi</forename><surname>Agnarsson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Volker</forename><forename type="middle">W</forename><surname>Framenau</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tamás</forename><surname>Szűts</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Cheryl</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dimitar</forename><surname>Dimitrov</surname></persName>
+		</author>
+		<idno type="DOI">10.1111/cla.12382</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Cladistics</title>
+		<title level="j" type="abbrev">Cladistics</title>
+		<idno type="ISSN">0748-3007</idno>
+		<idno type="ISSNe">1096-0031</idno>
+		<imprint>
+			<biblScope unit="volume">36</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="1" to="21" />
+			<date type="published" when="2020">2020</date>
+			<publisher>Wiley</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<analytic>
+		<title level="a" type="main">Analysis of repetitive amino acid motifs reveals the essential features of spider dragline silk proteins</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">D</forename><surname>Malay</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Arakawa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Numata</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">PLOS ONE</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="page">183397</biblScope>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<analytic>
+		<title level="a" type="main">Multicomponent nature underlies the extraordinary mechanical properties of spider dragline silk</title>
+		<author>
+			<persName><forename type="first">Nobuaki</forename><surname>Kono</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hiroyuki</forename><surname>Nakamura</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Masaru</forename><surname>Mori</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yuki</forename><surname>Yoshida</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rintaro</forename><surname>Ohtoshi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ali</forename><forename type="middle">D</forename><surname>Malay</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Daniel</forename><forename type="middle">A</forename><surname>Pedrazzoli Moran</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Masaru</forename><surname>Tomita</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Keiji</forename><surname>Numata</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kazuharu</forename><surname>Arakawa</surname></persName>
+			<idno type="ORCID">0000-0002-2893-4919</idno>
+		</author>
+		<idno type="DOI">10.1101/2021.04.22.441049</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Proc. Natl. Acad. Sci</title>
+		<imprint>
+			<biblScope unit="volume">118</biblScope>
+			<biblScope unit="page">2107065118</biblScope>
+			<date type="published" when="2021-04-23">2021</date>
+			<publisher>Cold Spring Harbor Laboratory</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<analytic>
+		<title level="a" type="main">Orb-weaving spider Araneus ventricosus genome elucidates the spidroin gene catalogue</title>
+		<author>
+			<persName><forename type="first">Nobuaki</forename><surname>Kono</surname></persName>
+			<idno type="ORCID">0000-0001-5960-7956</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Hiroyuki</forename><surname>Nakamura</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rintaro</forename><surname>Ohtoshi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Daniel</forename><forename type="middle">A Pedrazzoli</forename><surname>Moran</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Asaka</forename><surname>Shinohara</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yuki</forename><surname>Yoshida</surname></persName>
+			<idno type="ORCID">0000-0003-2749-8171</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Masayuki</forename><surname>Fujiwara</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Masaru</forename><surname>Mori</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Masaru</forename><surname>Tomita</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kazuharu</forename><surname>Arakawa</surname></persName>
+			<idno type="ORCID">0000-0002-2893-4919</idno>
+		</author>
+		<idno type="DOI">10.1038/s41598-019-44775-2</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Scientific Reports</title>
+		<title level="j" type="abbrev">Sci Rep</title>
+		<idno type="ISSNe">2045-2322</idno>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page">8380</biblScope>
+			<date type="published" when="2019-06-10">2019</date>
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<analytic>
+		<title level="a" type="main">Systematics, phylogeny, and evolution of orb-weaving spiders</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Hormiga</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">E</forename><surname>Griswold</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Annu. Rev. Entomol</title>
+		<imprint>
+			<biblScope unit="volume">59</biblScope>
+			<biblScope unit="page" from="487" to="512" />
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<analytic>
+		<title level="a" type="main">Variability in the mechanical properties of spider silks on three levels: interspecific, intraspecific and intraindividual</title>
+		<author>
+			<persName><forename type="first">Bo</forename><surname>Madsen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zheng</forename><forename type="middle">Zhong</forename><surname>Shao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Fritz</forename><surname>Vollrath</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/s0141-8130(98)00094-4</idno>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Biological Macromolecules</title>
+		<title level="j" type="abbrev">International Journal of Biological Macromolecules</title>
+		<idno type="ISSN">0141-8130</idno>
+		<imprint>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="issue">2-3</biblScope>
+			<biblScope unit="page" from="301" to="306" />
+			<date type="published" when="1999-03">1999</date>
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b44">
+	<analytic>
+		<title level="a" type="main">Simultaneous effect of strain rate and humidity on the structure and mechanical behavior of spider silk</title>
+		<author>
+			<persName><forename type="first">Kenjiro</forename><surname>Yazawa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ali</forename><forename type="middle">D</forename><surname>Malay</surname></persName>
+			<idno type="ORCID">0000-0003-0885-5524</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Hiroyasu</forename><surname>Masunaga</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Norma-Rashid</surname></persName>
+			<idno type="ORCID">0000-0002-1450-1995</idno>
+		</author>
+		<author>
+			<persName><forename type="first">Keiji</forename><surname>Numata</surname></persName>
+			<idno type="ORCID">0000-0003-2199-7420</idno>
+		</author>
+		<idno type="DOI">10.1038/s43246-020-0011-8</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Communications Materials</title>
+		<title level="j" type="abbrev">Commun Mater</title>
+		<idno type="ISSNe">2662-4443</idno>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page">10</biblScope>
+			<date type="published" when="2020-03-10">2020</date>
+			<publisher>Springer Science and Business Media LLC</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b45">
+	<analytic>
+		<title level="a" type="main">Meta-analysis reveals materiomic relationships in major ampullate silk across the spider phylogeny</title>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">C</forename><surname>Craig</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Piorkowski</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Nakagawa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">M</forename><surname>Kasumovic</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">J</forename><surname>Blamires</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. R. Soc. Interface</title>
+		<imprint>
+			<biblScope unit="volume">17</biblScope>
+			<biblScope unit="page">20200471</biblScope>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b46">
+	<analytic>
+		<title level="a" type="main">Distinct contributions of model MaSp1 and MaSp2 like peptides to the mechanical properties of synthetic major ampullate silk fibers as revealed in silico</title>
+		<author>
+			<persName><forename type="first">Amanda</forename><forename type="middle">E</forename><surname>Brooks</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">R</forename><surname>Nelson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">A</forename><surname>Jones</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Koenig</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Hinman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Stricker</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">V</forename><surname>Lewis</surname></persName>
+		</author>
+		<idno type="DOI">10.2147/nsa.s3961</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Nanotechnology, Science and Applications</title>
+		<title level="j" type="abbrev">NSA</title>
+		<idno type="ISSNe">1177-8903</idno>
+		<imprint>
+			<biblScope unit="volume">Volume 1</biblScope>
+			<biblScope unit="page" from="9" to="16" />
+			<date type="published" when="2008-08">2008</date>
+			<publisher>Informa UK Limited</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b47">
+	<analytic>
+		<title level="a" type="main">Mechanical and physical properties of recombinant spider silk films using organic and aqueous solvents</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">L</forename><surname>Tucker</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">A</forename><surname>Jones</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">N</forename><surname>Bringhurst</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">G</forename><surname>Copeland</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">B</forename><surname>Addison</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">S</forename><surname>Weber</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Mou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">L</forename><surname>Yarger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">V</forename><surname>Lewis</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Biomacromolecules</title>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="page" from="3158" to="3170" />
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b48">
+	<analytic>
+		<title level="a" type="main">On the origin of supercontraction in spider silk</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Cohen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Levin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">D</forename><surname>Eisenbach</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Biomacromolecules</title>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="page" from="993" to="1000" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b49">
+	<analytic>
+		<title level="a" type="main">Doing what spiders cannot-A road map to supreme artificial silk fibers</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Johansson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Rising</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">ACS Nano</title>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="page" from="1952" to="1959" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b50">
+	<analytic>
+		<title level="a" type="main">The effect of proline on the network structure of major ampullate silks as inferred from their mechanical and optical properties</title>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">N</forename><surname>Savage</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Gosline</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Exp. Biol</title>
+		<imprint>
+			<biblScope unit="volume">211</biblScope>
+			<biblScope unit="page" from="1937" to="1947" />
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b51">
+	<analytic>
+		<title level="a" type="main">Structural role of tyrosine in &lt;i&gt;Bombyx mori&lt;/i&gt; silk fibroin, studied by solid‐state NMR and molecular mechanics on a model peptide prepared as silk I and II</title>
+		<author>
+			<persName><forename type="first">Tetsuo</forename><surname>Asakura</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kohei</forename><surname>Suita</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tsunenori</forename><surname>Kameda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sergii</forename><surname>Afonin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Anne</forename><forename type="middle">S</forename><surname>Ulrich</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/mrc.1337</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Magnetic Resonance in Chemistry</title>
+		<title level="j" type="abbrev">Magnetic Reson in Chemistry</title>
+		<idno type="ISSN">0749-1581</idno>
+		<idno type="ISSNe">1097-458X</idno>
+		<imprint>
+			<biblScope unit="volume">42</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="258" to="266" />
+			<date type="published" when="2004-01-14">2004</date>
+			<publisher>Wiley</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b52">
+	<analytic>
+		<title level="a" type="main">EVOLUTION OF ARTHROPOD SILKS</title>
+		<author>
+			<persName><forename type="first">Catherine</forename><forename type="middle">L</forename><surname>Craig</surname></persName>
+		</author>
+		<idno type="DOI">10.1146/annurev.ento.42.1.231</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Annual Review of Entomology</title>
+		<title level="j" type="abbrev">Annu. Rev. Entomol.</title>
+		<idno type="ISSN">0066-4170</idno>
+		<idno type="ISSNe">1545-4487</idno>
+		<imprint>
+			<biblScope unit="volume">42</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="231" to="267" />
+			<date type="published" when="1997-01">1997</date>
+			<publisher>Annual Reviews</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b53">
+	<analytic>
+		<title level="a" type="main">Comprehensive transcriptome sequencing of tanaidacea with proteomic evidences for their silk</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Kakui</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">F</forename><surname>Fleming</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Mori</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Fujiwara</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Arakawa</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Genome Biol. Evol</title>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="page">281</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b54">
+	<analytic>
+		<title level="a" type="main">Proteomic evidence for the silk fibroin genes of spider mites (order Trombidiformes: family Tetranychidae)</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Arakawa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Mori</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Kono</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Suzuki</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Gotoh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Shimano</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Proteomics</title>
+		<imprint>
+			<biblScope unit="volume">239</biblScope>
+			<biblScope unit="page">104195</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b55">
+	<analytic>
+		<title level="a" type="main">The balance of crystalline and amorphous regions in the fibroin structure underpins the tensile strength of bagworm silk</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Kono</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Nakamura</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Tateishi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Numata</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Arakawa</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Zoological Lett</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="page">11</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b56">
+	<analytic>
+		<title level="a" type="main">DNA primers for amplification of mitochondrial cytochrome c oxidase subunit I from diverse metazoan invertebrates</title>
+		<author>
+			<persName><forename type="first">O</forename><surname>Folmer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Black</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Hoeh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Lutz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Vrijenhoek</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Mol. Mar. Biol. Biotechnol</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="page" from="294" to="299" />
+			<date type="published" when="1994">1994</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b57">
+	<analytic>
+		<title level="a" type="main">A combined molecular approach to phylogeny of the jumping spider subfamily Dendryphantinae (Araneae: Salticidae)</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Hedin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">P</forename><surname>Maddison</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Mol. Phylogenet. Evol</title>
+		<imprint>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="page" from="386" to="403" />
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b58">
+	<analytic>
+		<title level="a" type="main">Evaluation of the impact of RNA preservation methods of spiders for de novo transcriptome assembly</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Kono</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Nakamura</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Ito</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Tomita</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Arakawa</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Mol. Ecol. Resour</title>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="page" from="662" to="672" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b59">
+	<analytic>
+		<title level="a" type="main">Bridger: a new framework for de novo transcriptome assembly using RNA-seq data</title>
+		<author>
+			<persName><forename type="first">Zheng</forename><surname>Chang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Guojun</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Juntao</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yu</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Cody</forename><surname>Ashby</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Deli</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Carole</forename><forename type="middle">L</forename><surname>Cramer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xiuzhen</forename><surname>Huang</surname></persName>
+		</author>
+		<idno type="DOI">10.1186/s13059-015-0596-2</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Genome Biology</title>
+		<title level="j" type="abbrev">Genome Biol</title>
+		<idno type="ISSNe">1465-6906</idno>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page">30</biblScope>
+			<date type="published" when="2015-02-11">2015</date>
+			<publisher>Springer Science and Business Media LLC</publisher>
+			<pubPlace>Bridger</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b60">
+	<analytic>
+		<title level="a" type="main">&lt;i&gt;proovread&lt;/i&gt; : large-scale high-accuracy PacBio correction through iterative short read consensus</title>
+		<author>
+			<persName><forename type="first">Thomas</forename><surname>Hackl</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rainer</forename><surname>Hedrich</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jörg</forename><surname>Schultz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Frank</forename><surname>Förster</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/bioinformatics/btu392</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Bioinformatics</title>
+		<idno type="ISSN">1367-4803</idno>
+		<idno type="ISSNe">1367-4811</idno>
+		<imprint>
+			<biblScope unit="volume">30</biblScope>
+			<biblScope unit="issue">21</biblScope>
+			<biblScope unit="page" from="3004" to="3011" />
+			<date type="published" when="2014-07-10">2014</date>
+			<publisher>Oxford University Press (OUP)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b61">
+	<analytic>
+		<title level="a" type="main">FastTree 2 – Approximately Maximum-Likelihood Trees for Large Alignments</title>
+		<author>
+			<persName><forename type="first">Morgan</forename><forename type="middle">N</forename><surname>Price</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Paramvir</forename><forename type="middle">S</forename><surname>Dehal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Adam</forename><forename type="middle">P</forename><surname>Arkin</surname></persName>
+		</author>
+		<idno type="DOI">10.1371/journal.pone.0009490</idno>
+	</analytic>
+	<monogr>
+		<title level="j">PLoS ONE</title>
+		<title level="j" type="abbrev">PLoS ONE</title>
+		<idno type="ISSNe">1932-6203</idno>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page">e9490</biblScope>
+			<date type="published" when="2010-03-10">2010</date>
+			<publisher>Public Library of Science (PLoS)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b62">
+	<analytic>
+		<title level="a" type="main">MAFFT Multiple Sequence Alignment Software Version 7: Improvements in Performance and Usability</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Katoh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">M</forename><surname>Standley</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/molbev/mst010</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Molecular Biology and Evolution</title>
+		<title level="j" type="abbrev">Molecular Biology and Evolution</title>
+		<idno type="ISSN">0737-4038</idno>
+		<idno type="ISSNe">1537-1719</idno>
+		<imprint>
+			<biblScope unit="volume">30</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="772" to="780" />
+			<date type="published" when="2013-01-16">2013</date>
+			<publisher>Oxford University Press (OUP)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b63">
+	<analytic>
+		<title level="a" type="main">trimAl: A tool for automated alignment trimming in large-scale phylogenetic analyses</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Capella-Gutiérrez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Silla-Martínez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Gabaldón</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Bioinformatics</title>
+		<imprint>
+			<biblScope unit="volume">25</biblScope>
+			<biblScope unit="page" from="1972" to="1973" />
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b64">
+	<analytic>
+		<title level="a" type="main">Relationships between physical properties and sequence in silkworm silks</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">D</forename><surname>Malay</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Sato</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Yazawa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Watanabe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ifuku</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Masunaga</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Hikima</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Guan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">B</forename><surname>Mandal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Damrongsakkul</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Numata</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Sci. Rep</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="page">27573</biblScope>
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b65">
+	<analytic>
+		<title level="a" type="main">Crystal structure and physical properties of Antheraea yamamai silk fibers: Long poly(alanine) sequences are partially in the crystalline region</title>
+		<author>
+			<persName><forename type="first">Keiji</forename><surname>Numata</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ryota</forename><surname>Sato</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kenjiro</forename><surname>Yazawa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Takaaki</forename><surname>Hikima</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hiroyasu</forename><surname>Masunaga</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.polymer.2015.09.025</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Polymer</title>
+		<title level="j" type="abbrev">Polymer</title>
+		<idno type="ISSN">0032-3861</idno>
+		<imprint>
+			<biblScope unit="volume">77</biblScope>
+			<biblScope unit="page" from="87" to="94" />
+			<date type="published" when="2015-10">2015</date>
+			<publisher>Elsevier BV</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b66">
+	<analytic>
+		<title level="a" type="main">Two-dimensional detector software: From real detector to idealised image or two-theta scan</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Hammersley</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">O</forename><surname>Svensson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Hanfland</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">N</forename><surname>Fitch</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Hausermann</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Int. J. High Pressure Res</title>
+		<imprint>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="page" from="235" to="248" />
+			<date type="published" when="1996">1996</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b67">
+	<analytic>
+		<title level="a" type="main">Recovery in spider silk fibers</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Elices</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Pérez-Rigueiro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Plaza</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">V</forename><surname>Guinea</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Appl. Polym. Sci</title>
+		<imprint>
+			<biblScope unit="volume">92</biblScope>
+			<biblScope unit="page" from="3537" to="3541" />
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b68">
+	<analytic>
+		<title level="a" type="main">G-language Genome Analysis Environment: A workbench for nucleotide sequence data mining</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Arakawa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Mori</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Ikeda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Matsuzaki</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Kobayashi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Tomita</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Bioinformatics</title>
+		<imprint>
+			<biblScope unit="volume">19</biblScope>
+			<biblScope unit="page" from="305" to="306" />
+			<date type="published" when="2003">2003</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b69">
+	<analytic>
+		<title level="a" type="main">Computational genome analysis using the G-language system</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Arakawa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Suzuki</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Tomita</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Genes, Genomes Genomics</title>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page" from="1" to="13" />
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b70">
+	<analytic>
+		<title level="a" type="main">G-language System as a platform for large-scale analysis of high-throughput omics data</title>
+		<author>
+			<persName><forename type="first">Kazuharu</forename><surname>Arakawa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Masaru</forename><surname>Tomita</surname></persName>
+		</author>
+		<idno type="DOI">10.1584/jpestics.31.282</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Pesticide Science</title>
+		<title level="j" type="abbrev">J. Pestic. Sci.</title>
+		<idno type="ISSN">1348-589X</idno>
+		<idno type="ISSNe">1349-0923</idno>
+		<imprint>
+			<biblScope unit="volume">31</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="282" to="288" />
+			<date type="published" when="2006">2006</date>
+			<publisher>Pesticide Science Society of Japan</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b71">
+	<monogr>
+		<title level="m" type="main">are employees of Spiber Inc. The authors declare that they have no other competing interests. Data and materials availability: All data needed to evaluate the conclusions</title>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">N</forename><surname>Writing</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">A</forename></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">N</forename><surname>Writing</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">S</forename></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">O</forename></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">P</forename></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">S</forename></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><forename type="middle">I</forename></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">N</forename></persName>
+		</author>
+		<idno type="DOI">10.1126/sciadv.abo6043</idno>
+		<ptr target="https://spider-silkome.org" />
+		<editor>K.S., D.L.K., B.B.M., J.G., C.H., S.J.B., and N.M.P.,</editor>
+		<imprint>
+			<date type="published" when="2022">2022</date>
+			<pubPlace>United States, India, China, United Kingdom, Australia, and Italy</pubPlace>
+		</imprint>
+	</monogr>
+	<note>original draft All authors Competing interests: in the paper are present in the paper, the Spider Silkome Database ), and/or the Supplementary Materials. The spider biological materials in Malaysia respectively, pending scientific review and a completed material transfer agreement. Requests for the spider biological materials should be submitted to K Submitted 14 February 2022 Accepted 19 August 2022 Published 12 October</note>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

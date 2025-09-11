@@ -93,6 +93,9 @@ source .venv/bin/activate  # Linux/Mac
 # or
 .venv\Scripts\activate  # Windows
 
+# If you use Conda
+conda create -n [name_of_env] python=3.11
+
 # Install package in development mode
 pip install -e ".[dev]"
 ```
