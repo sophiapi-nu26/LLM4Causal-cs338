@@ -11,32 +11,24 @@ class EntityType(str, Enum):
     STRUCTURE = "structure"
     PROPERTY = "property"
     PROCESS = "process"
-    CONDITION = "condition"
-    OTHER = "other"
 
 class RelationType(str, Enum):
     INCREASES = "increases"
     DECREASES = "decreases"
     CAUSES = "causes"
-    CORRELATES = "correlates_with"
+    POSITIVELY_CORRELATES = "positively correlates with"
+    NETAIVELY_CORELATES = "negatively correlates with"
 
 class Entity(BaseModel):
     """Represents a materials science entity."""
-    id: str = Field(..., description="Unique identifier for the entity")
     text: str = Field(..., description="Original text of the entity")
     type: EntityType = Field(..., description="Type of the entity")
-    aliases: List[str] = Field(default_factory=list, description="Alternative names")
-    metadata: Dict = Field(default_factory=dict, description="Additional metadata")
 
 class Relationship(BaseModel):
     """Represents a causal relationship between entities."""
     subject: Entity
     object: Entity
     relation_type: RelationType
-    polarity: int = Field(..., ge=-1, le=1, description="Direction of relationship")
-    confidence: float = Field(..., ge=0, le=1, description="Model confidence")
-    evidence: str = Field(..., description="Supporting text from source")
-    metadata: Dict = Field(default_factory=dict)
 
 class ModelConfig(BaseModel):
     """Configuration for LLM models."""

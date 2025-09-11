@@ -1,784 +1,981 @@
 [
     {
         "subject": {
-            "id": "entity_0",
-            "text": "\"spider silk\"",
-            "type": "material"
+            "name": "Major ampullate silk",
+            "type": "Material"
         },
+        "relationship": "increases",
         "object": {
-            "id": "entity_0",
-            "text": "\"spider silk\"",
-            "type": "material"
-        },
-        "relation_type": "correlates_with",
-        "polarity": 0,
-        "confidence": 0.6,
-        "evidence": "[ ]",
-        "metadata": {}
+            "name": "toughness",
+            "type": "Property"
+        }
     },
     {
         "subject": {
-            "id": "entity_0",
-            "text": "\"spider silk\"",
-            "type": "material"
+            "name": "Major ampullate silk",
+            "type": "Material"
         },
+        "relationship": "causes",
         "object": {
-            "id": "entity_0",
-            "text": "\"spider silk\"",
-            "type": "material"
-        },
-        "relation_type": "causes",
-        "polarity": 1,
-        "confidence": 0.8,
-        "evidence": "[ ]",
-        "metadata": {}
+            "name": "draglines",
+            "type": "Structure"
+        }
     },
     {
         "subject": {
-            "id": "entity_2",
-            "text": "polyalanine sequences",
+            "name": "Major ampullate silk",
+            "type": "Material"
+        },
+        "relationship": "causes",
+        "object": {
+            "name": "frames of orb webs",
+            "type": "Structure"
+        }
+    },
+    {
+        "subject": {
+            "name": "Minor ampullate silk",
+            "type": "Material"
+        },
+        "relationship": "causes",
+        "object": {
+            "name": "scaffold during orb web weaving",
+            "type": "Structure"
+        }
+    },
+    {
+        "subject": {
+            "name": "Piriform silk",
+            "type": "Material"
+        },
+        "relationship": "causes",
+        "object": {
+            "name": "adhesion of the frame of the orb web to wood or other substrates",
+            "type": "Process"
+        }
+    },
+    {
+        "subject": {
+            "name": "Capture thread",
+            "type": "Material"
+        },
+        "relationship": "causes",
+        "object": {
+            "name": "composition of orb web",
+            "type": "Structure"
+        }
+    },
+    {
+        "subject": {
+            "name": "Capture thread",
+            "type": "Material"
+        },
+        "relationship": "causes",
+        "object": {
+            "name": "flagelliform silk backbone",
+            "type": "Structure"
+        }
+    },
+    {
+        "subject": {
+            "name": "Capture thread",
+            "type": "Material"
+        },
+        "relationship": "causes",
+        "object": {
+            "name": "aggregate glue",
+            "type": "Structure"
+        }
+    },
+    {
+        "subject": {
+            "name": "Aciniform silk",
+            "type": "Material"
+        },
+        "relationship": "causes",
+        "object": {
+            "name": "prey wrapping",
+            "type": "Process"
+        }
+    },
+    {
+        "subject": {
+            "name": "Aciniform silk",
+            "type": "Material"
+        },
+        "relationship": "causes",
+        "object": {
+            "name": "decorations of the web",
+            "type": "Structure"
+        }
+    },
+    {
+        "subject": {
+            "name": "Tubiform (or cylindrical) silk",
+            "type": "Material"
+        },
+        "relationship": "causes",
+        "object": {
+            "name": "egg sac",
+            "type": "Structure"
+        }
+    },
+    {
+        "subject": {
+            "name": "Silk",
+            "type": "Material"
+        },
+        "relationship": "increases",
+        "object": {
+            "name": "plasticity",
+            "type": "Property"
+        }
+    },
+    {
+        "subject": {
+            "name": "Silk proteins",
+            "type": "Material"
+        },
+        "relationship": "increases",
+        "object": {
+            "name": "plasticity",
+            "type": "Property"
+        }
+    },
+    {
+        "subject": {
+            "name": "Silk",
+            "type": "Material"
+        },
+        "relationship": "increases",
+        "object": {
+            "name": "range of physical properties",
+            "type": "Property"
+        }
+    },
+    {
+        "subject": {
+            "name": "specific proteins",
             "type": "material"
         },
+        "relationship": "causes",
         "object": {
-            "id": "entity_17",
-            "text": "intermolecular chain packing",
+            "name": "specific mechanical properties",
+            "type": "property"
+        }
+    },
+    {
+        "subject": {
+            "name": "major ampullate spidroin",
+            "type": "material"
+        },
+        "relationship": "causes",
+        "object": {
+            "name": "strength",
+            "type": "property"
+        }
+    },
+    {
+        "subject": {
+            "name": "major ampullate spidroin",
+            "type": "material"
+        },
+        "relationship": "causes",
+        "object": {
+            "name": "toughness",
+            "type": "property"
+        }
+    },
+    {
+        "subject": {
+            "name": "protein engineering methods",
             "type": "process"
         },
-        "relation_type": "increases",
-        "polarity": 1,
-        "confidence": 0.8,
-        "evidence": "[ ]",
-        "metadata": {}
+        "relationship": "decreases",
+        "object": {
+            "name": "supercontraction",
+            "type": "property"
+        }
     },
     {
         "subject": {
-            "id": "entity_0",
-            "text": "\"spider silk\"",
-            "type": "material"
+            "name": "spidroin sequences",
+            "type": "Material"
         },
+        "relationship": "causes",
         "object": {
-            "id": "entity_1",
-            "text": "amino acid motifs",
-            "type": "structure"
-        },
-        "relation_type": "correlates_with",
-        "polarity": 0,
-        "confidence": 0.6,
-        "evidence": "[ ]",
-        "metadata": {}
+            "name": "mechanical properties",
+            "type": "Property"
+        }
     },
     {
         "subject": {
-            "id": "entity_0",
-            "text": "\"spider silk\"",
-            "type": "material"
+            "name": "spidroin repetitive regions",
+            "type": "Material"
         },
+        "relationship": "causes",
         "object": {
-            "id": "entity_3",
-            "text": "amorphous regions",
-            "type": "structure"
-        },
-        "relation_type": "correlates_with",
-        "polarity": 0,
-        "confidence": 0.7,
-        "evidence": "[ ]",
-        "metadata": {}
+            "name": "mechanical properties",
+            "type": "Property"
+        }
     },
     {
         "subject": {
-            "id": "entity_4",
-            "text": "G",
-            "type": "material"
+            "name": "spider phylogenomics",
+            "type": "Process"
         },
+        "relationship": "causes",
         "object": {
-            "id": "entity_5",
-            "text": "GG",
-            "type": "material"
-        },
-        "relation_type": "correlates_with",
-        "polarity": 1,
-        "confidence": 0.95,
-        "evidence": "[ ]",
-        "metadata": {}
+            "name": "spidroin repetitive sequences",
+            "type": "Material"
+        }
     },
     {
         "subject": {
-            "id": "entity_4",
-            "text": "G",
-            "type": "material"
+            "name": "sequencing methods",
+            "type": "Process"
         },
+        "relationship": "causes",
         "object": {
-            "id": "entity_6",
-            "text": "AGQG",
-            "type": "material"
-        },
-        "relation_type": "correlates_with",
-        "polarity": 1,
-        "confidence": 0.8,
-        "evidence": "[ ]",
-        "metadata": {}
+            "name": "spidroin repetitive sequences",
+            "type": "Material"
+        }
     },
     {
         "subject": {
-            "id": "entity_0",
-            "text": "\"spider silk\"",
-            "type": "material"
+            "name": "de novo transcriptome sequencing and assembly",
+            "type": "Process"
         },
+        "relationship": "causes",
         "object": {
-            "id": "entity_2",
-            "text": "polyalanine sequences",
-            "type": "material"
-        },
-        "relation_type": "correlates_with",
-        "polarity": 1,
-        "confidence": 0.8,
-        "evidence": "[ ]",
-        "metadata": {}
+            "name": "spidroin repetitive sequences",
+            "type": "Material"
+        }
     },
     {
         "subject": {
-            "id": "entity_2",
-            "text": "polyalanine sequences",
-            "type": "material"
+            "name": "de novo transcriptome sequencing and assembly",
+            "type": "Process"
         },
+        "relationship": "causes",
         "object": {
-            "id": "entity_0",
-            "text": "\"spider silk\"",
-            "type": "material"
-        },
-        "relation_type": "causes",
-        "polarity": 1,
-        "confidence": 0.8,
-        "evidence": "[ ]",
-        "metadata": {}
+            "name": "material properties",
+            "type": "Property"
+        }
     },
     {
         "subject": {
-            "id": "entity_2",
-            "text": "polyalanine sequences",
-            "type": "material"
+            "name": "Undifferentiated spidroins",
+            "type": "Material"
         },
+        "relationship": "negatively correlate with",
         "object": {
-            "id": "entity_0",
-            "text": "\"spider silk\"",
-            "type": "material"
-        },
-        "relation_type": "correlates_with",
-        "polarity": 0,
-        "confidence": 0.8,
-        "evidence": "[ ]",
-        "metadata": {}
+            "name": "specialized silk types",
+            "type": "Property"
+        }
     },
     {
         "subject": {
-            "id": "entity_0",
-            "text": "\"spider silk\"",
-            "type": "material"
+            "name": "1. silk sequences",
+            "type": "Property"
         },
+        "relationship": "increases",
         "object": {
-            "id": "entity_4",
-            "text": "G",
-            "type": "material"
-        },
-        "relation_type": "correlates_with",
-        "polarity": 0,
-        "confidence": 0.8,
-        "evidence": "[ ]",
-        "metadata": {}
+            "name": "spider biodiversity",
+            "type": "Property"
+        }
     },
     {
         "subject": {
-            "id": "entity_2",
-            "text": "polyalanine sequences",
-            "type": "material"
+            "name": "charged residues",
+            "type": "Structure"
         },
+        "relationship": "increases",
         "object": {
-            "id": "entity_1",
-            "text": "amino acid motifs",
-            "type": "structure"
-        },
-        "relation_type": "correlates_with",
-        "polarity": 1,
-        "confidence": 0.7,
-        "evidence": "[ ]",
-        "metadata": {}
+            "name": "conservation of the amino acid composition",
+            "type": "Property"
+        }
     },
     {
         "subject": {
-            "id": "entity_2",
-            "text": "polyalanine sequences",
-            "type": "material"
+            "name": "negatively charged glutamate",
+            "type": "Structure"
         },
+        "relationship": "increases",
         "object": {
-            "id": "entity_4",
-            "text": "G",
-            "type": "material"
-        },
-        "relation_type": "causes",
-        "polarity": 1,
-        "confidence": 0.9,
-        "evidence": "[ ]",
-        "metadata": {}
+            "name": "conservation of the amino acid composition",
+            "type": "Property"
+        }
     },
     {
         "subject": {
-            "id": "entity_3",
-            "text": "amorphous regions",
-            "type": "structure"
+            "name": "hydrophobic amino acids leucine, isoleucine, valine, and phenylalanine",
+            "type": "Structure"
         },
+        "relationship": "increases",
         "object": {
-            "id": "entity_10",
-            "text": "sample-to-detector distance of 179.6 mm",
+            "name": "conservation of the amino acid composition",
+            "type": "Property"
+        }
+    },
+    {
+        "subject": {
+            "name": "Flagelliform silk",
+            "type": "Material"
+        },
+        "relationship": "causes",
+        "object": {
+            "name": "stretchable silk fibers",
+            "type": "Material"
+        }
+    },
+    {
+        "subject": {
+            "name": "Thermal degradation profiles",
+            "type": "Property"
+        },
+        "relationship": "positively correlate with",
+        "object": {
+            "name": "Hydration properties",
+            "type": "Property"
+        }
+    },
+    {
+        "subject": {
+            "name": "Spidroin sequence data",
+            "type": "Material"
+        },
+        "relationship": "causes",
+        "object": {
+            "name": "Mechanical performance (toughness, Young's modulus, tensile strength, and strain at break)",
+            "type": "Property"
+        }
+    },
+    {
+        "subject": {
+            "name": "Spidroin sequence data",
+            "type": "Material"
+        },
+        "relationship": "causes",
+        "object": {
+            "name": "Morphological and structural properties",
+            "type": "Property"
+        }
+    },
+    {
+        "subject": {
+            "name": "Spidroin sequence data",
+            "type": "Material"
+        },
+        "relationship": "causes",
+        "object": {
+            "name": "Thermal degradation profiles",
+            "type": "Property"
+        }
+    },
+    {
+        "subject": {
+            "name": "Spidroin sequence data",
+            "type": "Material"
+        },
+        "relationship": "causes",
+        "object": {
+            "name": "Hydration properties",
+            "type": "Property"
+        }
+    },
+    {
+        "subject": {
+            "name": "Toughness",
             "type": "property"
         },
-        "relation_type": "correlates_with",
-        "polarity": 0,
-        "confidence": 0.7,
-        "evidence": "[ ]",
-        "metadata": {}
-    },
-    {
-        "subject": {
-            "id": "entity_14",
-            "text": "GYGQGG motif",
-            "type": "material"
-        },
+        "relationship": "positively correlate with",
         "object": {
-            "id": "entity_2",
-            "text": "polyalanine sequences",
-            "type": "material"
-        },
-        "relation_type": "causes",
-        "polarity": 1,
-        "confidence": 0.9,
-        "evidence": "[ ]",
-        "metadata": {}
+            "name": "tensile strength",
+            "type": "property"
+        }
     },
     {
         "subject": {
-            "id": "entity_14",
-            "text": "GYGQGG motif",
-            "type": "material"
-        },
-        "object": {
-            "id": "entity_13",
-            "text": "Ser",
-            "type": "material"
-        },
-        "relation_type": "causes",
-        "polarity": 1,
-        "confidence": 0.8,
-        "evidence": "[ ]",
-        "metadata": {}
-    },
-    {
-        "subject": {
-            "id": "entity_2",
-            "text": "polyalanine sequences",
-            "type": "material"
-        },
-        "object": {
-            "id": "entity_5",
-            "text": "GG",
-            "type": "material"
-        },
-        "relation_type": "correlates_with",
-        "polarity": 0,
-        "confidence": 0.8,
-        "evidence": "[ ]",
-        "metadata": {}
-    },
-    {
-        "subject": {
-            "id": "entity_2",
-            "text": "polyalanine sequences",
-            "type": "material"
-        },
-        "object": {
-            "id": "entity_4",
-            "text": "G",
-            "type": "material"
-        },
-        "relation_type": "correlates_with",
-        "polarity": 0,
-        "confidence": 0.8,
-        "evidence": "[ ]",
-        "metadata": {}
-    },
-    {
-        "subject": {
-            "id": "entity_5",
-            "text": "GG",
-            "type": "material"
-        },
-        "object": {
-            "id": "entity_18",
-            "text": "spider dragline",
-            "type": "material"
-        },
-        "relation_type": "causes",
-        "polarity": 1,
-        "confidence": 0.8,
-        "evidence": "[ ]",
-        "metadata": {}
-    },
-    {
-        "subject": {
-            "id": "entity_15",
-            "text": "\"elasticity\"",
+            "name": "Toughness",
             "type": "property"
         },
+        "relationship": "positively correlate with",
         "object": {
-            "id": "entity_17",
-            "text": "intermolecular chain packing",
+            "name": "strain at break",
+            "type": "property"
+        }
+    },
+    {
+        "subject": {
+            "name": "Birefringence",
+            "type": "property"
+        },
+        "relationship": "positively correlate with",
+        "object": {
+            "name": "tensile strength",
+            "type": "property"
+        }
+    },
+    {
+        "subject": {
+            "name": "Crystallinity",
+            "type": "property"
+        },
+        "relationship": "positively correlate with",
+        "object": {
+            "name": "strain at break",
+            "type": "property"
+        }
+    },
+    {
+        "subject": {
+            "name": "Silk diameter",
+            "type": "structure"
+        },
+        "relationship": "positively correlate with",
+        "object": {
+            "name": "strain at break",
+            "type": "property"
+        }
+    },
+    {
+        "subject": {
+            "name": "Silk diameter",
+            "type": "structure"
+        },
+        "relationship": "positively correlate with",
+        "object": {
+            "name": "supercontraction",
+            "type": "property"
+        }
+    },
+    {
+        "subject": {
+            "name": "MaSp3 (group 19)",
+            "type": "material"
+        },
+        "relationship": "increases",
+        "object": {
+            "name": "toughness",
+            "type": "property"
+        }
+    },
+    {
+        "subject": {
+            "name": "MaSp2 (group 11)",
+            "type": "material"
+        },
+        "relationship": "increases",
+        "object": {
+            "name": "toughness",
+            "type": "property"
+        }
+    },
+    {
+        "subject": {
+            "name": "MaSp1 (group 17)",
+            "type": "material"
+        },
+        "relationship": "increases",
+        "object": {
+            "name": "toughness",
+            "type": "property"
+        }
+    },
+    {
+        "subject": {
+            "name": "MaSp2 (group 13)",
+            "type": "material"
+        },
+        "relationship": "increases",
+        "object": {
+            "name": "tensile strength",
+            "type": "property"
+        }
+    },
+    {
+        "subject": {
+            "name": "MaSp2 (group 14)",
+            "type": "material"
+        },
+        "relationship": "increases",
+        "object": {
+            "name": "supercontraction",
+            "type": "property"
+        }
+    },
+    {
+        "subject": {
+            "name": "MaSp2 (group 13)",
+            "type": "material"
+        },
+        "relationship": "increases",
+        "object": {
+            "name": "supercontraction",
+            "type": "property"
+        }
+    },
+    {
+        "subject": {
+            "name": "MaSp2 (group 11)",
+            "type": "material"
+        },
+        "relationship": "increases",
+        "object": {
+            "name": "supercontraction",
+            "type": "property"
+        }
+    },
+    {
+        "subject": {
+            "name": "MaSp1 (group 17)",
+            "type": "material"
+        },
+        "relationship": "increases",
+        "object": {
+            "name": "supercontraction",
+            "type": "property"
+        }
+    },
+    {
+        "subject": {
+            "name": "MaSp2 (group 15)",
+            "type": "material"
+        },
+        "relationship": "decreases",
+        "object": {
+            "name": "supercontraction",
+            "type": "property"
+        }
+    },
+    {
+        "subject": {
+            "name": "Amorphous region",
+            "type": "structure"
+        },
+        "relationship": "causes",
+        "object": {
+            "name": "supercontraction",
+            "type": "property"
+        }
+    },
+    {
+        "subject": {
+            "name": "Degree of supercontraction",
+            "type": "Property"
+        },
+        "relationship": "negatively correlate with",
+        "object": {
+            "name": "Polyalanine sequences",
+            "type": "Structure"
+        }
+    },
+    {
+        "subject": {
+            "name": "Strain at break",
+            "type": "Property"
+        },
+        "relationship": "negatively correlate with",
+        "object": {
+            "name": "Polyalanine prefixed with Ser in MaSp2",
+            "type": "Structure"
+        }
+    },
+    {
+        "subject": {
+            "name": "Strain at break",
+            "type": "Property"
+        },
+        "relationship": "positively correlate with",
+        "object": {
+            "name": "MaSp1/2 amorphous regions including Pro",
+            "type": "Structure"
+        }
+    },
+    {
+        "subject": {
+            "name": "Inclusion of Ala in amorphous region of MaSp1",
+            "type": "Structure"
+        },
+        "relationship": "negatively correlate with",
+        "object": {
+            "name": "Tensile strength",
+            "type": "Property"
+        }
+    },
+    {
+        "subject": {
+            "name": "Inclusion of Pro in amorphous region of MaSp2",
+            "type": "Structure"
+        },
+        "relationship": "negatively correlate with",
+        "object": {
+            "name": "Tensile strength",
+            "type": "Property"
+        }
+    },
+    {
+        "subject": {
+            "name": "Inclusion of Ser in amorphous region of MaSp1",
+            "type": "Structure"
+        },
+        "relationship": "positively correlate with",
+        "object": {
+            "name": "Tensile strength",
+            "type": "Property"
+        }
+    },
+    {
+        "subject": {
+            "name": "GYGQGG motif in MaSp1",
+            "type": "Structure"
+        },
+        "relationship": "positively correlate with",
+        "object": {
+            "name": "Tensile strength",
+            "type": "Property"
+        }
+    },
+    {
+        "subject": {
+            "name": "GYGQGG motif in MaSp1",
+            "type": "Structure"
+        },
+        "relationship": "positively correlate with",
+        "object": {
+            "name": "Strain at break",
+            "type": "Property"
+        }
+    },
+    {
+        "subject": {
+            "name": "GYGQGG motif in MaSp1",
+            "type": "Structure"
+        },
+        "relationship": "positively correlate with",
+        "object": {
+            "name": "Toughness",
+            "type": "Property"
+        }
+    },
+    {
+        "subject": {
+            "name": "YGQGG motif in MaSp1",
+            "type": "Structure"
+        },
+        "relationship": "positively correlate with",
+        "object": {
+            "name": "Toughness",
+            "type": "Property"
+        }
+    },
+    {
+        "subject": {
+            "name": "Inclusion of Pro in MaSp2 amorphous region",
+            "type": "Structure"
+        },
+        "relationship": "negatively correlate with",
+        "object": {
+            "name": "Toughness",
+            "type": "Property"
+        }
+    },
+    {
+        "subject": {
+            "name": "SY motif in MaSp1",
+            "type": "Structure"
+        },
+        "relationship": "negatively correlate with",
+        "object": {
+            "name": "Toughness",
+            "type": "Property"
+        }
+    },
+    {
+        "subject": {
+            "name": "SV motif in MaSp1",
+            "type": "Structure"
+        },
+        "relationship": "negatively correlate with",
+        "object": {
+            "name": "Toughness",
+            "type": "Property"
+        }
+    },
+    {
+        "subject": {
+            "name": "GGS after polyalanine region in MaSp1",
+            "type": "Structure"
+        },
+        "relationship": "positively correlate with",
+        "object": {
+            "name": "Toughness",
+            "type": "Property"
+        }
+    },
+    {
+        "subject": {
+            "name": "MaSp1",
+            "type": "Material"
+        },
+        "relationship": "increases",
+        "object": {
+            "name": "Fiber Strength",
+            "type": "Property"
+        }
+    },
+    {
+        "subject": {
+            "name": "MaSp2",
+            "type": "Material"
+        },
+        "relationship": "increases",
+        "object": {
+            "name": "Fiber Elasticity",
+            "type": "Property"
+        }
+    },
+    {
+        "subject": {
+            "name": "Combination of MaSp1 and MaSp2",
+            "type": "Material"
+        },
+        "relationship": "causes",
+        "object": {
+            "name": "High Toughness of Dragline Silk",
+            "type": "Property"
+        }
+    },
+    {
+        "subject": {
+            "name": "Presence of MaSp3",
+            "type": "Material"
+        },
+        "relationship": "causes",
+        "object": {
+            "name": "High Toughness of Dragline Silk",
+            "type": "Property"
+        }
+    },
+    {
+        "subject": {
+            "name": "SpiCE",
+            "type": "Structure"
+        },
+        "relationship": "causes",
+        "object": {
+            "name": "Doubling of Tensile Strength of Artificial Spider Silk-based Film",
+            "type": "Property"
+        }
+    },
+    {
+        "subject": {
+            "name": "Ratio of Amorphous to β Sheet Regions",
+            "type": "Structure"
+        },
+        "relationship": "causes",
+        "object": {
+            "name": "Properties of MaSp2",
+            "type": "Property"
+        }
+    },
+    {
+        "subject": {
+            "name": "Ratio between amorphous and crystalline regions",
+            "type": "Structure"
+        },
+        "relationship": "causes",
+        "object": {
+            "name": "trade-off between tensile strength and elasticity",
+            "type": "Property"
+        }
+    },
+    {
+        "subject": {
+            "name": "Cytochrome c oxidase subunit I (COI) sequencing",
+            "type": "Process"
+        },
+        "relationship": "causes",
+        "object": {
+            "name": "identification by morphology",
+            "type": "Process"
+        }
+    },
+    {
+        "subject": {
+            "name": "RNA extraction",
             "type": "process"
         },
-        "relation_type": "correlates_with",
-        "polarity": 1,
-        "confidence": 0.7,
-        "evidence": "[ ]",
-        "metadata": {}
-    },
-    {
-        "subject": {
-            "id": "entity_1",
-            "text": "amino acid motifs",
-            "type": "structure"
-        },
+        "relationship": "causes",
         "object": {
-            "id": "entity_2",
-            "text": "polyalanine sequences",
-            "type": "material"
-        },
-        "relation_type": "correlates_with",
-        "polarity": 0,
-        "confidence": 0.8,
-        "evidence": "[ ]",
-        "metadata": {}
-    },
-    {
-        "subject": {
-            "id": "entity_2",
-            "text": "polyalanine sequences",
-            "type": "material"
-        },
-        "object": {
-            "id": "entity_3",
-            "text": "amorphous regions",
-            "type": "structure"
-        },
-        "relation_type": "correlates_with",
-        "polarity": 0,
-        "confidence": 0.8,
-        "evidence": "[ ]",
-        "metadata": {}
-    },
-    {
-        "subject": {
-            "id": "entity_11",
-            "text": "\"draglines\"",
-            "type": "material"
-        },
-        "object": {
-            "id": "entity_23",
-            "text": "\"supercontraction\"",
+            "name": "RNA quality",
             "type": "property"
-        },
-        "relation_type": "correlates_with",
-        "polarity": -1,
-        "confidence": 0.9,
-        "evidence": "[ ]",
-        "metadata": {}
+        }
     },
     {
         "subject": {
-            "id": "entity_2",
-            "text": "polyalanine sequences",
-            "type": "material"
-        },
-        "object": {
-            "id": "entity_23",
-            "text": "\"supercontraction\"",
-            "type": "property"
-        },
-        "relation_type": "correlates_with",
-        "polarity": -1,
-        "confidence": 0.8,
-        "evidence": "[ ]",
-        "metadata": {}
-    },
-    {
-        "subject": {
-            "id": "entity_11",
-            "text": "\"draglines\"",
-            "type": "material"
-        },
-        "object": {
-            "id": "entity_7",
-            "text": "\"strain at break\"",
-            "type": "property"
-        },
-        "relation_type": "correlates_with",
-        "polarity": 1,
-        "confidence": 0.8,
-        "evidence": "[ ]",
-        "metadata": {}
-    },
-    {
-        "subject": {
-            "id": "entity_6",
-            "text": "AGQG",
-            "type": "material"
-        },
-        "object": {
-            "id": "entity_7",
-            "text": "\"strain at break\"",
-            "type": "property"
-        },
-        "relation_type": "correlates_with",
-        "polarity": 1,
-        "confidence": 0.9,
-        "evidence": "[ ]",
-        "metadata": {}
-    },
-    {
-        "subject": {
-            "id": "entity_12",
-            "text": "Ala",
-            "type": "material"
-        },
-        "object": {
-            "id": "entity_6",
-            "text": "AGQG",
-            "type": "material"
-        },
-        "relation_type": "correlates_with",
-        "polarity": -1,
-        "confidence": 0.9,
-        "evidence": "[ ]",
-        "metadata": {}
-    },
-    {
-        "subject": {
-            "id": "entity_12",
-            "text": "Ala",
-            "type": "material"
-        },
-        "object": {
-            "id": "entity_10",
-            "text": "sample-to-detector distance of 179.6 mm",
-            "type": "property"
-        },
-        "relation_type": "correlates_with",
-        "polarity": -1,
-        "confidence": 0.8,
-        "evidence": "[ ]",
-        "metadata": {}
-    },
-    {
-        "subject": {
-            "id": "entity_13",
-            "text": "Ser",
-            "type": "material"
-        },
-        "object": {
-            "id": "entity_10",
-            "text": "sample-to-detector distance of 179.6 mm",
-            "type": "property"
-        },
-        "relation_type": "correlates_with",
-        "polarity": 1,
-        "confidence": 0.8,
-        "evidence": "[ ]",
-        "metadata": {}
-    },
-    {
-        "subject": {
-            "id": "entity_14",
-            "text": "GYGQGG motif",
-            "type": "material"
-        },
-        "object": {
-            "id": "entity_10",
-            "text": "sample-to-detector distance of 179.6 mm",
-            "type": "property"
-        },
-        "relation_type": "correlates_with",
-        "polarity": 1,
-        "confidence": 0.9,
-        "evidence": "[ ]",
-        "metadata": {}
-    },
-    {
-        "subject": {
-            "id": "entity_16",
-            "text": "Tyr residues",
-            "type": "material"
-        },
-        "object": {
-            "id": "entity_19",
-            "text": "inter-molecular interactions",
+            "name": "RNA extraction",
             "type": "process"
         },
-        "relation_type": "causes",
-        "polarity": 1,
-        "confidence": 0.8,
-        "evidence": "[ ]",
-        "metadata": {}
+        "relationship": "causes",
+        "object": {
+            "name": "RNA quantity",
+            "type": "property"
+        }
     },
     {
         "subject": {
-            "id": "entity_11",
-            "text": "\"draglines\"",
-            "type": "material"
+            "name": "Repeat units",
+            "type": "Structure"
         },
+        "relationship": "causes",
         "object": {
-            "id": "entity_6",
-            "text": "AGQG",
-            "type": "material"
-        },
-        "relation_type": "correlates_with",
-        "polarity": 1,
-        "confidence": 0.9,
-        "evidence": "[ ]",
-        "metadata": {}
+            "name": "spidroin gene length",
+            "type": "Property"
+        }
     },
     {
         "subject": {
-            "id": "entity_2",
-            "text": "polyalanine sequences",
-            "type": "material"
+            "name": "Surface morphology",
+            "type": "Property"
         },
+        "relationship": "causes",
         "object": {
-            "id": "entity_27",
-            "text": "\"mechanical, physical, structural, thermal, and water-based properties\"",
+            "name": "SEM visualization",
+            "type": "Process"
+        }
+    },
+    {
+        "subject": {
+            "name": "Cross sections",
+            "type": "Structure"
+        },
+        "relationship": "causes",
+        "object": {
+            "name": "SEM visualization",
+            "type": "Process"
+        }
+    },
+    {
+        "subject": {
+            "name": "Dragline silk fibers",
+            "type": "Material"
+        },
+        "relationship": "causes",
+        "object": {
+            "name": "SEM visualization",
+            "type": "Process"
+        }
+    },
+    {
+        "subject": {
+            "name": "Sputter-coated with gold",
+            "type": "Process"
+        },
+        "relationship": "causes",
+        "object": {
+            "name": "SEM visualization",
+            "type": "Process"
+        }
+    },
+    {
+        "subject": {
+            "name": "Spider silk samples",
+            "type": "Material"
+        },
+        "relationship": "causes",
+        "object": {
+            "name": "Degradation temperatures",
+            "type": "Property"
+        }
+    },
+    {
+        "subject": {
+            "name": "Degradation temperatures",
+            "type": "Property"
+        },
+        "relationship": "negatively correlate with",
+        "object": {
+            "name": "Weight losses",
+            "type": "Property"
+        }
+    },
+    {
+        "subject": {
+            "name": "Weight losses",
+            "type": "Property"
+        },
+        "relationship": "positively correlate with",
+        "object": {
+            "name": "Water content",
+            "type": "Property"
+        }
+    },
+    {
+        "subject": {
+            "name": "Spider silk fibers",
+            "type": "Material"
+        },
+        "relationship": "causes",
+        "object": {
+            "name": "crystalline scattering components",
+            "type": "Property"
+        }
+    },
+    {
+        "subject": {
+            "name": "Spider silk fibers",
+            "type": "Material"
+        },
+        "relationship": "causes",
+        "object": {
+            "name": "amorphous scattering components",
+            "type": "Property"
+        }
+    },
+    {
+        "subject": {
+            "name": "Supercontraction",
+            "type": "Process"
+        },
+        "relationship": "causes",
+        "object": {
+            "name": "Final length of the fiber",
+            "type": "Property"
+        }
+    },
+    {
+        "subject": {
+            "name": "Supercontraction",
+            "type": "Process"
+        },
+        "relationship": "causes",
+        "object": {
+            "name": "Maximum supercontraction",
+            "type": "Property"
+        }
+    },
+    {
+        "subject": {
+            "name": "Silkome database",
+            "type": "Material"
+        },
+        "relationship": "causes",
+        "object": {
+            "name": "spider-silkome.org",
+            "type": "Property"
+        }
+    },
+    {
+        "subject": {
+            "name": "Mechanical properties",
             "type": "property"
         },
-        "relation_type": "increases",
-        "polarity": 1,
-        "confidence": 0.8,
-        "evidence": "[ ]",
-        "metadata": {}
-    },
-    {
-        "subject": {
-            "id": "entity_17",
-            "text": "intermolecular chain packing",
-            "type": "process"
-        },
+        "relationship": "positively correlate with",
         "object": {
-            "id": "entity_14",
-            "text": "GYGQGG motif",
-            "type": "material"
-        },
-        "relation_type": "correlates_with",
-        "polarity": 1,
-        "confidence": 0.85,
-        "evidence": "[ ]",
-        "metadata": {}
-    },
-    {
-        "subject": {
-            "id": "entity_4",
-            "text": "G",
-            "type": "material"
-        },
-        "object": {
-            "id": "entity_8",
-            "text": "MaSp1/2 amorphous regions",
-            "type": "structure"
-        },
-        "relation_type": "correlates_with",
-        "polarity": 1,
-        "confidence": 0.75,
-        "evidence": "[ ]",
-        "metadata": {}
-    },
-    {
-        "subject": {
-            "id": "entity_17",
-            "text": "intermolecular chain packing",
-            "type": "process"
-        },
-        "object": {
-            "id": "entity_8",
-            "text": "MaSp1/2 amorphous regions",
-            "type": "structure"
-        },
-        "relation_type": "correlates_with",
-        "polarity": 1,
-        "confidence": 0.8,
-        "evidence": "[ ]",
-        "metadata": {}
-    },
-    {
-        "subject": {
-            "id": "entity_24",
-            "text": "polyalanine region",
-            "type": "material"
-        },
-        "object": {
-            "id": "entity_16",
-            "text": "Tyr residues",
-            "type": "material"
-        },
-        "relation_type": "correlates_with",
-        "polarity": 1,
-        "confidence": 0.8,
-        "evidence": "[ ]",
-        "metadata": {}
-    },
-    {
-        "subject": {
-            "id": "entity_24",
-            "text": "polyalanine region",
-            "type": "material"
-        },
-        "object": {
-            "id": "entity_23",
-            "text": "\"supercontraction\"",
+            "name": "toughness value distribution",
             "type": "property"
-        },
-        "relation_type": "correlates_with",
-        "polarity": 0,
-        "confidence": 0.7,
-        "evidence": "[ ]",
-        "metadata": {}
-    },
-    {
-        "subject": {
-            "id": "entity_10",
-            "text": "sample-to-detector distance of 179.6 mm",
-            "type": "property"
-        },
-        "object": {
-            "id": "entity_4",
-            "text": "G",
-            "type": "material"
-        },
-        "relation_type": "correlates_with",
-        "polarity": 1,
-        "confidence": 0.7,
-        "evidence": "[ ]",
-        "metadata": {}
-    },
-    {
-        "subject": {
-            "id": "entity_5",
-            "text": "GG",
-            "type": "material"
-        },
-        "object": {
-            "id": "entity_10",
-            "text": "sample-to-detector distance of 179.6 mm",
-            "type": "property"
-        },
-        "relation_type": "correlates_with",
-        "polarity": 1,
-        "confidence": 0.9,
-        "evidence": "[ ]",
-        "metadata": {}
-    },
-    {
-        "subject": {
-            "id": "entity_5",
-            "text": "GG",
-            "type": "material"
-        },
-        "object": {
-            "id": "entity_9",
-            "text": "Pro",
-            "type": "material"
-        },
-        "relation_type": "increases",
-        "polarity": 1,
-        "confidence": 0.9,
-        "evidence": "[ ]",
-        "metadata": {}
-    },
-    {
-        "subject": {
-            "id": "entity_6",
-            "text": "AGQG",
-            "type": "material"
-        },
-        "object": {
-            "id": "entity_9",
-            "text": "Pro",
-            "type": "material"
-        },
-        "relation_type": "increases",
-        "polarity": 1,
-        "confidence": 0.9,
-        "evidence": "[ ]",
-        "metadata": {}
-    },
-    {
-        "subject": {
-            "id": "entity_7",
-            "text": "\"strain at break\"",
-            "type": "property"
-        },
-        "object": {
-            "id": "entity_6",
-            "text": "AGQG",
-            "type": "material"
-        },
-        "relation_type": "increases",
-        "polarity": 1,
-        "confidence": 0.9,
-        "evidence": "[ ]",
-        "metadata": {}
-    },
-    {
-        "subject": {
-            "id": "entity_7",
-            "text": "\"strain at break\"",
-            "type": "property"
-        },
-        "object": {
-            "id": "entity_9",
-            "text": "Pro",
-            "type": "material"
-        },
-        "relation_type": "increases",
-        "polarity": 1,
-        "confidence": 0.9,
-        "evidence": "[ ]",
-        "metadata": {}
-    },
-    {
-        "subject": {
-            "id": "entity_1",
-            "text": "amino acid motifs",
-            "type": "structure"
-        },
-        "object": {
-            "id": "entity_10",
-            "text": "sample-to-detector distance of 179.6 mm",
-            "type": "property"
-        },
-        "relation_type": "increases",
-        "polarity": 1,
-        "confidence": 0.8,
-        "evidence": "[ ]",
-        "metadata": {}
-    },
-    {
-        "subject": {
-            "id": "entity_3",
-            "text": "amorphous regions",
-            "type": "structure"
-        },
-        "object": {
-            "id": "entity_10",
-            "text": "sample-to-detector distance of 179.6 mm",
-            "type": "property"
-        },
-        "relation_type": "increases",
-        "polarity": 1,
-        "confidence": 0.8,
-        "evidence": "[ ]",
-        "metadata": {}
+        }
     }
 ]

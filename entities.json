@@ -1,3159 +1,478 @@
 [
     {
-        "id": "entity_0",
-        "text": "spidroins",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 32,
-            "end_char": 40,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_0",
-        "text": "Spider Silkome Database",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 102,
-            "end_char": 123,
-            "confidence": 0.95
-        }
-    },
-    {
-        "id": "entity_1",
-        "text": "protein biopolymer",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 87,
-            "end_char": 104,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_0",
-        "text": "Silkome database",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 0,
-            "end_char": 16,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_1",
-        "text": "spider silk",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 28,
-            "end_char": 39,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_0",
-        "text": "spidroin",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 71,
-            "end_char": 79,
-            "confidence": 0.95
-        }
-    },
-    {
-        "id": "entity_0",
-        "text": "mechanical properties",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 43,
-            "end_char": 62,
-            "confidence": 0.95
-        }
-    },
-    {
-        "id": "entity_1",
-        "text": "toughness",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 342,
-            "end_char": 350,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_3",
-        "text": "Araneidae",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 377,
-            "end_char": 386,
-            "confidence": 0.8
-        }
-    },
-    {
-        "id": "entity_0",
-        "text": "\"spidroin\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 153,
-            "end_char": 161,
-            "confidence": 0.95
-        }
-    },
-    {
-        "id": "entity_2",
-        "text": "\"spidroin genes\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 325,
-            "end_char": 339,
-            "confidence": 0.95
-        }
-    },
-    {
-        "id": "entity_3",
-        "text": "\"assembled transcripts\"",
-        "type": "process",
-        "aliases": [],
-        "metadata": {
-            "start_char": 290,
-            "end_char": 310,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_0",
-        "text": "Flagelliform silk",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 0,
-            "end_char": 16,
-            "confidence": 0.95
-        }
-    },
-    {
-        "id": "entity_1",
-        "text": "stretchable silk fibers",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 27,
-            "end_char": 51,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_2",
-        "text": "araneoid spiders",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 64,
-            "end_char": 80,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_3",
-        "text": "prey capture spirals",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 129,
-            "end_char": 149,
-            "confidence": 0.92
-        }
-    },
-    {
-        "id": "entity_4",
-        "text": "orb-weaver spiders",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 153,
-            "end_char": 171,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_5",
-        "text": "core repetitive sequences",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 245,
-            "end_char": 270,
-            "confidence": 0.88
-        }
-    },
-    {
-        "id": "entity_0",
-        "text": "aciniform spidroin (AcSp)",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 126,
-            "end_char": 149,
-            "confidence": 0.95
-        }
-    },
-    {
-        "id": "entity_1",
-        "text": "pyriform spidroin (PySp)",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 151,
-            "end_char": 176,
-            "confidence": 0.95
-        }
-    },
-    {
-        "id": "entity_2",
-        "text": "cribellar spidroin (CrSp)",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 181,
-            "end_char": 207,
-            "confidence": 0.95
-        }
-    },
-    {
-        "id": "entity_3",
-        "text": "proteins",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 229,
-            "end_char": 237,
-            "confidence": 0.8
-        }
-    },
-    {
-        "id": "entity_4",
-        "text": "silk types",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 289,
-            "end_char": 299,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_5",
-        "text": "undifferentiated spidroins",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 361,
-            "end_char": 386,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_1",
-        "text": "sequences",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 65,
-            "end_char": 74,
-            "confidence": 0.75
-        }
-    },
-    {
-        "id": "entity_2",
-        "text": "spidroin sequences",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 636,
-            "end_char": 653,
-            "confidence": 0.95
-        }
-    },
-    {
-        "id": "entity_3",
-        "text": "Protein database",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 677,
-            "end_char": 692,
-            "confidence": 0.7
-        }
-    },
-    {
-        "id": "entity_4",
-        "text": "major/minor ampullate spidroins (MiSps)",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 879,
-            "end_char": 914,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_0",
-        "text": "silk fiber",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 31,
-            "end_char": 41,
-            "confidence": 0.95
-        }
-    },
-    {
-        "id": "entity_1",
-        "text": "WPA-100 birefringence measurement system",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 66,
-            "end_char": 107,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_2",
-        "text": "birefringence",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 178,
-            "end_char": 191,
-            "confidence": 0.92
-        }
-    },
-    {
-        "id": "entity_3",
-        "text": "dragline silk fiber",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 199,
-            "end_char": 217,
-            "confidence": 0.95
-        }
-    },
-    {
-        "id": "entity_4",
-        "text": "retardation",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 235,
-            "end_char": 246,
-            "confidence": 0.88
-        }
-    },
-    {
-        "id": "entity_5",
-        "text": "SEM",
-        "type": "process",
-        "aliases": [],
-        "metadata": {
-            "start_char": 303,
-            "end_char": 306,
-            "confidence": 0.93
-        }
-    },
-    {
-        "id": "entity_0",
-        "text": "\"Spider Silkome Database\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 24,
-            "end_char": 45,
-            "confidence": 0.95
-        }
-    },
-    {
-        "id": "entity_1",
-        "text": "\"Browse Mechanical Properties\"",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 93,
-            "end_char": 122,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_2",
-        "text": "\"BLAST Search\"",
-        "type": "process",
-        "aliases": [],
-        "metadata": {
-            "start_char": 146,
-            "end_char": 158,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_1",
-        "text": "\"MaSp\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 331,
-            "end_char": 335,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_2",
-        "text": "\"MiSp\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 337,
-            "end_char": 341,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_3",
-        "text": "\"AcSp\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 343,
-            "end_char": 347,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_4",
-        "text": "\"cyllindrical spidroin (CySp)\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 353,
-            "end_char": 379,
-            "confidence": 0.92
-        }
-    },
-    {
-        "id": "entity_5",
-        "text": "\"spidroins\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 409,
-            "end_char": 418,
-            "confidence": 0.87
-        }
-    },
-    {
-        "id": "entity_0",
-        "text": "spider silks",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 25,
-            "end_char": 37,
-            "confidence": 0.95
-        }
-    },
-    {
-        "id": "entity_1",
-        "text": "dragline fibers",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 90,
-            "end_char": 105,
-            "confidence": 0.93
-        }
-    },
-    {
-        "id": "entity_2",
-        "text": "vinyl tape",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 145,
-            "end_char": 155,
-            "confidence": 0.88
-        }
-    },
-    {
-        "id": "entity_3",
-        "text": "Milli-Q water",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 183,
-            "end_char": 195,
-            "confidence": 0.92
-        }
-    },
-    {
-        "id": "entity_4",
-        "text": "supercontraction",
-        "type": "process",
-        "aliases": [],
-        "metadata": {
-            "start_char": 16,
-            "end_char": 32,
-            "confidence": 0.94
-        }
-    },
-    {
-        "id": "entity_6",
-        "text": "air dry",
-        "type": "process",
-        "aliases": [],
-        "metadata": {
-            "start_char": 238,
-            "end_char": 245,
-            "confidence": 0.87
-        }
-    },
-    {
-        "id": "entity_7",
-        "text": "final length",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 271,
-            "end_char": 283,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_8",
-        "text": "maximum supercontraction (%)",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 309,
-            "end_char": 337,
-            "confidence": 0.91
-        }
-    },
-    {
-        "id": "entity_9",
-        "text": "caliper",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 464,
-            "end_char": 471,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_0",
-        "text": "\"spidroin sequences\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 113,
-            "end_char": 130,
-            "confidence": 0.95
-        }
-    },
-    {
-        "id": "entity_1",
-        "text": "\"N-terminal domain region\"",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 148,
-            "end_char": 172,
-            "confidence": 0.88
-        }
-    },
-    {
-        "id": "entity_2",
-        "text": "\"cribellar spidroins\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 218,
-            "end_char": 238,
-            "confidence": 0.93
-        }
-    },
-    {
-        "id": "entity_3",
-        "text": "\"nonsticky capture threads\"",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 277,
-            "end_char": 303,
-            "confidence": 0.88
-        }
-    },
-    {
-        "id": "entity_4",
-        "text": "\"CrSp sequences\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 381,
-            "end_char": 395,
-            "confidence": 0.92
-        }
-    },
-    {
-        "id": "entity_5",
-        "text": "\"core repetitive regions of CrSp sequences\"",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 601,
-            "end_char": 638,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_6",
-        "text": "\"charged residues\"",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 726,
-            "end_char": 742,
-            "confidence": 0.86
-        }
-    },
-    {
-        "id": "entity_7",
-        "text": "\"negatively charged glutamate (E) residues\"",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 780,
-            "end_char": 820,
-            "confidence": 0.88
-        }
-    },
-    {
-        "id": "entity_8",
-        "text": "\"hydrophobic amino acids leucine, isoleucine, valine, and phenylalanine (L, I, V, and F, respectively)\"",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 875,
-            "end_char": 974,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_10",
-        "text": "\"spidroin types\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1082,
-            "end_char": 1095,
-            "confidence": 0.87
-        }
-    },
-    {
-        "id": "entity_1",
-        "text": "amino acid motif",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 108,
-            "end_char": 123,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_2",
-        "text": "S, A, or V",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 135,
-            "end_char": 144,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_3",
-        "text": "crystalline region",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 305,
-            "end_char": 322,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_4",
-        "text": "amorphous region",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 365,
-            "end_char": 380,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_5",
-        "text": "MaSp1",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 486,
-            "end_char": 491,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_6",
-        "text": "MaSp2",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 493,
-            "end_char": 498,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_7",
-        "text": "MaSp3",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 503,
-            "end_char": 508,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_9",
-        "text": "motifs",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 137,
-            "end_char": 143,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_11",
-        "text": "G-language Genome Analysis Environment v.1.9.1",
-        "type": "process",
-        "aliases": [],
-        "metadata": {
-            "start_char": 591,
-            "end_char": 635,
-            "confidence": 0.8
-        }
-    },
-    {
-        "id": "entity_12",
-        "text": "JMP v.15 software",
-        "type": "process",
-        "aliases": [],
-        "metadata": {
-            "start_char": 780,
-            "end_char": 796,
-            "confidence": 0.8
-        }
-    },
-    {
-        "id": "entity_0",
-        "text": "SQK-RNA001 kit",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 49,
-            "end_char": 62,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_1",
-        "text": "mRNA",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 94,
-            "end_char": 98,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_2",
-        "text": "NucleoTrap mRNA Mini Kit",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 138,
-            "end_char": 162,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_3",
-        "text": "library generation",
-        "type": "process",
-        "aliases": [],
-        "metadata": {
-            "start_char": 190,
-            "end_char": 207,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_4",
-        "text": "total RNA",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 265,
-            "end_char": 274,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_5",
-        "text": "Direct RNA sequencing",
-        "type": "process",
-        "aliases": [],
-        "metadata": {
-            "start_char": 315,
-            "end_char": 336,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_6",
-        "text": "MinION device",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 349,
-            "end_char": 362,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_7",
-        "text": "v9.4 SpotON MinION flow cell",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 373,
-            "end_char": 403,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_8",
-        "text": "FLO-MIN106",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 405,
-            "end_char": 415,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_9",
-        "text": "produced reads",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 438,
-            "end_char": 452,
-            "confidence": 0.8
-        }
-    },
-    {
-        "id": "entity_10",
-        "text": "proovread",
-        "type": "process",
-        "aliases": [],
-        "metadata": {
-            "start_char": 468,
-            "end_char": 477,
-            "confidence": 0.8
-        }
-    },
-    {
-        "id": "entity_0",
-        "text": "New PP Sample Tube",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 170,
-            "end_char": 187,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_1",
-        "text": "silk",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 488,
-            "end_char": 492,
-            "confidence": 0.95
-        }
-    },
-    {
-        "id": "entity_2",
-        "text": "RNA",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 559,
-            "end_char": 562,
-            "confidence": 0.8
-        }
-    },
-    {
-        "id": "entity_3",
-        "text": "ImageJ",
-        "type": "process",
-        "aliases": [],
-        "metadata": {
-            "start_char": 669,
-            "end_char": 675,
-            "confidence": 0.7
-        }
-    },
-    {
-        "id": "entity_5",
-        "text": "sponge",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 798,
-            "end_char": 804,
-            "confidence": 0.75
-        }
-    },
-    {
-        "id": "entity_6",
-        "text": "rubber bands",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 822,
-            "end_char": 834,
-            "confidence": 0.75
-        }
-    },
-    {
-        "id": "entity_7",
-        "text": "spinnerets",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 863,
-            "end_char": 874,
-            "confidence": 0.8
-        }
-    },
-    {
-        "id": "entity_8",
-        "text": "tweezers",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 890,
-            "end_char": 898,
-            "confidence": 0.7
-        }
-    },
-    {
-        "id": "entity_9",
-        "text": "bobbin",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 919,
-            "end_char": 925,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_10",
-        "text": "reeling",
-        "type": "process",
-        "aliases": [],
-        "metadata": {
-            "start_char": 952,
-            "end_char": 959,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_11",
-        "text": "constant reeling speed (1.28 m/min)",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 979,
-            "end_char": 1010,
-            "confidence": 0.8
-        }
-    },
-    {
-        "id": "entity_12",
-        "text": "plastic bag",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1089,
-            "end_char": 1100,
-            "confidence": 0.7
-        }
-    },
-    {
-        "id": "entity_13",
-        "text": "cardboard preservation box",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1119,
-            "end_char": 1146,
-            "confidence": 0.8
-        }
-    },
-    {
-        "id": "entity_14",
-        "text": "room temperature",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1150,
-            "end_char": 1166,
-            "confidence": 0.75
-        }
-    },
-    {
-        "id": "entity_1",
-        "text": "aluminum pans",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 219,
-            "end_char": 232,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_2",
-        "text": "nitrogen atmosphere",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 254,
-            "end_char": 274,
-            "confidence": 0.92
-        }
-    },
-    {
-        "id": "entity_3",
-        "text": "TGA/DSC 2 instrument",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 319,
-            "end_char": 337,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_4",
-        "text": "Mettler Toledo",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 339,
-            "end_char": 353,
-            "confidence": 0.88
-        }
-    },
-    {
-        "id": "entity_5",
-        "text": "degradation temperatures",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 478,
-            "end_char": 501,
-            "confidence": 0.93
-        }
-    },
-    {
-        "id": "entity_6",
-        "text": "1, 5, and 10% weight losses",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 520,
-            "end_char": 546,
-            "confidence": 0.89
-        }
-    },
-    {
-        "id": "entity_7",
-        "text": "water content",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 622,
-            "end_char": 634,
-            "confidence": 0.87
-        }
-    },
-    {
-        "id": "entity_8",
-        "text": "TGA data",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 716,
-            "end_char": 724,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_9",
-        "text": "silkworm silk",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 751,
-            "end_char": 764,
-            "confidence": 0.93
-        }
-    },
-    {
-        "id": "entity_2",
-        "text": "thermal properties",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 132,
-            "end_char": 149,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_3",
-        "text": "morphological properties",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 151,
-            "end_char": 174,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_4",
-        "text": "structural properties",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 180,
-            "end_char": 199,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_5",
-        "text": "wet properties",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 208,
-            "end_char": 222,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_8",
-        "text": "property",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 303,
-            "end_char": 311,
-            "confidence": 0.8
-        }
-    },
-    {
-        "id": "entity_9",
-        "text": "silks",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 509,
-            "end_char": 514,
-            "confidence": 0.95
-        }
-    },
-    {
-        "id": "entity_10",
-        "text": "properties",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 580,
-            "end_char": 590,
-            "confidence": 0.8
-        }
-    },
-    {
-        "id": "entity_3",
-        "text": "dragline silk",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 938,
-            "end_char": 951,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_5",
-        "text": "Nephilinae",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1362,
-            "end_char": 1371,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_6",
-        "text": "Araneus dragline silks",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1376,
-            "end_char": 1397,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_9",
-        "text": "elasticity",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1584,
-            "end_char": 1593,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_10",
-        "text": "tensile strength",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1642,
-            "end_char": 1657,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_11",
-        "text": "amorphous",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1720,
-            "end_char": 1729,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_12",
-        "text": " sheet regions",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1733,
-            "end_char": 1748,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_13",
-        "text": "amorphous regions of MaSp1",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1803,
-            "end_char": 1828,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_0",
-        "text": "\"spider silks\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 112,
-            "end_char": 124,
-            "confidence": 0.98
-        }
-    },
-    {
-        "id": "entity_1",
-        "text": "\"design elements\"",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 145,
-            "end_char": 160,
-            "confidence": 0.92
-        }
-    },
-    {
-        "id": "entity_2",
-        "text": "\"mechanical and physical performances\"",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 182,
-            "end_char": 217,
-            "confidence": 0.95
-        }
-    },
-    {
-        "id": "entity_3",
-        "text": "\"Silk proteins\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 230,
-            "end_char": 243,
-            "confidence": 0.97
-        }
-    },
-    {
-        "id": "entity_4",
-        "text": "\"amino acid composition\"",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 342,
-            "end_char": 364,
-            "confidence": 0.93
-        }
-    },
-    {
-        "id": "entity_5",
-        "text": "\"tensile strength and elasticity\"",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 399,
-            "end_char": 428,
-            "confidence": 0.96
-        }
-    },
-    {
-        "id": "entity_6",
-        "text": "\"amorphous and crystalline regions\"",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 457,
-            "end_char": 489,
-            "confidence": 0.95
-        }
-    },
-    {
-        "id": "entity_8",
-        "text": "\"structural proteins\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 645,
-            "end_char": 663,
-            "confidence": 0.94
-        }
-    },
-    {
-        "id": "entity_9",
-        "text": "\"biomaterials\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 668,
-            "end_char": 680,
-            "confidence": 0.93
-        }
-    },
-    {
-        "id": "entity_10",
-        "text": "\"protein materials\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 726,
-            "end_char": 742,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_11",
-        "text": "\"elastomers\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 772,
-            "end_char": 781,
-            "confidence": 0.89
-        }
-    },
-    {
-        "id": "entity_12",
-        "text": "\"adhesive proteins\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 786,
-            "end_char": 803,
-            "confidence": 0.88
-        }
-    },
-    {
-        "id": "entity_13",
-        "text": "\"computational modeling and simulation\"",
-        "type": "process",
-        "aliases": [],
-        "metadata": {
-            "start_char": 894,
-            "end_char": 930,
-            "confidence": 0.91
-        }
-    },
-    {
-        "id": "entity_14",
-        "text": "\"molecular interactions\"",
-        "type": "process",
-        "aliases": [],
-        "metadata": {
-            "start_char": 964,
-            "end_char": 986,
-            "confidence": 0.92
-        }
-    },
-    {
-        "id": "entity_15",
-        "text": "\"multiple MaSp-type spidroins\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1010,
-            "end_char": 1037,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_16",
-        "text": "\"SpiCE proteins\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1042,
-            "end_char": 1055,
-            "confidence": 0.88
-        }
-    },
-    {
-        "id": "entity_17",
-        "text": "\"silk mechanics\"",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1108,
-            "end_char": 1122,
-            "confidence": 0.87
-        }
-    },
-    {
-        "id": "entity_18",
-        "text": "\"spider transcriptome data\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1151,
-            "end_char": 1178,
-            "confidence": 0.86
-        }
-    },
-    {
-        "id": "entity_0",
-        "text": "MaSp",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 8,
-            "end_char": 12,
-            "confidence": 0.95
-        }
-    },
-    {
-        "id": "entity_1",
-        "text": "MiSp",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 13,
-            "end_char": 17,
-            "confidence": 0.95
-        }
-    },
-    {
-        "id": "entity_3",
-        "text": "repetitive motifs",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 61,
-            "end_char": 77,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_4",
-        "text": "repetitive regions",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 82,
-            "end_char": 100,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_5",
-        "text": "terminal sequences",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 105,
-            "end_char": 123,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_6",
-        "text": "5-nucleotide oligomer amino acids",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 192,
-            "end_char": 227,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_7",
-        "text": "N-terminal region sequences",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 272,
-            "end_char": 299,
-            "confidence": 0.88
-        }
-    },
-    {
-        "id": "entity_11",
-        "text": "sequence information",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 516,
-            "end_char": 535,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_12",
-        "text": "MiSp-like MaSp",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 552,
-            "end_char": 566,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_14",
-        "text": "clade",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 645,
-            "end_char": 650,
-            "confidence": 0.88
-        }
-    },
-    {
-        "id": "entity_0",
-        "text": "liquid nitrogen",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 256,
-            "end_char": 270,
-            "confidence": 0.95
-        }
-    },
-    {
-        "id": "entity_1",
-        "text": "RNAlater",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 355,
-            "end_char": 363,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_2",
-        "text": "metal cones",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 508,
-            "end_char": 519,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_3",
-        "text": "TRIzol",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 546,
-            "end_char": 552,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_4",
-        "text": "RNeasy Plus Mini kit",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 586,
-            "end_char": 606,
-            "confidence": 0.88
-        }
-    },
-    {
-        "id": "entity_5",
-        "text": "Direct-zol RNA Microprep kit",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 684,
-            "end_char": 713,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_6",
-        "text": "RNA ScreenTape",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 772,
-            "end_char": 786,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_7",
-        "text": "TapeStation 2100",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 793,
-            "end_char": 809,
-            "confidence": 0.88
-        }
-    },
-    {
-        "id": "entity_8",
-        "text": "Qubit v.3",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 850,
-            "end_char": 859,
-            "confidence": 0.8
-        }
-    },
-    {
-        "id": "entity_9",
-        "text": "NanoDrop 2000",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 885,
-            "end_char": 899,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_10",
-        "text": "NEBNext Ultra II RNA Library Prep Kit for Illumina",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 935,
-            "end_char": 983,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_11",
-        "text": "SMART-Seq v4 Ultra Low Input RNA Kit for Sequencing",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1075,
-            "end_char": 1123,
-            "confidence": 0.87
-        }
-    },
-    {
-        "id": "entity_12",
-        "text": "KAPA HyperPlus Kit",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1160,
-            "end_char": 1178,
-            "confidence": 0.88
-        }
-    },
-    {
-        "id": "entity_13",
-        "text": "NextSeq 500 platform",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1217,
-            "end_char": 1237,
-            "confidence": 0.87
-        }
-    },
-    {
-        "id": "entity_14",
-        "text": "Bridger software",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1361,
-            "end_char": 1377,
-            "confidence": 0.84
-        }
-    },
-    {
-        "id": "entity_15",
-        "text": "bcls2fastq v.2 software",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1295,
-            "end_char": 1318,
-            "confidence": 0.83
-        }
-    },
-    {
-        "id": "entity_16",
-        "text": "base calling",
-        "type": "process",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1252,
-            "end_char": 1264,
-            "confidence": 0.78
-        }
-    },
-    {
-        "id": "entity_0",
-        "text": "dragline silk fibers",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 54,
-            "end_char": 73,
-            "confidence": 0.95
-        }
-    },
-    {
-        "id": "entity_1",
-        "text": "scanning electron microscopy (SEM)",
-        "type": "process",
-        "aliases": [],
-        "metadata": {
-            "start_char": 94,
-            "end_char": 128,
-            "confidence": 0.92
-        }
-    },
-    {
-        "id": "entity_2",
-        "text": "JCM-6000",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 130,
-            "end_char": 138,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_3",
-        "text": "JEOL Ltd.",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 140,
-            "end_char": 149,
-            "confidence": 0.88
-        }
-    },
-    {
-        "id": "entity_4",
-        "text": "aluminum stub",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 209,
-            "end_char": 222,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_5",
-        "text": "conductive tape",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 228,
-            "end_char": 243,
-            "confidence": 0.87
-        }
-    },
-    {
-        "id": "entity_6",
-        "text": "sputter-coated with gold",
-        "type": "process",
-        "aliases": [],
-        "metadata": {
-            "start_char": 248,
-            "end_char": 273,
-            "confidence": 0.93
-        }
-    },
-    {
-        "id": "entity_7",
-        "text": "Smart Coater",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 284,
-            "end_char": 296,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_8",
-        "text": "JEOL",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 298,
-            "end_char": 302,
-            "confidence": 0.83
-        }
-    },
-    {
-        "id": "entity_9",
-        "text": "SEM visualization",
-        "type": "process",
-        "aliases": [],
-        "metadata": {
-            "start_char": 329,
-            "end_char": 346,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_10",
-        "text": "5 kV",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 350,
-            "end_char": 354,
-            "confidence": 0.8
-        }
-    },
-    {
-        "id": "entity_0",
-        "text": "Tensility tests",
-        "type": "process",
-        "aliases": [],
-        "metadata": {
-            "start_char": 0,
-            "end_char": 15,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_1",
-        "text": "single dragline silk fibers",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 23,
-            "end_char": 52,
-            "confidence": 0.95
-        }
-    },
-    {
-        "id": "entity_2",
-        "text": "mechanical testing apparatus",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 63,
-            "end_char": 91,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_3",
-        "text": "25°C",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 132,
-            "end_char": 136,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_4",
-        "text": "relative humidity",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 143,
-            "end_char": 159,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_5",
-        "text": "50%",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 175,
-            "end_char": 178,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_6",
-        "text": "initial length",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 213,
-            "end_char": 226,
-            "confidence": 0.8
-        }
-    },
-    {
-        "id": "entity_7",
-        "text": "single dragline silk fiber",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 234,
-            "end_char": 260,
-            "confidence": 0.95
-        }
-    },
-    {
-        "id": "entity_8",
-        "text": "5 mm",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 274,
-            "end_char": 278,
-            "confidence": 0.8
-        }
-    },
-    {
-        "id": "entity_9",
-        "text": "extension speed",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 284,
-            "end_char": 299,
-            "confidence": 0.8
-        }
-    },
-    {
-        "id": "entity_10",
-        "text": "10 mm/min",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 312,
-            "end_char": 320,
-            "confidence": 0.8
-        }
-    },
-    {
-        "id": "entity_11",
-        "text": "force",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 330,
-            "end_char": 335,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_12",
-        "text": "1-N load cell",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 366,
-            "end_char": 379,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_14",
-        "text": "Young's modulus",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 403,
-            "end_char": 418,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_15",
-        "text": "elongation at break",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 420,
-            "end_char": 439,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_17",
-        "text": "stress-strain curves",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 474,
-            "end_char": 493,
-            "confidence": 0.8
-        }
-    },
-    {
-        "id": "entity_18",
-        "text": "cross-sectional areas",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 531,
-            "end_char": 552,
-            "confidence": 0.8
-        }
-    },
-    {
-        "id": "entity_19",
-        "text": "diameters determined by SEM observations",
-        "type": "process",
-        "aliases": [],
-        "metadata": {
-            "start_char": 587,
-            "end_char": 628,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_1",
-        "text": "silk fibers",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 49,
-            "end_char": 60,
-            "confidence": 0.95
-        }
-    },
-    {
-        "id": "entity_2",
-        "text": "mechanical performance",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 172,
-            "end_char": 194,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_6",
-        "text": "strain at break",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 244,
-            "end_char": 259,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_7",
-        "text": "morphological and structural properties",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 263,
-            "end_char": 303,
-            "confidence": 0.88
-        }
-    },
-    {
-        "id": "entity_8",
-        "text": "fiber diameter",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 305,
-            "end_char": 318,
-            "confidence": 0.88
-        }
-    },
-    {
-        "id": "entity_10",
-        "text": "degree of crystallinity",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 339,
-            "end_char": 362,
-            "confidence": 0.87
-        }
-    },
-    {
-        "id": "entity_11",
-        "text": "wide-angle x-ray scattering (WAXS)",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 374,
-            "end_char": 404,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_12",
-        "text": "thermal degradation profiles",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 417,
-            "end_char": 444,
-            "confidence": 0.88
-        }
-    },
-    {
-        "id": "entity_13",
-        "text": "onset temperature",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 446,
-            "end_char": 463,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_14",
-        "text": "hydration properties",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 518,
-            "end_char": 537,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_15",
-        "text": "fiber water content",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 539,
-            "end_char": 557,
-            "confidence": 0.86
-        }
-    },
-    {
-        "id": "entity_16",
-        "text": "degree of maximum supercontraction",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 562,
-            "end_char": 596,
-            "confidence": 0.89
-        }
-    },
-    {
-        "id": "entity_1",
-        "text": "\"capture spiral\"",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 286,
-            "end_char": 300,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_2",
-        "text": "\"aggregate glue\"",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 305,
-            "end_char": 319,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_3",
-        "text": "\"flagelliform spidroin (Flag)\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 329,
-            "end_char": 357,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_4",
-        "text": "\"aggregate spidroin (AgSp)\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 362,
-            "end_char": 388,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_5",
-        "text": "\"MaSp dragline gene\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 481,
-            "end_char": 499,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_6",
-        "text": "\"ampullate sequences\"",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 574,
-            "end_char": 593,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_9",
-        "text": "\"glutamine (Q)-containing dipeptide motifs\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 674,
-            "end_char": 715,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_10",
-        "text": "\"diglutamine (QQ)\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 719,
-            "end_char": 736,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_11",
-        "text": "\"proline-glutamine (PQ)\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 737,
-            "end_char": 759,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_12",
-        "text": "\"serine-glutamine (SQ)\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 760,
-            "end_char": 781,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_13",
-        "text": "\"MaSp2\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 669,
-            "end_char": 674,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_14",
-        "text": "\"MaSp3\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 909,
-            "end_char": 914,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_15",
-        "text": "\"MaSp3B\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 935,
-            "end_char": 941,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_2",
-        "text": "spider lineages",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 155,
-            "end_char": 170,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_3",
-        "text": "basal spider groups",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 181,
-            "end_char": 199,
-            "confidence": 0.88
-        }
-    },
-    {
-        "id": "entity_4",
-        "text": "spidroin sequence diversity",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 323,
-            "end_char": 350,
-            "confidence": 0.92
-        }
-    },
-    {
-        "id": "entity_5",
-        "text": "spidroin paralogs",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 378,
-            "end_char": 394,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_9",
-        "text": "silk protein sequence",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 678,
-            "end_char": 698,
-            "confidence": 0.92
-        }
-    },
-    {
-        "id": "entity_10",
-        "text": "spidroin repetitive regions",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 737,
-            "end_char": 764,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_11",
-        "text": "silk sequences",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 862,
-            "end_char": 876,
-            "confidence": 0.92
-        }
-    },
-    {
-        "id": "entity_13",
-        "text": "silk proteins",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1145,
-            "end_char": 1158,
-            "confidence": 0.95
-        }
-    },
-    {
-        "id": "entity_14",
-        "text": "sequencing methods",
-        "type": "process",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1229,
-            "end_char": 1246,
-            "confidence": 0.93
-        }
-    },
-    {
-        "id": "entity_15",
-        "text": "silk genes",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1389,
-            "end_char": 1399,
-            "confidence": 0.92
-        }
-    },
-    {
-        "id": "entity_16",
-        "text": "Araneae",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1465,
-            "end_char": 1472,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_17",
-        "text": "de novo transcriptome sequencing and assembly",
-        "type": "process",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1479,
-            "end_char": 1521,
-            "confidence": 0.94
-        }
-    },
-    {
-        "id": "entity_18",
-        "text": "material properties",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1558,
-            "end_char": 1576,
-            "confidence": 0.95
-        }
-    },
-    {
-        "id": "entity_0",
-        "text": "Spider silk fibers",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 0,
-            "end_char": 17,
-            "confidence": 0.95
-        }
-    },
-    {
-        "id": "entity_1",
-        "text": "synchrotron WAXS",
-        "type": "process",
-        "aliases": [],
-        "metadata": {
-            "start_char": 48,
-            "end_char": 64,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_2",
-        "text": "12.4 keV",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 68,
-            "end_char": 76,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_3",
-        "text": "SPring-8 (Harima, Japan)",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 87,
-            "end_char": 109,
-            "confidence": 0.8
-        }
-    },
-    {
-        "id": "entity_4",
-        "text": "wavelength of 1.00 Å",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 172,
-            "end_char": 191,
-            "confidence": 0.88
-        }
-    },
-    {
-        "id": "entity_5",
-        "text": "beam size of 250 m by 150 m",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 195,
-            "end_char": 226,
-            "confidence": 0.86
-        }
-    },
-    {
-        "id": "entity_6",
-        "text": "exposure time of 10 s",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 232,
-            "end_char": 251,
-            "confidence": 0.87
-        }
-    },
-    {
-        "id": "entity_8",
-        "text": "40% relative humidity",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 264,
-            "end_char": 284,
-            "confidence": 0.89
-        }
-    },
-    {
-        "id": "entity_9",
-        "text": "Pilatus 2 M (Dectris Ltd., Switzerland)",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 315,
-            "end_char": 354,
-            "confidence": 0.78
-        }
-    },
-    {
-        "id": "entity_10",
-        "text": "sample-to-detector distance of 179.6 mm",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 360,
-            "end_char": 399,
-            "confidence": 0.84
-        }
-    },
-    {
-        "id": "entity_11",
-        "text": "two-dimensional (2D) diffraction patterns",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 476,
-            "end_char": 515,
-            "confidence": 0.83
-        }
-    },
-    {
-        "id": "entity_12",
-        "text": "FIT2D",
-        "type": "process",
-        "aliases": [],
-        "metadata": {
-            "start_char": 622,
-            "end_char": 627,
-            "confidence": 0.82
-        }
-    },
-    {
-        "id": "entity_14",
-        "text": "crystalline",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 800,
-            "end_char": 811,
-            "confidence": 0.82
-        }
-    },
-    {
-        "id": "entity_0",
-        "text": "\"spider silk\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 39,
-            "end_char": 50,
-            "confidence": 0.95
-        }
-    },
-    {
-        "id": "entity_1",
-        "text": "\"silking\"",
-        "type": "process",
-        "aliases": [],
-        "metadata": {
-            "start_char": 180,
-            "end_char": 187,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_2",
-        "text": "\"mechanical property\"",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 192,
-            "end_char": 211,
-            "confidence": 0.95
-        }
-    },
-    {
-        "id": "entity_3",
-        "text": "\"silking strain rate\"",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 276,
-            "end_char": 295,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_4",
-        "text": "\"humidity\"",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 300,
-            "end_char": 308,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_5",
-        "text": "\"mechanical properties\"",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 446,
-            "end_char": 467,
-            "confidence": 0.95
-        }
-    },
-    {
-        "id": "entity_6",
-        "text": "\"toughness\"",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 608,
-            "end_char": 617,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_7",
-        "text": "\"strain at break\"",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 660,
-            "end_char": 674,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_8",
-        "text": "\"tensile strength\"",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 690,
-            "end_char": 705,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_9",
-        "text": "\"amino acid sequences\"",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 778,
-            "end_char": 797,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_11",
-        "text": "\"draglines\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 842,
-            "end_char": 851,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_14",
-        "text": "\"strength\"",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1004,
-            "end_char": 1012,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_15",
-        "text": "\"elasticity\"",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1017,
-            "end_char": 1027,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_16",
-        "text": "\"silk\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1031,
-            "end_char": 1035,
-            "confidence": 0.95
-        }
-    },
-    {
-        "id": "entity_17",
-        "text": "\"Birefringence\"",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1090,
-            "end_char": 1103,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_18",
-        "text": "\"silk protein chains\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1135,
-            "end_char": 1153,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_20",
-        "text": "\"crystallinity\"",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1206,
-            "end_char": 1219,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_22",
-        "text": "\"Silk diameter\"",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1254,
-            "end_char": 1267,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_23",
-        "text": "\"supercontraction\"",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1282,
-            "end_char": 1297,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_24",
-        "text": "\"Sparassidae and Araneidae silks\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1355,
-            "end_char": 1385,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_25",
-        "text": "\"web-weaving spiders\"",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1442,
-            "end_char": 1460,
-            "confidence": 0.8
-        }
-    },
-    {
-        "id": "entity_26",
-        "text": "\"superfamily Araneoidea\"",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1477,
-            "end_char": 1499,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_27",
-        "text": "\"mechanical, physical, structural, thermal, and water-based properties\"",
-        "type": "property",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1511,
-            "end_char": 1573,
-            "confidence": 0.95
-        }
-    },
-    {
-        "id": "entity_28",
-        "text": "\"MaSp-type spidroins\"",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1715,
-            "end_char": 1733,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_1",
-        "text": "amino acid motifs",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 122,
-            "end_char": 140,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_2",
-        "text": "polyalanine sequences",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 349,
-            "end_char": 370,
-            "confidence": 0.92
-        }
-    },
-    {
-        "id": "entity_3",
-        "text": "amorphous regions",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 434,
-            "end_char": 451,
-            "confidence": 0.88
-        }
-    },
-    {
-        "id": "entity_4",
-        "text": "G",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 460,
-            "end_char": 461,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_5",
-        "text": "GG",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 463,
-            "end_char": 465,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_6",
-        "text": "AGQG",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 471,
-            "end_char": 475,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_8",
-        "text": "MaSp1/2 amorphous regions",
-        "type": "structure",
-        "aliases": [],
-        "metadata": {
-            "start_char": 594,
-            "end_char": 620,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_9",
-        "text": "Pro",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 632,
-            "end_char": 635,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_12",
-        "text": "Ala",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 720,
-            "end_char": 723,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_13",
-        "text": "Ser",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 783,
-            "end_char": 786,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_14",
-        "text": "GYGQGG motif",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 822,
-            "end_char": 833,
-            "confidence": 0.92
-        }
-    },
-    {
-        "id": "entity_16",
-        "text": "Tyr residues",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 980,
-            "end_char": 992,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_17",
-        "text": "intermolecular chain packing",
-        "type": "process",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1017,
-            "end_char": 1047,
-            "confidence": 0.88
-        }
-    },
-    {
-        "id": "entity_18",
-        "text": "spider dragline",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1055,
-            "end_char": 1069,
-            "confidence": 0.87
-        }
-    },
-    {
-        "id": "entity_19",
-        "text": "inter-molecular interactions",
-        "type": "process",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1092,
-            "end_char": 1119,
-            "confidence": 0.85
-        }
-    },
-    {
-        "id": "entity_22",
-        "text": "SY and SV motifs",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1207,
-            "end_char": 1221,
-            "confidence": 0.9
-        }
-    },
-    {
-        "id": "entity_24",
-        "text": "polyalanine region",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1300,
-            "end_char": 1318,
-            "confidence": 0.88
-        }
-    },
-    {
-        "id": "entity_25",
-        "text": "GGS",
-        "type": "material",
-        "aliases": [],
-        "metadata": {
-            "start_char": 1336,
-            "end_char": 1339,
-            "confidence": 0.85
-        }
+        "name": "Silk proteins",
+        "type": "Material"
+    },
+    {
+        "name": "Flagelliform silk",
+        "type": "Material"
+    },
+    {
+        "name": "material properties",
+        "type": "Property"
+    },
+    {
+        "name": "Major ampullate silk",
+        "type": "Material"
+    },
+    {
+        "name": "egg sac",
+        "type": "Structure"
+    },
+    {
+        "name": "plasticity",
+        "type": "Property"
+    },
+    {
+        "name": "spider biodiversity",
+        "type": "Property"
+    },
+    {
+        "name": "mechanical properties",
+        "type": "Property"
+    },
+    {
+        "name": "MaSp2 (group 13)",
+        "type": "material"
+    },
+    {
+        "name": "Supercontraction",
+        "type": "Process"
+    },
+    {
+        "name": "protein engineering methods",
+        "type": "process"
+    },
+    {
+        "name": "Toughness",
+        "type": "Property"
+    },
+    {
+        "name": "MaSp2 (group 11)",
+        "type": "material"
+    },
+    {
+        "name": "amorphous scattering components",
+        "type": "Property"
+    },
+    {
+        "name": "Surface morphology",
+        "type": "Property"
+    },
+    {
+        "name": "MaSp1",
+        "type": "Material"
+    },
+    {
+        "name": "Toughness",
+        "type": "property"
+    },
+    {
+        "name": "Properties of MaSp2",
+        "type": "Property"
+    },
+    {
+        "name": "spidroin sequences",
+        "type": "Material"
+    },
+    {
+        "name": "toughness",
+        "type": "Property"
+    },
+    {
+        "name": "MaSp1 (group 17)",
+        "type": "material"
+    },
+    {
+        "name": "RNA quality",
+        "type": "property"
+    },
+    {
+        "name": "SV motif in MaSp1",
+        "type": "Structure"
+    },
+    {
+        "name": "Polyalanine sequences",
+        "type": "Structure"
+    },
+    {
+        "name": "Minor ampullate silk",
+        "type": "Material"
+    },
+    {
+        "name": "Strain at break",
+        "type": "Property"
+    },
+    {
+        "name": "Inclusion of Pro in amorphous region of MaSp2",
+        "type": "Structure"
+    },
+    {
+        "name": "tensile strength",
+        "type": "property"
+    },
+    {
+        "name": "Crystallinity",
+        "type": "property"
+    },
+    {
+        "name": "crystalline scattering components",
+        "type": "Property"
+    },
+    {
+        "name": "Spidroin sequence data",
+        "type": "Material"
+    },
+    {
+        "name": "adhesion of the frame of the orb web to wood or other substrates",
+        "type": "Process"
+    },
+    {
+        "name": "Fiber Elasticity",
+        "type": "Property"
+    },
+    {
+        "name": "Dragline silk fibers",
+        "type": "Material"
+    },
+    {
+        "name": "sequencing methods",
+        "type": "Process"
+    },
+    {
+        "name": "major ampullate spidroin",
+        "type": "material"
+    },
+    {
+        "name": "Inclusion of Ser in amorphous region of MaSp1",
+        "type": "Structure"
+    },
+    {
+        "name": "High Toughness of Dragline Silk",
+        "type": "Property"
+    },
+    {
+        "name": "YGQGG motif in MaSp1",
+        "type": "Structure"
+    },
+    {
+        "name": "hydrophobic amino acids leucine, isoleucine, valine, and phenylalanine",
+        "type": "Structure"
+    },
+    {
+        "name": "prey wrapping",
+        "type": "Process"
+    },
+    {
+        "name": "Amorphous region",
+        "type": "structure"
+    },
+    {
+        "name": "frames of orb webs",
+        "type": "Structure"
+    },
+    {
+        "name": "spidroin repetitive sequences",
+        "type": "Material"
+    },
+    {
+        "name": "Doubling of Tensile Strength of Artificial Spider Silk-based Film",
+        "type": "Property"
+    },
+    {
+        "name": "decorations of the web",
+        "type": "Structure"
+    },
+    {
+        "name": "spidroin gene length",
+        "type": "Property"
+    },
+    {
+        "name": "Degradation temperatures",
+        "type": "Property"
+    },
+    {
+        "name": "specialized silk types",
+        "type": "Property"
+    },
+    {
+        "name": "toughness value distribution",
+        "type": "property"
+    },
+    {
+        "name": "conservation of the amino acid composition",
+        "type": "Property"
+    },
+    {
+        "name": "Fiber Strength",
+        "type": "Property"
+    },
+    {
+        "name": "Repeat units",
+        "type": "Structure"
+    },
+    {
+        "name": "GYGQGG motif in MaSp1",
+        "type": "Structure"
+    },
+    {
+        "name": "Tubiform (or cylindrical) silk",
+        "type": "Material"
+    },
+    {
+        "name": "1. silk sequences",
+        "type": "Property"
+    },
+    {
+        "name": "Inclusion of Ala in amorphous region of MaSp1",
+        "type": "Structure"
+    },
+    {
+        "name": "Maximum supercontraction",
+        "type": "Property"
+    },
+    {
+        "name": "Cytochrome c oxidase subunit I (COI) sequencing",
+        "type": "Process"
+    },
+    {
+        "name": "stretchable silk fibers",
+        "type": "Material"
+    },
+    {
+        "name": "specific mechanical properties",
+        "type": "property"
+    },
+    {
+        "name": "Mechanical performance (toughness, Young's modulus, tensile strength, and strain at break)",
+        "type": "Property"
+    },
+    {
+        "name": "SEM visualization",
+        "type": "Process"
+    },
+    {
+        "name": "Weight losses",
+        "type": "Property"
+    },
+    {
+        "name": "supercontraction",
+        "type": "property"
+    },
+    {
+        "name": "composition of orb web",
+        "type": "Structure"
+    },
+    {
+        "name": "RNA quantity",
+        "type": "property"
+    },
+    {
+        "name": "Sputter-coated with gold",
+        "type": "Process"
+    },
+    {
+        "name": "Undifferentiated spidroins",
+        "type": "Material"
+    },
+    {
+        "name": "Degree of supercontraction",
+        "type": "Property"
+    },
+    {
+        "name": "Aciniform silk",
+        "type": "Material"
+    },
+    {
+        "name": "Final length of the fiber",
+        "type": "Property"
+    },
+    {
+        "name": "Water content",
+        "type": "Property"
+    },
+    {
+        "name": "Ratio of Amorphous to β Sheet Regions",
+        "type": "Structure"
+    },
+    {
+        "name": "Silkome database",
+        "type": "Material"
+    },
+    {
+        "name": "MaSp2",
+        "type": "Material"
+    },
+    {
+        "name": "strength",
+        "type": "property"
+    },
+    {
+        "name": "Hydration properties",
+        "type": "Property"
+    },
+    {
+        "name": "GGS after polyalanine region in MaSp1",
+        "type": "Structure"
+    },
+    {
+        "name": "Silk",
+        "type": "Material"
+    },
+    {
+        "name": "spider phylogenomics",
+        "type": "Process"
+    },
+    {
+        "name": "MaSp1/2 amorphous regions including Pro",
+        "type": "Structure"
+    },
+    {
+        "name": "Presence of MaSp3",
+        "type": "Material"
+    },
+    {
+        "name": "Birefringence",
+        "type": "property"
+    },
+    {
+        "name": "MaSp2 (group 14)",
+        "type": "material"
+    },
+    {
+        "name": "range of physical properties",
+        "type": "Property"
+    },
+    {
+        "name": "Thermal degradation profiles",
+        "type": "Property"
+    },
+    {
+        "name": "Cross sections",
+        "type": "Structure"
+    },
+    {
+        "name": "Polyalanine prefixed with Ser in MaSp2",
+        "type": "Structure"
+    },
+    {
+        "name": "SY motif in MaSp1",
+        "type": "Structure"
+    },
+    {
+        "name": "Tensile strength",
+        "type": "Property"
+    },
+    {
+        "name": "RNA extraction",
+        "type": "process"
+    },
+    {
+        "name": "negatively charged glutamate",
+        "type": "Structure"
+    },
+    {
+        "name": "spider-silkome.org",
+        "type": "Property"
+    },
+    {
+        "name": "Combination of MaSp1 and MaSp2",
+        "type": "Material"
+    },
+    {
+        "name": "flagelliform silk backbone",
+        "type": "Structure"
+    },
+    {
+        "name": "Mechanical properties",
+        "type": "property"
+    },
+    {
+        "name": "Morphological and structural properties",
+        "type": "Property"
+    },
+    {
+        "name": "toughness",
+        "type": "property"
+    },
+    {
+        "name": "trade-off between tensile strength and elasticity",
+        "type": "Property"
+    },
+    {
+        "name": "draglines",
+        "type": "Structure"
+    },
+    {
+        "name": "MaSp2 (group 15)",
+        "type": "material"
+    },
+    {
+        "name": "aggregate glue",
+        "type": "Structure"
+    },
+    {
+        "name": "specific proteins",
+        "type": "material"
+    },
+    {
+        "name": "MaSp3 (group 19)",
+        "type": "material"
+    },
+    {
+        "name": "SpiCE",
+        "type": "Structure"
+    },
+    {
+        "name": "Piriform silk",
+        "type": "Material"
+    },
+    {
+        "name": "scaffold during orb web weaving",
+        "type": "Structure"
+    },
+    {
+        "name": "Inclusion of Pro in MaSp2 amorphous region",
+        "type": "Structure"
+    },
+    {
+        "name": "spidroin repetitive regions",
+        "type": "Material"
+    },
+    {
+        "name": "charged residues",
+        "type": "Structure"
+    },
+    {
+        "name": "Silk diameter",
+        "type": "structure"
+    },
+    {
+        "name": "Capture thread",
+        "type": "Material"
+    },
+    {
+        "name": "strain at break",
+        "type": "property"
+    },
+    {
+        "name": "identification by morphology",
+        "type": "Process"
+    },
+    {
+        "name": "Spider silk samples",
+        "type": "Material"
+    },
+    {
+        "name": "de novo transcriptome sequencing and assembly",
+        "type": "Process"
+    },
+    {
+        "name": "Ratio between amorphous and crystalline regions",
+        "type": "Structure"
+    },
+    {
+        "name": "Spider silk fibers",
+        "type": "Material"
     }
 ]
