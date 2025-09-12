@@ -1,4 +1,4 @@
-# Materials Science Causal Discovery with LLMs
+# CAMEL: Causal Analysis of Materials Extracted from Literature
 
 A Python package for extracting causal relationships from materials science literature using Large Language Models.
 
