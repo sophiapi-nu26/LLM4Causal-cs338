@@ -52,7 +52,7 @@ w = 0.36
 fig, ax = plt.subplots(figsize=(9, 6))
 bars1 = ax.bar(x - w/2, gpt_vals, width=w, label='GPT',
                color=gpt_color, edgecolor='black')
-bars2 = ax.bar(x + w/2, ours_vals, width=w, label='Ours',
+bars2 = ax.bar(x + w/2, ours_vals, width=w, label='CAMEL',
                color=ours_color, edgecolor='black')
 
 ax.set_xticks(x, metrics, rotation=10)
