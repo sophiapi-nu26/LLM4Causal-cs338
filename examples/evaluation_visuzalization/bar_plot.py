@@ -4,7 +4,7 @@ import numpy as np
 plt.rcParams['font.family']='serif'
 plt.rcParams['font.size']=16
 
-xlabel = ['GPT', 'CAMEL']
+xlabel = ['GPT-5', 'CAMEL']
 correctness = [0.615,0.923]
 strain_at_break = [0.286,0.571]
 toughness = [0.25,0.833]
@@ -50,7 +50,7 @@ x = np.arange(len(metrics))
 w = 0.36
 
 fig, ax = plt.subplots(figsize=(9, 6))
-bars1 = ax.bar(x - w/2, gpt_vals, width=w, label='GPT',
+bars1 = ax.bar(x - w/2, gpt_vals, width=w, label='GPT-5',
                color=gpt_color, edgecolor='black')
 bars2 = ax.bar(x + w/2, ours_vals, width=w, label='CAMEL',
                color=ours_color, edgecolor='black')
