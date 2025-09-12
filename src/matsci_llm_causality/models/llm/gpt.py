@@ -340,9 +340,13 @@ from ...schema import (
 from ..base import register_model, BaseLLM
 from transformers import pipeline, AutoTokenizer, AutoModelForCausalLM
 from typing import Optional, List
+import torch
+from huggingface_hub import login
 
 model = "meta-llama/Llama-3.1-8B-Instruct"
-token = "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"
+token = "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" # Jacob's HuggingFace token for Llama-3.1
+login(token)
+
 @register_model(model)
 class LlamaRelationExtractor(BaseLLM):
     """Entity recognition using Llama model for materials science text."""
@@ -360,10 +364,11 @@ class LlamaRelationExtractor(BaseLLM):
                 # max_length=512
             )
         self.config = config
-        self.tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-3.1-8B-Instruct", use_auth_token=token)
-        self.model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-3.1-8B-Instruct", use_auth_token=token)
-        # self.pipe = pipeline("text-generation",
-        #                      model=model)
+        # self.tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-3.1-8B-Instruct", use_auth_token=token)
+        # self.model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-3.1-8B-Instruct", use_auth_token=token)
+        self.pipe = pipeline("text-generation",
+                             model=model,
+                             torch_dtype=torch.float32)
 
 
 
@@ -389,31 +394,32 @@ class LlamaRelationExtractor(BaseLLM):
                 "role": "user",
                 "content": prompt
             }]
-        inputs = self.tokenizer.apply_chat_template(
-            messages,
-            add_generation_prompt=True,
-            tokenize=True,
-            return_dict=True,
-            return_tensors="pt",
-        ).to(self.model.device)
+        # inputs = self.tokenizer.apply_chat_template(
+        #     messages,
+        #     add_generation_prompt=True,
+        #     tokenize=True,
+        #     return_dict=True,
+        #     return_tensors="pt",
+        # ).to(self.model.device)
 
-        outputs = model.generate(**inputs, max_new_tokens=40)
-        print(self.tokenizer.decode(outputs[0][inputs["input_ids"].shape[-1]:]))
+        # outputs = model.generate(**inputs, max_new_tokens=40)
+        # print(self.tokenizer.decode(outputs[0][inputs["input_ids"].shape[-1]:]))
 
-        # response = self.pipe(
-        #     messages=[{
-        #         "role": "system",
-        #         "content": """You are an expert at identifying causal relationships between entities in materials science text.
-        #         For each relationship, identify:
-        #         1. The subject entity: Name[Type(chosen from material, structure, process, property)]
-        #         2. The type of relationship (increases, decreases, causes, positively correlate with, negatively correlate with)
-        #         3. The object entity: Name[Type(chosen from material, structure, process, property)]
-        #         """
-        #     }, {
-        #         "role": "user",
-        #         "content": prompt
-        #     }]
-        # )
+        output = self.pipe(
+            messages=[{
+                "role": "system",
+                "content": """You are an expert at identifying causal relationships between entities in materials science text.
+                For each relationship, identify:
+                1. The subject entity: Name[Type(chosen from material, structure, process, property)]
+                2. The type of relationship (increases, decreases, causes, positively correlate with, negatively correlate with)
+                3. The object entity: Name[Type(chosen from material, structure, process, property)]
+                """
+            }, {
+                "role": "user",
+                "content": prompt
+            }]
+        )
+        response = output[0]['generated_text']
 
     def _prepare_prompt(self, text: str) -> str:
         """Prepare the prompt for relationship extraction."""
