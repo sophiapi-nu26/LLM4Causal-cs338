@@ -1,3 +1,0 @@
-MaSp1: AGQG <Structure> positively correlates with Supercontraction (%) <Property>
-MaSp2: AAAAAAAA <Structure> negatively correlates with Supercontraction (%) <Property>
-MaSp1: YGQQG <Structure> positively correlates with Toughness (GJ/m^3) <Property>

@@ -1,0 +1,2048 @@
+[
+  {
+    "subject": {
+      "name": "Spider silk",
+      "type": "Material"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "mechanical properties",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "composition and structure of protein building blocks called spidroins",
+      "type": "Structure"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "mechanical properties",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "spidroins",
+      "type": "material"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "specific mechanical properties",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "protein engineering methods",
+      "type": "process"
+    },
+    "relationship": "decreases",
+    "object": {
+      "name": "supercontraction",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "1. Transcriptomes",
+      "type": "Property"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "Spidroin expression",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "2. Transcriptomes",
+      "type": "Property"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "Sequence variations",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "3. Redundant sampling",
+      "type": "Process"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "Locality differences",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "4. Redundant sampling",
+      "type": "Process"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "Sex differences",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Salticidae",
+      "type": "Material"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "species diversity",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Hydrophobic amino acids (leucine, isoleucine, valine, and phenylalanine)",
+      "type": "Structure"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "Conservation of the amino acid composition",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Negatively charged glutamate (E) residues",
+      "type": "Structure"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "Conservation of the amino acid composition",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Flagelliform silk",
+      "type": "Material"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "prey capture spirals",
+      "type": "Structure"
+    }
+  },
+  {
+    "subject": {
+      "name": "Divergent repetitive sequences in Theridiidae",
+      "type": "Structure"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "number of residues",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Species-rich Linyphiidae",
+      "type": "Material"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "short repeating motifs enriched in glycine, proline, asparagine, and serine",
+      "type": "Structure"
+    }
+  },
+  {
+    "subject": {
+      "name": "Canonical orb-weaving families Araneidae and Tetragnathidae",
+      "type": "Material"
+    },
+    "relationship": "decreases",
+    "object": {
+      "name": "compositionally simplified Flag sequences",
+      "type": "Structure"
+    }
+  },
+  {
+    "subject": {
+      "name": "degree of crystallinity",
+      "type": "property"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "Young's modulus",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Silking strain rate",
+      "type": "Process"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "Mechanical property",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Humidity",
+      "type": "Property"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "Mechanical property",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Silks of spiders from the genus Argiope and family Araneidae",
+      "type": "Material"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "toughness",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Possession of MaSp3 (group 19)",
+      "type": "Structure"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "toughness",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Possession of MaSp2 subtype",
+      "type": "Structure"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "strain at break",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Possession of MaSp2 subtype",
+      "type": "Structure"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "supercontraction",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp2 (group 13)",
+      "type": "Structure"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "tensile strength",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp2 (group 14)",
+      "type": "Structure"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "supercontraction",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp2 (group 13)",
+      "type": "Structure"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "supercontraction",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp2 (group 11)",
+      "type": "Structure"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "supercontraction",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp1 (group 17)",
+      "type": "Structure"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "supercontraction",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp2 (group 15)",
+      "type": "Structure"
+    },
+    "relationship": "decreases",
+    "object": {
+      "name": "supercontraction",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Proportion of amorphous regions within the spidroin",
+      "type": "Structure"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "supercontraction",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Relaxation of orientation in the amorphous region of spidroins",
+      "type": "Structure"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "supercontraction",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp1",
+      "type": "material"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "fiber strength",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp2",
+      "type": "material"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "fiber elasticity",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp3",
+      "type": "material"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "high toughness",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Spider silk-constituting elements (SpiCE)",
+      "type": "material"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "tensile strength",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Silk proteins",
+      "type": "Material"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "mechanical performances",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Silk proteins",
+      "type": "Material"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "physical performances",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Sequence motifs",
+      "type": "Structure"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "mechanical performances",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Sequence motifs",
+      "type": "Structure"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "physical performances",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Amino acid composition",
+      "type": "Structure"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "mechanical performances",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Amino acid composition",
+      "type": "Structure"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "physical performances",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Ratio between amorphous and crystalline regions",
+      "type": "Structure"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "trade-off between tensile strength and elasticity",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Computational modeling and simulation",
+      "type": "Process"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "prediction of the outcomes of molecular interactions",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Silk sampling",
+      "type": "Process"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "silk",
+      "type": "Material"
+    }
+  },
+  {
+    "subject": {
+      "name": "Silking",
+      "type": "Process"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "reeled silk",
+      "type": "Material"
+    }
+  },
+  {
+    "subject": {
+      "name": "Cytochrome c oxidase subunit I (COI) sequencing",
+      "type": "Process"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "OTU clusters",
+      "type": "Structure"
+    }
+  },
+  {
+    "subject": {
+      "name": "spidroins",
+      "type": "Material"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "tree",
+      "type": "Structure"
+    }
+  },
+  {
+    "subject": {
+      "name": "N-terminal region sequences",
+      "type": "Structure"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "tree",
+      "type": "Structure"
+    }
+  },
+  {
+    "subject": {
+      "name": "Surface morphology",
+      "type": "Structure"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "cross sections",
+      "type": "Structure"
+    }
+  },
+  {
+    "subject": {
+      "name": "dragline silk fiber",
+      "type": "material"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "birefringence",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "silk fiber diameter",
+      "type": "structure"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "birefringence",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Tensile strength",
+      "type": "Property"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "Young's modulus",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Tensile strength",
+      "type": "Property"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "Elongation at break",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Tensile strength",
+      "type": "Property"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "Toughness",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Cross-sectional areas",
+      "type": "Structure"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "Tensile strength",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Diameters",
+      "type": "Structure"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "Cross-sectional areas",
+      "type": "Structure"
+    }
+  },
+  {
+    "subject": {
+      "name": "Temperature",
+      "type": "Property"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "Weight loss",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Bound water",
+      "type": "Structure"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "Percent weight loss",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Percent weight loss",
+      "type": "Property"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "Degradation temperatures",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Spider silk fibers",
+      "type": "material"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "degree of crystallinity",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Dragline fibers",
+      "type": "Material"
+    },
+    "relationship": "causes",
+    "object": {
+      "name": "Supercontraction",
+      "type": "Process"
+    }
+  },
+  {
+    "subject": {
+      "name": "Supercontraction",
+      "type": "Process"
+    },
+    "relationship": "decreases",
+    "object": {
+      "name": "Final length of the fiber",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Strain at break",
+      "type": "property"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Diameter",
+      "type": "structure"
+    }
+  },
+  {
+    "subject": {
+      "name": "Strain at break",
+      "type": "property"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Supercontraction",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Strain at break",
+      "type": "property"
+    },
+    "relationship": "negatively correlates with",
+    "object": {
+      "name": "Young's modulus",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Strain at break",
+      "type": "property"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Toughness",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Diameter",
+      "type": "structure"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Supercontraction",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Diameter",
+      "type": "structure"
+    },
+    "relationship": "negatively correlates with",
+    "object": {
+      "name": "Young's modulus",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Diameter",
+      "type": "structure"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Toughness",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Supercontraction",
+      "type": "property"
+    },
+    "relationship": "negatively correlates with",
+    "object": {
+      "name": "Young's modulus",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Supercontraction",
+      "type": "property"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Toughness",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Tensile strength",
+      "type": "property"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Young's modulus",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Young's modulus",
+      "type": "property"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "1% weight loss",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Young's modulus",
+      "type": "property"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "5% weight loss",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Young's modulus",
+      "type": "property"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "10% weight loss",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Young's modulus",
+      "type": "property"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Thermal degradation temperature",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Young's modulus",
+      "type": "property"
+    },
+    "relationship": "negatively correlates with",
+    "object": {
+      "name": "Water content",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Crystallinity",
+      "type": "structure"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Birefringence",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "1% weight loss",
+      "type": "property"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "5% weight loss",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "1% weight loss",
+      "type": "property"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "10% weight loss",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "1% weight loss",
+      "type": "property"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Thermal degradation temperature",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "1% weight loss",
+      "type": "property"
+    },
+    "relationship": "negatively correlates with",
+    "object": {
+      "name": "Water content",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "5% weight loss",
+      "type": "property"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "10% weight loss",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "5% weight loss",
+      "type": "property"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Thermal degradation temperature",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "5% weight loss",
+      "type": "property"
+    },
+    "relationship": "negatively correlates with",
+    "object": {
+      "name": "Water content",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "10% weight loss",
+      "type": "property"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Thermal degradation temperature",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "10% weight loss",
+      "type": "property"
+    },
+    "relationship": "negatively correlates with",
+    "object": {
+      "name": "Water content",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Thermal degradation temperature",
+      "type": "property"
+    },
+    "relationship": "negatively correlates with",
+    "object": {
+      "name": "Water content",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Toughness",
+      "type": "property"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Strain at break",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp3 (group 19)",
+      "type": "Material"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "Toughness (GJ/m^3)",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp2 (group 11)",
+      "type": "Material"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "Toughness (GJ/m^3)",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp1 (group 17)",
+      "type": "Material"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "Toughness (GJ/m^3)",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp2 (group 14)",
+      "type": "Material"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "Supercontraction (%)",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp2 (group 13)",
+      "type": "Material"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "Supercontraction (%)",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp2 (group 11)",
+      "type": "Material"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "Supercontraction (%)",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp1 (group 17)",
+      "type": "Material"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "Supercontraction (%)",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp1: AGGQ",
+      "type": "Structure"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Supercontraction (%)",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp2: AAAAAAAA",
+      "type": "Structure"
+    },
+    "relationship": "negatively correlates with",
+    "object": {
+      "name": "Supercontraction (%)",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp1: YGGQG",
+      "type": "Structure"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Toughness (GJ/m^3)",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "H.k.",
+      "type": "material> amino acid sequence <structure"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "H.y.",
+      "type": "material> amino acid sequence <structure"
+    }
+  },
+  {
+    "subject": {
+      "name": "H.k.",
+      "type": "material> amino acid sequence <structure"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "R.n.",
+      "type": "material> amino acid sequence <structure"
+    }
+  },
+  {
+    "subject": {
+      "name": "H.y.",
+      "type": "material> amino acid sequence <structure"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "R.n.",
+      "type": "material> amino acid sequence <structure"
+    }
+  },
+  {
+    "subject": {
+      "name": "S.sp.",
+      "type": "material> amino acid sequence <structure"
+    },
+    "relationship": "negatively correlates with",
+    "object": {
+      "name": "H.k.",
+      "type": "material> amino acid sequence <structure"
+    }
+  },
+  {
+    "subject": {
+      "name": "S.sp.",
+      "type": "material> amino acid sequence <structure"
+    },
+    "relationship": "negatively correlates with",
+    "object": {
+      "name": "H.y.",
+      "type": "material> amino acid sequence <structure"
+    }
+  },
+  {
+    "subject": {
+      "name": "S.sp.",
+      "type": "material> amino acid sequence <structure"
+    },
+    "relationship": "negatively correlates with",
+    "object": {
+      "name": "R.n.",
+      "type": "material> amino acid sequence <structure"
+    }
+  },
+  {
+    "subject": {
+      "name": "O.s.",
+      "type": "material> amino acid sequence <structure"
+    },
+    "relationship": "negatively correlates with",
+    "object": {
+      "name": "H.k.",
+      "type": "material> amino acid sequence <structure"
+    }
+  },
+  {
+    "subject": {
+      "name": "O.s.",
+      "type": "material> amino acid sequence <structure"
+    },
+    "relationship": "negatively correlates with",
+    "object": {
+      "name": "H.y.",
+      "type": "material> amino acid sequence <structure"
+    }
+  },
+  {
+    "subject": {
+      "name": "O.s.",
+      "type": "material> amino acid sequence <structure"
+    },
+    "relationship": "negatively correlates with",
+    "object": {
+      "name": "R.n.",
+      "type": "material> amino acid sequence <structure"
+    }
+  },
+  {
+    "subject": {
+      "name": "S.sp.",
+      "type": "material> amino acid sequence <structure"
+    },
+    "relationship": "negatively correlates with",
+    "object": {
+      "name": "O.s.",
+      "type": "material> amino acid sequence <structure"
+    }
+  },
+  {
+    "subject": {
+      "name": "Proportion of G",
+      "type": "Property"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Spider silk protein",
+      "type": "Material"
+    }
+  },
+  {
+    "subject": {
+      "name": "Proportion of C",
+      "type": "Property"
+    },
+    "relationship": "negatively correlates with",
+    "object": {
+      "name": "Spider silk protein",
+      "type": "Material"
+    }
+  },
+  {
+    "subject": {
+      "name": "Araneoidae",
+      "type": "Structure"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Toughness",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Araneoidae",
+      "type": "Structure"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Tensile strength",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Araneoidae",
+      "type": "Structure"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Strain at break",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Araneoidae",
+      "type": "Structure"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Supercontraction",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Higher level of MaSp1",
+      "type": "Material"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Toughness",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Higher level of MaSp1",
+      "type": "Material"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Tensile strength",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Higher level of MaSp1",
+      "type": "Material"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Strain at break",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Higher level of MaSp1",
+      "type": "Material"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Supercontraction",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Higher level of MaSp2",
+      "type": "Material"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Toughness",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Higher level of MaSp2",
+      "type": "Material"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Tensile strength",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Higher level of MaSp2",
+      "type": "Material"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Strain at break",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Higher level of MaSp2",
+      "type": "Material"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Supercontraction",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Higher level of MaSp2B",
+      "type": "Material"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Toughness",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Higher level of MaSp2B",
+      "type": "Material"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Tensile strength",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Higher level of MaSp2B",
+      "type": "Material"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Strain at break",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Higher level of MaSp2B",
+      "type": "Material"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Supercontraction",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Higher level of CrSp",
+      "type": "Material"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Toughness",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Higher level of CrSp",
+      "type": "Material"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Tensile strength",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Higher level of CrSp",
+      "type": "Material"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Strain at break",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Higher level of CrSp",
+      "type": "Material"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Supercontraction",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Higher level of Flag",
+      "type": "Material"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Toughness",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Higher level of Flag",
+      "type": "Material"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Tensile strength",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Higher level of Flag",
+      "type": "Material"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Strain at break",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Higher level of Flag",
+      "type": "Material"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Supercontraction",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Higher level of AcSp1",
+      "type": "Material"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Toughness",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Higher level of AcSp1",
+      "type": "Material"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Tensile strength",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Higher level of AcSp1",
+      "type": "Material"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Strain at break",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Higher level of AcSp1",
+      "type": "Material"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Supercontraction",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Higher level of AcSp2",
+      "type": "Material"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Toughness",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Higher level of AcSp2",
+      "type": "Material"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Tensile strength",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Higher level of AcSp2",
+      "type": "Material"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Strain at break",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Higher level of AcSp2",
+      "type": "Material"
+    },
+    "relationship": "positively correlates with",
+    "object": {
+      "name": "Supercontraction",
+      "type": "Property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp1-GYGQGG",
+      "type": "structure"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "Toughness",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp1-poly-Ala ending with GGS",
+      "type": "structure"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "Toughness",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "P in MaSp2",
+      "type": "structure"
+    },
+    "relationship": "decreases",
+    "object": {
+      "name": "Toughness",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "SQGP in MaSp2",
+      "type": "structure"
+    },
+    "relationship": "decreases",
+    "object": {
+      "name": "Toughness",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "SY in MaSp1",
+      "type": "structure"
+    },
+    "relationship": "decreases",
+    "object": {
+      "name": "Toughness",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "SV in MaSp1",
+      "type": "structure"
+    },
+    "relationship": "decreases",
+    "object": {
+      "name": "Toughness",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp2-PQ",
+      "type": "structure"
+    },
+    "relationship": "decreases",
+    "object": {
+      "name": "Toughness",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp1-SS before poly-Ala",
+      "type": "structure"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "Tensile strength",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp1-QGGS",
+      "type": "structure"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "Tensile strength",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Lacking S inGQG motif in MaSp1",
+      "type": "structure"
+    },
+    "relationship": "decreases",
+    "object": {
+      "name": "Tensile strength",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "A before GQGmotif in MaSp1",
+      "type": "structure"
+    },
+    "relationship": "decreases",
+    "object": {
+      "name": "Tensile strength",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp1-GYGQGG",
+      "type": "structure"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "Strain at break",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "QGP in MaSp1",
+      "type": "structure"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "Strain at break",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "PGA in MaSp1",
+      "type": "structure"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "Strain at break",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "PA in MaSp2",
+      "type": "structure"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "Young's modulus",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "GL in MaSp1 and MaSp2",
+      "type": "structure"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "Young's modulus",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Q in MaSp2",
+      "type": "structure"
+    },
+    "relationship": "decreases",
+    "object": {
+      "name": "Young's modulus",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp1-GGQ",
+      "type": "structure"
+    },
+    "relationship": "decreases",
+    "object": {
+      "name": "Young's modulus",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "PA in MaSp2",
+      "type": "structure"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "Crystallinity",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "N in MaSp2",
+      "type": "structure"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "Crystallinity",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "A in MaSp2",
+      "type": "structure"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "Crystallinity",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "GA in MaSp2",
+      "type": "structure"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "Crystallinity",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp1-GQ",
+      "type": "structure"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "Crystallinity",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "GT in MaSp1",
+      "type": "structure"
+    },
+    "relationship": "decreases",
+    "object": {
+      "name": "Crystallinity",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp1-GGQ",
+      "type": "structure"
+    },
+    "relationship": "decreases",
+    "object": {
+      "name": "Crystallinity",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "TGG in MaSp1",
+      "type": "structure"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "Birefringence",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp1-GAAAAAAG",
+      "type": "structure"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "Birefringence",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp2-PSGPGS",
+      "type": "structure"
+    },
+    "relationship": "decreases",
+    "object": {
+      "name": "Birefringence",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp1-AAGGAGQG",
+      "type": "structure"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "Diameter",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp2-SQG",
+      "type": "structure"
+    },
+    "relationship": "decreases",
+    "object": {
+      "name": "Diameter",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp1-QS",
+      "type": "structure"
+    },
+    "relationship": "decreases",
+    "object": {
+      "name": "Diameter",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp1-SQGAG",
+      "type": "structure"
+    },
+    "relationship": "decreases",
+    "object": {
+      "name": "Diameter",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp2-PGGYGP",
+      "type": "structure"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "N %water loss",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp2 poly-Ala",
+      "type": "structure"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "N %water loss",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "V in MaSp2",
+      "type": "structure"
+    },
+    "relationship": "decreases",
+    "object": {
+      "name": "N %water loss",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "GT in MaSp1",
+      "type": "structure"
+    },
+    "relationship": "decreases",
+    "object": {
+      "name": "N %water loss",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp1-GSG",
+      "type": "structure"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "Water content",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp2-GAS",
+      "type": "structure"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "Water content",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp2-QQGPG",
+      "type": "structure"
+    },
+    "relationship": "decreases",
+    "object": {
+      "name": "Water content",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp1-PGAA A in MaSp1",
+      "type": "structure"
+    },
+    "relationship": "decreases",
+    "object": {
+      "name": "Water content",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "Poly-Ala in MaSp1",
+      "type": "structure"
+    },
+    "relationship": "decreases",
+    "object": {
+      "name": "Water content",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp2 presence",
+      "type": "structure"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "Supercontraction",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp1-AGQG",
+      "type": "structure"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "Supercontraction",
+      "type": "property"
+    }
+  },
+  {
+    "subject": {
+      "name": "MaSp1-GLG",
+      "type": "structure"
+    },
+    "relationship": "increases",
+    "object": {
+      "name": "Supercontraction",
+      "type": "property"
+    }
+  }
+]

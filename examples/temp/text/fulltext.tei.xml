@@ -10,17 +10,17 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 				<funder>
 					<orgName type="full">Yamagata Prefectural Government and Tsuruoka City, Japan</orgName>
 				</funder>
+				<funder ref="#_4JtAPna">
+					<orgName type="full">Ministry of Environment and Sustainable Development (Ministère de l&apos;Environnement de l&apos;Ecologie et des Forêts</orgName>
+				</funder>
+				<funder ref="#_aya4ftN">
+					<orgName type="full">JST ERATO</orgName>
+				</funder>
 				<funder>
 					<orgName type="full">MICET (especially, T. Vololontiana)</orgName>
 				</funder>
-				<funder ref="#_RwVM8Aq">
-					<orgName type="full">Ministry of Environment and Sustainable Development (Ministère de l&apos;Environnement de l&apos;Ecologie et des Forêts</orgName>
-				</funder>
 				<funder>
 					<orgName type="full">ImPACT Program of Council for Science, Technology and Innovation (Cabinet Office, Government of Japan</orgName>
-				</funder>
-				<funder ref="#_GctYzSC">
-					<orgName type="full">JST ERATO</orgName>
 				</funder>
 			</titleStmt>
 			<publicationStmt>
@@ -729,7 +729,7 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 		</fileDesc>
 		<encodingDesc>
 			<appInfo>
-				<application version="0.8.2" ident="GROBID" when="2025-09-11T22:24+0000">
+				<application version="0.8.2" ident="GROBID" when="2025-09-12T06:24+0000">
 					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
 					<label type="revision">a91ee48</label>
 					<label type="parameters">startPage=-1, endPage=-1, consolidateCitations=1, consolidateHeader=0, consolidateFunders=0, includeRawAffiliations=false, includeRawCitations=false, includeRawCopyrights=false, generateTeiIds=false, generateTeiCoordinates=[biblStruct,ref,figure,figDesc,table], sentenceSegmentation=false, flavor=null</label>
@@ -797,10 +797,10 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 <div><p>Acknowledgments: We acknowledge the <rs type="funder">MICET (especially, T. Vololontiana)</rs>, the <rs type="funder">Ministry of Environment and Sustainable Development (Ministère de l'Environnement de l'Ecologie et des Forêts</rs> at that time), the <rs type="projectName">MZBA</rs>, and the <rs type="institution">University of Antananarivo</rs> for spider sampling in Madagascar. We thank <rs type="person">Y. Takai</rs>, <rs type="person">N. Ishii</rs>, and <rs type="person">Y. Onozawa</rs> for technical support in sequencing; <rs type="person">H. Ozaki</rs> and <rs type="person">M. Sato</rs> for meaningful discussion; and <rs type="person">H. Kano</rs>, <rs type="person">R. Sato</rs>, and <rs type="person">H. Nishijima</rs> for the development of reeling machines. Funding: This work was supported by grants from the <rs type="funder">ImPACT Program of Council for Science, Technology and Innovation (Cabinet Office, Government of Japan</rs>) to K.A., H.N., and K.N.; by research funds from the <rs type="funder">Yamagata Prefectural Government and Tsuruoka City, Japan</rs>, to K.A., N.K., and M.T.; and by <rs type="funder">JST ERATO</rs> grant number <rs type="grantNumber">JPMJER1602</rs>, <rs type="grantName">Grant-in-Aid for Transformative Research Areas</rs> (B), and Material DX to K.N. Author contributions: Conceptualization: K.A. and K.N. Data curation: K.A., N.K., A.D.M., H.N., M.T., and K.N. Formal analysis: K.A., N.K., A.D.M., A.Tat., N.I., H.M., R.S., H.N., K.Y., N.A.O., and K.N. Resources: K.A., A.D.M., R.S., K.T., R.O., D.P., A.S., Y.I., H.N., A.Tan., Y.S., T.I., S.F., M.F., S.J.B., J.-A.C., H.C., C.P.F., G.G., J.G., C.H., D.L.K., K.S., B.B.M., Y.N.-R., R.C.P., N.M.P., R.R., X.W., K.Y., Z.Z., Downloaded from <ref type="url" target="https://www.science.org">https://www.science.org</ref> at <rs type="affiliation">Northwestern University</rs> on September 05, 2025</p></div>
 			</div>
 			<listOrg type="funding">
-				<org type="funded-project" xml:id="_RwVM8Aq">
+				<org type="funded-project" xml:id="_4JtAPna">
 					<orgName type="project" subtype="full">MZBA</orgName>
 				</org>
-				<org type="funding" xml:id="_GctYzSC">
+				<org type="funding" xml:id="_aya4ftN">
 					<idno type="grant-number">JPMJER1602</idno>
 					<orgName type="grant-name">Grant-in-Aid for Transformative Research Areas</orgName>
 				</org>
@@ -950,14 +950,19 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 </biblStruct>
 
 <biblStruct xml:id="b5">
-	<monogr>
+	<analytic>
+		<title level="a" type="main">Biopolymer material and composite</title>
 		<author>
-			<persName><forename type="first">K</forename><surname>Numata</surname></persName>
+			<persName><forename type="first">Keiji</forename><surname>Numata</surname></persName>
 		</author>
+		<idno type="DOI">10.1016/b978-0-12-820555-6.00009-4</idno>
+	</analytic>
+	<monogr>
 		<title level="m">Biopolymer Science for Proteins and Peptides</title>
 		<imprint>
 			<publisher>Elsevier</publisher>
 			<date type="published" when="2021">2021</date>
+			<biblScope unit="page" from="205" to="246" />
 		</imprint>
 	</monogr>
 </biblStruct>
@@ -966,21 +971,26 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 	<analytic>
 		<title level="a" type="main">Untangling spider silk evolution with spidroin terminal domains</title>
 		<author>
-			<persName><forename type="first">J</forename><forename type="middle">E</forename><surname>Garb</surname></persName>
+			<persName><forename type="first">Jessica</forename><forename type="middle">E</forename><surname>Garb</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">N</forename><forename type="middle">A</forename><surname>Ayoub</surname></persName>
+			<persName><forename type="first">Nadia</forename><forename type="middle">A</forename><surname>Ayoub</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">C</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
+			<persName><forename type="first">Cheryl</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
 		</author>
+		<idno type="DOI">10.1186/1471-2148-10-243</idno>
 	</analytic>
 	<monogr>
-		<title level="j">BMC Evol. Biol</title>
+		<title level="j">BMC Evolutionary Biology</title>
+		<title level="j" type="abbrev">BMC Evol Biol</title>
+		<idno type="ISSN">1471-2148</idno>
 		<imprint>
 			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">1</biblScope>
 			<biblScope unit="page">243</biblScope>
 			<date type="published" when="2010">2010</date>
+			<publisher>Springer Science and Business Media LLC</publisher>
 		</imprint>
 	</monogr>
 </biblStruct>
@@ -1069,7 +1079,7 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 
 <biblStruct xml:id="b10">
 	<analytic>
-		<title level="a" type="main">Spider Silk: Super Material or Thin Fibre?</title>
+		<title level="a" type="main">Spider silk: Super material or thin fibre?</title>
 		<author>
 			<persName><forename type="first">D</forename><surname>Porter</surname></persName>
 		</author>
@@ -1079,19 +1089,13 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 		<author>
 			<persName><forename type="first">F</forename><surname>Vollrath</surname></persName>
 		</author>
-		<idno type="DOI">10.1002/adma.201204158</idno>
 	</analytic>
 	<monogr>
-		<title level="j">Advanced Materials</title>
-		<title level="j" type="abbrev">Advanced Materials</title>
-		<idno type="ISSN">0935-9648</idno>
-		<idno type="ISSNe">1521-4095</idno>
+		<title level="j">Adv. Mater</title>
 		<imprint>
 			<biblScope unit="volume">25</biblScope>
-			<biblScope unit="issue">9</biblScope>
 			<biblScope unit="page" from="1275" to="1279" />
 			<date type="published" when="2013">2013</date>
-			<publisher>Wiley</publisher>
 		</imprint>
 	</monogr>
 </biblStruct>
@@ -1199,90 +1203,60 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 
 <biblStruct xml:id="b14">
 	<analytic>
-		<title level="a" type="main">Protein composition and associated material properties of cobweb spiders’ gumfoot glue droplets</title>
+		<title level="a" type="main">Protein composition and associated material properties of cobweb spiders&apos; gumfoot glue droplets</title>
 		<author>
-			<persName><forename type="first">Nadia</forename><forename type="middle">A</forename><surname>Ayoub</surname></persName>
+			<persName><forename type="first">N</forename><forename type="middle">A</forename><surname>Ayoub</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Kyle</forename><surname>Friend</surname></persName>
+			<persName><forename type="first">K</forename><surname>Friend</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Thomas</forename><surname>Clarke</surname></persName>
+			<persName><forename type="first">T</forename><surname>Clarke</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Richard</forename><surname>Baker</surname></persName>
+			<persName><forename type="first">R</forename><surname>Baker</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Sandra</forename><surname>Correa-Garhwal</surname></persName>
+			<persName><forename type="first">S</forename><forename type="middle">M</forename><surname>Correa-Garhwal</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Andrew</forename><surname>Crean</surname></persName>
+			<persName><forename type="first">A</forename><surname>Crean</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Enkhbileg</forename><surname>Dendev</surname></persName>
+			<persName><forename type="first">E</forename><surname>Dendev</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Delaney</forename><surname>Foster</surname></persName>
+			<persName><forename type="first">D</forename><surname>Foster</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Lorden</forename><surname>Hoff</surname></persName>
+			<persName><forename type="first">L</forename><surname>Hoff</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Sean</forename><surname>Kelly</surname></persName>
+			<persName><forename type="first">S</forename><forename type="middle">D</forename><surname>Kelly</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Wade</forename><surname>Patterson</surname></persName>
+			<persName><forename type="first">W</forename><surname>Patterson</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Cheryl</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
+			<persName><forename type="first">C</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Brent</forename><forename type="middle">D</forename><surname>Opell</surname></persName>
+			<persName><forename type="first">B</forename><forename type="middle">D</forename><surname>Opell</surname></persName>
 		</author>
-		<idno type="DOI">10.1093/icb/icab086</idno>
 	</analytic>
 	<monogr>
-		<title level="j">Integrative and Comparative Biology</title>
-		<idno type="ISSN">1540-7063</idno>
-		<idno type="ISSNe">1557-7023</idno>
+		<title level="j">Integr. Comp. Biol</title>
 		<imprint>
 			<biblScope unit="volume">61</biblScope>
 			<biblScope unit="page" from="1459" to="1480" />
-			<date type="published" when="2021-05-18">2021</date>
-			<publisher>Oxford University Press (OUP)</publisher>
+			<date type="published" when="2021">2021</date>
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b15">
 	<analytic>
-		<title level="a" type="main">Ancient properties of spider silks revealed by the complete gene sequence of the prey-wrapping silk protein (AcSp1)</title>
-		<author>
-			<persName><forename type="first">N</forename><forename type="middle">A</forename><surname>Ayoub</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">J</forename><forename type="middle">E</forename><surname>Garb</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">A</forename><surname>Kuelbs</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">C</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
-		</author>
-	</analytic>
-	<monogr>
-		<title level="j">Mol. Biol. Evol</title>
-		<imprint>
-			<biblScope unit="volume">30</biblScope>
-			<biblScope unit="page" from="589" to="601" />
-			<date type="published" when="2013">2013</date>
-		</imprint>
-	</monogr>
-</biblStruct>
-
-<biblStruct xml:id="b16">
-	<analytic>
-		<title level="a" type="main">Blueprint for a High-Performance Biomaterial: Full-Length Spider Dragline Silk Genes</title>
+		<title level="a" type="main">Ancient Properties of Spider Silks Revealed by the Complete Gene Sequence of the Prey-Wrapping Silk Protein (AcSp1)</title>
 		<author>
 			<persName><forename type="first">Nadia</forename><forename type="middle">A</forename><surname>Ayoub</surname></persName>
 		</author>
@@ -1290,26 +1264,52 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 			<persName><forename type="first">Jessica</forename><forename type="middle">E</forename><surname>Garb</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Robin</forename><forename type="middle">M</forename><surname>Tinghitella</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">Matthew</forename><forename type="middle">A</forename><surname>Collin</surname></persName>
+			<persName><forename type="first">Amanda</forename><surname>Kuelbs</surname></persName>
 		</author>
 		<author>
 			<persName><forename type="first">Cheryl</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
 		</author>
-		<idno type="DOI">10.1371/journal.pone.0000514</idno>
+		<idno type="DOI">10.1093/molbev/mss254</idno>
 	</analytic>
 	<monogr>
-		<title level="j">PLoS ONE</title>
-		<title level="j" type="abbrev">PLoS ONE</title>
-		<idno type="ISSNe">1932-6203</idno>
+		<title level="j">Molecular Biology and Evolution</title>
+		<idno type="ISSN">0737-4038</idno>
+		<idno type="ISSNe">1537-1719</idno>
+		<imprint>
+			<biblScope unit="volume">30</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="589" to="601" />
+			<date type="published" when="2013">2013</date>
+			<publisher>Oxford University Press (OUP)</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Blueprint for a high-performance biomaterial: Full-length spider dragline silk genes</title>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">A</forename><surname>Ayoub</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">E</forename><surname>Garb</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">M</forename><surname>Tinghitella</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Collin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">PLOS ONE</title>
 		<imprint>
 			<biblScope unit="volume">2</biblScope>
-			<biblScope unit="issue">6</biblScope>
-			<biblScope unit="page">e514</biblScope>
-			<date type="published" when="2007-06-13">2007</date>
-			<publisher>Public Library of Science (PLoS)</publisher>
+			<biblScope unit="page">514</biblScope>
+			<date type="published" when="2007">2007</date>
 		</imprint>
 	</monogr>
 </biblStruct>
@@ -1388,32 +1388,23 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 </biblStruct>
 
 <biblStruct xml:id="b19">
-	<analytic>
-		<title level="a" type="main">Golden orb-weaving spider (&lt;i&gt;Trichonephila clavipes&lt;/i&gt;) silk genes with sex-biased expression and atypical architectures</title>
-		<author>
-			<persName><forename type="first">Sandra</forename><forename type="middle">M</forename><surname>Correa-Garhwal</surname></persName>
-			<idno type="ORCID">0000-0002-6889-2688</idno>
-		</author>
-		<author>
-			<persName><forename type="first">Paul</forename><forename type="middle">L</forename><surname>Babb</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">Benjamin</forename><forename type="middle">F</forename><surname>Voight</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">Cheryl</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
-		</author>
-		<idno type="DOI">10.1093/g3journal/jkaa039</idno>
-	</analytic>
 	<monogr>
-		<title level="j">G3 Genes|Genomes|Genetics</title>
-		<idno type="ISSNe">2160-1836</idno>
+		<title level="m" type="main">Golden orb-weaving spider (Trichonephila clavipes) silk genes with sex-biased expression and atypical architectures. G3 (Bethesda) 11</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">M</forename><surname>Correa-Garhwal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">L</forename><surname>Babb</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">F</forename><surname>Voight</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
+		</author>
 		<imprint>
-			<biblScope unit="volume">11</biblScope>
-			<biblScope unit="issue">1</biblScope>
-			<biblScope unit="page">39</biblScope>
 			<date type="published" when="2021">2021</date>
-			<publisher>Oxford University Press (OUP)</publisher>
+			<biblScope unit="page">39</biblScope>
 		</imprint>
 	</monogr>
 </biblStruct>
@@ -1461,41 +1452,42 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 
 <biblStruct xml:id="b21">
 	<analytic>
-		<title level="a" type="main">Silk gene expression of theridiid spiders: Implications for male-specific silk use</title>
+		<title level="a" type="main">Silk gene expression of theridiid spiders: implications for male-specific silk use</title>
 		<author>
-			<persName><forename type="first">S</forename><forename type="middle">M</forename><surname>Correa-Garhwal</surname></persName>
+			<persName><forename type="first">Sandra</forename><forename type="middle">M</forename><surname>Correa-Garhwal</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">R</forename><forename type="middle">C</forename><surname>Chaw</surname></persName>
+			<persName><forename type="first">R</forename><forename type="middle">Crystal</forename><surname>Chaw</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">T</forename><forename type="middle">H</forename><surname>Clarke</surname></persName>
+			<persName><forename type="first">Thomas</forename><forename type="middle">H</forename><surname>Clarke</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Iii</forename></persName>
+			<persName><forename type="first">Nadia</forename><forename type="middle">A</forename><surname>Ayoub</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">N</forename><forename type="middle">A</forename><surname>Ayoub</surname></persName>
+			<persName><forename type="first">Cheryl</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
 		</author>
-		<author>
-			<persName><forename type="first">C</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
-		</author>
+		<idno type="DOI">10.1016/j.zool.2017.04.003</idno>
 	</analytic>
 	<monogr>
 		<title level="j">Zoology</title>
+		<title level="j" type="abbrev">Zoology</title>
+		<idno type="ISSN">0944-2006</idno>
 		<imprint>
 			<biblScope unit="volume">122</biblScope>
 			<biblScope unit="page" from="107" to="114" />
-			<date type="published" when="2017">2017</date>
+			<date type="published" when="2017-06">2017</date>
+			<publisher>Elsevier BV</publisher>
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b22">
 	<analytic>
-		<title level="a" type="main">Semi‐aquatic spider silks: transcripts, proteins, and silk fibres of the fishing spider, &lt;i&gt;Dolomedes triton &lt;/i&gt;(Pisauridae)</title>
+		<title level="a" type="main">Semi-aquatic spider silks: Transcripts, proteins, and silk fibres of the fishing spider, Dolomedes triton (Pisauridae)</title>
 		<author>
-			<persName><forename type="first">S</forename><forename type="middle">M</forename><surname>Correa‐garhwal</surname></persName>
+			<persName><forename type="first">S</forename><forename type="middle">M</forename><surname>Correa-Garhwal</surname></persName>
 		</author>
 		<author>
 			<persName><forename type="first">R</forename><forename type="middle">C</forename><surname>Chaw</surname></persName>
@@ -1507,6 +1499,9 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 			<persName><forename type="first">T</forename><forename type="middle">H</forename><surname>Clarke</surname></persName>
 		</author>
 		<author>
+			<persName><forename type="first">Iii</forename></persName>
+		</author>
+		<author>
 			<persName><forename type="first">K</forename><forename type="middle">H</forename><surname>Chea</surname></persName>
 		</author>
 		<author>
@@ -1515,63 +1510,51 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 		<author>
 			<persName><forename type="first">C</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
 		</author>
-		<idno type="DOI">10.1111/imb.12527</idno>
 	</analytic>
 	<monogr>
-		<title level="j">Insect Molecular Biology</title>
-		<title level="j" type="abbrev">Insect Molecular Biology</title>
-		<idno type="ISSN">0962-1075</idno>
-		<idno type="ISSNe">1365-2583</idno>
+		<title level="j">Insect Mol. Biol</title>
 		<imprint>
 			<biblScope unit="volume">28</biblScope>
-			<biblScope unit="issue">1</biblScope>
 			<biblScope unit="page" from="35" to="51" />
 			<date type="published" when="2019">2019</date>
-			<publisher>Wiley</publisher>
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b23">
 	<analytic>
-		<title level="a" type="main">Spidroins and Silk Fibers of Aquatic Spiders</title>
+		<title level="a" type="main">Spidroins and silk fibers of aquatic spiders</title>
 		<author>
-			<persName><forename type="first">Sandra</forename><forename type="middle">M</forename><surname>Correa-Garhwal</surname></persName>
+			<persName><forename type="first">S</forename><forename type="middle">M</forename><surname>Correa-Garhwal</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Thomas</forename><forename type="middle">H</forename><surname>Clarke</surname></persName>
+			<persName><forename type="first">T</forename><forename type="middle">H</forename><surname>Clarke 3rd</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Marc</forename><surname>Janssen</surname></persName>
+			<persName><forename type="first">M</forename><surname>Janssen</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Luc</forename><surname>Crevecoeur</surname></persName>
+			<persName><forename type="first">L</forename><surname>Crevecoeur</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Bryce</forename><forename type="middle">N</forename><surname>Mcquillan</surname></persName>
+			<persName><forename type="first">B</forename><forename type="middle">N</forename><surname>Mcquillan</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Angela</forename><forename type="middle">H</forename><surname>Simpson</surname></persName>
+			<persName><forename type="first">A</forename><forename type="middle">H</forename><surname>Simpson</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Cor</forename><forename type="middle">J</forename><surname>Vink</surname></persName>
-			<idno type="ORCID">0000-0003-4237-0117</idno>
+			<persName><forename type="first">C</forename><forename type="middle">J</forename><surname>Vink</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Cheryl</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
+			<persName><forename type="first">C</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
 		</author>
-		<idno type="DOI">10.1038/s41598-019-49587-y</idno>
 	</analytic>
 	<monogr>
-		<title level="j">Scientific Reports</title>
-		<title level="j" type="abbrev">Sci Rep</title>
-		<idno type="ISSNe">2045-2322</idno>
+		<title level="j">Sci. Rep</title>
 		<imprint>
 			<biblScope unit="volume">9</biblScope>
-			<biblScope unit="issue">1</biblScope>
 			<biblScope unit="page">13656</biblScope>
-			<date type="published" when="2019-09-20">2019</date>
-			<publisher>Springer Science and Business Media LLC</publisher>
+			<date type="published" when="2019">2019</date>
 		</imprint>
 	</monogr>
 </biblStruct>
@@ -1606,32 +1589,27 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 	<analytic>
 		<title level="a" type="main">Spidroin profiling of cribellate spiders provides insight into the evolution of spider prey capture strategies</title>
 		<author>
-			<persName><forename type="first">Nobuaki</forename><surname>Kono</surname></persName>
+			<persName><forename type="first">N</forename><surname>Kono</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Hiroyuki</forename><surname>Nakamura</surname></persName>
+			<persName><forename type="first">H</forename><surname>Nakamura</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Masaru</forename><surname>Mori</surname></persName>
+			<persName><forename type="first">M</forename><surname>Mori</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Masaru</forename><surname>Tomita</surname></persName>
+			<persName><forename type="first">M</forename><surname>Tomita</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Kazuharu</forename><surname>Arakawa</surname></persName>
+			<persName><forename type="first">K</forename><surname>Arakawa</surname></persName>
 		</author>
-		<idno type="DOI">10.1038/s41598-020-72888-6</idno>
 	</analytic>
 	<monogr>
-		<title level="j">Scientific Reports</title>
-		<title level="j" type="abbrev">Sci Rep</title>
-		<idno type="ISSNe">2045-2322</idno>
+		<title level="j">Sci. Rep</title>
 		<imprint>
 			<biblScope unit="volume">10</biblScope>
-			<biblScope unit="issue">1</biblScope>
 			<biblScope unit="page">15721</biblScope>
-			<date type="published" when="2020-09-24">2020</date>
-			<publisher>Springer Science and Business Media LLC</publisher>
+			<date type="published" when="2020">2020</date>
 		</imprint>
 	</monogr>
 </biblStruct>
@@ -1640,150 +1618,156 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 	<analytic>
 		<title level="a" type="main">Spider genomes provide insight into composition and evolution of venom and silk</title>
 		<author>
-			<persName><forename type="first">Kristian</forename><forename type="middle">W</forename><surname>Sanggaard</surname></persName>
+			<persName><forename type="first">K</forename><forename type="middle">W</forename><surname>Sanggaard</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Jesper</forename><forename type="middle">S</forename><surname>Bechsgaard</surname></persName>
+			<persName><forename type="first">J</forename><forename type="middle">S</forename><surname>Bechsgaard</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Xiaodong</forename><surname>Fang</surname></persName>
+			<persName><forename type="first">X</forename><surname>Fang</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Jinjie</forename><surname>Duan</surname></persName>
+			<persName><forename type="first">J</forename><surname>Duan</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Thomas</forename><forename type="middle">F</forename><surname>Dyrlund</surname></persName>
+			<persName><forename type="first">T</forename><forename type="middle">F</forename><surname>Dyrlund</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Vikas</forename><surname>Gupta</surname></persName>
+			<persName><forename type="first">V</forename><surname>Gupta</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Xuanting</forename><surname>Jiang</surname></persName>
+			<persName><forename type="first">X</forename><surname>Jiang</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Ling</forename><surname>Cheng</surname></persName>
+			<persName><forename type="first">L</forename><surname>Cheng</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Dingding</forename><surname>Fan</surname></persName>
+			<persName><forename type="first">D</forename><surname>Fan</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Yue</forename><surname>Feng</surname></persName>
+			<persName><forename type="first">Y</forename><surname>Feng</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Lijuan</forename><surname>Han</surname></persName>
+			<persName><forename type="first">L</forename><surname>Han</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Zhiyong</forename><surname>Huang</surname></persName>
+			<persName><forename type="first">Z</forename><surname>Huang</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Zongze</forename><surname>Wu</surname></persName>
+			<persName><forename type="first">Z</forename><surname>Wu</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Li</forename><surname>Liao</surname></persName>
+			<persName><forename type="first">L</forename><surname>Liao</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Virginia</forename><surname>Settepani</surname></persName>
+			<persName><forename type="first">V</forename><surname>Settepani</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Ida</forename><forename type="middle">B</forename><surname>Thøgersen</surname></persName>
+			<persName><forename type="first">I</forename><forename type="middle">B</forename><surname>Thogersen</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Bram</forename><surname>Vanthournout</surname></persName>
+			<persName><forename type="first">B</forename><surname>Vanthournout</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Tobias</forename><surname>Wang</surname></persName>
+			<persName><forename type="first">T</forename><surname>Wang</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Yabing</forename><surname>Zhu</surname></persName>
+			<persName><forename type="first">Y</forename><surname>Zhu</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Peter</forename><surname>Funch</surname></persName>
+			<persName><forename type="first">P</forename><surname>Funch</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Jan</forename><forename type="middle">J</forename><surname>Enghild</surname></persName>
+			<persName><forename type="first">J</forename><forename type="middle">J</forename><surname>Enghild</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Leif</forename><surname>Schauser</surname></persName>
+			<persName><forename type="first">L</forename><surname>Schauser</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Stig</forename><forename type="middle">U</forename><surname>Andersen</surname></persName>
+			<persName><forename type="first">S</forename><forename type="middle">U</forename><surname>Andersen</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Palle</forename><surname>Villesen</surname></persName>
+			<persName><forename type="first">P</forename><surname>Villesen</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Mikkel</forename><forename type="middle">H</forename><surname>Schierup</surname></persName>
+			<persName><forename type="first">M</forename><forename type="middle">H</forename><surname>Schierup</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Trine</forename><surname>Bilde</surname></persName>
+			<persName><forename type="first">T</forename><surname>Bilde</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Jun</forename><surname>Wang</surname></persName>
+			<persName><forename type="first">J</forename><surname>Wang</surname></persName>
 		</author>
-		<idno type="DOI">10.1038/ncomms4765</idno>
 	</analytic>
 	<monogr>
-		<title level="j">Nature Communications</title>
-		<title level="j" type="abbrev">Nat Commun</title>
-		<idno type="ISSNe">2041-1723</idno>
+		<title level="j">Nat. Commun</title>
 		<imprint>
 			<biblScope unit="volume">5</biblScope>
-			<biblScope unit="issue">1</biblScope>
 			<biblScope unit="page">3765</biblScope>
-			<date type="published" when="2014-05-06">2014</date>
-			<publisher>Springer Science and Business Media LLC</publisher>
+			<date type="published" when="2014">2014</date>
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b27">
 	<analytic>
-		<title level="a" type="main">Early events in the evolution of spider silk genes</title>
+		<title level="a" type="main">Early Events in the Evolution of Spider Silk Genes</title>
 		<author>
-			<persName><forename type="first">J</forename><surname>Starrett</surname></persName>
+			<persName><forename type="first">James</forename><surname>Starrett</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">J</forename><forename type="middle">E</forename><surname>Garb</surname></persName>
+			<persName><forename type="first">Jessica</forename><forename type="middle">E</forename><surname>Garb</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">A</forename><surname>Kuelbs</surname></persName>
+			<persName><forename type="first">Amanda</forename><surname>Kuelbs</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">U</forename><forename type="middle">O</forename><surname>Azubuike</surname></persName>
+			<persName><forename type="first">Ugochi</forename><forename type="middle">O</forename><surname>Azubuike</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">C</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
+			<persName><forename type="first">Cheryl</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
 		</author>
+		<idno type="DOI">10.1371/journal.pone.0038084</idno>
 	</analytic>
 	<monogr>
-		<title level="j">PLOS ONE</title>
+		<title level="j">PLoS ONE</title>
+		<title level="j" type="abbrev">PLoS ONE</title>
+		<idno type="ISSNe">1932-6203</idno>
 		<imprint>
 			<biblScope unit="volume">7</biblScope>
-			<biblScope unit="page">38084</biblScope>
-			<date type="published" when="2012">2012</date>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page">e38084</biblScope>
+			<date type="published" when="2012-06-22">2012</date>
+			<publisher>Public Library of Science (PLoS)</publisher>
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b28">
 	<analytic>
-		<title level="a" type="main">Analysis of major ampullate silk cDNAs from two non-orbweaving spiders</title>
+		<title level="a" type="main">Analysis of Major Ampullate Silk cDNAs from Two Non-Orb-Weaving Spiders</title>
 		<author>
-			<persName><forename type="first">M</forename><surname>Tian</surname></persName>
+			<persName><forename type="first">Maozhen</forename><surname>Tian</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">C</forename><surname>Liu</surname></persName>
+			<persName><forename type="first">Congzhou</forename><surname>Liu</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">R</forename><surname>Lewis</surname></persName>
+			<persName><forename type="first">Randolph</forename><surname>Lewis</surname></persName>
 		</author>
+		<idno type="DOI">10.1021/bm034391w</idno>
 	</analytic>
 	<monogr>
 		<title level="j">Biomacromolecules</title>
+		<title level="j" type="abbrev">Biomacromolecules</title>
+		<idno type="ISSN">1525-7797</idno>
+		<idno type="ISSNe">1526-4602</idno>
 		<imprint>
 			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="issue">3</biblScope>
 			<biblScope unit="page" from="657" to="660" />
-			<date type="published" when="2004">2004</date>
+			<date type="published" when="2004-04-10">2004</date>
+			<publisher>American Chemical Society (ACS)</publisher>
 		</imprint>
 	</monogr>
 </biblStruct>
@@ -1792,56 +1776,55 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 	<analytic>
 		<title level="a" type="main">Genomic perspectives of spider silk genes through target capture sequencing: Conservation of stabilization mechanisms and homology-based structural models of spidroin terminal regions</title>
 		<author>
-			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Collin</surname></persName>
+			<persName><forename type="first">Matthew</forename><forename type="middle">A</forename><surname>Collin</surname></persName>
+			<idno type="ORCID">0000-0002-8206-7027</idno>
 		</author>
 		<author>
-			<persName><forename type="first">T</forename><forename type="middle">H</forename><surname>Clarke Iii</surname></persName>
+			<persName><forename type="first">Thomas</forename><forename type="middle">H</forename><surname>Clarke</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">N</forename><forename type="middle">A</forename><surname>Ayoub</surname></persName>
+			<persName><forename type="first">Nadia</forename><forename type="middle">A</forename><surname>Ayoub</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">C</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
+			<persName><forename type="first">Cheryl</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
 		</author>
+		<idno type="DOI">10.1016/j.ijbiomac.2018.02.032</idno>
 	</analytic>
 	<monogr>
-		<title level="j">Int. J. Biol. Macromol</title>
+		<title level="j">International Journal of Biological Macromolecules</title>
+		<title level="j" type="abbrev">International Journal of Biological Macromolecules</title>
+		<idno type="ISSN">0141-8130</idno>
 		<imprint>
 			<biblScope unit="volume">113</biblScope>
 			<biblScope unit="page" from="829" to="840" />
-			<date type="published" when="2018">2018</date>
+			<date type="published" when="2018-07">2018</date>
+			<publisher>Elsevier BV</publisher>
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b30">
 	<analytic>
-		<title level="a" type="main">Silk Genes Support the Single Origin of Orb Webs</title>
+		<title level="a" type="main">Silk genes support the single origin of orb webs</title>
 		<author>
-			<persName><forename type="first">Jessica</forename><forename type="middle">E</forename><surname>Garb</surname></persName>
+			<persName><forename type="first">J</forename><forename type="middle">E</forename><surname>Garb</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Teresa</forename><surname>Dimauro</surname></persName>
+			<persName><forename type="first">T</forename><surname>Dimauro</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Victoria</forename><surname>Vo</surname></persName>
+			<persName><forename type="first">V</forename><surname>Vo</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Cheryl</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
+			<persName><forename type="first">C</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
 		</author>
-		<idno type="DOI">10.1126/science.1127946</idno>
 	</analytic>
 	<monogr>
 		<title level="j">Science</title>
-		<title level="j" type="abbrev">Science</title>
-		<idno type="ISSN">0036-8075</idno>
-		<idno type="ISSNe">1095-9203</idno>
 		<imprint>
 			<biblScope unit="volume">312</biblScope>
-			<biblScope unit="issue">5781</biblScope>
 			<biblScope unit="page" from="1762" to="1762" />
-			<date type="published" when="2006-06-23">2006</date>
-			<publisher>American Association for the Advancement of Science (AAAS)</publisher>
+			<date type="published" when="2006">2006</date>
 		</imprint>
 	</monogr>
 </biblStruct>
@@ -1870,51 +1853,57 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 	<analytic>
 		<title level="a" type="main">The dimerization mechanism of the N-terminal domain of spider silk proteins is conserved despite extensive sequence divergence</title>
 		<author>
-			<persName><forename type="first">M</forename><surname>Sarr</surname></persName>
+			<persName><forename type="first">Médoune</forename><surname>Sarr</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">K</forename><surname>Kitoka</surname></persName>
+			<persName><forename type="first">Kristine</forename><surname>Kitoka</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">K.-A</forename><surname>Walsh-White</surname></persName>
+			<persName><forename type="first">Kellie-Ann</forename><surname>Walsh-White</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">M</forename><surname>Kaldmäe</surname></persName>
+			<persName><forename type="first">Margit</forename><surname>Kaldmäe</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">R</forename><surname>Metlāns</surname></persName>
+			<persName><forename type="first">Rimants</forename><surname>Metlāns</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">K</forename><surname>Tārs</surname></persName>
+			<persName><forename type="first">Kaspar</forename><surname>Tārs</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">A</forename><surname>Mantese</surname></persName>
+			<persName><forename type="first">Alessandro</forename><surname>Mantese</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">D</forename><surname>Shah</surname></persName>
+			<persName><forename type="first">Dipen</forename><surname>Shah</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">M</forename><surname>Landreh</surname></persName>
+			<persName><forename type="first">Michael</forename><surname>Landreh</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">A</forename><surname>Rising</surname></persName>
+			<persName><forename type="first">Anna</forename><surname>Rising</surname></persName>
+			<idno type="ORCID">0000-0002-1872-1207</idno>
 		</author>
 		<author>
-			<persName><forename type="first">J</forename><surname>Johansson</surname></persName>
+			<persName><forename type="first">Jan</forename><surname>Johansson</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">K</forename><surname>Jaudzems</surname></persName>
+			<persName><forename type="first">Kristaps</forename><surname>Jaudzems</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">N</forename><surname>Kronqvist</surname></persName>
+			<persName><forename type="first">Nina</forename><surname>Kronqvist</surname></persName>
 		</author>
+		<idno type="DOI">10.1016/j.jbc.2022.101913</idno>
 	</analytic>
 	<monogr>
-		<title level="j">J. Biol. Chem</title>
+		<title level="j">Journal of Biological Chemistry</title>
+		<title level="j" type="abbrev">Journal of Biological Chemistry</title>
+		<idno type="ISSN">0021-9258</idno>
 		<imprint>
 			<biblScope unit="volume">298</biblScope>
+			<biblScope unit="issue">5</biblScope>
 			<biblScope unit="page">101913</biblScope>
-			<date type="published" when="2022">2022</date>
+			<date type="published" when="2022-05">2022</date>
+			<publisher>Elsevier BV</publisher>
 		</imprint>
 	</monogr>
 </biblStruct>
@@ -1950,37 +1939,32 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 
 <biblStruct xml:id="b34">
 	<analytic>
-		<title level="a" type="main">Phylogenomics Resolves a Spider Backbone Phylogeny and Rejects a Prevailing Paradigm for Orb Web Evolution</title>
+		<title level="a" type="main">Phylogenomics resolves a spider backbone phylogeny and rejects a prevailing paradigm for orb web evolution</title>
 		<author>
-			<persName><forename type="first">Jason</forename><forename type="middle">E</forename><surname>Bond</surname></persName>
+			<persName><forename type="first">J</forename><forename type="middle">E</forename><surname>Bond</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Nicole</forename><forename type="middle">L</forename><surname>Garrison</surname></persName>
+			<persName><forename type="first">N</forename><forename type="middle">L</forename><surname>Garrison</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Chris</forename><forename type="middle">A</forename><surname>Hamilton</surname></persName>
+			<persName><forename type="first">C</forename><forename type="middle">A</forename><surname>Hamilton</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Rebecca</forename><forename type="middle">L</forename><surname>Godwin</surname></persName>
+			<persName><forename type="first">R</forename><forename type="middle">L</forename><surname>Godwin</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Marshal</forename><surname>Hedin</surname></persName>
+			<persName><forename type="first">M</forename><surname>Hedin</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Ingi</forename><surname>Agnarsson</surname></persName>
+			<persName><forename type="first">I</forename><surname>Agnarsson</surname></persName>
 		</author>
-		<idno type="DOI">10.1016/j.cub.2014.06.034</idno>
 	</analytic>
 	<monogr>
-		<title level="j">Current Biology</title>
-		<title level="j" type="abbrev">Current Biology</title>
-		<idno type="ISSN">0960-9822</idno>
+		<title level="j">Curr. Biol</title>
 		<imprint>
 			<biblScope unit="volume">24</biblScope>
-			<biblScope unit="issue">15</biblScope>
 			<biblScope unit="page" from="1765" to="1771" />
-			<date type="published" when="2014-08">2014</date>
-			<publisher>Elsevier BV</publisher>
+			<date type="published" when="2014">2014</date>
 		</imprint>
 	</monogr>
 </biblStruct>
@@ -2111,26 +2095,18 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 	<analytic>
 		<title level="a" type="main">Nanopore sequencing: Review of potential applications in functional genomics</title>
 		<author>
-			<persName><forename type="first">Nobuaki</forename><surname>Kono</surname></persName>
-			<idno type="ORCID">0000-0001-5960-7956</idno>
+			<persName><forename type="first">N</forename><surname>Kono</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Kazuharu</forename><surname>Arakawa</surname></persName>
-			<idno type="ORCID">0000-0002-2893-4919</idno>
+			<persName><forename type="first">K</forename><surname>Arakawa</surname></persName>
 		</author>
-		<idno type="DOI">10.1111/dgd.12608</idno>
 	</analytic>
 	<monogr>
-		<title level="j">Development, Growth &amp; Differentiation</title>
-		<title level="j" type="abbrev">Dev Growth Differ</title>
-		<idno type="ISSN">0012-1592</idno>
-		<idno type="ISSNe">1440-169X</idno>
+		<title level="j">Dev. Growth Differ</title>
 		<imprint>
 			<biblScope unit="volume">61</biblScope>
-			<biblScope unit="issue">5</biblScope>
 			<biblScope unit="page" from="316" to="326" />
-			<date type="published" when="2019-04-29">2019</date>
-			<publisher>Wiley</publisher>
+			<date type="published" when="2019">2019</date>
 		</imprint>
 	</monogr>
 </biblStruct>
@@ -2179,38 +2155,44 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 
 <biblStruct xml:id="b38">
 	<analytic>
-		<title level="a" type="main">Phylogeny of the orb-weaving spider family Araneidae (Araneae: Araneoidea)</title>
+		<title level="a" type="main">Phylogeny of the orb‐weaving spider family Araneidae (Araneae: Araneoidea)</title>
 		<author>
-			<persName><forename type="first">N</forename><surname>Scharff</surname></persName>
+			<persName><forename type="first">Nikolaj</forename><surname>Scharff</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">J</forename><forename type="middle">A</forename><surname>Coddington</surname></persName>
+			<persName><forename type="first">Jonathan</forename><forename type="middle">A</forename><surname>Coddington</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">T</forename><forename type="middle">A</forename><surname>Blackledge</surname></persName>
+			<persName><forename type="first">Todd</forename><forename type="middle">A</forename><surname>Blackledge</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">I</forename><surname>Agnarsson</surname></persName>
+			<persName><forename type="first">Ingi</forename><surname>Agnarsson</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">V</forename><forename type="middle">W</forename><surname>Framenau</surname></persName>
+			<persName><forename type="first">Volker</forename><forename type="middle">W</forename><surname>Framenau</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">T</forename><surname>Szűts</surname></persName>
+			<persName><forename type="first">Tamás</forename><surname>Szűts</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">C</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
+			<persName><forename type="first">Cheryl</forename><forename type="middle">Y</forename><surname>Hayashi</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">D</forename><surname>Dimitrov</surname></persName>
+			<persName><forename type="first">Dimitar</forename><surname>Dimitrov</surname></persName>
 		</author>
+		<idno type="DOI">10.1111/cla.12382</idno>
 	</analytic>
 	<monogr>
 		<title level="j">Cladistics</title>
+		<title level="j" type="abbrev">Cladistics</title>
+		<idno type="ISSN">0748-3007</idno>
+		<idno type="ISSNe">1096-0031</idno>
 		<imprint>
 			<biblScope unit="volume">36</biblScope>
+			<biblScope unit="issue">1</biblScope>
 			<biblScope unit="page" from="1" to="21" />
 			<date type="published" when="2020">2020</date>
+			<publisher>Wiley</publisher>
 		</imprint>
 	</monogr>
 </biblStruct>
@@ -2219,27 +2201,21 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 	<analytic>
 		<title level="a" type="main">Analysis of repetitive amino acid motifs reveals the essential features of spider dragline silk proteins</title>
 		<author>
-			<persName><forename type="first">Ali</forename><forename type="middle">D</forename><surname>Malay</surname></persName>
-			<idno type="ORCID">0000-0003-0885-5524</idno>
+			<persName><forename type="first">A</forename><forename type="middle">D</forename><surname>Malay</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Kazuharu</forename><surname>Arakawa</surname></persName>
+			<persName><forename type="first">K</forename><surname>Arakawa</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Keiji</forename><surname>Numata</surname></persName>
+			<persName><forename type="first">K</forename><surname>Numata</surname></persName>
 		</author>
-		<idno type="DOI">10.1371/journal.pone.0183397</idno>
 	</analytic>
 	<monogr>
 		<title level="j">PLOS ONE</title>
-		<title level="j" type="abbrev">PLoS ONE</title>
-		<idno type="ISSNe">1932-6203</idno>
 		<imprint>
 			<biblScope unit="volume">12</biblScope>
-			<biblScope unit="issue">8</biblScope>
-			<biblScope unit="page">e0183397</biblScope>
-			<date type="published" when="2017-08-23">2017</date>
-			<publisher>Public Library of Science (PLoS)</publisher>
+			<biblScope unit="page">183397</biblScope>
+			<date type="published" when="2017">2017</date>
 		</imprint>
 	</monogr>
 </biblStruct>
@@ -2248,45 +2224,42 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 	<analytic>
 		<title level="a" type="main">Multicomponent nature underlies the extraordinary mechanical properties of spider dragline silk</title>
 		<author>
-			<persName><forename type="first">Nobuaki</forename><surname>Kono</surname></persName>
+			<persName><forename type="first">N</forename><surname>Kono</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Hiroyuki</forename><surname>Nakamura</surname></persName>
+			<persName><forename type="first">H</forename><surname>Nakamura</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Masaru</forename><surname>Mori</surname></persName>
+			<persName><forename type="first">M</forename><surname>Mori</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Yuki</forename><surname>Yoshida</surname></persName>
+			<persName><forename type="first">Y</forename><surname>Yoshida</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Rintaro</forename><surname>Ohtoshi</surname></persName>
+			<persName><forename type="first">R</forename><surname>Ohtoshi</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Ali</forename><forename type="middle">D</forename><surname>Malay</surname></persName>
+			<persName><forename type="first">A</forename><forename type="middle">D</forename><surname>Malay</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Daniel</forename><forename type="middle">A</forename><surname>Pedrazzoli Moran</surname></persName>
+			<persName><forename type="first">D</forename><forename type="middle">A</forename><surname>Pedrazzoli Moran</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Masaru</forename><surname>Tomita</surname></persName>
+			<persName><forename type="first">M</forename><surname>Tomita</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Keiji</forename><surname>Numata</surname></persName>
+			<persName><forename type="first">K</forename><surname>Numata</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Kazuharu</forename><surname>Arakawa</surname></persName>
-			<idno type="ORCID">0000-0002-2893-4919</idno>
+			<persName><forename type="first">K</forename><surname>Arakawa</surname></persName>
 		</author>
-		<idno type="DOI">10.1101/2021.04.22.441049</idno>
 	</analytic>
 	<monogr>
 		<title level="j">Proc. Natl. Acad. Sci</title>
 		<imprint>
 			<biblScope unit="volume">118</biblScope>
 			<biblScope unit="page">2107065118</biblScope>
-			<date type="published" when="2021-04-23">2021</date>
-			<publisher>Cold Spring Harbor Laboratory</publisher>
+			<date type="published" when="2021">2021</date>
 		</imprint>
 	</monogr>
 </biblStruct>
@@ -2295,50 +2268,42 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 	<analytic>
 		<title level="a" type="main">Orb-weaving spider Araneus ventricosus genome elucidates the spidroin gene catalogue</title>
 		<author>
-			<persName><forename type="first">Nobuaki</forename><surname>Kono</surname></persName>
-			<idno type="ORCID">0000-0001-5960-7956</idno>
+			<persName><forename type="first">N</forename><surname>Kono</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Hiroyuki</forename><surname>Nakamura</surname></persName>
+			<persName><forename type="first">H</forename><surname>Nakamura</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Rintaro</forename><surname>Ohtoshi</surname></persName>
+			<persName><forename type="first">R</forename><surname>Ohtoshi</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Daniel</forename><forename type="middle">A Pedrazzoli</forename><surname>Moran</surname></persName>
+			<persName><forename type="first">D</forename><forename type="middle">A P</forename><surname>Moran</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Asaka</forename><surname>Shinohara</surname></persName>
+			<persName><forename type="first">A</forename><surname>Shinohara</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Yuki</forename><surname>Yoshida</surname></persName>
-			<idno type="ORCID">0000-0003-2749-8171</idno>
+			<persName><forename type="first">Y</forename><surname>Yoshida</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Masayuki</forename><surname>Fujiwara</surname></persName>
+			<persName><forename type="first">M</forename><surname>Fujiwara</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Masaru</forename><surname>Mori</surname></persName>
+			<persName><forename type="first">M</forename><surname>Mori</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Masaru</forename><surname>Tomita</surname></persName>
+			<persName><forename type="first">M</forename><surname>Tomita</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Kazuharu</forename><surname>Arakawa</surname></persName>
-			<idno type="ORCID">0000-0002-2893-4919</idno>
+			<persName><forename type="first">K</forename><surname>Arakawa</surname></persName>
 		</author>
-		<idno type="DOI">10.1038/s41598-019-44775-2</idno>
 	</analytic>
 	<monogr>
-		<title level="j">Scientific Reports</title>
-		<title level="j" type="abbrev">Sci Rep</title>
-		<idno type="ISSNe">2045-2322</idno>
+		<title level="j">Sci. Rep</title>
 		<imprint>
 			<biblScope unit="volume">9</biblScope>
-			<biblScope unit="issue">1</biblScope>
 			<biblScope unit="page">8380</biblScope>
-			<date type="published" when="2019-06-10">2019</date>
-			<publisher>Springer Science and Business Media LLC</publisher>
+			<date type="published" when="2019">2019</date>
 		</imprint>
 	</monogr>
 </biblStruct>
@@ -2371,23 +2336,28 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 
 <biblStruct xml:id="b43">
 	<analytic>
-		<title level="a" type="main">Vollrath, Variability in the mechanical properties of spider silks on three levels: Interspecific, intraspecific and intraindividual</title>
+		<title level="a" type="main">Variability in the mechanical properties of spider silks on three levels: interspecific, intraspecific and intraindividual</title>
 		<author>
-			<persName><forename type="first">B</forename><surname>Madsen</surname></persName>
+			<persName><forename type="first">Bo</forename><surname>Madsen</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Z</forename><forename type="middle">Z</forename><surname>Shao</surname></persName>
+			<persName><forename type="first">Zheng</forename><forename type="middle">Zhong</forename><surname>Shao</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">F</forename></persName>
+			<persName><forename type="first">Fritz</forename><surname>Vollrath</surname></persName>
 		</author>
+		<idno type="DOI">10.1016/s0141-8130(98)00094-4</idno>
 	</analytic>
 	<monogr>
-		<title level="j">Int. J. Biol. Macromol</title>
+		<title level="j">International Journal of Biological Macromolecules</title>
+		<title level="j" type="abbrev">International Journal of Biological Macromolecules</title>
+		<idno type="ISSN">0141-8130</idno>
 		<imprint>
 			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="issue">2-3</biblScope>
 			<biblScope unit="page" from="301" to="306" />
-			<date type="published" when="1999">1999</date>
+			<date type="published" when="1999-03">1999</date>
+			<publisher>Elsevier BV</publisher>
 		</imprint>
 	</monogr>
 </biblStruct>
@@ -2396,35 +2366,27 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 	<analytic>
 		<title level="a" type="main">Simultaneous effect of strain rate and humidity on the structure and mechanical behavior of spider silk</title>
 		<author>
-			<persName><forename type="first">Kenjiro</forename><surname>Yazawa</surname></persName>
+			<persName><forename type="first">K</forename><surname>Yazawa</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Ali</forename><forename type="middle">D</forename><surname>Malay</surname></persName>
-			<idno type="ORCID">0000-0003-0885-5524</idno>
+			<persName><forename type="first">A</forename><forename type="middle">D</forename><surname>Malay</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Hiroyasu</forename><surname>Masunaga</surname></persName>
+			<persName><forename type="first">H</forename><surname>Masunaga</surname></persName>
 		</author>
 		<author>
 			<persName><forename type="first">Y</forename><surname>Norma-Rashid</surname></persName>
-			<idno type="ORCID">0000-0002-1450-1995</idno>
 		</author>
 		<author>
-			<persName><forename type="first">Keiji</forename><surname>Numata</surname></persName>
-			<idno type="ORCID">0000-0003-2199-7420</idno>
+			<persName><forename type="first">K</forename><surname>Numata</surname></persName>
 		</author>
-		<idno type="DOI">10.1038/s43246-020-0011-8</idno>
 	</analytic>
 	<monogr>
-		<title level="j">Communications Materials</title>
-		<title level="j" type="abbrev">Commun Mater</title>
-		<idno type="ISSNe">2662-4443</idno>
+		<title level="j">Commun. Mater</title>
 		<imprint>
 			<biblScope unit="volume">1</biblScope>
-			<biblScope unit="issue">1</biblScope>
 			<biblScope unit="page">10</biblScope>
-			<date type="published" when="2020-03-10">2020</date>
-			<publisher>Springer Science and Business Media LLC</publisher>
+			<date type="published" when="2020">2020</date>
 		</imprint>
 	</monogr>
 </biblStruct>
@@ -2471,7 +2433,7 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 	<analytic>
 		<title level="a" type="main">Distinct contributions of model MaSp1 and MaSp2 like peptides to the mechanical properties of synthetic major ampullate silk fibers as revealed in silico</title>
 		<author>
-			<persName><forename type="first">A</forename><forename type="middle">E</forename><surname>Brooks</surname></persName>
+			<persName><forename type="first">Amanda</forename><forename type="middle">E</forename><surname>Brooks</surname></persName>
 		</author>
 		<author>
 			<persName><forename type="first">S</forename><forename type="middle">R</forename><surname>Nelson</surname></persName>
@@ -2491,13 +2453,17 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 		<author>
 			<persName><forename type="first">R</forename><forename type="middle">V</forename><surname>Lewis</surname></persName>
 		</author>
+		<idno type="DOI">10.2147/nsa.s3961</idno>
 	</analytic>
 	<monogr>
-		<title level="j">Nanotechnol. Sci. Appl</title>
+		<title level="j">Nanotechnology, Science and Applications</title>
+		<title level="j" type="abbrev">NSA</title>
+		<idno type="ISSNe">1177-8903</idno>
 		<imprint>
-			<biblScope unit="volume">1</biblScope>
-			<biblScope unit="page">9</biblScope>
-			<date type="published" when="2008">2008</date>
+			<biblScope unit="volume">Volume 1</biblScope>
+			<biblScope unit="page" from="9" to="16" />
+			<date type="published" when="2008-08">2008</date>
+			<publisher>Informa UK Limited</publisher>
 		</imprint>
 	</monogr>
 </biblStruct>
@@ -2936,49 +2902,48 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 
 <biblStruct xml:id="b62">
 	<analytic>
-		<title level="a" type="main">MAFFT Multiple Sequence Alignment Software Version 7: Improvements in Performance and Usability</title>
+		<title level="a" type="main">MAFFT multiple sequence alignment software version 7: Improvements in performance and usability</title>
 		<author>
 			<persName><forename type="first">K</forename><surname>Katoh</surname></persName>
 		</author>
 		<author>
 			<persName><forename type="first">D</forename><forename type="middle">M</forename><surname>Standley</surname></persName>
 		</author>
-		<idno type="DOI">10.1093/molbev/mst010</idno>
 	</analytic>
 	<monogr>
-		<title level="j">Molecular Biology and Evolution</title>
-		<title level="j" type="abbrev">Molecular Biology and Evolution</title>
-		<idno type="ISSN">0737-4038</idno>
-		<idno type="ISSNe">1537-1719</idno>
+		<title level="j">Mol. Biol. Evol</title>
 		<imprint>
 			<biblScope unit="volume">30</biblScope>
-			<biblScope unit="issue">4</biblScope>
 			<biblScope unit="page" from="772" to="780" />
-			<date type="published" when="2013-01-16">2013</date>
-			<publisher>Oxford University Press (OUP)</publisher>
+			<date type="published" when="2013">2013</date>
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b63">
 	<analytic>
-		<title level="a" type="main">trimAl: A tool for automated alignment trimming in large-scale phylogenetic analyses</title>
+		<title level="a" type="main">trimAl: a tool for automated alignment trimming in large-scale phylogenetic analyses</title>
 		<author>
-			<persName><forename type="first">S</forename><surname>Capella-Gutiérrez</surname></persName>
+			<persName><forename type="first">Salvador</forename><surname>Capella-Gutiérrez</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Silla-Martínez</surname></persName>
+			<persName><forename type="first">José</forename><forename type="middle">M</forename><surname>Silla-Martínez</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">T</forename><surname>Gabaldón</surname></persName>
+			<persName><forename type="first">Toni</forename><surname>Gabaldón</surname></persName>
 		</author>
+		<idno type="DOI">10.1093/bioinformatics/btp348</idno>
 	</analytic>
 	<monogr>
 		<title level="j">Bioinformatics</title>
+		<idno type="ISSN">1367-4803</idno>
+		<idno type="ISSNe">1367-4811</idno>
 		<imprint>
 			<biblScope unit="volume">25</biblScope>
+			<biblScope unit="issue">15</biblScope>
 			<biblScope unit="page" from="1972" to="1973" />
-			<date type="published" when="2009">2009</date>
+			<date type="published" when="2009-06-08">2009</date>
+			<publisher>Oxford University Press (OUP)</publisher>
 		</imprint>
 	</monogr>
 </biblStruct>
@@ -3116,7 +3081,7 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 
 <biblStruct xml:id="b68">
 	<analytic>
-		<title level="a" type="main">G-language Genome Analysis Environment: A workbench for nucleotide sequence data mining</title>
+		<title level="a" type="main">G-language Genome Analysis Environment: a workbench for nucleotide sequence data mining</title>
 		<author>
 			<persName><forename type="first">K</forename><surname>Arakawa</surname></persName>
 		</author>
@@ -3135,36 +3100,46 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 		<author>
 			<persName><forename type="first">M</forename><surname>Tomita</surname></persName>
 		</author>
+		<idno type="DOI">10.1093/bioinformatics/19.2.305</idno>
 	</analytic>
 	<monogr>
 		<title level="j">Bioinformatics</title>
+		<idno type="ISSN">1367-4803</idno>
+		<idno type="ISSNe">1367-4811</idno>
 		<imprint>
 			<biblScope unit="volume">19</biblScope>
+			<biblScope unit="issue">2</biblScope>
 			<biblScope unit="page" from="305" to="306" />
-			<date type="published" when="2003">2003</date>
+			<date type="published" when="2003-01-22">2003</date>
+			<publisher>Oxford University Press (OUP)</publisher>
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b69">
 	<analytic>
-		<title level="a" type="main">Computational genome analysis using the G-language system</title>
+		<title level="a" type="main">Quantitative analysis of replication-related mutation and selection pressures in bacterial chromosomes and plasmids using generalised GC skew index</title>
 		<author>
-			<persName><forename type="first">K</forename><surname>Arakawa</surname></persName>
+			<persName><forename type="first">Kazuharu</forename><surname>Arakawa</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">H</forename><surname>Suzuki</surname></persName>
+			<persName><forename type="first">Haruo</forename><surname>Suzuki</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">M</forename><surname>Tomita</surname></persName>
+			<persName><forename type="first">Masaru</forename><surname>Tomita</surname></persName>
 		</author>
+		<idno type="DOI">10.1186/1471-2164-10-640</idno>
 	</analytic>
 	<monogr>
-		<title level="j">Genes, Genomes Genomics</title>
+		<title level="j">BMC Genomics</title>
+		<title level="j" type="abbrev">BMC Genomics</title>
+		<idno type="ISSN">1471-2164</idno>
 		<imprint>
-			<biblScope unit="volume">2</biblScope>
-			<biblScope unit="page" from="1" to="13" />
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page">640</biblScope>
 			<date type="published" when="2008">2008</date>
+			<publisher>Springer Science and Business Media LLC</publisher>
 		</imprint>
 	</monogr>
 </biblStruct>

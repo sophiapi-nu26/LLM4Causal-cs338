@@ -1,45 +1,44 @@
-MaSp1-GYGQGG <Structure> increases Toughness <Property>
-MaSp1-poly-Ala ending with GGS <Structure> increases Toughness <Property>
-P <Structure> decreases Toughness <Property>
-SQGP in MaSp2 <Structure> decreases Toughness <Property>
-SY in MaSp1 <Structure> decreases Toughness <Property>
-SV in MaSp1 <Structure> decreases Toughness <Property>
-MaSp2-PQ <Structure> decreases Toughness <Property>
-MaSp1-SS before poly-Ala <Structure> increases Tensile strength <Property>
-MaSp1-QGGS <Structure> increases Tensile strength <Property>
-Lacking S inGQG motif in MaSp1 <Structure> decreases Tensile strength <Property>
-A before GQGmotif in MaSp1 <Structure> decreases Tensile strength <Property>
-MaSp1-GYGQGG <Structure> increases Strain at break <Property>
-QGP in MaSp1 <Structure> increases Strain at break <Property>
-PGA in MaSp1 <Structure> increases Strain at break <Property>
-PA in MaSp2 <Structure> increases Young's modulus <Property>
-GL in MaSp1 and MaSp2 <Structure> increases Young's modulus <Property>
-Q in MaSp2 <Structure> decreases Young's modulus <Property>
-MaSp1-GGQ <Structure> decreases Young's modulus <Property>
-PA in MaSp2 <Structure> increases Crystallinity <Property>
-N in MaSp2 <Structure> increases Crystallinity <Property>
-A in MaSp2 <Structure> increases Crystallinity <Property>
-GA in MaSp2 <Structure> increases Crystallinity <Property>
-MaSp1-GQ <Structure> increases Crystallinity <Property>
-GT in MaSp1 <Structure> decreases Crystallinity <Property>
-MaSp1-GGQ <Structure> decreases Crystallinity <Property>
-TGG in MaSp1 <Structure> increases Birefringence <Property>
-MaSp1-GAAAAAAG <Structure> increases Birefringence <Property>
-MaSp2-PSGPGS <Structure> decreases Birefringence <Property>
-MaSp1-AAGGAGQG <Structure> increases Diameter <Property>
-MaSp2-SQG <Structure> decreases Diameter <Property>
-MaSp1-QS <Structure> decreases Diameter <Property>
-MaSp1-SQGAG <Structure> decreases Diameter <Property>
-MaSp2-PGGYGP <Structure> increases N %water loss <Property>
-MaSp2 poly-Ala <Structure> increases N %water loss <Property>
-V in MaSp2 <Structure> decreases N %water loss <Property>
-GT in MaSp1 <Structure> decreases N %water loss <Property>
-MaSp1-GSG <Structure> increases Water content <Property>
-MaSp2-GAS <Structure> increases Water content <Property>
-MaSp2-QQGPG <Structure> decreases Water content <Property>
-MaSp1-PGAA <Structure> decreases Water content <Property>
-A in MaSp1 <Structure> decreases Water content <Property>
-Poly-Ala in MaSp1 <Structure> decreases Water content <Property>
-MaSp2 presence <Structure> increases Supercontraction <Property>
-MaSp1-AGQG <Structure> increases Supercontraction <Property>
-MaSp1-GLG <Structure> increases Supercontraction <Property>
+MaSp1-GYGQGG <structure> increases Toughness <property>
+MaSp1-poly-Ala ending with GGS <structure> increases Toughness <property>
+P in MaSp2 <structure> decreases Toughness <property>
+SQGP in MaSp2 <structure> decreases Toughness <property>
+SY in MaSp1 <structure> decreases Toughness <property>
+SV in MaSp1 <structure> decreases Toughness <property>
+MaSp2-PQ <structure> decreases Toughness <property>
+MaSp1-SS before poly-Ala <structure> increases Tensile strength <property>
+MaSp1-QGGS <structure> increases Tensile strength <property>
+Lacking S inGQG motif in MaSp1 <structure> decreases Tensile strength <property>
+A before GQGmotif in MaSp1 <structure> decreases Tensile strength <property>
+MaSp1-GYGQGG <structure> increases Strain at break <property>
+QGP in MaSp1 <structure> increases Strain at break <property>
+PGA in MaSp1 <structure> increases Strain at break <property>
+PA in MaSp2 <structure> increases Young's modulus <property>
+GL in MaSp1 and MaSp2 <structure> increases Young's modulus <property>
+Q in MaSp2 <structure> decreases Young's modulus <property>
+MaSp1-GGQ <structure> decreases Young's modulus <property>
+PA in MaSp2 <structure> increases Crystallinity <property>
+N in MaSp2 <structure> increases Crystallinity <property>
+A in MaSp2 <structure> increases Crystallinity <property>
+GA in MaSp2 <structure> increases Crystallinity <property>
+MaSp1-GQ <structure> increases Crystallinity <property>
+GT in MaSp1 <structure> decreases Crystallinity <property>
+MaSp1-GGQ <structure> decreases Crystallinity <property>
+TGG in MaSp1 <structure> increases Birefringence <property>
+MaSp1-GAAAAAAG <structure> increases Birefringence <property>
+MaSp2-PSGPGS <structure> decreases Birefringence <property>
+MaSp1-AAGGAGQG <structure> increases Diameter <property>
+MaSp2-SQG <structure> decreases Diameter <property>
+MaSp1-QS <structure> decreases Diameter <property>
+MaSp1-SQGAG <structure> decreases Diameter <property>
+MaSp2-PGGYGP <structure> increases N %water loss <property>
+MaSp2 poly-Ala <structure> increases N %water loss <property>
+V in MaSp2 <structure> decreases N %water loss <property>
+GT in MaSp1 <structure> decreases N %water loss <property>
+MaSp1-GSG <structure> increases Water content <property>
+MaSp2-GAS <structure> increases Water content <property>
+MaSp2-QQGPG <structure> decreases Water content <property>
+MaSp1-PGAA A in MaSp1 <structure> decreases Water content <property>
+Poly-Ala in MaSp1 <structure> decreases Water content <property>
+MaSp2 presence <structure> increases Supercontraction <property>
+MaSp1-AGQG <structure> increases Supercontraction <property>
+MaSp1-GLG <structure> increases Supercontraction <property>

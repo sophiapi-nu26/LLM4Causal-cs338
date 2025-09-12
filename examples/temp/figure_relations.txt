@@ -1,39 +1,119 @@
-Toughness (GJ/m³) <Property> positively correlates with Arkyidae <Material>
-Toughness (GJ/m³) <Property> positively correlates with Pimoidae <Material>
-Toughness (GJ/m³) <Property> positively correlates with Deinopoidae <Material>
-Toughness (GJ/m³) <Property> positively correlates with Araneidae <Material>
-Toughness (GJ/m³) <Property> positively correlates with MaSp3 (group 19) <Material>
-Toughness (GJ/m³) <Property> negatively correlates with Uloboridae <Material>
-Toughness (GJ/m³) <Property> negatively correlates with Viridasiidae <Material>
-Toughness (GJ/m³) <Property> negatively correlates with Cheiracanthiidae <Material>
-Toughness (GJ/m³) <Property> negatively correlates with Thomisidae <Material>
-Toughness (GJ/m³) <Property> negatively correlates with Lycosidae <Material>
-Toughness (GJ/m³) <Property> negatively correlates with Desidae <Material>
-Toughness (GJ/m³) <Property> negatively correlates with Pholcidae <Material>
-Toughness (GJ/m³) <Property> negatively correlates with Pisauridae <Material>
-Toughness (GJ/m³) <Property> negatively correlates with Hersiliidae <Material>
-Toughness (GJ/m³) <Property> negatively correlates with Dictynidae <Material>
-Toughness (GJ/m³) <Property> negatively correlates with Philodromidae <Material>
-Toughness (GJ/m³) <Property> negatively correlates with Salticidae <Material>
-Toughness (GJ/m³) <Property> negatively correlates with Agelenidae <Material>
-Supercontraction (%) <Property> positively correlates with Deinopoidae <Material>
-Supercontraction (%) <Property> positively correlates with Tetragnathidae <Material>
-Supercontraction (%) <Property> positively correlates with Araneidae <Material>
-Supercontraction (%) <Property> positively correlates with Zoropsidae <Material>
-Supercontraction (%) <Property> positively correlates with MaSp2 (group 14) <Material>
-Supercontraction (%) <Property> positively correlates with MaSp2 (group 13) <Material>
-Supercontraction (%) <Property> positively correlates with MaSp2 (group 11) <Material>
-Supercontraction (%) <Property> positively correlates with MaSp1 (group 17) <Material>
-Supercontraction (%) <Property> negatively correlates with Oxyopidae <Material>
-Supercontraction (%) <Property> negatively correlates with Theridiidae <Material>
-Supercontraction (%) <Property> negatively correlates with Salticidae <Material>
-Supercontraction (%) <Property> negatively correlates with Thomisidae <Material>
-Supercontraction (%) <Property> negatively correlates with Philodromidae <Material>
-Supercontraction (%) <Property> negatively correlates with Psechridae <Material>
-Supercontraction (%) <Property> negatively correlates with Clubionidae <Material>
-Supercontraction (%) <Property> negatively correlates with Pisauridae <Material>
-Supercontraction (%) <Property> negatively correlates with Uloboridae <Material>
-Supercontraction (%) <Property> negatively correlates with Desidae <Material>
-MaSp1: AGQG <Structure> positively correlates with Supercontraction (%) <Property>
+Strain at break <property> positively correlates with Diameter <structure>
+Strain at break <property> positively correlates with Supercontraction <property>
+Strain at break <property> negatively correlates with Young's modulus <property>
+Strain at break <property> positively correlates with Toughness <property>
+Diameter <structure> positively correlates with Supercontraction <property>
+Diameter <structure> negatively correlates with Young's modulus <property>
+Diameter <structure> positively correlates with Toughness <property>
+Supercontraction <property> negatively correlates with Young's modulus <property>
+Supercontraction <property> positively correlates with Toughness <property>
+Tensile strength <property> positively correlates with Young's modulus <property>
+Young's modulus <property> positively correlates with 1% weight loss <property>
+Young's modulus <property> positively correlates with 5% weight loss <property>
+Young's modulus <property> positively correlates with 10% weight loss <property>
+Young's modulus <property> positively correlates with Thermal degradation temperature <property>
+Young's modulus <property> negatively correlates with Water content <property>
+Crystallinity <structure> positively correlates with Birefringence <property>
+1% weight loss <property> positively correlates with 5% weight loss <property>
+1% weight loss <property> positively correlates with 10% weight loss <property>
+1% weight loss <property> positively correlates with Thermal degradation temperature <property>
+1% weight loss <property> negatively correlates with Water content <property>
+5% weight loss <property> positively correlates with 10% weight loss <property>
+5% weight loss <property> positively correlates with Thermal degradation temperature <property>
+5% weight loss <property> negatively correlates with Water content <property>
+10% weight loss <property> positively correlates with Thermal degradation temperature <property>
+10% weight loss <property> negatively correlates with Water content <property>
+Thermal degradation temperature <property> negatively correlates with Water content <property>
+Toughness <property> positively correlates with Strain at break <property>
+MaSp3 (group 19) <Material> increases Toughness (GJ/m^3) <Property>
+MaSp2 (group 11) <Material> increases Toughness (GJ/m^3) <Property>
+MaSp1 (group 17) <Material> increases Toughness (GJ/m^3) <Property>
+MaSp2 (group 14) <Material> increases Supercontraction (%) <Property>
+MaSp2 (group 13) <Material> increases Supercontraction (%) <Property>
+MaSp2 (group 11) <Material> increases Supercontraction (%) <Property>
+MaSp1 (group 17) <Material> increases Supercontraction (%) <Property>
+MaSp1: AGGQ <Structure> positively correlates with Supercontraction (%) <Property>
 MaSp2: AAAAAAAA <Structure> negatively correlates with Supercontraction (%) <Property>
-MaSp1: YGQGG <Structure> positively correlates with Toughness (GJ/m³) <Property>
+MaSp1: YGGQG <Structure> positively correlates with Toughness (GJ/m^3) <Property>
+H.k. <material> amino acid sequence <structure> positively correlates with H.y. <material> amino acid sequence <structure>
+H.k. <material> amino acid sequence <structure> positively correlates with R.n. <material> amino acid sequence <structure>
+H.y. <material> amino acid sequence <structure> positively correlates with R.n. <material> amino acid sequence <structure>
+S.sp. <material> amino acid sequence <structure> negatively correlates with H.k. <material> amino acid sequence <structure>
+S.sp. <material> amino acid sequence <structure> negatively correlates with H.y. <material> amino acid sequence <structure>
+S.sp. <material> amino acid sequence <structure> negatively correlates with R.n. <material> amino acid sequence <structure>
+O.s. <material> amino acid sequence <structure> negatively correlates with H.k. <material> amino acid sequence <structure>
+O.s. <material> amino acid sequence <structure> negatively correlates with H.y. <material> amino acid sequence <structure>
+O.s. <material> amino acid sequence <structure> negatively correlates with R.n. <material> amino acid sequence <structure>
+S.sp. <material> amino acid sequence <structure> negatively correlates with O.s. <material> amino acid sequence <structure>
+- Austrochiliidae H.t. <Material>
+- Eresidae S.sp. <Material>
+- Deinopidae D.sp. <Material>
+- Uloboridae M.o. <Material>
+- Titanoecidae N.a. <Material>
+- Amaurobiidae C.h. <Material>
+- Theridiidae E.a. <Material>
+- Theridiidae N.r. <Material>
+- Theridiidae C.b. <Material>
+- Linyphiidae D.p. <Material>
+- Linyphiidae L.m. <Material>
+- Linyphiidae U.o. <Material>
+- Pimoidae W.c. <Material>
+- Araneidae Z.h. <Material>
+- Araneidae N.l. <Material>
+- Araneidae C.d. <Material>
+- Araneidae C.y. <Material>
+- Tetragnathidae T.e. <Material>
+- Tetragnathidae L.s. <Material>
+- Tetragnathidae M.sp. <Material>
+- A <Material>
+- L/I/V/F <Material>
+- G <Material>
+- S <Material>
+- T <Material>
+- P <Material>
+- D <Material>
+- E <Material>
+- K <Material>
+- R <Material>
+- Y <Material>
+- N <Material>
+- Q <Material>
+- M <Material>
+- H <Material>
+- C <Material>
+- Proportion of amino acid <Property>
+
+Proportion of G <Property> positively correlates with Spider silk protein <Material>
+Proportion of C <Property> negatively correlates with Spider silk protein <Material>
+Araneoidae <Structure> positively correlates with Toughness <Property>
+Araneoidae <Structure> positively correlates with Tensile strength <Property>
+Araneoidae <Structure> positively correlates with Strain at break <Property>
+Araneoidae <Structure> positively correlates with Supercontraction <Property>
+Higher level of MaSp1 <Material> positively correlates with Toughness <Property>
+Higher level of MaSp1 <Material> positively correlates with Tensile strength <Property>
+Higher level of MaSp1 <Material> positively correlates with Strain at break <Property>
+Higher level of MaSp1 <Material> positively correlates with Supercontraction <Property>
+Higher level of MaSp2 <Material> positively correlates with Toughness <Property>
+Higher level of MaSp2 <Material> positively correlates with Tensile strength <Property>
+Higher level of MaSp2 <Material> positively correlates with Strain at break <Property>
+Higher level of MaSp2 <Material> positively correlates with Supercontraction <Property>
+Higher level of MaSp2B <Material> positively correlates with Toughness <Property>
+Higher level of MaSp2B <Material> positively correlates with Tensile strength <Property>
+Higher level of MaSp2B <Material> positively correlates with Strain at break <Property>
+Higher level of MaSp2B <Material> positively correlates with Supercontraction <Property>
+Higher level of CrSp <Material> positively correlates with Toughness <Property>
+Higher level of CrSp <Material> positively correlates with Tensile strength <Property>
+Higher level of CrSp <Material> positively correlates with Strain at break <Property>
+Higher level of CrSp <Material> positively correlates with Supercontraction <Property>
+Higher level of Flag <Material> positively correlates with Toughness <Property>
+Higher level of Flag <Material> positively correlates with Tensile strength <Property>
+Higher level of Flag <Material> positively correlates with Strain at break <Property>
+Higher level of Flag <Material> positively correlates with Supercontraction <Property>
+Higher level of AcSp1 <Material> positively correlates with Toughness <Property>
+Higher level of AcSp1 <Material> positively correlates with Tensile strength <Property>
+Higher level of AcSp1 <Material> positively correlates with Strain at break <Property>
+Higher level of AcSp1 <Material> positively correlates with Supercontraction <Property>
+Higher level of AcSp2 <Material> positively correlates with Toughness <Property>
+Higher level of AcSp2 <Material> positively correlates with Tensile strength <Property>
+Higher level of AcSp2 <Material> positively correlates with Strain at break <Property>
+Higher level of AcSp2 <Material> positively correlates with Supercontraction <Property>

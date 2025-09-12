@@ -9,6 +9,26 @@ from dotenv import load_dotenv
 import os
 load_dotenv()
 
+import re
+import json
+
+def parse_relationships(text: str):
+    # Split text into lines, stripping empty ones
+    lines = [line.strip() for line in text.split("\n") if line.strip()]
+    
+    results = []
+    for line in lines:
+        # Regex to capture: [SubjectName][Type] relationship [ObjectName][Type]
+        match = re.match(r"(.+?)\[(.*?)\]\s+(increases|decreases|positively correlate with|negatively correlate with|causes)\s+(.+?)\[(.*?)\]$", line)
+        if match:
+            subject_name, subject_type, relation, object_name, object_type = match.groups()
+            results.append({
+                "subject": {"name": subject_name.strip(), "type": subject_type.strip()},
+                "relationship": relation.strip(),
+                "object": {"name": object_name.strip(), "type": object_type.strip()}
+            })
+    return results
+
 # @register_model("gpt-5-entity")
 # class GPT5EntityRecognizer:
 #     """Entity recognition using GPT-5 model for materials science text."""
@@ -195,7 +215,7 @@ class GPT5RelationExtractor(BaseLLM):
         )
         # print(response.choices[0].message.content)
         # return self._process_response(response)
-        return response.choices[0].message.content
+        return self._process_response(response.choices[0].message.content)
     
     def _prepare_prompt(self, text: str) -> str:
         """Prepare the prompt for relationship extraction."""
@@ -219,8 +239,8 @@ class GPT5RelationExtractor(BaseLLM):
             [Variable A <Type>] [relationship type] [Variable B <Type>]  
 
             4. Be precise and consistent:  
-            - Use the exact wording of the variables as they appear in the text (don’t paraphrase).  
-            - Output one relationship per line. Do not number them. Relationships only.
+            - Use the exact wording of the variables as they appear in the text (do not paraphrase).  
+            - Output only one relationship per line. Do not number them. Relationships only.
             - Do not include explanations, summaries, or extra text outside the structured statements.  
 
             Text for analysis:  
@@ -229,7 +249,7 @@ class GPT5RelationExtractor(BaseLLM):
 
         """
     
-    def _process_response(self, response: Any) -> List[Relationship]:
+    def _process_response_old(self, response: Any) -> List[Relationship]:
         """Process the model's response and create Relationship objects.
         
         Expects lines in format: "[Variable A <Type>] [relationship type] [Variable B <Type>]"
@@ -310,6 +330,8 @@ class GPT5RelationExtractor(BaseLLM):
         
         return relationships
     
+    def _process_response(self, response: Any):
+        return parse_relationships(response), response
 
 from ...schema import (
     ExtractionResult, ModelConfig, Entity, EntityType,
