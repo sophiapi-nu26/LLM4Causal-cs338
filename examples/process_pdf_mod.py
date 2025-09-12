@@ -40,26 +40,26 @@ def main(pdf_filename: str | Path):
     # Path to your PDF
     pdf_path = Path(pdf_filename)  # Replace with your PDF path
 
-    # Create necessary directories; empty if they already exist
-    ensure_empty_dir(Path("./temp/text"))
-    ensure_empty_dir(Path("./temp/figures"))
-    ensure_empty_dir(Path("./temp/tables"))
+    # # Create necessary directories; empty if they already exist
+    # ensure_empty_dir(Path("./temp/text"))
+    # ensure_empty_dir(Path("./temp/figures"))
+    # ensure_empty_dir(Path("./temp/tables"))
 
-    Path("./output").mkdir(parents=True, exist_ok=True)
+    # Path("./output").mkdir(parents=True, exist_ok=True)
 
-    # # 1. Extract text from PDF
-    print("Extracting text from PDF...")
-    text = pdf_processor.extract_text(pdf_path, grobid_url="http://localhost:8070", outdir="./temp/text")
+    # # # 1. Extract text from PDF
+    # print("Extracting text from PDF...")
+    # text = pdf_processor.extract_text(pdf_path, grobid_url="http://localhost:8070", outdir="./temp/text")
 
-    # # 1.a Extract figures
-    print("Extracting figures from PDF...")
+    # # # 1.a Extract figures
+    # print("Extracting figures from PDF...")
     fig_output_dir = Path("./temp/figures")
-    figures = pdf_processor.extract_figures(pdf_path, output_dir=fig_output_dir)
+    # figures = pdf_processor.extract_figures(pdf_path, output_dir=fig_output_dir)
 
-    # # 1.b Extract tables
-    print("Extracting tables from PDF...")
+    # # # 1.b Extract tables
+    # print("Extracting tables from PDF...")
     table_output_dir = Path("./temp/tables")
-    tables = pdf_processor.extract_tables(pdf_path, output_dir=table_output_dir)
+    # tables = pdf_processor.extract_tables(pdf_path, output_dir=table_output_dir)
 
     # 3. Extract relationships from figures
     print("Extracting relationships from figures...")

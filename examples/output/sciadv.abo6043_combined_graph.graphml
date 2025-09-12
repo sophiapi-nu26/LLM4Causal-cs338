@@ -1,0 +1,1753 @@
+<?xml version="1.0" ?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d0" for="node" attr.name="type" attr.type="string"/>
+  <key id="d1" for="edge" attr.name="relationship" attr.type="string"/>
+  <graph id="G" edgedefault="directed">
+    <node id="Major ampullate silk">
+      <data key="d0">Material</data>
+    </node>
+    <node id="draglines">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="Major ampullate silk" target="draglines">
+      <data key="d1">causes</data>
+    </edge>
+    <node id="frames of orb webs">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="Major ampullate silk" target="frames of orb webs">
+      <data key="d1">causes</data>
+    </edge>
+    <node id="Minor ampullate silk">
+      <data key="d0">Material</data>
+    </node>
+    <node id="scaffold during orb web weaving">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="Minor ampullate silk" target="scaffold during orb web weaving">
+      <data key="d1">causes</data>
+    </edge>
+    <node id="Piriform silk">
+      <data key="d0">Material</data>
+    </node>
+    <node id="adherence of the frame of the orb web">
+      <data key="d0">Process</data>
+    </node>
+    <edge source="Piriform silk" target="adherence of the frame of the orb web">
+      <data key="d1">causes</data>
+    </edge>
+    <node id="Capture thread of the orb web">
+      <data key="d0">Structure</data>
+    </node>
+    <node id="prey capture">
+      <data key="d0">Process</data>
+    </node>
+    <edge source="Capture thread of the orb web" target="prey capture">
+      <data key="d1">causes</data>
+    </edge>
+    <node id="Flagelliform silk backbone">
+      <data key="d0">Material</data>
+    </node>
+    <node id="structure of the capture thread">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="Flagelliform silk backbone" target="structure of the capture thread">
+      <data key="d1">causes</data>
+    </edge>
+    <node id="Aggregate glue">
+      <data key="d0">Material</data>
+    </node>
+    <node id="adhesion of the capture thread">
+      <data key="d0">Process</data>
+    </node>
+    <edge source="Aggregate glue" target="adhesion of the capture thread">
+      <data key="d1">causes</data>
+    </edge>
+    <node id="Aciniform silk">
+      <data key="d0">Material</data>
+    </node>
+    <node id="prey wrapping">
+      <data key="d0">Process</data>
+    </node>
+    <edge source="Aciniform silk" target="prey wrapping">
+      <data key="d1">causes</data>
+    </edge>
+    <node id="decorations of the web">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="Aciniform silk" target="decorations of the web">
+      <data key="d1">causes</data>
+    </edge>
+    <node id="Tubiform silk">
+      <data key="d0">Material</data>
+    </node>
+    <node id="construction of an egg sac">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="Tubiform silk" target="construction of an egg sac">
+      <data key="d1">causes</data>
+    </edge>
+    <node id="Silk">
+      <data key="d0">Material</data>
+    </node>
+    <node id="physical properties">
+      <data key="d0">Property</data>
+    </node>
+    <edge source="Silk" target="physical properties">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="Spider silks">
+      <data key="d0">material</data>
+    </node>
+    <node id="mechanical properties">
+      <data key="d0">property</data>
+    </node>
+    <edge source="Spider silks" target="mechanical properties">
+      <data key="d1">positively correlate with</data>
+    </edge>
+    <node id="major ampullate spidroin (MaSp)">
+      <data key="d0">material</data>
+    </node>
+    <node id="strength">
+      <data key="d0">property</data>
+    </node>
+    <edge source="major ampullate spidroin (MaSp)" target="strength">
+      <data key="d1">positively correlate with</data>
+    </edge>
+    <node id="toughness">
+      <data key="d0">property</data>
+    </node>
+    <edge source="major ampullate spidroin (MaSp)" target="toughness">
+      <data key="d1">positively correlate with</data>
+    </edge>
+    <node id="Sequencing methods">
+      <data key="d0">Process</data>
+    </node>
+    <node id="Sequencing silk genes">
+      <data key="d0">Process</data>
+    </node>
+    <edge source="Sequencing methods" target="Sequencing silk genes">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="Repetitive regions">
+      <data key="d0">Structure</data>
+    </node>
+    <node id="Sequencing spidroin repetitive sequences">
+      <data key="d0">Process</data>
+    </node>
+    <edge source="Repetitive regions" target="Sequencing spidroin repetitive sequences">
+      <data key="d1">decreases</data>
+    </edge>
+    <node id="Comprehensive measurement of the material properties">
+      <data key="d0">Process</data>
+    </node>
+    <edge source="Sequencing methods" target="Comprehensive measurement of the material properties">
+      <data key="d1">causes</data>
+    </edge>
+    <node id="- spidroin expression">
+      <data key="d0">Property</data>
+    </node>
+    <node id="sequence variations">
+      <data key="d0">Property</data>
+    </node>
+    <edge source="- spidroin expression" target="sequence variations">
+      <data key="d1">causes</data>
+    </edge>
+    <node id="aciniform spidroin (AcSp)">
+      <data key="d0">material</data>
+    </node>
+    <node id="more specialized silk types">
+      <data key="d0">structure</data>
+    </node>
+    <edge source="aciniform spidroin (AcSp)" target="more specialized silk types">
+      <data key="d1">causes</data>
+    </edge>
+    <node id="pyriform spidroin (PySp)">
+      <data key="d0">material</data>
+    </node>
+    <edge source="pyriform spidroin (PySp)" target="more specialized silk types">
+      <data key="d1">causes</data>
+    </edge>
+    <node id="cribellar spidroin (CrSp)">
+      <data key="d0">material</data>
+    </node>
+    <edge source="cribellar spidroin (CrSp)" target="more specialized silk types">
+      <data key="d1">causes</data>
+    </edge>
+    <node id="CrSp sequences">
+      <data key="d0">material</data>
+    </node>
+    <node id="high abundance of charged residues">
+      <data key="d0">property</data>
+    </node>
+    <edge source="CrSp sequences" target="high abundance of charged residues">
+      <data key="d1">positively correlate with</data>
+    </edge>
+    <node id="Negatively charged glutamate (E) residues">
+      <data key="d0">material</data>
+    </node>
+    <edge source="Negatively charged glutamate (E) residues" target="high abundance of charged residues">
+      <data key="d1">positively correlate with</data>
+    </edge>
+    <node id="high proportion of hydrophobic amino acids">
+      <data key="d0">property</data>
+    </node>
+    <edge source="CrSp sequences" target="high proportion of hydrophobic amino acids">
+      <data key="d1">positively correlate with</data>
+    </edge>
+    <node id="Genotype">
+      <data key="d0">Material</data>
+    </node>
+    <node id="Phenotype">
+      <data key="d0">Property</data>
+    </node>
+    <edge source="Genotype" target="Phenotype">
+      <data key="d1">causes</data>
+    </edge>
+    <node id="MaSp3 (group 19)">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="MaSp3 (group 19)" target="toughness">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="MaSp2 (group 11)">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="MaSp2 (group 11)" target="toughness">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="MaSp1 (group 17)">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="MaSp1 (group 17)" target="toughness">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="MaSp2">
+      <data key="d0">Material</data>
+    </node>
+    <node id="strain at break">
+      <data key="d0">Property</data>
+    </node>
+    <edge source="MaSp2" target="strain at break">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="MaSp2 (group 13)">
+      <data key="d0">Material</data>
+    </node>
+    <node id="tensile strength">
+      <data key="d0">Property</data>
+    </node>
+    <edge source="MaSp2 (group 13)" target="tensile strength">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="MaSp2 (group 14)">
+      <data key="d0">Material</data>
+    </node>
+    <node id="supercontraction">
+      <data key="d0">Property</data>
+    </node>
+    <edge source="MaSp2 (group 14)" target="supercontraction">
+      <data key="d1">increases</data>
+    </edge>
+    <edge source="MaSp2 (group 13)" target="supercontraction">
+      <data key="d1">increases</data>
+    </edge>
+    <edge source="MaSp2 (group 11)" target="supercontraction">
+      <data key="d1">increases</data>
+    </edge>
+    <edge source="MaSp1 (group 17)" target="supercontraction">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="MaSp2 (group 15)">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="MaSp2 (group 15)" target="supercontraction">
+      <data key="d1">decreases</data>
+    </edge>
+    <node id="Proportion of amorphous regions within the spidroin">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="Proportion of amorphous regions within the spidroin" target="supercontraction">
+      <data key="d1">causes</data>
+    </edge>
+    <node id="Relaxation of orientation in the amorphous region">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="Relaxation of orientation in the amorphous region" target="supercontraction">
+      <data key="d1">causes</data>
+    </edge>
+    <node id="SY and SV motifs in MaSp1">
+      <data key="d0">Structure</data>
+    </node>
+    <node id="Toughness">
+      <data key="d0">Property</data>
+    </node>
+    <edge source="SY and SV motifs in MaSp1" target="Toughness">
+      <data key="d1">negatively correlate with</data>
+    </edge>
+    <node id="MaSp1">
+      <data key="d0">Material</data>
+    </node>
+    <node id="fiber strength">
+      <data key="d0">Property</data>
+    </node>
+    <edge source="MaSp1" target="fiber strength">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="fiber elasticity">
+      <data key="d0">Property</data>
+    </node>
+    <edge source="MaSp2" target="fiber elasticity">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="MaSp3">
+      <data key="d0">Material</data>
+    </node>
+    <node id="high toughness of dragline silk">
+      <data key="d0">Property</data>
+    </node>
+    <edge source="MaSp3" target="high toughness of dragline silk">
+      <data key="d1">causes</data>
+    </edge>
+    <edge source="MaSp3" target="tensile strength">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="Spider silk-constituting elements (SpiCE)">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="Spider silk-constituting elements (SpiCE)" target="tensile strength">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="Amorphous regions">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="Amorphous regions" target="toughness">
+      <data key="d1">positively correlate with</data>
+    </edge>
+    <node id=" sheet regions">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="Amorphous regions" target=" sheet regions">
+      <data key="d1">negatively correlate with</data>
+    </edge>
+    <node id="Compositions of several amino acid motifs in amorphous regions of MaSp1">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="Compositions of several amino acid motifs in amorphous regions of MaSp1" target="toughness">
+      <data key="d1">positively correlate with</data>
+    </edge>
+    <node id="Silk proteins">
+      <data key="d0">Material</data>
+    </node>
+    <node id="extraordinary mechanical and physical performances">
+      <data key="d0">Property</data>
+    </node>
+    <edge source="Silk proteins" target="extraordinary mechanical and physical performances">
+      <data key="d1">causes</data>
+    </edge>
+    <node id="Silk sampling">
+      <data key="d0">Process</data>
+    </node>
+    <node id="Reeled silk">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="Silk sampling" target="Reeled silk">
+      <data key="d1">causes</data>
+    </edge>
+    <node id="Cytochrome c oxidase subunit I (COI) sequencing">
+      <data key="d0">Process</data>
+    </node>
+    <node id="morphological identification">
+      <data key="d0">Process</data>
+    </node>
+    <edge source="Cytochrome c oxidase subunit I (COI) sequencing" target="morphological identification">
+      <data key="d1">causes</data>
+    </edge>
+    <node id="Alignment process">
+      <data key="d0">Process</data>
+    </node>
+    <node id="position weight matrix">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="Alignment process" target="position weight matrix">
+      <data key="d1">causes</data>
+    </edge>
+    <node id="Extension process">
+      <data key="d0">Process</data>
+    </node>
+    <node id="full subsets of the repeat units">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="Extension process" target="full subsets of the repeat units">
+      <data key="d1">causes</data>
+    </edge>
+    <node id="Repeat units">
+      <data key="d0">Structure</data>
+    </node>
+    <node id="mapping onto long reads">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="Repeat units" target="mapping onto long reads">
+      <data key="d1">causes</data>
+    </edge>
+    <node id="Spidroin gene length">
+      <data key="d0">Property</data>
+    </node>
+    <node id="categorization">
+      <data key="d0">Process</data>
+    </node>
+    <edge source="Spidroin gene length" target="categorization">
+      <data key="d1">causes</data>
+    </edge>
+    <node id="- surface morphology">
+      <data key="d0">Property</data>
+    </node>
+    <node id="cross sections">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="- surface morphology" target="cross sections">
+      <data key="d1">causes</data>
+    </edge>
+    <node id="Spider silk samples">
+      <data key="d0">Material</data>
+    </node>
+    <node id="Degradation temperatures of 1, 5, and 10%">
+      <data key="d0">Property</data>
+    </node>
+    <edge source="Spider silk samples" target="Degradation temperatures of 1, 5, and 10%">
+      <data key="d1">decreases</data>
+    </edge>
+    <node id="Spider silk fibers">
+      <data key="d0">Material</data>
+    </node>
+    <node id="the degree of crystallinity">
+      <data key="d0">Property</data>
+    </node>
+    <edge source="Spider silk fibers" target="the degree of crystallinity">
+      <data key="d1">causes</data>
+    </edge>
+    <node id="Supercontraction">
+      <data key="d0">Property</data>
+    </node>
+    <node id="Final length of the fiber">
+      <data key="d0">Property</data>
+    </node>
+    <edge source="Supercontraction" target="Final length of the fiber">
+      <data key="d1">causes</data>
+    </edge>
+    <node id="Maximum supercontraction">
+      <data key="d0">Property</data>
+    </node>
+    <edge source="Supercontraction" target="Maximum supercontraction">
+      <data key="d1">causes</data>
+    </edge>
+    <node id="Silkome database">
+      <data key="d0">Material</data>
+    </node>
+    <node id="spider-silkome">
+      <data key="d0">Process</data>
+    </node>
+    <edge source="Silkome database" target="spider-silkome">
+      <data key="d1">causes</data>
+    </edge>
+    <node id="Mechanical properties">
+      <data key="d0">property</data>
+    </node>
+    <node id="Structural properties">
+      <data key="d0">property</data>
+    </node>
+    <edge source="Mechanical properties" target="Structural properties">
+      <data key="d1">causes</data>
+    </edge>
+    <node id="Thermal properties">
+      <data key="d0">property</data>
+    </node>
+    <edge source="Thermal properties" target="Structural properties">
+      <data key="d1">causes</data>
+    </edge>
+    <node id="Morphological properties">
+      <data key="d0">property</data>
+    </node>
+    <edge source="Morphological properties" target="Structural properties">
+      <data key="d1">causes</data>
+    </edge>
+    <node id="Wet properties (water content and supercontraction)">
+      <data key="d0">property</data>
+    </node>
+    <edge source="Wet properties (water content and supercontraction)" target="Structural properties">
+      <data key="d1">causes</data>
+    </edge>
+    <node id="Spidroin type">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="Mechanical properties" target="Spidroin type">
+      <data key="d1">positively correlate with</data>
+    </edge>
+    <node id="Toughness value distribution of family Araneidae">
+      <data key="d0">Property</data>
+    </node>
+    <node id="Toughness value distribution of all other families">
+      <data key="d0">Property</data>
+    </node>
+    <edge source="Toughness value distribution of family Araneidae" target="Toughness value distribution of all other families">
+      <data key="d1">decreases</data>
+    </edge>
+    <node id="Strain at break">
+      <data key="d0">property</data>
+    </node>
+    <edge source="Strain at break" target="Toughness">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <node id="Water content">
+      <data key="d0">property</data>
+    </node>
+    <edge source="Supercontraction" target="Water content">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <node id="1% weight loss">
+      <data key="d0">property</data>
+    </node>
+    <edge source="Supercontraction" target="1% weight loss">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <node id="5% weight loss">
+      <data key="d0">property</data>
+    </node>
+    <edge source="Supercontraction" target="5% weight loss">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <node id="10% weight loss">
+      <data key="d0">property</data>
+    </node>
+    <edge source="Supercontraction" target="10% weight loss">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <node id="Thermal degradation temperature">
+      <data key="d0">property</data>
+    </node>
+    <edge source="Supercontraction" target="Thermal degradation temperature">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <node id="Tensile strength">
+      <data key="d0">property</data>
+    </node>
+    <node id="Young's modulus">
+      <data key="d0">property</data>
+    </node>
+    <edge source="Tensile strength" target="Young's modulus">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <node id="Crystallinity">
+      <data key="d0">property</data>
+    </node>
+    <edge source="Tensile strength" target="Crystallinity">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <node id="Birefringence">
+      <data key="d0">property</data>
+    </node>
+    <edge source="Tensile strength" target="Birefringence">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="Tensile strength" target="Thermal degradation temperature">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="Tensile strength" target="Water content">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="Tensile strength" target="1% weight loss">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="Tensile strength" target="5% weight loss">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="Tensile strength" target="10% weight loss">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="Young's modulus" target="Crystallinity">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="Young's modulus" target="Birefringence">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="Young's modulus" target="Thermal degradation temperature">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="Young's modulus" target="Water content">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="Young's modulus" target="1% weight loss">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="Young's modulus" target="5% weight loss">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="Young's modulus" target="10% weight loss">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="Crystallinity" target="Birefringence">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="Crystallinity" target="Thermal degradation temperature">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="Crystallinity" target="Water content">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="Crystallinity" target="1% weight loss">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="Crystallinity" target="5% weight loss">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="Crystallinity" target="10% weight loss">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="Birefringence" target="Thermal degradation temperature">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="Birefringence" target="Water content">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="Birefringence" target="1% weight loss">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="Birefringence" target="5% weight loss">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="Birefringence" target="10% weight loss">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="Water content" target="1% weight loss">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="Water content" target="5% weight loss">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="Water content" target="10% weight loss">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="Water content" target="Thermal degradation temperature">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="1% weight loss" target="5% weight loss">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="1% weight loss" target="10% weight loss">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="1% weight loss" target="Thermal degradation temperature">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="5% weight loss" target="10% weight loss">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="5% weight loss" target="Thermal degradation temperature">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="10% weight loss" target="Thermal degradation temperature">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <node id="Araneoidea">
+      <data key="d0">material</data>
+    </node>
+    <edge source="Araneoidea" target="Toughness">
+      <data key="d1">increases</data>
+    </edge>
+    <edge source="Araneoidea" target="Strain at break">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="RTA clade">
+      <data key="d0">material</data>
+    </node>
+    <edge source="RTA clade" target="Toughness">
+      <data key="d1">decreases</data>
+    </edge>
+    <edge source="RTA clade" target="Strain at break">
+      <data key="d1">decreases</data>
+    </edge>
+    <node id="MaSp1: AGQG">
+      <data key="d0">Structure</data>
+    </node>
+    <node id="Supercontraction (%)">
+      <data key="d0">Property</data>
+    </node>
+    <edge source="MaSp1: AGQG" target="Supercontraction (%)">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <node id="MaSp2: AAAAAAAA">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="MaSp2: AAAAAAAA" target="Supercontraction (%)">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <node id="MaSp1: YGQGG">
+      <data key="d0">Structure</data>
+    </node>
+    <node id="Toughness (GJ/m³)">
+      <data key="d0">Property</data>
+    </node>
+    <edge source="MaSp1: YGQGG" target="Toughness (GJ/m³)">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <node id="MaSp2 (group 14) +">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="MaSp2 (group 14) +" target="Supercontraction (%)">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="MaSp2 (group 13) +">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="MaSp2 (group 13) +" target="Supercontraction (%)">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="MaSp2 (group 11) +">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="MaSp2 (group 11) +" target="Supercontraction (%)">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="MaSp1 (group 17) +">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="MaSp1 (group 17) +" target="Supercontraction (%)">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="[Protein sequence">
+      <data key="d0">structure&gt;] of H.k. &lt;material</data>
+    </node>
+    <edge source="[Protein sequence" target="[Protein sequence">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="[Protein sequence" target="[Protein sequence">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="[Protein sequence" target="[Protein sequence">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="[Protein sequence" target="[Protein sequence">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="[Protein sequence" target="[Protein sequence">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="[Protein sequence" target="[Protein sequence">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="[Protein sequence" target="[Protein sequence">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="[Protein sequence" target="[Protein sequence">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <node id="Z.h.">
+      <data key="d0">Material</data>
+    </node>
+    <node id="Proportion of G">
+      <data key="d0">Property</data>
+    </node>
+    <edge source="Z.h." target="Proportion of G">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <node id="Proportion of P">
+      <data key="d0">Property</data>
+    </node>
+    <edge source="Z.h." target="Proportion of P">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <node id="Proportion of D">
+      <data key="d0">Property</data>
+    </node>
+    <edge source="Z.h." target="Proportion of D">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <node id="Proportion of E">
+      <data key="d0">Property</data>
+    </node>
+    <edge source="Z.h." target="Proportion of E">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <node id="Proportion of A">
+      <data key="d0">Property</data>
+    </node>
+    <edge source="Z.h." target="Proportion of A">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <node id="N.l.">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="N.l." target="Proportion of G">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="N.l." target="Proportion of P">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="N.l." target="Proportion of D">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="N.l." target="Proportion of E">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="N.l." target="Proportion of A">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <node id="C.d.">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="C.d." target="Proportion of G">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="C.d." target="Proportion of P">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="C.d." target="Proportion of D">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="C.d." target="Proportion of E">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="C.d." target="Proportion of A">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <node id="C.y.">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="C.y." target="Proportion of G">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="C.y." target="Proportion of P">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="C.y." target="Proportion of D">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="C.y." target="Proportion of E">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="C.y." target="Proportion of A">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <node id="G.k.">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="G.k." target="Proportion of G">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="G.k." target="Proportion of P">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="G.k." target="Proportion of D">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="G.k." target="Proportion of E">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="G.k." target="Proportion of A">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <node id="T.e.">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="T.e." target="Proportion of G">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="T.e." target="Proportion of P">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="T.e." target="Proportion of D">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="T.e." target="Proportion of E">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="T.e." target="Proportion of A">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <node id="L.s.">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="L.s." target="Proportion of G">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="L.s." target="Proportion of P">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="L.s." target="Proportion of D">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="L.s." target="Proportion of E">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="L.s." target="Proportion of A">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <node id="M.sp.">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="M.sp." target="Proportion of G">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="M.sp." target="Proportion of P">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="M.sp." target="Proportion of D">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="M.sp." target="Proportion of E">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="M.sp." target="Proportion of A">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <node id="H.t.">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="H.t." target="Proportion of A">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="H.t." target="Proportion of D">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="H.t." target="Proportion of E">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="H.t." target="Proportion of G">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="H.t." target="Proportion of P">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <node id="S.sp.">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="S.sp." target="Proportion of A">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="S.sp." target="Proportion of D">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="S.sp." target="Proportion of E">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="S.sp." target="Proportion of G">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="S.sp." target="Proportion of P">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <node id="D.sp.">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="D.sp." target="Proportion of A">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="D.sp." target="Proportion of D">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="D.sp." target="Proportion of E">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="D.sp." target="Proportion of G">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="D.sp." target="Proportion of P">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <node id="M.o.">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="M.o." target="Proportion of A">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="M.o." target="Proportion of D">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="M.o." target="Proportion of E">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="M.o." target="Proportion of G">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="M.o." target="Proportion of P">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <node id="N.a.">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="N.a." target="Proportion of A">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="N.a." target="Proportion of D">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="N.a." target="Proportion of E">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="N.a." target="Proportion of G">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="N.a." target="Proportion of P">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <node id="C.h.">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="C.h." target="Proportion of A">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="C.h." target="Proportion of D">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="C.h." target="Proportion of E">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="C.h." target="Proportion of G">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="C.h." target="Proportion of P">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <node id="E.a.">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="E.a." target="Proportion of G">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="E.a." target="Proportion of P">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="E.a." target="Proportion of D">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="E.a." target="Proportion of E">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="E.a." target="Proportion of A">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <node id="Proportion of S">
+      <data key="d0">Property</data>
+    </node>
+    <edge source="E.a." target="Proportion of S">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <node id="N.r.">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="N.r." target="Proportion of G">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="N.r." target="Proportion of P">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="N.r." target="Proportion of D">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="N.r." target="Proportion of E">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="N.r." target="Proportion of A">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="N.r." target="Proportion of S">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <node id="C.b.">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="C.b." target="Proportion of G">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="C.b." target="Proportion of P">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="C.b." target="Proportion of D">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="C.b." target="Proportion of E">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="C.b." target="Proportion of A">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="C.b." target="Proportion of S">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <node id="D.p.">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="D.p." target="Proportion of G">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="D.p." target="Proportion of P">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="D.p." target="Proportion of D">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="D.p." target="Proportion of E">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="D.p." target="Proportion of A">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="D.p." target="Proportion of S">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <node id="L.m.">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="L.m." target="Proportion of G">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="L.m." target="Proportion of P">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="L.m." target="Proportion of D">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="L.m." target="Proportion of E">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="L.m." target="Proportion of A">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="L.m." target="Proportion of S">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <node id="U.o.">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="U.o." target="Proportion of G">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="U.o." target="Proportion of P">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="U.o." target="Proportion of D">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="U.o." target="Proportion of E">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="U.o." target="Proportion of A">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="U.o." target="Proportion of S">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <node id="W.c.">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="W.c." target="Proportion of G">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="W.c." target="Proportion of P">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="W.c." target="Proportion of D">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="W.c." target="Proportion of E">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="W.c." target="Proportion of A">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="W.c." target="Proportion of S">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <node id="Proportion of K">
+      <data key="d0">Property</data>
+    </node>
+    <edge source="H.t." target="Proportion of K">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <node id="Proportion of R">
+      <data key="d0">Property</data>
+    </node>
+    <edge source="H.t." target="Proportion of R">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <node id="Proportion of Y">
+      <data key="d0">Property</data>
+    </node>
+    <edge source="H.t." target="Proportion of Y">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="Z.h." target="Proportion of K">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="Z.h." target="Proportion of R">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="Z.h." target="Proportion of Y">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="E.a." target="Proportion of K">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="E.a." target="Proportion of R">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="E.a." target="Proportion of Y">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <node id="Mygalomorphae">
+      <data key="d0">Structure</data>
+    </node>
+    <node id="MiSp">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="Mygalomorphae" target="MiSp">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="Mygalomorphae" target="MaSp2">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="Mygalomorphae" target="MaSp3">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <node id="CrSp">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="Mygalomorphae" target="CrSp">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <node id="Flag">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="Mygalomorphae" target="Flag">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <node id="AcSp">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="Mygalomorphae" target="AcSp">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <node id="AgSp1">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="Mygalomorphae" target="AgSp1">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <node id="AgSp2">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="Mygalomorphae" target="AgSp2">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <node id="CySp">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="Mygalomorphae" target="CySp">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <node id="PySp">
+      <data key="d0">Material</data>
+    </node>
+    <edge source="Mygalomorphae" target="PySp">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="Araneoidea" target="MiSp">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="Araneoidea" target="MaSp2">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="Araneoidea" target="MaSp3">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="Araneoidea" target="CrSp">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="Araneoidea" target="Flag">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="Araneoidea" target="AcSp">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="Araneoidea" target="AgSp1">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="Araneoidea" target="AgSp2">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="Araneoidea" target="CySp">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="Araneoidea" target="PySp">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <node id="UDOH">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="UDOH" target="MiSp">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="UDOH" target="MaSp2">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="UDOH" target="MaSp3">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="UDOH" target="CrSp">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="UDOH" target="Flag">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="UDOH" target="AcSp">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="UDOH" target="AgSp1">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="UDOH" target="AgSp2">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="UDOH" target="CySp">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="UDOH" target="PySp">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <node id="RTA">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="RTA" target="MiSp">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="RTA" target="MaSp2">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="RTA" target="MaSp3">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="RTA" target="CrSp">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="RTA" target="Flag">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="RTA" target="AcSp">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="RTA" target="AgSp1">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="RTA" target="AgSp2">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="RTA" target="CySp">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="RTA" target="PySp">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="Araneoidea" target="Toughness">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="Araneoidea" target="Tensile strength">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="Araneoidea" target="Strain at break">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="Araneoidea" target="Supercontraction">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="Mygalomorphae" target="Toughness">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="Mygalomorphae" target="Tensile strength">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="Mygalomorphae" target="Strain at break">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="Mygalomorphae" target="Supercontraction">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="UDOH" target="Supercontraction">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="RTA" target="Supercontraction">
+      <data key="d1">negatively correlates with</data>
+    </edge>
+    <edge source="MaSp2" target="Toughness">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="MaSp2" target="Tensile strength">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="MaSp2" target="Strain at break">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="MaSp2" target="Supercontraction">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="MaSp3" target="Toughness">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="MaSp3" target="Tensile strength">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="MaSp3" target="Strain at break">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="MaSp3" target="Supercontraction">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="CrSp" target="Toughness">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="CrSp" target="Tensile strength">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="CrSp" target="Strain at break">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="CrSp" target="Supercontraction">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="Flag" target="Toughness">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="Flag" target="Tensile strength">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="Flag" target="Strain at break">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="Flag" target="Supercontraction">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="AcSp" target="Toughness">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="AcSp" target="Tensile strength">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="AcSp" target="Strain at break">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="AcSp" target="Supercontraction">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="AgSp1" target="Toughness">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="AgSp1" target="Tensile strength">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="AgSp1" target="Strain at break">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="AgSp1" target="Supercontraction">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="AgSp2" target="Toughness">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="AgSp2" target="Tensile strength">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="AgSp2" target="Strain at break">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="AgSp2" target="Supercontraction">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="CySp" target="Toughness">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="CySp" target="Tensile strength">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="CySp" target="Strain at break">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="CySp" target="Supercontraction">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="PySp" target="Toughness">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="PySp" target="Tensile strength">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="PySp" target="Strain at break">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <edge source="PySp" target="Supercontraction">
+      <data key="d1">positively correlates with</data>
+    </edge>
+    <node id="MaSp1-GYGQGG">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="MaSp1-GYGQGG" target="Toughness">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="MaSp1-poly-Ala ending with GGS">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="MaSp1-poly-Ala ending with GGS" target="Toughness">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="P">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="P" target="Toughness">
+      <data key="d1">decreases</data>
+    </edge>
+    <node id="SQGP in MaSp2">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="SQGP in MaSp2" target="Toughness">
+      <data key="d1">decreases</data>
+    </edge>
+    <node id="SY">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="SY" target="Toughness">
+      <data key="d1">decreases</data>
+    </edge>
+    <node id="SV in MaSp1">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="SV in MaSp1" target="Toughness">
+      <data key="d1">decreases</data>
+    </edge>
+    <node id="MaSp2-PQ">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="MaSp2-PQ" target="Toughness">
+      <data key="d1">decreases</data>
+    </edge>
+    <node id="MaSp1-SS before poly-Ala">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="MaSp1-SS before poly-Ala" target="Tensile strength">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="Lacking S inGQG motif in MaSp1">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="Lacking S inGQG motif in MaSp1" target="Tensile strength">
+      <data key="d1">decreases</data>
+    </edge>
+    <node id="MaSp1-QGGS">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="MaSp1-QGGS" target="Tensile strength">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="A before GQGmotif in MaSp1">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="A before GQGmotif in MaSp1" target="Tensile strength">
+      <data key="d1">decreases</data>
+    </edge>
+    <edge source="MaSp1-GYGQGG" target="Strain at break">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="QGP in MaSp1">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="QGP in MaSp1" target="Strain at break">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="PGA in MaSp1">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="PGA in MaSp1" target="Strain at break">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="PA in MaSp2">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="PA in MaSp2" target="Young's modulus">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="Q in MaSp2">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="Q in MaSp2" target="Young's modulus">
+      <data key="d1">decreases</data>
+    </edge>
+    <node id="GL in MaSp1 and MaSp2">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="GL in MaSp1 and MaSp2" target="Young's modulus">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="MaSp1-GGQ">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="MaSp1-GGQ" target="Young's modulus">
+      <data key="d1">decreases</data>
+    </edge>
+    <edge source="PA in MaSp2" target="Crystallinity">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="N in MaSp2">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="N in MaSp2" target="Crystallinity">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="A in MaSp2">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="A in MaSp2" target="Crystallinity">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="GA in MaSp2">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="GA in MaSp2" target="Crystallinity">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="GT in MaSp1">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="GT in MaSp1" target="Crystallinity">
+      <data key="d1">decreases</data>
+    </edge>
+    <node id="MaSp1-GQ">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="MaSp1-GQ" target="Crystallinity">
+      <data key="d1">increases</data>
+    </edge>
+    <edge source="MaSp1-GGQ" target="Crystallinity">
+      <data key="d1">decreases</data>
+    </edge>
+    <node id="TGG in MaSp1">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="TGG in MaSp1" target="Birefringence">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="MaSp1-GAAAAAAG">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="MaSp1-GAAAAAAG" target="Birefringence">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="MaSp2-PSGPGS">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="MaSp2-PSGPGS" target="Birefringence">
+      <data key="d1">decreases</data>
+    </edge>
+    <node id="MaSp1-AAGGAGQG">
+      <data key="d0">Structure</data>
+    </node>
+    <node id="Diameter">
+      <data key="d0">Property</data>
+    </node>
+    <edge source="MaSp1-AAGGAGQG" target="Diameter">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="MaSp2-SQG">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="MaSp2-SQG" target="Diameter">
+      <data key="d1">decreases</data>
+    </edge>
+    <node id="MaSp1-QS">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="MaSp1-QS" target="Diameter">
+      <data key="d1">decreases</data>
+    </edge>
+    <node id="MaSp1-SQGAG">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="MaSp1-SQGAG" target="Diameter">
+      <data key="d1">decreases</data>
+    </edge>
+    <node id="MaSp2-PGGYGP">
+      <data key="d0">Structure</data>
+    </node>
+    <node id="N %water loss">
+      <data key="d0">Property</data>
+    </node>
+    <edge source="MaSp2-PGGYGP" target="N %water loss">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="MaSp2 poly-Ala">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="MaSp2 poly-Ala" target="N %water loss">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="V in MaSp2">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="V in MaSp2" target="N %water loss">
+      <data key="d1">decreases</data>
+    </edge>
+    <edge source="GT in MaSp1" target="N %water loss">
+      <data key="d1">decreases</data>
+    </edge>
+    <node id="MaSp1-GSG">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="MaSp1-GSG" target="Water content">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="MaSp2-GAS">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="MaSp2-GAS" target="Water content">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="MaSp2-QQGPG">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="MaSp2-QQGPG" target="Water content">
+      <data key="d1">decreases</data>
+    </edge>
+    <node id="MaSp1-PGAA">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="MaSp1-PGAA" target="Water content">
+      <data key="d1">decreases</data>
+    </edge>
+    <node id="A in MaSp1">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="A in MaSp1" target="Water content">
+      <data key="d1">decreases</data>
+    </edge>
+    <node id="Poly-Ala in MaSp1">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="Poly-Ala in MaSp1" target="Water content">
+      <data key="d1">decreases</data>
+    </edge>
+    <node id="MaSp2 presence">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="MaSp2 presence" target="Supercontraction">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="MaSp1-AGQG">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="MaSp1-AGQG" target="Supercontraction">
+      <data key="d1">increases</data>
+    </edge>
+    <node id="MaSp1-GLG">
+      <data key="d0">Structure</data>
+    </node>
+    <edge source="MaSp1-GLG" target="Supercontraction">
+      <data key="d1">increases</data>
+    </edge>
+  </graph>
+</graphml>

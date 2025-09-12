@@ -1,0 +1,6 @@
+Metric,LLM-based Graph,Multi-agent Graph (Ours)
+Correctness,0.615,0.923
+Completeness,,
+Strain at break,0.286,0.571
+Toughness,0.25,0.833
+Young's modulus,0.333,0.556
