@@ -7,11 +7,14 @@ A Python package for extracting causal relationships from materials science lite
 The extraction pipeline consists of several sophisticated steps to identify and extract causal relationships from materials science literature:
 
 ### 1. Article collection
-- **Input**: Keyword list related to material of interest
+- **Input**: Natural language query (e.g., "spider silk mechanical properties")
 - **Process**:
-  - Collect bibliographic data of papers related to keywords using OpenAlex
-  - Download PDFs of relevant papers using Unpaywall
-- **Output**: Downloaded PDFs
+  - Search OpenAlex API for relevant papers using query-based retrieval
+  - Automatic relevance ranking and filtering (by year, citations, open access)
+  - Download PDFs from multiple sources (OpenAlex + Unpaywall + optional Core.ac.uk)
+  - Generate metadata manifest with paper details
+- **Output**: Downloaded PDFs with comprehensive metadata CSV
+- **Tool**: `data/article_retrieval/article_retriever.py` - See [Article Retrieval README](data/article_retrieval/README.md) for usage
 
 ### 2. PDF Processing and Text Extraction
 - **Input**: Raw PDF documents
