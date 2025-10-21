@@ -232,3 +232,95 @@ class GeminiTableRelationExtractor(BaseLLM):
         Example: "[temperature <property>] increases [crystallinity <property>]"
         """
         return parse_relationships(response), response
+
+
+@register_model("gemini-text-relation")
+class GeminiTextRelationExtractor(BaseLLM):
+    """Text-based relation extraction using Google Gemini for materials science text."""
+    
+    def __init__(self, config: Optional[ModelConfig] = None):
+        """Initialize the Gemini text relation extractor.
+        
+        Args:
+            config: Model configuration
+        """
+        if config is None:
+            config = ModelConfig(
+                model_type="gemini-2.5-flash",
+                temperature=0.3,
+            )
+        
+        self.config = config
+        api_key = os.getenv('GEMINI_API_KEY')
+        if not api_key:
+            raise ValueError("GEMINI_API_KEY environment variable is required")
+        
+        self.client = genai.Client()
+        
+    def extract_relations(self, text: str) -> List[Relationship]:
+        """Extract causal relationships from text using Gemini.
+        
+        Args:
+            text: Input text to extract relationships from
+            
+        Returns:
+            List of extracted relationships
+        """
+        prompt = self._prepare_prompt(text)
+        
+        try:
+            response = call_with_backoff(lambda: self.client.models.generate_content(
+                model=self.config.model_type,
+                contents=[prompt]
+            ))
+            # DEBUG: remove later
+            print(response.text)
+            return self._process_response(response.text)
+        except Exception as e:
+            print(f"Error in Gemini text extraction: {e}")
+            return []
+    
+    def _prepare_prompt(self, text: str) -> str:
+        """Prepare the prompt for relationship extraction."""
+        
+        return f"""You are an expert in materials science. Your task is to extract relationships among variables mentioned in the given text.  
+            Instructions:  
+            1. Identify all relevant variables in the text. Each variable must be categorized as exactly one of:  
+            - material  
+            - structure  
+            - process  
+            - property  
+
+            2. Identify relationships between variables. Only use the following relationship types:  
+            - increases  
+            - decreases  
+            - positively correlates with  
+            - negatively correlates with  
+            - causes  
+
+            3. Express each relationship as a structured statement with the format:  
+            [Variable A <Type>] [relationship type] [Variable B <Type>]  
+
+            4. Be precise and consistent:  
+            - Use the exact wording of the variables as they appear in the text (do not paraphrase).  
+            - Output only one relationship per line. Do not number them. Relationships only.
+            - Do not include explanations, summaries, or extra text outside the structured statements.  
+            
+            Here are some examples of the output format:
+            "192-mer fibers <material> decreases breaking strain <property>"
+            "192-mer fibers <material> decreases breaking strain <property>"
+            "silk diameter <structure> positively correlates with breaking strain <property>"
+
+            Text for analysis:  
+
+            {text}
+
+        """
+    
+    def _process_response(self, response: str) -> List[Relationship]:
+        """Process the model's response and create Relationship objects.
+        
+        Expects lines in format: "[Variable A <Type>] [relationship type] [Variable B <Type>]"
+        Example: "[temperature <property>] increases [crystallinity <property>]"
+        """
+        return parse_relationships(response), response
