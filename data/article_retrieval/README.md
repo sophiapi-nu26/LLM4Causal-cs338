@@ -1,20 +1,24 @@
 # Article Retrieval System
 
-Query-based article retrieval and PDF download system using OpenAlex API.
+Query-based article retrieval and PDF download system with intelligent multi-source PDF acquisition.
 
 ## Overview
 
-This system allows you to search for academic papers using natural language queries and automatically download available open-access PDFs. It uses the free OpenAlex API for search and combines multiple sources (OpenAlex + Unpaywall + optional Core.ac.uk) for PDF acquisition.
+This system allows you to search for academic papers using natural language queries and automatically download available open-access PDFs. It uses the free OpenAlex API for search and intelligently cascades through multiple PDF sources (Semantic Scholar → OpenAlex → Unpaywall) to maximize download success rates.
 
 ## Features
 
 - **Query-based search**: Use natural language queries like "spider silk mechanical properties"
 - **Automatic relevance ranking**: Results sorted by OpenAlex relevance score
-- **Multi-source PDF download**: Tries OpenAlex first, then optional Core.ac.uk, falls back to Unpaywall
+- **Intelligent multi-source PDF download**: Cascades through sources with automatic fallback:
+  1. **Semantic Scholar** (primary, with rate limit handling)
+  2. **OpenAlex** (from search results)
+  3. **Unpaywall** (fallback)
 - **Flexible filtering**: Filter by year, citation count, and open access status
+- **Open access by default**: Only retrieves papers with free PDFs available
 - **Detailed metadata**: Saves comprehensive paper information to CSV manifest
-- **No API key required**: Uses free OpenAlex API
-- **Optional Core.ac.uk integration**: Enable with `--use-core` flag for broader coverage (adds latency)
+- **No API key required**: Uses free APIs from OpenAlex, Semantic Scholar, and Unpaywall
+- **Circuit breaker**: Automatically switches to fallback sources when rate limits are hit
 
 ## Installation
 
@@ -22,6 +26,18 @@ This system allows you to search for academic papers using natural language quer
 # Install required dependency
 pip install requests
 ```
+
+### Optional: Semantic Scholar API Key
+
+To improve rate limits and reliability, you can optionally provide a Semantic Scholar API key:
+
+1. Get a free API key from: https://www.semanticscholar.org/product/api
+2. Create a `.env` file in the project root:
+   ```bash
+   SEMANTIC_SCHOLAR_KEY="your-api-key-here"
+   ```
+
+The script will automatically detect and use the API key if present. With an API key, you get significantly higher rate limits (up to 100 requests/second vs. ~100 requests/5 minutes without).
 
 ## Basic Usage
 
@@ -90,17 +106,6 @@ python article_retriever.py \
   --save-raw-json
 ```
 
-### Enable Core.ac.uk for More Coverage
-
-```bash
-# Use Core.ac.uk as additional PDF source (slower but may find more papers)
-python article_retriever.py \
-  --query "biomaterials tissue engineering" \
-  --use-core \
-  --mailto "your@email.com"
-```
-
-**Note**: Core.ac.uk adds 5-30 seconds per paper without an OpenAlex PDF. Only use for comprehensive literature reviews where you need maximum coverage.
 
 ## Complete Example
 
@@ -144,7 +149,7 @@ Contains detailed metadata for all retrieved papers:
 | `relevance_score` | OpenAlex relevance score |
 | `abstract` | Paper abstract (if available) |
 | `pdf_url` | URL where PDF was found |
-| `pdf_source` | Source of PDF (`openalex`, `unpaywall`, or None) |
+| `pdf_source` | Source of PDF (`semantic_scholar`, `openalex`, `unpaywall`, or None) |
 | `download_status` | Status: `downloaded`, `exists`, or `no-pdf-available` |
 | `saved_path` | Local path to downloaded PDF |
 | `venue` | Publication venue (journal/conference) |
@@ -229,7 +234,7 @@ Manifest saved        : /path/to/pdfs/manifest.csv
 |---------------------------|------------------------------|
 | Requires manual CSV input | Query-based search |
 | Two-step process | Single command |
-| Unpaywall only | Multi-source (OpenAlex + Unpaywall) |
+| Unpaywall only | Multi-source cascade (SS → OpenAlex → Unpaywall) |
 | No filtering | Year, citations, OA filters |
 | No relevance ranking | Sorted by relevance score |
 | Static paper list | Dynamic search results |
@@ -240,10 +245,19 @@ Manifest saved        : /path/to/pdfs/manifest.csv
   - Free, no API key required
   - Rate limit: 10 requests/second (100,000/day)
   - Polite pool (with email): 10 req/sec, no daily limit
+  - Used for: Paper search and initial PDF URLs
+
+- **Semantic Scholar API**: https://api.semanticscholar.org/
+  - Free, API key optional but recommended
+  - Rate limit (without key): ~100 requests/5 minutes
+  - Rate limit (with key): Up to 100 requests/second
+  - Get API key: https://www.semanticscholar.org/product/api
+  - Used for: Primary PDF source with circuit breaker on rate limits
+  - API key configured via `.env` file (see Installation section)
 
 - **Unpaywall API**: https://unpaywall.org/api
   - Free, requires email
-  - Used as fallback for PDF acquisition
+  - Used for: Final fallback PDF acquisition
 
 ## License
 

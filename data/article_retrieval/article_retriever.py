@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-OpenAlex Article Retriever
----------------------------
+Article Retriever with Multi-Source PDF Download
+-------------------------------------------------
 Query-based article retrieval system that searches OpenAlex for relevant papers
-and automatically downloads available open access PDFs.
+and automatically downloads available open access PDFs from multiple sources.
 
 Usage
 -----
@@ -21,20 +21,16 @@ python article_retriever.py \
   --outdir ./my_papers \
   --mailto "you@email.com"
 
-# Enable Core.ac.uk for additional coverage (slower)
-python article_retriever.py \
-  --query "biomaterials" \
-  --use-core \
-  --mailto "you@email.com"
-
 Features
 --------
 * Query-based search using OpenAlex API (no API key needed)
 * Automatic relevance ranking
-* Multi-source PDF download (OpenAlex + Unpaywall + optional Core.ac.uk)
-* Filtering by year, citations, and open access status
+* Multi-source PDF download with intelligent cascading:
+  - Semantic Scholar (primary, with rate limit handling)
+  - OpenAlex
+  - Unpaywall (fallback)
+* Filtering by year, citations, and open access status (default: open access only)
 * Detailed manifest CSV with metadata and download status
-* Optional Core.ac.uk integration (--use-core flag, adds latency but may find more PDFs)
 """
 
 import argparse
@@ -57,14 +53,25 @@ except ImportError:
     print("This script needs 'requests'. Install with:\n  pip install requests", file=sys.stderr)
     sys.exit(1)
 
+try:
+    from dotenv import load_dotenv
+    load_dotenv()  # Load .env file if present
+except ImportError:
+    # python-dotenv not installed, skip .env loading
+    pass
+
 # API Configuration
 OPENALEX_BASE = "https://api.openalex.org"
 UNPAYWALL_BASE = "https://api.unpaywall.org/v2"
-CORE_BASE = "https://api.core.ac.uk/v3/search/works"
-USER_AGENT = "OpenAlexArticleRetriever/1.0 (mailto:{})"
+SEMANTIC_SCHOLAR_BASE = "https://api.semanticscholar.org/graph/v1"
+USER_AGENT = "ArticleRetriever/1.0 (mailto:{})"
 DEFAULT_SLEEP = 0.1  # OpenAlex allows 10 req/sec, so 0.1s is safe
 DEFAULT_MAX_RESULTS = 20
 DEFAULT_MAILTO = "user@gmail.com"  # Avoid .edu email addresses
+
+# Rate limiting configuration for Semantic Scholar
+SS_RATE_LIMIT_THRESHOLD = 3  # Number of consecutive 429s before circuit break
+SS_CIRCUIT_BREAK_DURATION = 300  # Seconds to wait after circuit break (5 minutes)
 
 
 def slugify(text: str, max_len: int = 60) -> str:
@@ -123,6 +130,76 @@ class Paper:
     saved_path: Optional[str]
     venue: Optional[str]
     open_access_status: Optional[str]
+
+class SemanticScholarSearcher:
+    """Handles Semantic Scholar API interactions for PDF retrieval."""
+
+    def __init__(self, session: requests.Session, api_key: Optional[str] = None):
+        self.session = session
+        self.api_key = api_key
+        self.consecutive_429s = 0
+        self.circuit_broken = False
+        self.circuit_break_time = None
+
+        # Configure session with API key if available
+        if self.api_key:
+            self.session.headers.update({"x-api-key": self.api_key})
+
+    def is_circuit_broken(self) -> bool:
+        """Check if circuit breaker is active."""
+        if not self.circuit_broken:
+            return False
+
+        # Check if enough time has passed to retry
+        if time.time() - self.circuit_break_time > SS_CIRCUIT_BREAK_DURATION:
+            self.circuit_broken = False
+            self.consecutive_429s = 0
+            return False
+
+        return True
+
+    def get_pdf_url(self, doi: Optional[str]) -> Optional[str]:
+        """
+        Get PDF URL from Semantic Scholar using DOI lookup.
+
+        Returns:
+            PDF URL if available and open access, None otherwise
+        """
+        if not doi or self.is_circuit_broken():
+            return None
+
+        # Use DOI lookup endpoint
+        url = f"{SEMANTIC_SCHOLAR_BASE}/paper/DOI:{doi}"
+        params = {
+            "fields": "isOpenAccess,openAccessPdf"
+        }
+
+        try:
+            response = self.session.get(url, params=params, timeout=10)
+
+            if response.status_code == 429:
+                self.consecutive_429s += 1
+                if self.consecutive_429s >= SS_RATE_LIMIT_THRESHOLD:
+                    self.circuit_broken = True
+                    self.circuit_break_time = time.time()
+                    print("        [Semantic Scholar rate limit hit - switching to fallback sources]")
+                return None
+
+            if response.status_code == 200:
+                # Reset rate limit counter on success
+                self.consecutive_429s = 0
+                data = response.json()
+
+                # Only return if open access
+                if data.get("isOpenAccess"):
+                    pdf_info = data.get("openAccessPdf") or {}
+                    pdf_url = pdf_info.get("url")
+                    return pdf_url
+
+            return None
+
+        except Exception:
+            return None
 
 
 class OpenAlexSearcher:
@@ -298,13 +375,14 @@ class OpenAlexSearcher:
 
 
 class PDFDownloader:
-    """Handles PDF downloading from multiple sources."""
+    """Handles PDF downloading from multiple sources with cascade fallback."""
 
-    def __init__(self, session: requests.Session, mailto: str, outdir: str, use_core: bool = False):
+    def __init__(self, session: requests.Session, mailto: str, outdir: str,
+                 semantic_scholar: Optional[SemanticScholarSearcher] = None):
         self.session = session
         self.mailto = mailto
         self.outdir = outdir
-        self.use_core = use_core  # Core.ac.uk is opt-in due to latency
+        self.semantic_scholar = semantic_scholar
         os.makedirs(outdir, exist_ok=True)
 
     def create_filename(self, paper: Paper) -> str:
@@ -359,29 +437,6 @@ class PDFDownloader:
                     pass
             return False
 
-    def try_core(self, doi: str, title: str) -> Optional[str]:
-        """Try to get PDF URL from CORE API (DOI search only for speed)."""
-        # Only try DOI search (title search is slow and less reliable)
-        if not doi:
-            return None
-
-        try:
-            params = {"q": f"doi:{doi}", "limit": 1}
-            # Reduced timeout from 30s to 10s to prevent hanging
-            response = self.session.get(CORE_BASE, params=params, timeout=10)
-            if response.status_code == 200:
-                data = response.json()
-                results = data.get("results", [])
-                if results and len(results) > 0:
-                    pdf_url = results[0].get("downloadUrl")
-                    if pdf_url and pdf_url.strip():
-                        return pdf_url
-        except:
-            # Silently fail on any error (timeout, network, etc.)
-            pass
-
-        return None
-
     def try_unpaywall(self, doi: str) -> Optional[str]:
         """Try to get PDF URL from Unpaywall API."""
         if not doi:
@@ -413,7 +468,11 @@ class PDFDownloader:
 
     def download(self, paper: Paper) -> Paper:
         """
-        Attempt to download PDF for a paper.
+        Attempt to download PDF for a paper using cascade approach:
+        1. Semantic Scholar (if available and not rate-limited)
+        2. OpenAlex (from search results)
+        3. Unpaywall (fallback)
+
         Updates paper object with download status and path.
         """
         filename = self.create_filename(paper)
@@ -425,25 +484,26 @@ class PDFDownloader:
             paper.saved_path = filepath
             return paper
 
-        # Try OpenAlex URL first
+        # Source 1: Try Semantic Scholar first (if enabled)
+        if self.semantic_scholar and paper.doi:
+            ss_url = self.semantic_scholar.get_pdf_url(paper.doi)
+            if ss_url:
+                if self.save_pdf(ss_url, filepath):
+                    paper.download_status = "downloaded"
+                    paper.saved_path = filepath
+                    paper.pdf_url = ss_url
+                    paper.pdf_source = "semantic_scholar"
+                    return paper
+
+        # Source 2: Try OpenAlex URL from search results
         if paper.pdf_url:
             if self.save_pdf(paper.pdf_url, filepath):
                 paper.download_status = "downloaded"
                 paper.saved_path = filepath
+                # pdf_source already set during parsing
                 return paper
 
-        # Try CORE if enabled (opt-in due to latency concerns)
-        if self.use_core:
-            core_url = self.try_core(paper.doi, paper.title)
-            if core_url:
-                if self.save_pdf(core_url, filepath):
-                    paper.download_status = "downloaded"
-                    paper.saved_path = filepath
-                    paper.pdf_url = core_url
-                    paper.pdf_source = "core"
-                    return paper
-
-        # Try Unpaywall as fallback
+        # Source 3: Try Unpaywall as final fallback
         if paper.doi:
             unpaywall_url = self.try_unpaywall(paper.doi)
             if unpaywall_url:
@@ -454,7 +514,7 @@ class PDFDownloader:
                     paper.pdf_source = "unpaywall"
                     return paper
 
-        # No PDF available
+        # No PDF available from any source
         paper.download_status = "no-pdf-available"
         return paper
 
@@ -492,6 +552,11 @@ class ResultsManager:
         exists = sum(1 for p in papers if p.download_status == "exists")
         no_pdf = sum(1 for p in papers if p.download_status == "no-pdf-available")
 
+        # Count by source
+        ss_count = sum(1 for p in papers if p.pdf_source == "semantic_scholar")
+        oa_count = sum(1 for p in papers if p.pdf_source == "openalex")
+        up_count = sum(1 for p in papers if p.pdf_source == "unpaywall")
+
         total_with_pdf = downloaded + exists
 
         print("\n" + "=" * 60)
@@ -504,6 +569,17 @@ class ResultsManager:
         if papers:
             success_rate = (total_with_pdf / len(papers)) * 100
             print(f"Success rate          : {success_rate:.1f}%")
+
+        # Show source breakdown if any PDFs were obtained
+        if total_with_pdf > 0:
+            print(f"\nPDF Sources:")
+            if ss_count > 0:
+                print(f"  Semantic Scholar    : {ss_count}")
+            if oa_count > 0:
+                print(f"  OpenAlex            : {oa_count}")
+            if up_count > 0:
+                print(f"  Unpaywall           : {up_count}")
+
         print(f"\nOutput directory      : {os.path.abspath(outdir)}")
         print(f"Manifest saved        : {os.path.abspath(manifest_path)}")
         print("=" * 60)
@@ -593,21 +669,22 @@ Examples:
         action="store_true",
         help="Save raw OpenAlex API response to JSON file"
     )
-    parser.add_argument(
-        "--use-core",
-        action="store_true",
-        help="Enable CORE.ac.uk as additional PDF source (slower but may find more papers)"
-    )
-
+    
     args = parser.parse_args()
 
     # Handle open access flag
     open_access_only = args.open_access_only and not args.include_closed_access
 
+    # Load Semantic Scholar API key from environment
+    ss_api_key = os.getenv("SEMANTIC_SCHOLAR_KEY")
+    if ss_api_key:
+        print("Using Semantic Scholar API key for enhanced rate limits\n")
+
     # Initialize components
     session = make_session(args.mailto)
     searcher = OpenAlexSearcher(session, args.mailto)
-    downloader = PDFDownloader(session, args.mailto, args.outdir, use_core=args.use_core)
+    semantic_scholar = SemanticScholarSearcher(session, api_key=ss_api_key)
+    downloader = PDFDownloader(session, args.mailto, args.outdir, semantic_scholar) 
 
     # Search for papers
     works = searcher.search(
