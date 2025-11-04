@@ -20,6 +20,10 @@ dependencies:
   - wheel=0.45.1
   - xz=5.6.4
   - zlib=1.2.13
+
+  - PyMuPDF>=1.23.0
+
+  
   - pip:
       - accelerate==1.10.1
       - annotated-types==0.7.0
