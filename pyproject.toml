@@ -12,6 +12,8 @@ dependencies = [
   "black>=22.0",
   "docling",
   "docling-core",
+  "google-cloud-storage>=2.0.0",
+  "google-genai>=1.36.0",
   "isort>=5.0",
   "lxml>=4.9.0",
   "mypy>=1.0",

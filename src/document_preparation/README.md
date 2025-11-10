@@ -1,10 +1,12 @@
-# Article Retrieval System
+# Document Preparation Pipeline
 
-Query-based article retrieval and PDF download system with intelligent multi-source PDF acquisition.
+Query-based article retrieval, PDF download, and parsing system with intelligent multi-source PDF acquisition and cloud storage integration.
+
+**Location**: `src/document_preparation/`
 
 ## Overview
 
-This system allows you to search for academic papers using natural language queries and automatically download available open-access PDFs. It uses the free OpenAlex API for search and intelligently cascades through multiple PDF sources (Semantic Scholar → OpenAlex → Unpaywall) to maximize download success rates.
+This system allows you to search for academic papers using natural language queries, automatically download available open-access PDFs, parse them into structured text, and optionally upload to cloud storage. It uses the free OpenAlex API for search and intelligently cascades through multiple PDF sources (Semantic Scholar → OpenAlex → Unpaywall) to maximize download success rates.
 
 ## Features
 
@@ -14,9 +16,12 @@ This system allows you to search for academic papers using natural language quer
   1. **Semantic Scholar** (primary, with rate limit handling)
   2. **OpenAlex** (from search results)
   3. **Unpaywall** (fallback)
+- **PDF parsing (v2)**: Extract structured text from scientific PDFs with multi-column support
+- **Cloud storage integration**: Upload parsed data to Google Cloud Storage
 - **Flexible filtering**: Filter by year, citation count, and open access status
 - **Open access by default**: Only retrieves papers with free PDFs available
 - **Detailed metadata**: Saves comprehensive paper information to CSV manifest
+- **Comprehensive logging**: Configurable log levels for debugging and production use
 - **No API key required**: Uses free APIs from OpenAlex, Semantic Scholar, and Unpaywall
 - **Circuit breaker**: Automatically switches to fallback sources when rate limits are hit
 
@@ -106,6 +111,43 @@ python article_retriever.py \
   --save-raw-json
 ```
 
+### Logging Configuration
+
+Control the verbosity of output using the `--log-level` flag:
+
+```bash
+# INFO level (default) - Shows key progress messages
+python article_retriever.py \
+  --query "spider silk" \
+  --log-level INFO
+
+# DEBUG level - Shows detailed tracing for debugging
+python article_retriever.py \
+  --query "spider silk" \
+  --log-level DEBUG
+
+# WARNING level - Shows only warnings and errors (minimal output)
+python article_retriever.py \
+  --query "spider silk" \
+  --log-level WARNING
+
+# ERROR level - Shows only critical errors
+python article_retriever.py \
+  --query "spider silk" \
+  --log-level ERROR
+```
+
+**Log Levels:**
+- `DEBUG`: Detailed tracing (file paths, API calls, parser operations)
+- `INFO` (default): User-facing progress messages (downloads, uploads, summaries)
+- `WARNING`: Warnings and recoverable issues (rate limits, failed uploads)
+- `ERROR`: Only critical errors
+
+**Use Cases:**
+- **Production/API**: Use `WARNING` or `ERROR` to minimize log noise
+- **Debugging**: Use `DEBUG` to diagnose PDF parsing or cloud upload issues
+- **Default usage**: `INFO` provides good visibility into progress
+
 
 ## Complete Example
 
@@ -119,11 +161,45 @@ python article_retriever.py \
   --mailto "researcher@university.edu"
 ```
 
-## Output Files
+## Cloud Storage Integration
 
-### 1. PDFs (`./pdfs/` by default)
+When using `--cloud-storage` and `--parse-pdfs`, parsed papers are automatically uploaded to Google Cloud Storage with the following structure:
 
-Downloaded PDFs are named using the format:
+```
+gs://your-bucket/
+├── parsed/
+│   └── run_2025-11-09_143022/          # Timestamp-based run folder
+│       ├── run_metadata.json            # Query info, filters, statistics
+│       ├── W2123456789_extracted.json   # Parsed paper 1
+│       ├── W2987654321_extracted.json   # Parsed paper 2
+│       └── ...
+└── failed_pdfs/
+    ├── W2111111111.pdf                  # Failed parse (for debugging)
+    └── ...
+```
+
+### Run Metadata
+
+Each retrieval run creates a `run_metadata.json` file containing:
+- Query text and filters used
+- Timestamp of retrieval
+- Statistics (papers retrieved, parsed, failed)
+
+### Local PDF Storage (Optional)
+
+By default, PDFs are **not** saved locally when using cloud storage—they stream through memory for parsing.
+
+To save PDFs locally in addition to cloud upload:
+```bash
+python article_retriever.py \
+  --query "spider silk" \
+  --cloud-storage \
+  --parse-pdfs \
+  --save-pdfs-locally \
+  --outdir ./local_pdfs
+```
+
+PDFs are named using the format:
 ```
 {year}_{first_author}_{title_slug}_{hash}.pdf
 ```
@@ -132,32 +208,6 @@ Example:
 ```
 2012_Florence_Teulé_Silkworms_transformed_with_chimeric_silk_616f61.pdf
 ```
-
-### 2. Manifest CSV (`./pdfs/manifest.csv`)
-
-Contains detailed metadata for all retrieved papers:
-
-| Column | Description |
-|--------|-------------|
-| `index` | Paper index in result set |
-| `openalex_id` | OpenAlex work ID |
-| `doi` | Digital Object Identifier |
-| `title` | Paper title |
-| `year` | Publication year |
-| `authors` | Comma-separated author names |
-| `cited_by_count` | Number of citations |
-| `relevance_score` | OpenAlex relevance score |
-| `abstract` | Paper abstract (if available) |
-| `pdf_url` | URL where PDF was found |
-| `pdf_source` | Source of PDF (`semantic_scholar`, `openalex`, `unpaywall`, or None) |
-| `download_status` | Status: `downloaded`, `exists`, or `no-pdf-available` |
-| `saved_path` | Local path to downloaded PDF |
-| `venue` | Publication venue (journal/conference) |
-| `open_access_status` | Open access classification |
-
-### 3. Raw JSON (optional, `--save-raw-json`)
-
-Raw OpenAlex API response saved to `./pdfs/raw_results.json`
 
 ## Sample Output
 
@@ -193,7 +243,6 @@ PDFs unavailable      : 1
 Success rate          : 80.0%
 
 Output directory      : /path/to/pdfs
-Manifest saved        : /path/to/pdfs/manifest.csv
 ============================================================
 ```
 
@@ -205,7 +254,7 @@ Manifest saved        : /path/to/pdfs/manifest.csv
    - Use `--year-min` for recent research
    - Use `--min-citations` for well-established work
 
-3. **Check the manifest**: The CSV contains abstracts and metadata to help you identify the most relevant papers
+3. **Use cloud storage**: Enable `--cloud-storage --parse-pdfs` to automatically parse and store papers in GCS with run metadata
 
 4. **Open access only**: By default, only open access papers are retrieved. This maximizes your PDF download success rate.
 
@@ -221,7 +270,7 @@ Manifest saved        : /path/to/pdfs/manifest.csv
 ### Low PDF success rate
 - Ensure you're using `--open-access-only` (default)
 - Some open access papers may have broken links
-- Check the manifest CSV for `pdf_url` column to see if URLs are available
+- Enable cloud storage to track failed PDFs for debugging
 
 ### Rate limiting
 - The script includes automatic retry logic

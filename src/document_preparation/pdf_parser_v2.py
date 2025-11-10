@@ -1,29 +1,41 @@
 """
-Text extraction module for scientific PDFs
+Text extraction module for scientific PDFs (v2)
 Handles multi-column layouts, section detection, and cleaning
 """
 
 import fitz  # PyMuPDF
+import logging
 import re
 from typing import Dict, List, Tuple
 from pathlib import Path
 
+# Configure module logger
+logger = logging.getLogger(__name__)
+
 
 class ScientificPDFExtractor:
     """Extract and structure text from scientific papers"""
-    
+
     def __init__(self, pdf_path: str):
         self.pdf_path = pdf_path
+        logger.debug(f"Opening PDF: {pdf_path}")
         self.doc = fitz.open(pdf_path)
         self.full_text = ""
         self.sections = {}
-        
+        logger.debug(f"PDF opened successfully ({len(self.doc)} pages)")
+
     def extract_text(self) -> Dict[str, any]:
         """Main extraction method"""
+        logger.debug("Starting text extraction")
         raw_text = self._extract_raw_text()
+        logger.debug(f"Raw text extracted ({len(raw_text)} chars)")
+
         cleaned_text = self._clean_text(raw_text)
+        logger.debug(f"Text cleaned ({len(cleaned_text)} chars)")
+
         sections = self._identify_sections(cleaned_text)
-        
+        logger.info(f"Text extraction complete: {len(sections)} sections found")
+
         return {
             "full_text": cleaned_text,
             "sections": sections,
@@ -33,25 +45,29 @@ class ScientificPDFExtractor:
     def _extract_raw_text(self) -> str:
         """Extract text preserving reading order for multi-column layouts"""
         all_text = []
-        
+        multi_column_pages = 0
+
         for page_num, page in enumerate(self.doc):
             # Get text blocks with coordinates
             blocks = page.get_text("blocks")
-            
+
             # Sort blocks for proper reading order
             # First by vertical position (y0), then by horizontal (x0)
             sorted_blocks = sorted(blocks, key=lambda b: (b[1], b[0]))
-            
+
             # Detect if page is multi-column
             is_multi_column = self._is_multi_column(sorted_blocks, page.rect.width)
-            
+            if is_multi_column:
+                multi_column_pages += 1
+
             if is_multi_column:
                 page_text = self._extract_multicolumn(sorted_blocks, page.rect.width)
             else:
                 page_text = self._extract_single_column(sorted_blocks)
-            
+
             all_text.append(page_text)
-        
+
+        logger.debug(f"Extracted {len(self.doc)} pages ({multi_column_pages} multi-column)")
         return "\n\n".join(all_text)
     
     def _is_multi_column(self, blocks: List, page_width: float) -> bool:

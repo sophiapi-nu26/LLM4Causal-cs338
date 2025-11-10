@@ -29,27 +29,34 @@ Features
   - Semantic Scholar (primary, with rate limit handling)
   - OpenAlex
   - Unpaywall (fallback)
+* PDF parsing (v2) with multi-column support
+* Cloud storage integration (Google Cloud Storage)
+* Timestamp-based run grouping with metadata tracking
 * Filtering by year, citations, and open access status (default: open access only)
-* Detailed manifest CSV with metadata and download status
+* Optional local PDF storage with --save-pdfs-locally flag
 """
 
 import argparse
-import csv
 import hashlib
 import json
+import logging
 import os
 import re
 import sys
 import time
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass
 from typing import Optional, List, Dict, Any
 from urllib.parse import quote
+
+# Configure module logger
+logger = logging.getLogger(__name__)
 
 try:
     import requests
     from requests.adapters import HTTPAdapter
     from urllib3.util.retry import Retry
 except ImportError:
+    # Can't use logger here since logging may not be configured yet
     print("This script needs 'requests'. Install with:\n  pip install requests", file=sys.stderr)
     sys.exit(1)
 
@@ -114,7 +121,7 @@ def make_session(mailto: str) -> requests.Session:
 
 @dataclass
 class Paper:
-    """Represents a paper with metadata."""
+    """Represents a paper with metadata and cloud storage tracking."""
     index: int
     openalex_id: str
     doi: Optional[str]
@@ -125,11 +132,15 @@ class Paper:
     relevance_score: float
     abstract: Optional[str]
     pdf_url: Optional[str]
-    pdf_source: Optional[str]  # 'openalex', 'unpaywall', or None
+    pdf_source: Optional[str]  # 'openalex', 'unpaywall', 'semantic_scholar', or None
     download_status: str
     saved_path: Optional[str]
     venue: Optional[str]
     open_access_status: Optional[str]
+    # Cloud storage tracking
+    parsed_data_uri: Optional[str] = None  # gs://bucket/parsed/{id}/extracted.json
+    failed_pdf_uri: Optional[str] = None   # gs://bucket/failed_pdfs/{id}.pdf
+    parse_status: Optional[str] = None     # 'success', 'failed', or None
 
 class SemanticScholarSearcher:
     """Handles Semantic Scholar API interactions for PDF retrieval."""
@@ -182,7 +193,7 @@ class SemanticScholarSearcher:
                 if self.consecutive_429s >= SS_RATE_LIMIT_THRESHOLD:
                     self.circuit_broken = True
                     self.circuit_break_time = time.time()
-                    print("        [Semantic Scholar rate limit hit - switching to fallback sources]")
+                    logger.warning("Semantic Scholar rate limit hit - switching to fallback sources")
                 return None
 
             if response.status_code == 200:
@@ -260,9 +271,9 @@ class OpenAlexSearcher:
 
         url = f"{OPENALEX_BASE}/works"
 
-        print(f"Searching OpenAlex for: \"{query}\"")
+        logger.info(f"Searching OpenAlex for: \"{query}\"")
         if filter_str:
-            print(f"   Filters: {filter_str.replace(',', ', ')}")
+            logger.info(f"Filters: {filter_str.replace(',', ', ')}")
 
         try:
             response = self.session.get(url, params=params, timeout=30)
@@ -272,13 +283,13 @@ class OpenAlexSearcher:
             results = data.get("results", [])
             total_count = data.get("meta", {}).get("count", 0)
 
-            print(f"Found {total_count:,} matching papers")
-            print(f"Retrieving top {len(results)} by relevance...\n")
+            logger.info(f"Found {total_count:,} matching papers")
+            logger.info(f"Retrieving top {len(results)} by relevance\n")
 
             return results
 
         except requests.exceptions.RequestException as e:
-            print(f"ERROR: Failed to search OpenAlex: {e}", file=sys.stderr)
+            logger.error(f"Failed to search OpenAlex: {e}")
             return []
 
     def extract_pdf_url(self, work: Dict[str, Any]) -> tuple[Optional[str], Optional[str]]:
@@ -375,15 +386,40 @@ class OpenAlexSearcher:
 
 
 class PDFDownloader:
-    """Handles PDF downloading from multiple sources with cascade fallback."""
+    """Handles PDF downloading from multiple sources with cascade fallback.
 
-    def __init__(self, session: requests.Session, mailto: str, outdir: str,
-                 semantic_scholar: Optional[SemanticScholarSearcher] = None):
+    Optionally supports parsing PDFs and uploading to cloud storage.
+    """
+
+    def __init__(self, session: requests.Session, mailto: str, outdir: str = None,
+                 semantic_scholar: Optional[SemanticScholarSearcher] = None,
+                 parser=None, gcp_connector=None, run_id: str = None,
+                 save_pdfs_locally: bool = False):
+        """
+        Initialize PDF downloader.
+
+        Args:
+            session: Requests session for downloads
+            mailto: Email for API requests
+            outdir: Local directory for PDFs (optional if using cloud storage)
+            semantic_scholar: Optional Semantic Scholar searcher
+            parser: Optional parser adapter (e.g., PDFParserAdapter)
+            gcp_connector: Optional GCP storage connector
+            run_id: Optional run identifier for grouping cloud uploads
+            save_pdfs_locally: Whether to save PDFs to local filesystem (default: False)
+        """
         self.session = session
         self.mailto = mailto
         self.outdir = outdir
         self.semantic_scholar = semantic_scholar
-        os.makedirs(outdir, exist_ok=True)
+        self.run_id = run_id
+        self.parser = parser
+        self.gcp_connector = gcp_connector
+        self.save_pdfs_locally = save_pdfs_locally
+
+        # Only create outdir if we're saving PDFs locally
+        if outdir and save_pdfs_locally:
+            os.makedirs(outdir, exist_ok=True)
 
     def create_filename(self, paper: Paper) -> str:
         """Generate a filesystem-safe filename for the paper."""
@@ -403,8 +439,31 @@ class PDFDownloader:
         filename = f"{year}_{author_slug}_{title_slug}_{hash_str}.pdf"
         return filename
 
+    def download_pdf_bytes(self, pdf_url: str) -> Optional[bytes]:
+        """Download PDF to memory and return bytes (for cloud-only workflow)."""
+        try:
+            response = self.session.get(
+                pdf_url,
+                timeout=60,
+                headers={"Accept": "application/pdf,*/*"}
+            )
+
+            if response.status_code != 200:
+                return None
+
+            pdf_bytes = response.content
+
+            # Verify we got content
+            if len(pdf_bytes) > 0:
+                return pdf_bytes
+            else:
+                return None
+
+        except Exception as e:
+            return None
+
     def save_pdf(self, pdf_url: str, filepath: str) -> bool:
-        """Download and save a PDF from a URL."""
+        """Download and save a PDF from a URL, for testing - local save"""
         try:
             with self.session.get(
                 pdf_url,
@@ -474,7 +533,13 @@ class PDFDownloader:
         3. Unpaywall (fallback)
 
         Updates paper object with download status and path.
+        Note: Requires outdir to be set (for local PDF storage).
         """
+        if not self.outdir:
+            logger.error("download() requires outdir to be set")
+            paper.download_status = "no-pdf-available"
+            return paper
+
         filename = self.create_filename(paper)
         filepath = os.path.join(self.outdir, filename)
 
@@ -486,8 +551,10 @@ class PDFDownloader:
 
         # Source 1: Try Semantic Scholar first (if enabled)
         if self.semantic_scholar and paper.doi:
+            logger.debug(f"Trying Semantic Scholar for DOI: {paper.doi}")
             ss_url = self.semantic_scholar.get_pdf_url(paper.doi)
             if ss_url:
+                logger.debug(f"✓ Found PDF via Semantic Scholar")
                 if self.save_pdf(ss_url, filepath):
                     paper.download_status = "downloaded"
                     paper.saved_path = filepath
@@ -497,7 +564,9 @@ class PDFDownloader:
 
         # Source 2: Try OpenAlex URL from search results
         if paper.pdf_url:
+            logger.debug(f"Trying OpenAlex URL from search results")
             if self.save_pdf(paper.pdf_url, filepath):
+                logger.debug(f"✓ Downloaded via OpenAlex")
                 paper.download_status = "downloaded"
                 paper.saved_path = filepath
                 # pdf_source already set during parsing
@@ -505,8 +574,10 @@ class PDFDownloader:
 
         # Source 3: Try Unpaywall as final fallback
         if paper.doi:
+            logger.debug(f"Trying Unpaywall for DOI: {paper.doi}")
             unpaywall_url = self.try_unpaywall(paper.doi)
             if unpaywall_url:
+                logger.debug(f"✓ Found PDF via Unpaywall")
                 if self.save_pdf(unpaywall_url, filepath):
                     paper.download_status = "downloaded"
                     paper.saved_path = filepath
@@ -515,38 +586,137 @@ class PDFDownloader:
                     return paper
 
         # No PDF available from any source
+        logger.debug("✗ No PDF available from any source")
         paper.download_status = "no-pdf-available"
+        return paper
+
+    def download_parse_and_upload(self, paper: Paper) -> Paper:
+        """
+        Download PDF to memory, parse it, and upload parsed data to cloud.
+
+        Cloud-native streaming workflow:
+        1. Find PDF URL (Semantic Scholar → OpenAlex → Unpaywall)
+        2. Download PDF bytes to memory (no local file)
+        3. Parse PDF from bytes
+        4. Upload parsed JSON to cloud
+        5. If parse fails → upload failed PDF to cloud for debugging
+
+        No local PDF storage - everything streams through memory.
+
+        Args:
+            paper: Paper object to process
+
+        Returns:
+            Updated Paper object with parse_status and cloud URIs
+        """
+        if not self.parser:
+            # No parser configured, fall back to regular download
+            return self.download(paper)
+
+        # Create paper ID from OpenAlex ID
+        paper_id = paper.openalex_id.replace("https://openalex.org/", "")
+
+        # Step 1: Find PDF URL (cascade through sources)
+        pdf_url = None
+        pdf_source = None
+
+        # Try Semantic Scholar first
+        if self.semantic_scholar and paper.doi:
+            logger.debug(f"Trying Semantic Scholar for DOI: {paper.doi}")
+            pdf_url = self.semantic_scholar.get_pdf_url(paper.doi)
+            if pdf_url:
+                pdf_source = "semantic_scholar"
+                logger.debug(f"✓ Found PDF via Semantic Scholar")
+
+        # Try OpenAlex URL from search results
+        if not pdf_url and paper.pdf_url:
+            logger.debug(f"Trying OpenAlex URL from search results")
+            pdf_url = paper.pdf_url
+            pdf_source = paper.pdf_source  # Already set during parsing
+            logger.debug(f"✓ Using OpenAlex PDF URL")
+
+        # Try Unpaywall as final fallback
+        if not pdf_url and paper.doi:
+            logger.debug(f"Trying Unpaywall for DOI: {paper.doi}")
+            pdf_url = self.try_unpaywall(paper.doi)
+            if pdf_url:
+                pdf_source = "unpaywall"
+                logger.debug(f"✓ Found PDF via Unpaywall")
+
+        if not pdf_url:
+            logger.debug("✗ No PDF URL found from any source")
+            paper.download_status = "no-pdf-available"
+            return paper
+
+        # Step 2: Download PDF to memory
+        logger.info(f"Downloading and parsing {paper.title[:50]}...")
+        pdf_bytes = self.download_pdf_bytes(pdf_url)
+
+        if not pdf_bytes:
+            paper.download_status = "download-failed"
+            return paper
+
+        paper.download_status = "downloaded"
+        paper.pdf_url = pdf_url
+        paper.pdf_source = pdf_source
+
+        # Optionally save PDF to local filesystem
+        if self.save_pdfs_locally and self.outdir:
+            try:
+                filename = self.create_filename(paper)
+                filepath = os.path.join(self.outdir, filename)
+                with open(filepath, 'wb') as f:
+                    f.write(pdf_bytes)
+                paper.saved_path = filepath
+                logger.debug(f"Saved PDF locally: {filename}")
+            except Exception as e:
+                logger.warning(f"Failed to save PDF locally: {e}")
+
+        # Step 3: Parse PDF from bytes
+        try:
+            parsed_data = self.parser.parse(pdf_bytes, paper_id=paper_id)
+
+            # Step 4: Upload parsed data to cloud
+            if self.gcp_connector:
+                try:
+                    uri = self.gcp_connector.upload_parsed_data(parsed_data, paper_id, self.run_id)
+                    paper.parsed_data_uri = uri
+                    paper.parse_status = "success"
+                    logger.info("Parsed and uploaded to cloud")
+                except Exception as e:
+                    logger.error(f"Cloud upload failed: {e}")
+                    paper.parse_status = "upload_failed"
+            else:
+                # Parser succeeded but no cloud storage
+                paper.parse_status = "success"
+                logger.info("Parsed successfully (no cloud upload)")
+
+        except Exception as e:
+            # Parsing failed
+            logger.error(f"Parsing failed: {e}")
+            paper.parse_status = "failed"
+
+            # Upload failed PDF to cloud for debugging
+            if self.gcp_connector:
+                try:
+                    uri = self.gcp_connector.upload_failed_pdf(
+                        pdf_bytes,
+                        paper_id,
+                        error_msg=str(e)
+                    )
+                    paper.failed_pdf_uri = uri
+                    logger.info("Uploaded failed PDF to cloud for debugging")
+                except Exception as upload_err:
+                    logger.warning(f"Failed to upload failed PDF: {upload_err}")
+
         return paper
 
 
 class ResultsManager:
-    """Handles saving results and generating reports."""
+    """Handles generating summary reports."""
 
     @staticmethod
-    def save_manifest(papers: List[Paper], outdir: str) -> str:
-        """Save paper metadata and download status to CSV."""
-        manifest_path = os.path.join(outdir, "manifest.csv")
-
-        with open(manifest_path, "w", newline="", encoding="utf-8") as f:
-            if papers:
-                writer = csv.DictWriter(f, fieldnames=list(asdict(papers[0]).keys()))
-                writer.writeheader()
-                for paper in papers:
-                    writer.writerow(asdict(paper))
-            else:
-                # Empty file with headers
-                writer = csv.DictWriter(f, fieldnames=[
-                    "index", "openalex_id", "doi", "title", "year", "authors",
-                    "cited_by_count", "relevance_score", "abstract", "pdf_url",
-                    "pdf_source", "download_status", "saved_path", "venue",
-                    "open_access_status"
-                ])
-                writer.writeheader()
-
-        return manifest_path
-
-    @staticmethod
-    def print_summary(papers: List[Paper], outdir: str, manifest_path: str):
+    def print_summary(papers: List[Paper], outdir: str = None):
         """Print summary statistics."""
         downloaded = sum(1 for p in papers if p.download_status == "downloaded")
         exists = sum(1 for p in papers if p.download_status == "exists")
@@ -559,30 +729,30 @@ class ResultsManager:
 
         total_with_pdf = downloaded + exists
 
-        print("\n" + "=" * 60)
-        print("SUMMARY")
-        print("=" * 60)
-        print(f"Papers retrieved      : {len(papers)}")
-        print(f"PDFs downloaded       : {downloaded}")
-        print(f"PDFs already existed  : {exists}")
-        print(f"PDFs unavailable      : {no_pdf}")
+        logger.info("\n" + "=" * 60)
+        logger.info("SUMMARY")
+        logger.info("=" * 60)
+        logger.info(f"Papers retrieved      : {len(papers)}")
+        logger.info(f"PDFs downloaded       : {downloaded}")
+        logger.info(f"PDFs already existed  : {exists}")
+        logger.info(f"PDFs unavailable      : {no_pdf}")
         if papers:
             success_rate = (total_with_pdf / len(papers)) * 100
-            print(f"Success rate          : {success_rate:.1f}%")
+            logger.info(f"Success rate          : {success_rate:.1f}%")
 
         # Show source breakdown if any PDFs were obtained
         if total_with_pdf > 0:
-            print(f"\nPDF Sources:")
+            logger.info(f"\nPDF Sources:")
             if ss_count > 0:
-                print(f"  Semantic Scholar    : {ss_count}")
+                logger.info(f"  Semantic Scholar    : {ss_count}")
             if oa_count > 0:
-                print(f"  OpenAlex            : {oa_count}")
+                logger.info(f"  OpenAlex            : {oa_count}")
             if up_count > 0:
-                print(f"  Unpaywall           : {up_count}")
+                logger.info(f"  Unpaywall           : {up_count}")
 
-        print(f"\nOutput directory      : {os.path.abspath(outdir)}")
-        print(f"Manifest saved        : {os.path.abspath(manifest_path)}")
-        print("=" * 60)
+        if outdir:
+            logger.info(f"\nOutput directory      : {os.path.abspath(outdir)}")
+        logger.info("=" * 60)
 
 
 def main():
@@ -648,8 +818,8 @@ Examples:
     # Output options
     parser.add_argument(
         "--outdir",
-        default="./pdfs",
-        help="Directory to save PDFs and manifest (default: ./pdfs)"
+        default=None,
+        help="Directory to save PDFs (optional when using --cloud-storage, default: ./pdfs)"
     )
     parser.add_argument(
         "--mailto",
@@ -669,8 +839,56 @@ Examples:
         action="store_true",
         help="Save raw OpenAlex API response to JSON file"
     )
-    
+    parser.add_argument(
+        "--parse-pdfs",
+        action="store_true",
+        help="Parse downloaded PDFs and extract structured text"
+    )
+    parser.add_argument(
+        "--cloud-storage",
+        action="store_true",
+        help="Upload parsed data to Google Cloud Storage (requires --parse-pdfs and GCP credentials)"
+    )
+    parser.add_argument(
+        "--save-pdfs-locally",
+        action="store_true",
+        help="Save PDFs locally even when using cloud storage (requires --outdir)"
+    )
+    parser.add_argument(
+        "--log-level",
+        default="INFO",
+        choices=["DEBUG", "INFO", "WARNING", "ERROR"],
+        help="Set logging level (default: INFO)"
+    )
+
     args = parser.parse_args()
+
+    # Configure logging based on user's choice
+    logging.basicConfig(
+        level=getattr(logging, args.log_level),
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        datefmt='%Y-%m-%d %H:%M:%S'
+    )
+
+    # Validate outdir requirements
+    if args.save_pdfs_locally and not args.outdir:
+        logger.error("--save-pdfs-locally requires --outdir to be specified")
+        sys.exit(1)
+
+    # Set default outdir if needed (backward compatibility for non-cloud mode)
+    if not args.cloud_storage and not args.outdir:
+        args.outdir = "./pdfs"
+        logger.debug("Using default outdir: ./pdfs")
+
+    # Validate that user has enabled at least one storage method when parsing
+    if args.parse_pdfs and not args.cloud_storage and not args.save_pdfs_locally:
+        logger.warning("Parsing enabled but neither --cloud-storage nor --save-pdfs-locally specified")
+        logger.warning("Parsed data will not be saved anywhere!")
+
+    # Generate run ID for cloud storage grouping
+    from datetime import datetime
+    run_id = datetime.utcnow().strftime("run_%Y-%m-%d_%H%M%S")
+    logger.debug(f"Generated run_id: {run_id}")
 
     # Handle open access flag
     open_access_only = args.open_access_only and not args.include_closed_access
@@ -678,13 +896,51 @@ Examples:
     # Load Semantic Scholar API key from environment
     ss_api_key = os.getenv("SEMANTIC_SCHOLAR_KEY")
     if ss_api_key:
-        print("Using Semantic Scholar API key for enhanced rate limits\n")
+        logger.info("Using Semantic Scholar API key for enhanced rate limits\n")
+
+    # Initialize parser and cloud storage if requested
+    pdf_parser = None
+    gcp_connector = None
+
+    if args.parse_pdfs:
+        try:
+            # Import parser adapter (lazy import to avoid dependency if not needed)
+            import sys
+            sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+            from parser_adapter import PDFParserAdapter
+            pdf_parser = PDFParserAdapter()
+            logger.info("PDF parser initialized (ScientificPDFExtractor v2)")
+        except ImportError as e:
+            logger.error(f"Failed to import parser: {e}")
+            logger.error("Ensure pdf_parser_v2.py is in the same directory")
+            sys.exit(1)
+
+        if args.cloud_storage:
+            try:
+                from gcp_connector import GCPBucketConnector
+                gcp_connector = GCPBucketConnector()
+                logger.info(f"Cloud storage initialized (bucket: {gcp_connector.bucket_name})\n")
+            except Exception as e:
+                logger.error(f"Failed to initialize cloud storage: {e}")
+                logger.error("Check GCP credentials and .env configuration")
+                sys.exit(1)
+        else:
+            logger.info("Parsed data will NOT be uploaded to cloud\n")
 
     # Initialize components
     session = make_session(args.mailto)
     searcher = OpenAlexSearcher(session, args.mailto)
     semantic_scholar = SemanticScholarSearcher(session, api_key=ss_api_key)
-    downloader = PDFDownloader(session, args.mailto, args.outdir, semantic_scholar) 
+    downloader = PDFDownloader(
+        session,
+        args.mailto,
+        args.outdir,
+        semantic_scholar,
+        parser=pdf_parser,
+        gcp_connector=gcp_connector,
+        run_id=run_id,
+        save_pdfs_locally=args.save_pdfs_locally
+    ) 
 
     # Search for papers
     works = searcher.search(
@@ -697,7 +953,7 @@ Examples:
     )
 
     if not works:
-        print("No papers found. Try adjusting your query or filters.")
+        logger.info("No papers found. Try adjusting your query or filters.")
         return
 
     # Save raw JSON if requested
@@ -706,34 +962,88 @@ Examples:
         os.makedirs(args.outdir, exist_ok=True)
         with open(json_path, "w", encoding="utf-8") as f:
             json.dump(works, f, indent=2)
-        print(f"Raw JSON saved: {json_path}\n")
+        logger.info(f"Raw JSON saved: {json_path}\n")
 
     # Parse works into Paper objects
     papers = [searcher.parse_work(work, i) for i, work in enumerate(works)]
 
-    # Download PDFs
-    print("Downloading PDFs...\n")
+    # Download PDFs (and optionally parse/upload)
+    if args.parse_pdfs:
+        logger.info("Downloading and parsing PDFs...\n")
+    else:
+        logger.info("Downloading PDFs...\n")
+
     for i, paper in enumerate(papers, 1):
-        print(f"[{i}/{len(papers)}] {paper.title[:70]}")
-        print(f"        Year: {paper.year or 'N/A'} | Citations: {paper.cited_by_count} | Score: {paper.relevance_score:.1f}")
+        logger.info(f"[{i}/{len(papers)}] {paper.title[:70]}")
+        logger.info(f"Year: {paper.year or 'N/A'} | Citations: {paper.cited_by_count} | Score: {paper.relevance_score:.1f}")
 
-        paper = downloader.download(paper)
-
-        if paper.download_status == "downloaded":
-            print(f"        PDF downloaded -> {os.path.basename(paper.saved_path)}")
-        elif paper.download_status == "exists":
-            print(f"        PDF already exists -> {os.path.basename(paper.saved_path)}")
+        # Choose method based on whether parsing is enabled
+        if args.parse_pdfs:
+            paper = downloader.download_parse_and_upload(paper)
         else:
-            print(f"        No PDF available")
+            paper = downloader.download(paper)
 
-        print()
+        # Display download status
+        if paper.download_status == "downloaded":
+            source_label = f" (via {paper.pdf_source})" if paper.pdf_source else ""
+            if paper.saved_path:
+                logger.info(f"✓ PDF downloaded{source_label} -> {os.path.basename(paper.saved_path)}")
+            else:
+                logger.info(f"✓ PDF downloaded{source_label} (streamed to cloud)")
+        elif paper.download_status == "exists":
+            logger.info(f"✓ PDF already exists -> {os.path.basename(paper.saved_path)}")
+        else:
+            logger.info(f"✗ No PDF available")
+
+        # Display parse status if applicable
+        if args.parse_pdfs and paper.parse_status:
+            if paper.parse_status == "success":
+                logger.info("Parsed successfully")
+                if paper.parsed_data_uri:
+                    logger.info("Uploaded to cloud")
+            elif paper.parse_status == "failed":
+                logger.error("Parsing failed")
+                if paper.failed_pdf_uri:
+                    logger.info("Failed PDF saved to cloud")
+
+        logger.info("")  # Empty line for readability
         time.sleep(args.sleep)
 
-    # Save manifest
-    manifest_path = ResultsManager.save_manifest(papers, args.outdir)
+    # Upload run metadata to cloud storage (if enabled)
+    if args.cloud_storage and gcp_connector:
+        try:
+            # Calculate statistics
+            parsed_count = sum(1 for p in papers if p.parse_status == "success")
+            failed_count = sum(1 for p in papers if p.parse_status == "failed")
+            downloaded_count = sum(1 for p in papers if p.download_status in ["downloaded", "exists"])
+
+            # Build metadata dictionary
+            run_metadata = {
+                "query": args.query,
+                "timestamp": datetime.utcnow().isoformat() + "Z",
+                "run_id": run_id,
+                "filters": {
+                    "year_min": args.year_min,
+                    "year_max": args.year_max,
+                    "min_citations": args.min_citations,
+                    "include_closed_access": args.include_closed_access
+                },
+                "results": {
+                    "papers_retrieved": len(papers),
+                    "pdfs_downloaded": downloaded_count,
+                    "papers_parsed": parsed_count,
+                    "papers_failed": failed_count
+                }
+            }
+
+            # Upload metadata
+            gcp_connector.upload_run_metadata(run_id, run_metadata)
+            logger.info(f"Run metadata uploaded to cloud (run_id: {run_id})")
+        except Exception as e:
+            logger.warning(f"Failed to upload run metadata: {e}")
 
     # Print summary
-    ResultsManager.print_summary(papers, args.outdir, manifest_path)
+    ResultsManager.print_summary(papers, args.outdir)
 
 
 if __name__ == "__main__":
