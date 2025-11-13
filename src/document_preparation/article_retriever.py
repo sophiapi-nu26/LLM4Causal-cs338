@@ -754,30 +754,326 @@ class ResultsManager:
             logger.info(f"\nOutput directory      : {os.path.abspath(outdir)}")
         logger.info("=" * 60)
 
-def run_retrieval(query, max_results, progress_callback):
-    """Main job function for API - USING FAKE DATA"""
-    import time
+def _create_components(mailto: str, ss_api_key: Optional[str] = None,
+                       outdir: Optional[str] = None, save_pdfs_locally: bool = False,
+                       run_id: Optional[str] = None, parse_pdfs: bool = True,
+                       use_cloud_storage: bool = False):
+    """
+    Create and initialize all components needed for article retrieval.
 
-    results = []
-    for i in range(max_results):
+    Args:
+        mailto: Email for API requests
+        ss_api_key: Optional Semantic Scholar API key
+        outdir: Optional local directory for PDFs
+        save_pdfs_locally: Whether to save PDFs to local filesystem
+        run_id: Run identifier for grouping cloud uploads
+        parse_pdfs: Whether to enable PDF parsing
+        use_cloud_storage: Whether to upload to cloud storage
+
+    Returns:
+        Tuple of (session, searcher, downloader, parser, gcp_connector)
+    """
+    # Initialize session and searcher
+    session = make_session(mailto)
+    searcher = OpenAlexSearcher(session, mailto)
+    semantic_scholar = SemanticScholarSearcher(session, api_key=ss_api_key)
+
+    # Initialize parser if requested
+    pdf_parser = None
+    if parse_pdfs:
+        try:
+            import sys
+            sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+            from parser_adapter import PDFParserAdapter
+            pdf_parser = PDFParserAdapter()
+            logger.debug("PDF parser initialized")
+        except ImportError as e:
+            logger.warning(f"Failed to import parser: {e}")
+
+    # Initialize cloud storage if requested
+    gcp_connector = None
+    if use_cloud_storage:
+        try:
+            from gcp_connector import GCPBucketConnector
+            gcp_connector = GCPBucketConnector()
+            logger.debug(f"Cloud storage initialized (bucket: {gcp_connector.bucket_name})")
+        except Exception as e:
+            logger.warning(f"Failed to initialize cloud storage: {e}")
+
+    # Initialize downloader
+    downloader = PDFDownloader(
+        session,
+        mailto,
+        outdir,
+        semantic_scholar,
+        parser=pdf_parser,
+        gcp_connector=gcp_connector,
+        run_id=run_id,
+        save_pdfs_locally=save_pdfs_locally
+    )
+
+    return session, searcher, downloader, pdf_parser, gcp_connector
+
+
+def _search_papers(searcher: OpenAlexSearcher, query: str, max_results: int = DEFAULT_MAX_RESULTS,
+                   year_min: Optional[int] = None, year_max: Optional[int] = None,
+                   min_citations: Optional[int] = None, include_closed_access: bool = False) -> List[Paper]:
+    """
+    Search OpenAlex and return Paper objects.
+
+    Args:
+        searcher: OpenAlexSearcher instance
+        query: Search query string
+        max_results: Maximum number of papers to retrieve
+        year_min: Minimum publication year filter
+        year_max: Maximum publication year filter
+        min_citations: Minimum citation count filter
+        include_closed_access: Whether to include closed access papers
+
+    Returns:
+        List of Paper objects
+    """
+    open_access_only = not include_closed_access
+
+    works = searcher.search(
+        query=query,
+        max_results=max_results,
+        year_min=year_min,
+        year_max=year_max,
+        min_citations=min_citations,
+        open_access_only=open_access_only
+    )
+
+    if not works:
+        logger.warning("No papers found")
+        return []
+
+    # Parse works into Paper objects
+    papers = [searcher.parse_work(work, i) for i, work in enumerate(works)]
+    return papers
+
+
+def _process_papers(papers: List[Paper], downloader: PDFDownloader, parse_pdfs: bool = True,
+                    sleep_time: float = DEFAULT_SLEEP, progress_callback=None) -> List[Paper]:
+    """
+    Download and optionally parse papers with progress tracking.
+
+    Args:
+        papers: List of Paper objects to process
+        downloader: PDFDownloader instance
+        parse_pdfs: Whether to parse PDFs (vs. just download)
+        sleep_time: Seconds to sleep between requests
+        progress_callback: Optional callback(current, total, paper_title)
+
+    Returns:
+        Updated list of Paper objects
+    """
+    for i, paper in enumerate(papers, 1):
+        # Call progress callback if provided
         if progress_callback:
-            progress_callback(i+1, max_results, f"Paper {i+1}")
-        time.sleep(0.5)  # Simulate work
+            progress_callback(i, len(papers), paper.title)
 
-        results.append({
-            "paper_id": f"W{i}",
-            "title": f"Test paper {i}",
-            "status": "success"
-        })
+        # Choose download method based on parse_pdfs flag
+        if parse_pdfs:
+            papers[i-1] = downloader.download_parse_and_upload(paper)
+        else:
+            papers[i-1] = downloader.download(paper)
+
+        # Rate limiting
+        if i < len(papers):
+            time.sleep(sleep_time)
+
+    return papers
+
+
+def _upload_run_metadata(papers: List[Paper], gcp_connector, run_id: str, query: str,
+                         year_min: Optional[int] = None, year_max: Optional[int] = None,
+                         min_citations: Optional[int] = None, include_closed_access: bool = False):
+    """
+    Upload run metadata to cloud storage.
+
+    Args:
+        papers: List of processed Paper objects
+        gcp_connector: GCPBucketConnector instance
+        run_id: Run identifier
+        query: Original search query
+        year_min: Minimum year filter used
+        year_max: Maximum year filter used
+        min_citations: Minimum citations filter used
+        include_closed_access: Whether closed access was included
+    """
+    if not gcp_connector:
+        return
+
+    try:
+        from datetime import datetime, UTC
+
+        # Calculate statistics
+        parsed_count = sum(1 for p in papers if p.parse_status == "success")
+        failed_count = sum(1 for p in papers if p.parse_status == "failed")
+        downloaded_count = sum(1 for p in papers if p.download_status in ["downloaded", "exists"])
+
+        # Build metadata dictionary
+        run_metadata = {
+            "query": query,
+            "timestamp": datetime.now(UTC).isoformat() + "Z",
+            "run_id": run_id,
+            "filters": {
+                "year_min": year_min,
+                "year_max": year_max,
+                "min_citations": min_citations,
+                "include_closed_access": include_closed_access
+            },
+            "results": {
+                "papers_retrieved": len(papers),
+                "pdfs_downloaded": downloaded_count,
+                "papers_parsed": parsed_count,
+                "papers_failed": failed_count
+            }
+        }
+
+        # Upload metadata
+        gcp_connector.upload_run_metadata(run_id, run_metadata)
+        logger.info(f"Run metadata uploaded (run_id: {run_id})")
+    except Exception as e:
+        logger.warning(f"Failed to upload run metadata: {e}")
+
+
+def run_retrieval(query: str, max_results: int = 20, year_min: Optional[int] = None,
+                  parse_pdfs: bool = True, progress_callback=None) -> dict:
+    """
+    API-friendly entry point for article retrieval.
+
+    Downloads papers, parses them, uploads to cloud storage, and returns full parsed data.
+
+    Args:
+        query: Search query string
+        max_results: Maximum number of papers to retrieve (default: 20)
+        year_min: Optional minimum publication year filter
+        parse_pdfs: Whether to parse PDFs and upload to cloud (default: True)
+        progress_callback: Optional callback(current, total, paper_title) for progress updates
+
+    Returns:
+        Dictionary with:
+        {
+            "papers": [...],  # List of paper dicts with full parsed JSON data
+            "summary": {...},  # Statistics summary
+            "run_metadata": {...},  # Query and filter info
+            "gcs_path": "parsed/run_XXX/"  # GCS location
+        }
+    """
+    from datetime import datetime, UTC
+
+    # Generate run ID
+    run_id = datetime.now(UTC).strftime("run_%Y-%m-%d_%H%M%S")
+
+    # Get Semantic Scholar API key from environment
+    ss_api_key = os.getenv("SEMANTIC_SCHOLAR_KEY")
+    mailto = os.getenv("MAILTO", DEFAULT_MAILTO)
+
+    # Create components (cloud-only mode: no local PDFs)
+    session, searcher, downloader, pdf_parser, gcp_connector = _create_components(
+        mailto=mailto,
+        ss_api_key=ss_api_key,
+        outdir=None,
+        save_pdfs_locally=False,
+        run_id=run_id,
+        parse_pdfs=parse_pdfs,
+        use_cloud_storage=True
+    )
+
+    # Search for papers
+    papers = _search_papers(
+        searcher=searcher,
+        query=query,
+        max_results=max_results,
+        year_min=year_min,
+        include_closed_access=False
+    )
+
+    if not papers:
+        return {
+            "papers": [],
+            "summary": {"total": 0, "downloaded": 0, "parsed": 0, "failed": 0},
+            "run_metadata": {"query": query, "run_id": run_id},
+            "gcs_path": f"parsed/{run_id}/"
+        }
+
+    # Process papers (download, parse, upload)
+    papers = _process_papers(
+        papers=papers,
+        downloader=downloader,
+        parse_pdfs=parse_pdfs,
+        sleep_time=DEFAULT_SLEEP,
+        progress_callback=progress_callback
+    )
+
+    # Upload run metadata
+    _upload_run_metadata(
+        papers=papers,
+        gcp_connector=gcp_connector,
+        run_id=run_id,
+        query=query,
+        year_min=year_min,
+        include_closed_access=False
+    )
+
+    # Download parsed data from GCS and build response
+    paper_results = []
+    for paper in papers:
+        paper_dict = {
+            "paper_id": paper.openalex_id,
+            "doi": paper.doi,
+            "title": paper.title,
+            "year": paper.year,
+            "authors": paper.authors,
+            "cited_by_count": paper.cited_by_count,
+            "relevance_score": paper.relevance_score,
+            "abstract": paper.abstract,
+            "venue": paper.venue,
+            "open_access_status": paper.open_access_status,
+            "download_status": paper.download_status,
+            "parse_status": paper.parse_status,
+            "pdf_source": paper.pdf_source,
+            "parsed_data_uri": paper.parsed_data_uri,
+            "failed_pdf_uri": paper.failed_pdf_uri,
+            "parsed_data": None
+        }
+
+        # Download parsed data from GCS if available
+        if paper.parse_status == "success" and paper.parsed_data_uri and gcp_connector:
+            try:
+                paper_id = paper.openalex_id.replace("https://openalex.org/", "")
+                parsed_data = gcp_connector.download_parsed_data_from_run(run_id, paper_id)
+                paper_dict["parsed_data"] = parsed_data
+            except Exception as e:
+                logger.warning(f"Failed to download parsed data for {paper_id}: {e}")
+
+        paper_results.append(paper_dict)
+
+    # Calculate summary statistics
+    summary = {
+        "total": len(papers),
+        "downloaded": sum(1 for p in papers if p.download_status in ["downloaded", "exists"]),
+        "parsed": sum(1 for p in papers if p.parse_status == "success"),
+        "failed": sum(1 for p in papers if p.parse_status == "failed"),
+        "no_pdf": sum(1 for p in papers if p.download_status == "no-pdf-available")
+    }
 
     return {
-        "papers": results,
-        "summary": {
-            "total": max_results,
-            "downloaded": max_results,
-            "parsed": max_results
-        }
-    }    
+        "papers": paper_results,
+        "summary": summary,
+        "run_metadata": {
+            "query": query,
+            "run_id": run_id,
+            "timestamp": datetime.now(UTC).isoformat() + "Z",
+            "filters": {
+                "year_min": year_min,
+                "max_results": max_results
+            }
+        },
+        "gcs_path": f"parsed/{run_id}/"
+    }
 
 def main():
     parser = argparse.ArgumentParser(
@@ -922,91 +1218,91 @@ Examples:
     if ss_api_key:
         logger.info("Using Semantic Scholar API key for enhanced rate limits\n")
 
-    # Initialize parser and cloud storage if requested
-    pdf_parser = None
-    gcp_connector = None
+    # Create components using helper function
+    session, searcher, downloader, pdf_parser, gcp_connector = _create_components(
+        mailto=args.mailto,
+        ss_api_key=ss_api_key,
+        outdir=args.outdir,
+        save_pdfs_locally=args.save_pdfs_locally,
+        run_id=run_id,
+        parse_pdfs=args.parse_pdfs,
+        use_cloud_storage=args.cloud_storage
+    )
 
+    # Show status messages based on configuration
     if args.parse_pdfs:
-        try:
-            # Import parser adapter (lazy import to avoid dependency if not needed)
-            import sys
-            sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-            from parser_adapter import PDFParserAdapter
-            pdf_parser = PDFParserAdapter()
+        if pdf_parser:
             logger.info("PDF parser initialized (ScientificPDFExtractor v2)")
-        except ImportError as e:
-            logger.error(f"Failed to import parser: {e}")
-            logger.error("Ensure pdf_parser_v2.py is in the same directory")
+        else:
+            logger.error("Failed to initialize PDF parser")
             sys.exit(1)
 
         if args.cloud_storage:
-            try:
-                from gcp_connector import GCPBucketConnector
-                gcp_connector = GCPBucketConnector()
+            if gcp_connector:
                 logger.info(f"Cloud storage initialized (bucket: {gcp_connector.bucket_name})\n")
-            except Exception as e:
-                logger.error(f"Failed to initialize cloud storage: {e}")
+            else:
+                logger.error("Failed to initialize cloud storage")
                 logger.error("Check GCP credentials and .env configuration")
                 sys.exit(1)
         else:
             logger.info("Parsed data will NOT be uploaded to cloud\n")
 
-    # Initialize components
-    session = make_session(args.mailto)
-    searcher = OpenAlexSearcher(session, args.mailto)
-    semantic_scholar = SemanticScholarSearcher(session, api_key=ss_api_key)
-    downloader = PDFDownloader(
-        session,
-        args.mailto,
-        args.outdir,
-        semantic_scholar,
-        parser=pdf_parser,
-        gcp_connector=gcp_connector,
-        run_id=run_id,
-        save_pdfs_locally=args.save_pdfs_locally
-    ) 
-
-    # Search for papers
-    works = searcher.search(
+    # Search for papers using helper function
+    papers = _search_papers(
+        searcher=searcher,
         query=args.query,
         max_results=args.max_results,
         year_min=args.year_min,
         year_max=args.year_max,
         min_citations=args.min_citations,
-        open_access_only=open_access_only
+        include_closed_access=args.include_closed_access
     )
 
-    if not works:
+    if not papers:
         logger.info("No papers found. Try adjusting your query or filters.")
         return
 
-    # Save raw JSON if requested
+    # Save raw JSON if requested (optional feature not in helper functions)
     if args.save_raw_json:
+        # Re-fetch works for raw JSON (not stored in Paper objects)
+        works = searcher.search(
+            query=args.query,
+            max_results=args.max_results,
+            year_min=args.year_min,
+            year_max=args.year_max,
+            min_citations=args.min_citations,
+            open_access_only=open_access_only
+        )
         json_path = os.path.join(args.outdir, "raw_results.json")
         os.makedirs(args.outdir, exist_ok=True)
         with open(json_path, "w", encoding="utf-8") as f:
             json.dump(works, f, indent=2)
         logger.info(f"Raw JSON saved: {json_path}\n")
 
-    # Parse works into Paper objects
-    papers = [searcher.parse_work(work, i) for i, work in enumerate(works)]
-
-    # Download PDFs (and optionally parse/upload)
+    # Download PDFs with CLI-specific progress display
     if args.parse_pdfs:
         logger.info("Downloading and parsing PDFs...\n")
     else:
         logger.info("Downloading PDFs...\n")
 
-    for i, paper in enumerate(papers, 1):
-        logger.info(f"[{i}/{len(papers)}] {paper.title[:70]}")
+    # Define CLI progress callback
+    def cli_progress_display(current, total, paper_title):
+        """Display progress for CLI users"""
+        paper = papers[current - 1]  # Get current paper
+        logger.info(f"[{current}/{total}] {paper.title[:70]}")
         logger.info(f"Year: {paper.year or 'N/A'} | Citations: {paper.cited_by_count} | Score: {paper.relevance_score:.1f}")
 
-        # Choose method based on whether parsing is enabled
-        if args.parse_pdfs:
-            paper = downloader.download_parse_and_upload(paper)
-        else:
-            paper = downloader.download(paper)
+    # Process papers using helper function
+    papers = _process_papers(
+        papers=papers,
+        downloader=downloader,
+        parse_pdfs=args.parse_pdfs,
+        sleep_time=args.sleep,
+        progress_callback=cli_progress_display
+    )
 
+    # Display results (CLI-specific formatting)
+    for i, paper in enumerate(papers, 1):
         # Display download status
         if paper.download_status == "downloaded":
             source_label = f" (via {paper.pdf_source})" if paper.pdf_source else ""
@@ -1031,40 +1327,19 @@ Examples:
                     logger.info("Failed PDF saved to cloud")
 
         logger.info("")  # Empty line for readability
-        time.sleep(args.sleep)
 
-    # Upload run metadata to cloud storage (if enabled)
+    # Upload run metadata using helper function
     if args.cloud_storage and gcp_connector:
-        try:
-            # Calculate statistics
-            parsed_count = sum(1 for p in papers if p.parse_status == "success")
-            failed_count = sum(1 for p in papers if p.parse_status == "failed")
-            downloaded_count = sum(1 for p in papers if p.download_status in ["downloaded", "exists"])
-
-            # Build metadata dictionary
-            run_metadata = {
-                "query": args.query,
-                "timestamp": datetime.now(UTC).isoformat() + "Z",
-                "run_id": run_id,
-                "filters": {
-                    "year_min": args.year_min,
-                    "year_max": args.year_max,
-                    "min_citations": args.min_citations,
-                    "include_closed_access": args.include_closed_access
-                },
-                "results": {
-                    "papers_retrieved": len(papers),
-                    "pdfs_downloaded": downloaded_count,
-                    "papers_parsed": parsed_count,
-                    "papers_failed": failed_count
-                }
-            }
-
-            # Upload metadata
-            gcp_connector.upload_run_metadata(run_id, run_metadata)
-            logger.info(f"Run metadata uploaded to cloud (run_id: {run_id})")
-        except Exception as e:
-            logger.warning(f"Failed to upload run metadata: {e}")
+        _upload_run_metadata(
+            papers=papers,
+            gcp_connector=gcp_connector,
+            run_id=run_id,
+            query=args.query,
+            year_min=args.year_min,
+            year_max=args.year_max,
+            min_citations=args.min_citations,
+            include_closed_access=args.include_closed_access
+        )
 
     # Print summary
     ResultsManager.print_summary(papers, args.outdir)

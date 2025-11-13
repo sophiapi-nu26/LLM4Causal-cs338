@@ -332,6 +332,56 @@ class GCPBucketConnector:
             logger.error(error_msg)
             raise IOError(error_msg)
 
+    def download_parsed_data_from_run(self, run_id: str, paper_id: str) -> dict:
+        """
+        Download parsed paper data from a specific retrieval run.
+
+        This method is designed for the run-grouped storage structure where
+        papers from the same query are grouped under a common run_id.
+
+        Args:
+            run_id: Run identifier (e.g., "run_2025-11-06_143022")
+            paper_id: Unique identifier for the paper (OpenAlex ID like "W2123456789")
+
+        Returns:
+            Dictionary with parsed data (full_text, sections, metadata, etc.)
+
+        Raises:
+            FileNotFoundError: If parsed data doesn't exist in cloud storage
+            IOError: If download or JSON parsing fails
+
+        Example:
+            data = connector.download_parsed_data_from_run("run_2025-11-06_143022", "W2123456789")
+            print(data["metadata"]["title"])
+            print(data["full_text"][:100])
+        """
+        import json
+
+        # Construct blob name using run-grouped structure
+        blob_name = f"parsed/{run_id}/{paper_id}_extracted.json"
+        blob = self.bucket.blob(blob_name)
+        logger.debug(f"Downloading parsed data from {blob_name}")
+
+        if not blob.exists():
+            error_msg = f"Parsed data not found: gs://{self.bucket_name}/{blob_name}"
+            logger.error(error_msg)
+            raise FileNotFoundError(error_msg)
+
+        try:
+            json_string = blob.download_as_text()
+            parsed_data = json.loads(json_string)
+            logger.debug(f"Downloaded parsed data: {blob_name} ({len(json_string)} bytes)")
+            return parsed_data
+
+        except json.JSONDecodeError as e:
+            error_msg = f"Failed to parse JSON for {paper_id} in run {run_id}: {e}"
+            logger.error(error_msg)
+            raise IOError(error_msg)
+        except Exception as e:
+            error_msg = f"Failed to download parsed data for {paper_id} in run {run_id}: {e}"
+            logger.error(error_msg)
+            raise IOError(error_msg)
+
     def upload_failed_pdf(self, pdf_bytes: bytes, paper_id: str, error_msg: str = "") -> str:
         """
         Upload a PDF that failed parsing to cloud storage for debugging.
