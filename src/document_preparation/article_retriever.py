@@ -754,6 +754,30 @@ class ResultsManager:
             logger.info(f"\nOutput directory      : {os.path.abspath(outdir)}")
         logger.info("=" * 60)
 
+def run_retrieval(query, max_results, progress_callback):
+    """Main job function for API - USING FAKE DATA"""
+    import time
+
+    results = []
+    for i in range(max_results):
+        if progress_callback:
+            progress_callback(i+1, max_results, f"Paper {i+1}")
+        time.sleep(0.5)  # Simulate work
+
+        results.append({
+            "paper_id": f"W{i}",
+            "title": f"Test paper {i}",
+            "status": "success"
+        })
+
+    return {
+        "papers": results,
+        "summary": {
+            "total": max_results,
+            "downloaded": max_results,
+            "parsed": max_results
+        }
+    }    
 
 def main():
     parser = argparse.ArgumentParser(
@@ -886,8 +910,8 @@ Examples:
         logger.warning("Parsed data will not be saved anywhere!")
 
     # Generate run ID for cloud storage grouping
-    from datetime import datetime
-    run_id = datetime.utcnow().strftime("run_%Y-%m-%d_%H%M%S")
+    from datetime import datetime, UTC
+    run_id = datetime.now(UTC).strftime("run_%Y-%m-%d_%H%M%S")
     logger.debug(f"Generated run_id: {run_id}")
 
     # Handle open access flag
@@ -1020,7 +1044,7 @@ Examples:
             # Build metadata dictionary
             run_metadata = {
                 "query": args.query,
-                "timestamp": datetime.utcnow().isoformat() + "Z",
+                "timestamp": datetime.now(UTC).isoformat() + "Z",
                 "run_id": run_id,
                 "filters": {
                     "year_min": args.year_min,

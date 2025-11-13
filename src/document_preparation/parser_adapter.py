@@ -14,7 +14,7 @@ import tempfile
 import os
 from typing import Dict, Optional, Union
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, UTC
 
 # Configure module logger
 logger = logging.getLogger(__name__)
@@ -139,7 +139,7 @@ class PDFParserAdapter(ParserInterface):
                 "metadata": result["metadata"],
                 "causal_optimized_text": causal_text,
                 "paper_id": paper_id,
-                "extraction_timestamp": datetime.utcnow().isoformat() + "Z",
+                "extraction_timestamp": datetime.now(UTC).isoformat() + "Z",
                 "parser_version": "KenScientificPDFExtractor_v1.0"
             }
 
