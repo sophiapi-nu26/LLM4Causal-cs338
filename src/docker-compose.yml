@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  flask-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+
+    ports:
+      - "5001:5001"
+
+    # dev mounting
+    volumes:
+      - ./api:/app/api
+      - ./document_preparation:/app/document_preparation
+      - ../.env:/app/.env:ro
+      # Mount gcloud config for Application Default Credentials
+      - ~/.config/gcloud:/home/appuser/.config/gcloud:ro
+
+    environment:
+      - PYTHONUNBUFFERED=1
+      - FLASK_APP=api.app
+      - FLASK_ENV=development
+      # ADC: No need to set GOOGLE_APPLICATION_CREDENTIALS
+      # Google Cloud SDK will automatically find credentials in ~/.config/gcloud
+
+    env_file:
+      - ../.env
+
+    container_name: llm4causal-api

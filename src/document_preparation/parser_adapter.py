@@ -140,7 +140,6 @@ class PDFParserAdapter(ParserInterface):
                 "causal_optimized_text": causal_text,
                 "paper_id": paper_id,
                 "extraction_timestamp": datetime.now(UTC).isoformat() + "Z",
-                "parser_version": "KenScientificPDFExtractor_v1.0"
             }
 
             logger.info(f"Successfully parsed PDF (paper_id={paper_id}): {len(result['full_text'])} chars, {len(result['sections'])} sections")

@@ -1,0 +1,10 @@
+google-cloud-storage
+flask
+flask-cors
+pydantic
+PyMuPDF
+python-dotenv
+flask-restx
+requests
+urllib3
+gunicorn

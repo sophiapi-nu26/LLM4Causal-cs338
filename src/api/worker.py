@@ -22,27 +22,25 @@ class JobWorker:
             job_id, params = self.queue.get()
 
             try:
-                # update status
-                job = self.job_manager.get_job(job_id)
-                job.status = "running"
+                # Update status to running (persists to GCS)
+                self.job_manager.update_status(job_id, "running")
 
-                # run retrieval
+                # Run retrieval
                 results = self._run_retrieval(job_id, params)
 
-                # update with results
-                job.status = "completed"
-                job.results = results 
+                # Update with results (persists to GCS)
+                self.job_manager.update_status(job_id, "completed", results=results)
 
             except Exception as e:
-                job.status = "failed"
-                job.error = str(e)
+                # Update with error (persists to GCS)
+                self.job_manager.update_status(job_id, "failed", error=str(e))
 
             finally:
                 self.queue.task_done()
 
     def _run_retrieval(self, job_id, params):
         """Wrap article_retriever.py logic here"""
-        from src.document_preparation.article_retriever import run_retrieval
+        from document_preparation.article_retriever import run_retrieval
 
         # add progress
         def progress_callback(current, total, paper_title):
