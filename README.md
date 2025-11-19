@@ -4,9 +4,9 @@ A Python package for extracting causal relationships from materials science lite
 
 ## Quick Links
 
-- 📚 **[API Documentation](src/README.md)** - Local development setup and Docker usage
-- 🚀 **[Deployment Guide](src/DEPLOYMENT.md)** - Deploy to Google Cloud Run
-- 🐳 **[Dockerfile Comparison](src/DEPLOYMENT.md#dockerfiledev-vs-dockerfile---key-differences-explained)** - Dev vs Production explained
+- **[REST API Documentation](src/README.md)** - Containerized API for article retrieval and parsing
+- **[Deployment Guide](src/DEPLOYMENT.md)** - Deploy to Google Cloud Run
+- **[Dockerfile Comparison](src/DEPLOYMENT.md#dockerfiledev-vs-dockerfile---key-differences-explained)** - Dev vs Production explained
 
 ## Pipeline Overview
 
@@ -14,7 +14,7 @@ The extraction pipeline consists of several sophisticated steps to identify and 
 
 ### 1. Article Collection & Retrieval API
 
-**New:** Now available as a REST API for programmatic access!
+Fully containerized REST API for retrieving and parsing scientific papers with asynchronous job processing.
 
 - **Input**: Natural language query (e.g., "spider silk mechanical properties")
 - **Process**:
@@ -27,7 +27,7 @@ The extraction pipeline consists of several sophisticated steps to identify and 
 - **Access**:
   - **REST API** (Recommended): `POST /api/v1/retrieve` - See [API Documentation](src/README.md)
   - **CLI Tool**: `python article_retriever.py --query "your query"` (Legacy)
-- **Deployment**: Production API available at [your-cloud-run-url]
+- **Deployment**: Docker-based deployment to Google Cloud Run - See [Deployment Guide](src/DEPLOYMENT.md)
 
 ### 2. PDF Processing and Text Extraction
 - **Input**: Raw PDF documents
