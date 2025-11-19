@@ -1,6 +1,14 @@
 import threading
 import queue
+import time
+import logging
+import os
 from datetime import datetime, UTC
+
+logger = logging.getLogger(__name__)
+
+# Performance monitoring toggle
+ENABLE_TIMERS = os.getenv("ENABLE_PERFORMANCE_LOGGING", "false").lower() == "true"
 
 class JobWorker:
     def __init__(self, job_manager):
@@ -21,6 +29,9 @@ class JobWorker:
         while True:
             job_id, params = self.queue.get()
 
+            # Start timing total job duration
+            job_start_time = time.time()
+
             try:
                 # Update status to running (persists to GCS)
                 self.job_manager.update_status(job_id, "running")
@@ -28,10 +39,28 @@ class JobWorker:
                 # Run retrieval
                 results = self._run_retrieval(job_id, params)
 
+                # Log performance summary (if timing enabled)
+                if ENABLE_TIMERS:
+                    total_time = time.time() - job_start_time
+                    logger.info(f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+                    logger.info(f"SUMMARY: Job {job_id} completed in {total_time:.2f}s")
+                    if results and 'summary' in results:
+                        summary = results['summary']
+                        logger.info(f"   Papers: {summary.get('total', 0)} total, "
+                                  f"{summary.get('downloaded', 0)} downloaded, "
+                                  f"{summary.get('parsed', 0)} parsed")
+                    logger.info(f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+
                 # Update with results (persists to GCS)
                 self.job_manager.update_status(job_id, "completed", results=results)
 
             except Exception as e:
+                if ENABLE_TIMERS:
+                    total_time = time.time() - job_start_time
+                    logger.error(f"❌ Job {job_id} failed after {total_time:.2f}s: {e}")
+                else:
+                    logger.error(f"❌ Job {job_id} failed: {e}")
+
                 # Update with error (persists to GCS)
                 self.job_manager.update_status(job_id, "failed", error=str(e))
 

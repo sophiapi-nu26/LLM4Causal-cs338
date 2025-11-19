@@ -2,11 +2,40 @@ import threading
 import logging
 import json
 import os
+import time
 from dataclasses import dataclass, asdict
 from datetime import datetime, UTC
 from typing import Optional
 
 logger = logging.getLogger(__name__)
+
+# Performance monitoring toggle
+ENABLE_TIMERS = os.getenv("ENABLE_PERFORMANCE_LOGGING", "false").lower() == "true"
+
+
+class Timer:
+    """Context manager for timing GCS operations.
+
+    Controlled by ENABLE_PERFORMANCE_LOGGING environment variable.
+    Set to "true" to enable timing logs, "false" to disable.
+    """
+
+    def __init__(self, operation_name: str):
+        self.operation_name = operation_name
+        self.start_time = None
+        self.elapsed = None
+
+    def __enter__(self):
+        self.start_time = time.time()
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        # Skip timing if disabled
+        if not ENABLE_TIMERS:
+            return
+
+        self.elapsed = time.time() - self.start_time
+        logger.info(f"  TIMER: {self.operation_name}: {self.elapsed:.3f}s")
 
 @dataclass
 class Job:
@@ -102,12 +131,22 @@ class JobManager:
     def update_progress(self, job_id: str, progress: dict):
         """Update job progress and persist to GCS"""
         with self._lock:
-            if job_id in self._jobs:
-                self._jobs[job_id].progress = progress
-                self._jobs[job_id].updated_at = datetime.now(UTC)
+            # Load from GCS if not in memory (handles multi-container scenario)
+            if job_id not in self._jobs:
+                job = self._load_job_from_gcs(job_id)
+                if job:
+                    self._jobs[job_id] = job
+                    logger.debug(f"Loaded job {job_id} from GCS for progress update")
+                else:
+                    logger.warning(f"Cannot update progress - job {job_id} not found")
+                    return
 
-                # Persist progress updates to GCS
-                self._save_job_to_gcs(self._jobs[job_id])
+            # Update progress
+            self._jobs[job_id].progress = progress
+            self._jobs[job_id].updated_at = datetime.now(UTC)
+
+            # Persist progress updates to GCS
+            self._save_job_to_gcs(self._jobs[job_id])
 
     def update_status(self, job_id: str, status: str, results: dict = None, error: str = None):
         """
@@ -116,19 +155,29 @@ class JobManager:
         This method is called by worker when job completes or fails.
         """
         with self._lock:
-            if job_id in self._jobs:
-                self._jobs[job_id].status = status
-                self._jobs[job_id].updated_at = datetime.now(UTC)
+            # Load from GCS if not in memory (handles multi-container scenario)
+            if job_id not in self._jobs:
+                job = self._load_job_from_gcs(job_id)
+                if job:
+                    self._jobs[job_id] = job
+                    logger.debug(f"Loaded job {job_id} from GCS for status update")
+                else:
+                    logger.warning(f"Cannot update status - job {job_id} not found")
+                    return
 
-                if results is not None:
-                    self._jobs[job_id].results = results
+            # Update status
+            self._jobs[job_id].status = status
+            self._jobs[job_id].updated_at = datetime.now(UTC)
 
-                if error is not None:
-                    self._jobs[job_id].error = error
+            if results is not None:
+                self._jobs[job_id].results = results
 
-                # Persist to GCS
-                self._save_job_to_gcs(self._jobs[job_id])
-                logger.info(f"Job {job_id} status updated to: {status}")
+            if error is not None:
+                self._jobs[job_id].error = error
+
+            # Persist to GCS
+            self._save_job_to_gcs(self._jobs[job_id])
+            logger.info(f"Job {job_id} status updated to: {status}")
 
     def _save_job_to_gcs(self, job: Job):
         """
@@ -142,18 +191,19 @@ class JobManager:
             return  # GCS persistence disabled
 
         try:
-            blob_name = f"jobs/{job.job_id}/job_metadata.json"
-            blob = self.gcs_connector.bucket.blob(blob_name)
+            with Timer(f"GCS write (job metadata for {job.job_id})"):
+                blob_name = f"jobs/{job.job_id}/job_metadata.json"
+                blob = self.gcs_connector.bucket.blob(blob_name)
 
-            # Serialize job to JSON
-            json_string = json.dumps(job.to_dict(), indent=2, ensure_ascii=False)
+                # Serialize job to JSON
+                json_string = json.dumps(job.to_dict(), indent=2, ensure_ascii=False)
 
-            # Upload to GCS
-            blob.upload_from_string(
-                json_string,
-                content_type="application/json",
-                timeout=10
-            )
+                # Upload to GCS
+                blob.upload_from_string(
+                    json_string,
+                    content_type="application/json",
+                    timeout=10
+                )
 
             logger.debug(f"Saved job {job.job_id} metadata to GCS: {blob_name}")
 
@@ -171,15 +221,16 @@ class JobManager:
             return None  # GCS persistence disabled
 
         try:
-            blob_name = f"jobs/{job_id}/job_metadata.json"
-            blob = self.gcs_connector.bucket.blob(blob_name)
+            with Timer(f"GCS read (job metadata for {job_id})"):
+                blob_name = f"jobs/{job_id}/job_metadata.json"
+                blob = self.gcs_connector.bucket.blob(blob_name)
 
-            if not blob.exists():
-                return None
+                if not blob.exists():
+                    return None
 
-            # Download and parse JSON
-            json_string = blob.download_as_text()
-            job_dict = json.loads(json_string)
+                # Download and parse JSON
+                json_string = blob.download_as_text()
+                job_dict = json.loads(json_string)
 
             # Reconstruct Job object
             job = Job.from_dict(job_dict)

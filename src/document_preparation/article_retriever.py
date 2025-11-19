@@ -80,6 +80,44 @@ DEFAULT_MAILTO = "user@gmail.com"  # Avoid .edu email addresses
 SS_RATE_LIMIT_THRESHOLD = 3  # Number of consecutive 429s before circuit break
 SS_CIRCUIT_BREAK_DURATION = 300  # Seconds to wait after circuit break (5 minutes)
 
+# Performance monitoring toggle
+ENABLE_TIMERS = os.getenv("ENABLE_PERFORMANCE_LOGGING", "false").lower() == "true"
+
+# Performance Timing Utilities
+class Timer:
+    """Context manager for timing code blocks and logging performance.
+
+    Controlled by ENABLE_PERFORMANCE_LOGGING environment variable.
+    Set to "true" to enable timing logs, "false" to disable.
+    """
+
+    def __init__(self, operation_name: str, paper_index: Optional[int] = None, log_level: int = logging.DEBUG):
+        self.operation_name = operation_name
+        self.paper_index = paper_index
+        self.log_level = log_level
+        self.start_time = None
+        self.elapsed = None
+
+    def __enter__(self):
+        self.start_time = time.time()
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        # Skip timing if disabled
+        if not ENABLE_TIMERS:
+            return
+
+        self.elapsed = time.time() - self.start_time
+
+        # Build log message
+        if self.paper_index is not None:
+            prefix = f"[Paper {self.paper_index}]"
+        else:
+            prefix = ""
+
+        msg = f"{prefix} TIMER {self.operation_name}: {self.elapsed:.2f}s"
+        logger.log(self.log_level, msg)
+
 
 def slugify(text: str, max_len: int = 60) -> str:
     """Convert text to filesystem-safe string."""
@@ -186,7 +224,8 @@ class SemanticScholarSearcher:
         }
 
         try:
-            response = self.session.get(url, params=params, timeout=10)
+            with Timer("Semantic Scholar API lookup"):
+                response = self.session.get(url, params=params, timeout=10)
 
             if response.status_code == 429:
                 self.consecutive_429s += 1
@@ -276,9 +315,10 @@ class OpenAlexSearcher:
             logger.info(f"Filters: {filter_str.replace(',', ', ')}")
 
         try:
-            response = self.session.get(url, params=params, timeout=30)
-            response.raise_for_status()
-            data = response.json()
+            with Timer("OpenAlex API search", log_level=logging.INFO):
+                response = self.session.get(url, params=params, timeout=30)
+                response.raise_for_status()
+                data = response.json()
 
             results = data.get("results", [])
             total_count = data.get("meta", {}).get("count", 0)
@@ -650,7 +690,8 @@ class PDFDownloader:
 
         # Step 2: Download PDF to memory
         logger.info(f"Downloading and parsing {paper.title[:50]}...")
-        pdf_bytes = self.download_pdf_bytes(pdf_url)
+        with Timer(f"PDF download from {pdf_source}", paper_index=paper.index, log_level=logging.INFO):
+            pdf_bytes = self.download_pdf_bytes(pdf_url)
 
         if not pdf_bytes:
             paper.download_status = "download-failed"
@@ -674,12 +715,14 @@ class PDFDownloader:
 
         # Step 3: Parse PDF from bytes
         try:
-            parsed_data = self.parser.parse(pdf_bytes, paper_id=paper_id)
+            with Timer("PDF parsing", paper_index=paper.index, log_level=logging.INFO):
+                parsed_data = self.parser.parse(pdf_bytes, paper_id=paper_id)
 
             # Step 4: Upload parsed data to cloud
             if self.gcp_connector:
                 try:
-                    uri = self.gcp_connector.upload_parsed_data(parsed_data, paper_id, self.run_id)
+                    with Timer("GCS upload (parsed data)", paper_index=paper.index, log_level=logging.INFO):
+                        uri = self.gcp_connector.upload_parsed_data(parsed_data, paper_id, self.run_id)
                     paper.parsed_data_uri = uri
                     paper.parse_status = "success"
                     logger.info("Parsed and uploaded to cloud")
