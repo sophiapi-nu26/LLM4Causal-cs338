@@ -1,0 +1,49 @@
+You are merging node sets extracted from multiple papers into a single canonical list.
+
+User query focus: {user_query}
+Ensure the final nodes reflect the concepts most relevant to this query.
+
+Input per-document nodes:
+{per_document_nodes}
+
+Output requirements (return valid JSON exactly in this format):
+[
+  {
+    "name": "canonical node name",
+    "type": "material|structure|process|property",
+    "summary": "concise description (<= 30 words)",
+    "source_nodes": [
+      {"paper_id": "paper_a", "node_name": "Original Node Name"},
+      {"paper_id": "paper_b", "node_name": "Another name"}
+    ]
+  }
+]
+
+Rules:
+- Return ONLY the JSON array with no commentary.
+- Merge semantically equivalent nodes from different papers; list every contributing paper/node under "source_nodes".
+- Preserve 6‑15 nodes that represent the combined knowledge base.
+- Prefer names that make sense across all papers.
+
+Example response:
+[
+  {
+    "name": "recombinant spider silk fibers",
+    "type": "material",
+    "summary": "High-molecular-weight spidroin fibers produced microbially to mimic natural dragline silk.",
+    "source_nodes": [
+      {"paper_id": "spidroins", "node_name": "Recombinant Spider Silk"},
+      {"paper_id": "bombyx", "node_name": "Synthetic Silk Fibers"}
+    ]
+  },
+  {
+    "name": "tensile strength",
+    "type": "property",
+    "summary": "Key performance metric used to compare natural and synthetic silk fibers.",
+    "source_nodes": [
+      {"paper_id": "spidroins", "node_name": "Fiber tensile strength"},
+      {"paper_id": "bombyx", "node_name": "Mechanical strength"}
+    ]
+  }
+]
+

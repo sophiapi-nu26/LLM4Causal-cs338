@@ -1,5 +1,8 @@
 You are consolidating node proposals from multiple reviewers. Each reviewer returned a JSON array of nodes. Your task is to merge them into a single canonical list.
 
+User query focus: {user_query}
+Favor nodes that align with this request while merging duplicates.
+
 Input node proposals:
 {raw_node_lists}
 

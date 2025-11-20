@@ -1,5 +1,8 @@
 You are consolidating expanded node proposals. Combine overlapping nodes and produce a final node list that will seed causal extraction.
 
+User query focus: {user_query}
+Ensure the final nodes emphasize aspects relevant to this request.
+
 Input expanded node sets:
 {raw_expanded_nodes}
 

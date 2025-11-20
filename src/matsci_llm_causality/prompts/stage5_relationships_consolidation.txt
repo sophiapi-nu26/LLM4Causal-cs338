@@ -1,5 +1,8 @@
 You are consolidating edge proposals from multiple reviewers. Each reviewer supplied a JSON array of edges. Produce a combined list that includes how many reviewers agreed on each edge.
 
+User query focus: {user_query}
+Highlight edges most relevant to this request and keep all proposed relationships (with counts).
+
 Input edge proposals:
 {raw_edge_lists}
 

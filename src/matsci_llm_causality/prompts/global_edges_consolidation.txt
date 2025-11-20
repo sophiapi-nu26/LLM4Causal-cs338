@@ -1,0 +1,58 @@
+You are merging edge sets from multiple papers into a single causal graph.
+
+User query focus: {user_query}
+Use the canonical nodes below when naming edge endpoints.
+
+Canonical nodes:
+{canonical_nodes}
+
+Per-document edges:
+{per_document_edges}
+
+Output requirements (return valid JSON exactly in this format):
+{
+  "edges": [
+    {
+      "source": "canonical node name",
+      "target": "canonical node name",
+      "relation": "increases|decreases|causes|positively correlates with|negatively correlates with",
+      "count": 3,
+      "source_papers": ["paper_a", "paper_b"],
+      "evidence_samples": ["short quote 1", "short quote 2"]
+    }
+  ]
+}
+
+Rules:
+- Return ONLY the JSON object shown above.
+- Map every per-document edge onto the canonical node names (case-insensitive match via "source_nodes").
+- Do not drop edges; if only one paper reported an edge, include it with count = 1.
+- When merging edges, sum the counts and aggregate representative evidence snippets and paper IDs.
+
+Example response:
+{
+  "edges": [
+    {
+      "source": "recombinant spider silk fibers",
+      "target": "tensile strength",
+      "relation": "positively correlates with",
+      "count": 2,
+      "source_papers": ["spidroins", "bombyx"],
+      "evidence_samples": [
+        "Increasing spidroin length to 192-mer raised tensile strength to ~1.0 GPa.",
+        "Bombyx fibers with higher β-sheet content exhibited improved tensile response."
+      ]
+    },
+    {
+      "source": "post-spin drawing",
+      "target": "tensile strength",
+      "relation": "increases",
+      "count": 1,
+      "source_papers": ["spidroins"],
+      "evidence_samples": [
+        "Post-drawing aligned polymer chains, boosting fiber strength."
+      ]
+    }
+  ]
+}
+

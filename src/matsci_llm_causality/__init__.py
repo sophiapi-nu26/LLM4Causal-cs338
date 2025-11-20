@@ -9,6 +9,8 @@ from .workflows.section_pipeline import (
     SectionAwareWorkflow,
     StageRunConfig,
     SectionWorkflowResult,
+    MultiDocumentWorkflow,
+    GlobalGraphResult,
 )
 
 __version__ = "0.1.0"
@@ -20,4 +22,6 @@ __all__ = [
     "SectionAwareWorkflow",
     "StageRunConfig",
     "SectionWorkflowResult",
+    "MultiDocumentWorkflow",
+    "GlobalGraphResult",
 ]

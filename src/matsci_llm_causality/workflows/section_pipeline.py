@@ -4,9 +4,11 @@ import json
 import os
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import logging
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from pathlib import Path
+from datetime import datetime
 from typing import Any, Dict, List, Optional, Tuple
+import time
 
 from google import genai
 
@@ -21,6 +23,7 @@ class StageRunConfig:
     stage5_runs: int = 5
     confidence_threshold: float = 0.5
     model_name: str = "gemini-2.5-flash"
+    user_query: str = ""
 
 
 @dataclass
@@ -32,10 +35,12 @@ class EdgeResult:
     evidence_samples: List[str] = field(default_factory=list)
     sections: List[str] = field(default_factory=list)
     confidence: float = 0.0
+    source_papers: List[str] = field(default_factory=list)
 
 
 @dataclass
 class SectionWorkflowResult:
+    paper_id: str
     initial_nodes: List[Dict[str, Any]]
     final_nodes: List[Dict[str, Any]]
     raw_edges: List[List[Dict[str, Any]]]
@@ -43,21 +48,278 @@ class SectionWorkflowResult:
     filtered_edges: List[EdgeResult]
 
 
+@dataclass
+class GlobalNode:
+    name: str
+    type: str
+    summary: str
+    sources: List[Dict[str, Any]] = field(default_factory=list)
+
+
+@dataclass
+class GlobalEdge:
+    source: str
+    target: str
+    relation: str
+    count: int
+    evidence_samples: List[str] = field(default_factory=list)
+    source_papers: List[str] = field(default_factory=list)
+    confidence: float = 0.0
+
+
+@dataclass
+class GlobalGraphResult:
+    user_query: str
+    canonical_nodes: List[GlobalNode]
+    edges: List[GlobalEdge]
+    document_results: List[SectionWorkflowResult]
+
+
+class MultiDocumentWorkflow:
+    """Orchestrates SectionAwareWorkflow across multiple documents and consolidates results."""
+
+    def __init__(
+        self,
+        config: Optional[StageRunConfig] = None,
+        verbose: bool = False,
+        log_dir: str = "logs",
+        sequential: bool = False,
+    ):
+        self.base_config = config or StageRunConfig()
+        self.verbose = verbose
+        self.log_dir = Path(log_dir)
+        self.log_dir.mkdir(parents=True, exist_ok=True)
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        self.global_log_path = self.log_dir / f"multi_run_{timestamp}.log"
+        self.logger = self._build_logger(self.global_log_path)
+        self.runner = ParallelGeminiRunner(model_name=self.base_config.model_name)
+        self.sequential = sequential
+
+    def _build_logger(self, path: Path) -> logging.Logger:
+        logger = logging.getLogger(f"MultiDocWorkflow-{id(self)}")
+        logger.setLevel(logging.DEBUG)
+        logger.propagate = False
+        for handler in list(logger.handlers):
+            logger.removeHandler(handler)
+        handler = logging.FileHandler(path, encoding="utf-8")
+        handler.setFormatter(
+            logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
+        )
+        logger.addHandler(handler)
+        if self.verbose:
+            console = logging.StreamHandler()
+            console.setFormatter(
+                logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
+            )
+            logger.addHandler(console)
+        return logger
+
+    def run(
+        self, user_query: str, papers: List[Tuple[str, Dict[str, Any]]]
+    ) -> GlobalGraphResult:
+        self.logger.info(
+            "Starting multi-document workflow for query '%s' over %d papers",
+            user_query,
+            len(papers),
+        )
+        document_results: List[SectionWorkflowResult] = []
+
+        for paper_id, paper_data in papers:
+            run_timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            per_log_path = self.log_dir / f"{paper_id}_{run_timestamp}.log"
+            per_config = replace(self.base_config, user_query=user_query)
+            workflow = SectionAwareWorkflow(
+                config=per_config,
+                verbose=self.verbose,
+                log_path=str(per_log_path),
+                sequential=self.sequential,
+            )
+            self.logger.info("Processing paper '%s'...", paper_id)
+            result = workflow.run(paper_data, paper_id=paper_id)
+            document_results.append(result)
+            self.logger.info(
+                "Completed paper '%s'. Initial nodes: %d, final nodes: %d, edges: %d",
+                paper_id,
+                len(result.initial_nodes),
+                len(result.final_nodes),
+                len(result.filtered_edges),
+            )
+
+        canonical_nodes = self._consolidate_global_nodes(document_results, user_query)
+        edges = self._consolidate_global_edges(
+            document_results, canonical_nodes, user_query
+        )
+
+        self.logger.info(
+            "Global consolidation produced %d nodes and %d edges",
+            len(canonical_nodes),
+            len(edges),
+        )
+
+        return GlobalGraphResult(
+            user_query=user_query,
+            canonical_nodes=canonical_nodes,
+            edges=edges,
+            document_results=document_results,
+        )
+
+    def _consolidate_global_nodes(
+        self, doc_results: List[SectionWorkflowResult], user_query: str
+    ) -> List[GlobalNode]:
+        if not doc_results:
+            return []
+        payload = [
+            {"paper_id": res.paper_id, "nodes": res.final_nodes}
+            for res in doc_results
+        ]
+        prompt = load_prompt(
+            "global_nodes_consolidation.txt",
+            per_document_nodes=json.dumps(payload, indent=2),
+            user_query=user_query,
+        )
+        response = self.runner.run([prompt], max_workers=1)[0]
+        data = self._parse_json(response, "global-nodes")
+        nodes: List[GlobalNode] = []
+        if isinstance(data, list):
+            for item in data:
+                nodes.append(
+                    GlobalNode(
+                        name=item.get("name", "").strip(),
+                        type=item.get("type", "").strip(),
+                        summary=item.get("summary", "").strip(),
+                        sources=item.get("source_nodes", []),
+                    )
+                )
+        else:
+            self.logger.warning(
+                "Global node consolidation returned non-list payload: %s", data
+            )
+        return nodes
+
+    def _consolidate_global_edges(
+        self,
+        doc_results: List[SectionWorkflowResult],
+        canonical_nodes: List[GlobalNode],
+        user_query: str,
+    ) -> List[GlobalEdge]:
+        if not doc_results:
+            return []
+
+        canonical_payload = [
+            {
+                "name": node.name,
+                "type": node.type,
+                "summary": node.summary,
+                "source_nodes": node.sources,
+            }
+            for node in canonical_nodes
+        ]
+
+        edges_payload = []
+        for res in doc_results:
+            edges_payload.append(
+                {
+                    "paper_id": res.paper_id,
+                    "edges": [
+                        {
+                            "source": edge.source,
+                            "target": edge.target,
+                            "relation": edge.relation,
+                            "count": edge.count,
+                            "evidence_samples": edge.evidence_samples,
+                            "sections": edge.sections,
+                        }
+                        for edge in res.filtered_edges
+                    ],
+                }
+            )
+
+        prompt = load_prompt(
+            "global_edges_consolidation.txt",
+            canonical_nodes=json.dumps(canonical_payload, indent=2),
+            per_document_edges=json.dumps(edges_payload, indent=2),
+            user_query=user_query,
+        )
+        response = self.runner.run([prompt], max_workers=1)[0]
+        data = self._parse_json(response, "global-edges")
+        edges: List[GlobalEdge] = []
+
+        edge_list = data.get("edges") if isinstance(data, dict) else None
+        if isinstance(edge_list, list):
+            for edge in edge_list:
+                count = int(edge.get("count", 1))
+                source_papers = edge.get("source_papers", [])
+                edges.append(
+                    GlobalEdge(
+                        source=edge.get("source", "").strip(),
+                        target=edge.get("target", "").strip(),
+                        relation=edge.get("relation", "").strip(),
+                        count=count,
+                        evidence_samples=edge.get("evidence_samples", []),
+                        source_papers=source_papers,
+                        confidence=count / max(1, len(doc_results)),
+                    )
+                )
+        else:
+            self.logger.warning(
+                "Global edge consolidation returned unexpected payload: %s", data
+            )
+        return edges
+
+    def _parse_json(self, payload: str, context: str) -> Any:
+        try:
+            return json.loads(payload)
+        except json.JSONDecodeError:
+            stripped = payload.strip()
+            if stripped.startswith("```"):
+                stripped = self._strip_code_fence(stripped)
+                try:
+                    return json.loads(stripped)
+                except json.JSONDecodeError:
+                    pass
+            self.logger.warning(
+                "Failed to parse JSON in context '%s'. Payload snippet: %s",
+                context,
+                payload[:400],
+            )
+            return [] if "edges" not in context else {"edges": []}
+
+    @staticmethod
+    def _strip_code_fence(text: str) -> str:
+        lines = text.splitlines()
+        if lines and lines[0].startswith("```"):
+            lines = lines[1:]
+        if lines and lines[-1].startswith("```"):
+            lines = lines[:-1]
+        return "\n".join(lines).strip()
+
+
 class ParallelGeminiRunner:
     """Utility to run Gemini prompts in parallel with graceful fallback."""
 
     def __init__(self, model_name: str):
         self.model_name = model_name
+        self.max_retries = 3
 
     def _call_model(self, prompt: str) -> str:
         client = genai.Client()
-        response = call_with_backoff(
-            lambda: client.models.generate_content(
+        def _invoke():
+            return client.models.generate_content(
                 model=self.model_name,
                 contents=[prompt],
             )
-        )
-        return response.text
+
+        attempt = 0
+        while True:
+            try:
+                response = call_with_backoff(_invoke)
+                return response.text
+            except Exception as exc:
+                attempt += 1
+                if attempt >= self.max_retries:
+                    raise
+                wait = min(5 * attempt, 30)
+                time.sleep(wait)
 
     def run(self, prompts: List[str], max_workers: int) -> List[str]:
         if len(prompts) == 1:
@@ -89,10 +351,13 @@ class SectionAwareWorkflow:
         config: Optional[StageRunConfig] = None,
         verbose: bool = False,
         log_path: Optional[str] = None,
+        sequential: bool = False,
     ):
         self.config = config or StageRunConfig()
         self.runner = ParallelGeminiRunner(model_name=self.config.model_name)
         self.verbose = verbose
+        self.sequential = sequential
+        self.user_query = self.config.user_query
         self.logger = self._build_logger(log_path)
         self._log("Initialized SectionAwareWorkflow", level="info")
 
@@ -124,11 +389,12 @@ class SectionAwareWorkflow:
         return logger
 
     # Public API -----------------------------------------------------------------
-    def run(self, paper: Dict[str, Any]) -> SectionWorkflowResult:
+    def run(self, paper: Dict[str, Any], paper_id: str = "document") -> SectionWorkflowResult:
         abstract = paper.get("abstract", "")
         results_text = paper.get("results", "")
         methodology_text = paper.get("methodology", "")
         discussion_text = paper.get("discussion", "")
+        self._log(f"Starting workflow for paper '{paper_id}'", level="info")
 
         # Stage 1 & 2: initial nodes
         stage1_raw = self._run_stage1_initial_nodes(abstract)
@@ -165,6 +431,7 @@ class SectionAwareWorkflow:
         self._check_causal_inconsistencies(filtered_edges)
 
         return SectionWorkflowResult(
+            paper_id=paper_id,
             initial_nodes=initial_nodes,
             final_nodes=final_nodes,
             raw_edges=raw_edges,
@@ -175,10 +442,15 @@ class SectionAwareWorkflow:
     # Stage helpers --------------------------------------------------------------
     def _run_stage1_initial_nodes(self, abstract: str) -> List[List[Dict[str, Any]]]:
         prompts = [
-            load_prompt("stage1_initial_nodes_prompt.txt", abstract=abstract)
+            load_prompt(
+                "stage1_initial_nodes_prompt.txt",
+                abstract=abstract,
+                user_query=self.user_query,
+            )
             for _ in range(self.config.stage1_runs)
         ]
-        responses = self.runner.run(prompts, max_workers=self.config.stage1_runs)
+        max_workers = 1 if self.sequential else self.config.stage1_runs
+        responses = self.runner.run(prompts, max_workers=max_workers)
         parsed = []
         for idx, response in enumerate(responses):
             self._log(
@@ -196,7 +468,9 @@ class SectionAwareWorkflow:
     ) -> List[Dict[str, Any]]:
         raw_node_lists = json.dumps(node_lists, indent=2)
         prompt = load_prompt(
-            "stage1_initial_nodes_consolidation.txt", raw_node_lists=raw_node_lists
+            "stage1_initial_nodes_consolidation.txt",
+            raw_node_lists=raw_node_lists,
+            user_query=self.user_query,
         )
         response = self.runner.run([prompt], max_workers=1)[0]
         self._log(f"Stage 2 consolidation raw response:\n{response}", level="debug")
@@ -214,10 +488,12 @@ class SectionAwareWorkflow:
                 "stage3_expanded_nodes_prompt.txt",
                 initial_nodes=initial_nodes_json,
                 results_text=results_text,
+                user_query=self.user_query,
             )
             for _ in range(self.config.stage3_runs)
         ]
-        responses = self.runner.run(prompts, max_workers=self.config.stage3_runs)
+        max_workers = 1 if self.sequential else self.config.stage3_runs
+        responses = self.runner.run(prompts, max_workers=max_workers)
         parsed = []
         for idx, response in enumerate(responses):
             self._log(
@@ -237,6 +513,7 @@ class SectionAwareWorkflow:
         prompt = load_prompt(
             "stage3_expanded_nodes_consolidation.txt",
             raw_expanded_nodes=raw_expanded_nodes,
+            user_query=self.user_query,
         )
         response = self.runner.run([prompt], max_workers=1)[0]
         self._log(f"Stage 4 consolidation raw response:\n{response}", level="debug")
@@ -260,10 +537,12 @@ class SectionAwareWorkflow:
                 methodology_text=methodology_text,
                 results_text=results_text,
                 discussion_text=discussion_text,
+                user_query=self.user_query,
             )
             for _ in range(self.config.stage5_runs)
         ]
-        responses = self.runner.run(prompts, max_workers=self.config.stage5_runs)
+        max_workers = 1 if self.sequential else self.config.stage5_runs
+        responses = self.runner.run(prompts, max_workers=max_workers)
         parsed = []
         for idx, response in enumerate(responses):
             self._log(
@@ -281,6 +560,7 @@ class SectionAwareWorkflow:
         prompt = load_prompt(
             "stage5_relationships_consolidation.txt",
             raw_edge_lists=raw_edge_lists,
+            user_query=self.user_query,
         )
         response = self.runner.run([prompt], max_workers=1)[0]
         self._log(f"Stage 6 consolidation raw response:\n{response}", level="debug")

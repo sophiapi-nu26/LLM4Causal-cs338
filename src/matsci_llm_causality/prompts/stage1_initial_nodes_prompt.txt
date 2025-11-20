@@ -1,5 +1,8 @@
 You are an expert scientific reader. Analyze the abstract below and return ONLY a JSON array describing the most central nodes (concepts, variables, or entities) in the paper.
 
+User query focus: {user_query}
+Prioritize nodes that help answer this request.
+
 Output requirements (return valid JSON exactly in this format):
 [
   {

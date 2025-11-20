@@ -1,5 +1,8 @@
 You are expanding an existing set of nodes using the paper's results section. Use the provided initial nodes as anchors and propose a richer list.
 
+User query focus: {user_query}
+Highlight expansions most relevant to this request.
+
 Initial nodes:
 {initial_nodes}
 

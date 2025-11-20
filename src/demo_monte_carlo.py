@@ -11,6 +11,10 @@ from matsci_llm_causality.workflows.section_pipeline import (
     SectionAwareWorkflow,
     StageRunConfig,
 )
+from matsci_llm_causality.visualization import (
+    build_graph_data_from_section,
+    render_graph_html,
+)
 
 
 def _prompt_int(message: str, default: int) -> int:
@@ -43,6 +47,14 @@ def _load_paper_json(path: Path) -> Dict[str, Any]:
 def main() -> None:
     print("Section-Aware Causal Extraction Demo")
     print("=" * 50)
+    
+    default_query = "properties related to spider silk"
+    user_query = (
+        input(
+            f"Enter the focus/query for this analysis (press Enter for '{default_query}'): "
+        ).strip()
+        or default_query
+    )
 
     stage1_runs = _prompt_int("Stage 1 (abstract) runs", 5)
     stage3_runs = _prompt_int("Stage 3 (results) runs", 5)
@@ -67,6 +79,7 @@ def main() -> None:
         stage3_runs=stage3_runs,
         stage5_runs=stage5_runs,
         confidence_threshold=confidence_threshold,
+        user_query=user_query,
     )
     logs_dir = Path("logs")
     logs_dir.mkdir(parents=True, exist_ok=True)
@@ -77,11 +90,33 @@ def main() -> None:
         config=config,
         verbose=verbose_choice,
         log_path=str(log_path),
+        sequential=False,
     )
 
     print("\nRunning workflow...")
-    result = workflow.run(paper)
+    paper_id = paper_path.stem
+    result = workflow.run(paper, paper_id=paper_id)
     print(f"\nLogs written to: {log_path}")
+
+    render_choice = (
+        input("\nGenerate interactive HTML visualization? (y/N): ").strip().lower()
+        == "y"
+    )
+    if render_choice:
+        graph_data = build_graph_data_from_section(result, user_query=user_query)
+        output_dir = Path("visualizations")
+        output_dir.mkdir(parents=True, exist_ok=True)
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        json_path = output_dir / f"{paper_id}_graph_{timestamp}.json"
+        html_path = output_dir / f"{paper_id}_graph_{timestamp}.html"
+        json_path.write_text(json.dumps(graph_data, indent=2), encoding="utf-8")
+        render_graph_html(
+            graph_data,
+            html_path,
+            title=f"Causal Graph – {paper_id}",
+        )
+        print(f"Saved graph data to: {json_path}")
+        print(f"Saved interactive visualization to: {html_path}")
 
     print("\nInitial nodes:")
     for node in result.initial_nodes:

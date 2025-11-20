@@ -1,5 +1,8 @@
 You are identifying causal or strongly correlative relationships between predefined nodes. Use the methodology, results, and discussion sections to justify edges.
 
+User query focus: {user_query}
+Prioritize edges that help answer this request.
+
 Final nodes to consider:
 {final_nodes}
 
