@@ -1,0 +1,38 @@
+You are consolidating node proposals from multiple reviewers. Each reviewer returned a JSON array of nodes. Your task is to merge them into a single canonical list.
+
+Input node proposals:
+{raw_node_lists}
+
+Output requirements (return valid JSON exactly in this format):
+[
+  {
+    "name": "canonical node name",
+    "type": "material|structure|process|property",
+    "summary": "short justification combining the reviewers' insights",
+    "sources": ["Reviewer 1 node name", "Reviewer 3 node name"]
+  }
+]
+
+Rules:
+- Return ONLY the JSON array with no commentary.
+- The value of "type" MUST be exactly one of: material, structure, process, property (lowercase). If a reviewer supplied "other", pick the best-fitting category or rewrite the node.
+- Merge overlapping nodes even if names differ slightly; include their original names in "sources".
+- Preserve 3‑8 of the most central nodes.
+- Keep summaries concise (max 2 sentences).
+
+Example response:
+[
+  {
+    "name": "recombinant spidroins",
+    "type": "material",
+    "summary": "High-molecular-weight proteins assembled via split inteins to mimic native silk components.",
+    "sources": ["recombinant spidroins", "microbial spidroins"]
+  },
+  {
+    "name": "dragline silk mechanics",
+    "type": "property",
+    "summary": "Target strength and toughness benchmarks for the synthetic fibers.",
+    "sources": ["dragline silk mechanical properties", "fiber mechanics"]
+  }
+]
+

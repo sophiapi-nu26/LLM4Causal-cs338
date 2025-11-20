@@ -1,75 +1,113 @@
 """
-Simple demo script for Monte Carlo Evidence-Based Extraction
-
-This script demonstrates the new Monte Carlo approach with a simple example.
+Demo script for the section-aware workflow described in instructions.md.
 """
 
-from matsci_llm_causality.models.llm.monte_carlo_extractor import MonteCarloEvidenceExtractor
-from matsci_llm_causality.models.llm.gemini import GeminiTextRelationExtractor
+import json
+from pathlib import Path
+from typing import Any, Dict
+from datetime import datetime
 
-def main():
-    """Run a simple demo of the Monte Carlo extraction."""
-    
-    print("Monte Carlo Evidence-Based Causal Extraction Demo")
+from matsci_llm_causality.workflows.section_pipeline import (
+    SectionAwareWorkflow,
+    StageRunConfig,
+)
+
+
+def _prompt_int(message: str, default: int) -> int:
+    raw = input(f"{message} (default {default}): ").strip()
+    if not raw:
+        return default
+    try:
+        return int(raw)
+    except ValueError:
+        print("Invalid input, using default.")
+        return default
+
+
+def _prompt_float(message: str, default: float) -> float:
+    raw = input(f"{message} (default {default}): ").strip()
+    if not raw:
+        return default
+    try:
+        return float(raw)
+    except ValueError:
+        print("Invalid input, using default.")
+        return default
+
+
+def _load_paper_json(path: Path) -> Dict[str, Any]:
+    with path.open("r", encoding="utf-8") as handle:
+        return json.load(handle)
+
+
+def main() -> None:
+    print("Section-Aware Causal Extraction Demo")
     print("=" * 50)
-    
-    # Initialize the Monte Carlo extractor
-    base_extractor = GeminiTextRelationExtractor()
-    mc_extractor = MonteCarloEvidenceExtractor(
-        base_extractor=base_extractor,
-        n_runs=3,  # Start with 3 runs for demo
-        confidence_threshold=0.7
+
+    stage1_runs = _prompt_int("Stage 1 (abstract) runs", 5)
+    stage3_runs = _prompt_int("Stage 3 (results) runs", 5)
+    stage5_runs = _prompt_int("Stage 5 (edges) runs", 5)
+    confidence_threshold = _prompt_float("Confidence threshold", 0.5)
+
+    json_path = input(
+        "Enter the path to the paper JSON (press Enter for ../data/spidroins.json): "
+    ).strip()
+    if not json_path:
+        json_path = "../data/spidroins.json"
+    paper_path = Path(json_path).resolve()
+    if not paper_path.exists():
+        raise FileNotFoundError(f"Paper JSON not found: {paper_path}")
+
+    paper = _load_paper_json(paper_path)
+
+    verbose_choice = input("Enable debug logging? (y/N): ").strip().lower() == "y"
+
+    config = StageRunConfig(
+        stage1_runs=stage1_runs,
+        stage3_runs=stage3_runs,
+        stage5_runs=stage5_runs,
+        confidence_threshold=confidence_threshold,
     )
-    
-    # Sample text for testing
-    sample_text = """
-    Increasing temperature improves crystallinity of the polymer. 
-    Higher crystallinity leads to increased tensile strength. 
-    The annealing process causes structural changes in the material.
-    Temperature positively correlates with mechanical properties.
-    """
-    
-    print(f"Sample text: {sample_text.strip()}")
-    print()
-    
-    # Extract relationships with evidence
-    print("Running Monte Carlo extraction...")
-    result = mc_extractor.extract_relations_with_evidence(sample_text)
-    
-    # Display Stage 1 results (raw runs)
-    print(f"\nStage 1 Results - Raw Runs ({len(result.raw_runs)} runs):")
-    for i, run in enumerate(result.raw_runs, 1):
-        print(f"  Run {i}: {len(run)} relationships")
-        for j, rel in enumerate(run, 1):
-            print(f"    {j}. {rel['subject']['name']} ({rel['subject']['type']}) {rel['relationship']} {rel['object']['name']} ({rel['object']['type']})")
-    
-    # Display consolidated entities
-    print(f"\nConsolidated Entities ({len(result.entities)}):")
-    for i, entity in enumerate(result.entities, 1):
-        print(f"  {i}. {entity.canonical_name} ({entity.entity_type.value})")
-        print(f"     Variations: {', '.join(entity.variations)}")
-        print(f"     Confidence: {entity.confidence:.2f}")
-    
-    # Display validated relationships
-    print(f"\nValidated Relationships ({len(result.relationships)}):")
-    for i, rel in enumerate(result.relationships, 1):
-        print(f"  {i}. {rel.subject.canonical_name} {rel.relation_type.value} {rel.object.canonical_name}")
-        print(f"     Confidence: {rel.confidence:.2f} (appeared in {rel.frequency}/{mc_extractor.n_runs} runs)")
-    
-    # Build causal graph
-    print("\nBuilding causal graph...")
-    causal_graph = mc_extractor.build_causal_graph(result)
-    
-    print(f"\nGraph Statistics:")
-    print(f"  Nodes: {causal_graph['graph_metrics']['total_nodes']}")
-    print(f"  Edges: {causal_graph['graph_metrics']['total_edges']}")
-    print(f"  Density: {causal_graph['graph_metrics']['density']:.3f}")
-    
-    print(f"\nTop Causal Pathways:")
-    for i, pathway in enumerate(causal_graph['causal_pathways'][:3], 1):
-        print(f"  {i}. {' → '.join(pathway)}")
-    
-    print("\nDemo completed successfully!")
+    logs_dir = Path("logs")
+    logs_dir.mkdir(parents=True, exist_ok=True)
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    log_path = logs_dir / f"demo_debug_log_{timestamp}.log"
+
+    workflow = SectionAwareWorkflow(
+        config=config,
+        verbose=verbose_choice,
+        log_path=str(log_path),
+    )
+
+    print("\nRunning workflow...")
+    result = workflow.run(paper)
+    print(f"\nLogs written to: {log_path}")
+
+    print("\nInitial nodes:")
+    for node in result.initial_nodes:
+        print(f" - {node.get('name')} ({node.get('type')}): {node.get('summary')}")
+
+    print("\nFinal nodes:")
+    for node in result.final_nodes:
+        print(f" - {node.get('name')} ({node.get('type')}): {node.get('summary')}")
+
+    print("\nConsolidated edges (all):")
+    for edge in result.consolidated_edges:
+        print(
+            f" - {edge.source} {edge.relation} {edge.target} | count={edge.count} sections={edge.sections}"
+        )
+
+    print("\nFiltered edges (after confidence threshold):")
+    if not result.filtered_edges:
+        print(" - No edges met the confidence threshold.")
+    for edge in result.filtered_edges:
+        print(
+            f" - {edge.source} {edge.relation} {edge.target} | "
+            f"count={edge.count} confidence={edge.confidence:.2f}"
+        )
+
+    print("\nDemo completed successfully.")
+
 
 if __name__ == "__main__":
     main()

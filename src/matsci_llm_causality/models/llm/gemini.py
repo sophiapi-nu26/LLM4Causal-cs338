@@ -7,6 +7,7 @@ from ...schema import (
 )
 import time, random
 from ..base import register_model, BaseLLM
+from ...prompts import load_prompt
 from dotenv import load_dotenv
 import os
 load_dotenv()
@@ -117,32 +118,7 @@ class GeminiImageRelationExtractor(BaseLLM):
 
     def _prepare_prompt(self, image_bytes) -> str:
         """Prepare the prompt for relationship extraction."""
-        
-        return f"""You are an expert in materials science. Your task is to extract relationships from the given image  
-                Instructions:  
-                1. Identify all relevant variables in the text. Each variable must be categorized as exactly one of:  
-                - material  
-                - structure  
-                - process  
-                - property  
-
-                2. Identify relationships between variables. Only use the following relationship types:  
-                - increases  
-                - decreases  
-                - positively correlates with  
-                - negatively correlates with  
-                - causes  
-
-                3. Express each relationship as a structured statement with the format:  
-                [Variable A <Type>] [relationship type] [Variable B <Type>]  
-
-                4. Be precise and consistent:  
-                - Use the exact wording of the variables as they appear in the text (do not paraphrase).  
-                - Output one whole relationship per line. Do not number them. Relationships only.
-                - Do not include explanations, summaries, or extra text outside the structured statements.  
-
-                Image bytes for analysis:  
-        """
+        return load_prompt("image_relation_extraction.txt")
     
     def _process_response(self, response: Any) -> List[Relationship]:
         """Process the model's response and create Relationship objects.
@@ -200,30 +176,7 @@ class GeminiTableRelationExtractor(BaseLLM):
 
     def _prepare_prompt(self, image_bytes) -> str:
         """Prepare the prompt for relationship extraction."""
-        
-        return f"""You are an expert in materials science. Your task is to extract relationships from the given html table  
-                Instructions:  
-                1. Identify all relevant variables in the text. Each variable must be categorized as exactly one of:  
-                - material  
-                - structure  
-                - process  
-                - property  
-
-                2. Identify relationships between variables. Only use the following relationship types:  
-                - increases  
-                - decreases  
-                - positively correlates with  
-                - negatively correlates with  
-                - causes  
-
-                3. Express each relationship as a structured statement with the format:  
-                [Variable A <Type>] [relationship type] [Variable B <Type>]  
-
-                4. Be precise and consistent:  
-                - Use the exact wording of the variables as they appear in the text (don’t paraphrase).  
-                - Output one relationship per line. Do not number them. Relationships only.
-                - Do not include explanations, summaries, or extra text outside the structured statements.  
-        """
+        return load_prompt("table_relation_extraction.txt")
     
     def _process_response(self, response: Any) -> List[Relationship]:
         """Process the model's response and create Relationship objects.
@@ -282,40 +235,7 @@ class GeminiTextRelationExtractor(BaseLLM):
     
     def _prepare_prompt(self, text: str) -> str:
         """Prepare the prompt for relationship extraction."""
-        
-        return f"""You are an expert in materials science. Your task is to extract relationships among variables mentioned in the given text.  
-            Instructions:  
-            1. Identify all relevant variables in the text. Each variable must be categorized as exactly one of:  
-            - material  
-            - structure  
-            - process  
-            - property  
-
-            2. Identify relationships between variables. Only use the following relationship types:  
-            - increases  
-            - decreases  
-            - positively correlates with  
-            - negatively correlates with  
-            - causes  
-
-            3. Express each relationship as a structured statement with the format:  
-            [Variable A <Type>] [relationship type] [Variable B <Type>]  
-
-            4. Be precise and consistent:  
-            - Use the exact wording of the variables as they appear in the text (do not paraphrase).  
-            - Output only one relationship per line. Do not number them. Relationships only.
-            - Do not include explanations, summaries, or extra text outside the structured statements.  
-            
-            Here are some examples of the output format:
-            "192-mer fibers <material> decreases breaking strain <property>"
-            "192-mer fibers <material> decreases breaking strain <property>"
-            "silk diameter <structure> positively correlates with breaking strain <property>"
-
-            Text for analysis:  
-
-            {text}
-
-        """
+        return load_prompt("text_relation_extraction.txt", text=text)
     
     def _process_response(self, response: str) -> List[Relationship]:
         """Process the model's response and create Relationship objects.

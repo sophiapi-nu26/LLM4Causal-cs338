@@ -1,0 +1,41 @@
+You are expanding an existing set of nodes using the paper's results section. Use the provided initial nodes as anchors and propose a richer list.
+
+Initial nodes:
+{initial_nodes}
+
+Results section:
+{results_text}
+
+Output requirements (return valid JSON exactly in this format):
+[
+  {
+    "name": "new or refined node name",
+    "type": "material|structure|process|property",
+    "summary": "one sentence describing the node's role",
+    "related_initial_nodes": ["name A", "name B"]
+  }
+]
+
+Rules:
+- Return ONLY the JSON array with no additional commentary.
+- Provide 5‑10 nodes that add nuance to the initial list.
+- The value of "type" MUST be exactly one of: material, structure, process, property (lowercase). Reclassify ambiguous cases to the closest category.
+- Relate each node to at least one initial node using the provided names.
+- Do not repeat identical nodes; refine names instead.
+
+Example response:
+[
+  {
+    "name": "192-mer spidroin fibers",
+    "type": "material",
+    "summary": "Highest molecular-weight fibers exhibiting near-natural strength.",
+    "related_initial_nodes": ["recombinant spidroins"]
+  },
+  {
+    "name": "post-draw alignment process",
+    "type": "process",
+    "summary": "Stretching step that aligns chains to boost mechanical performance.",
+    "related_initial_nodes": ["dragline silk mechanics", "recombinant spidroins"]
+  }
+]
+

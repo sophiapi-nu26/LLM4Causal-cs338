@@ -21,6 +21,7 @@ from ...schema import (
     ModelConfig, ExtractionResult
 )
 from ..base import BaseLLM
+from ...prompts import load_prompt
 from .gemini import GeminiTextRelationExtractor, call_with_backoff
 import os
 from dotenv import load_dotenv
@@ -130,6 +131,7 @@ class MonteCarloEvidenceExtractor(BaseLLM):
     def _stage1_multiple_runs(self, text: str) -> List[List[Dict[str, Any]]]:
         """Stage 1: Run multiple extractions with varying parameters."""
         print("Stage 1: Running multiple extractions...")
+        print("-" * 50)
         raw_runs = []
         
         for i in range(self.n_runs):
@@ -175,6 +177,7 @@ class MonteCarloEvidenceExtractor(BaseLLM):
     def _stage2_consolidate_entities(self, raw_runs: List[List[Dict]], text: str) -> List[EntityEvidence]:
         """Stage 2: Consolidate entities using LLM-based clustering."""
         print("Stage 2: Consolidating entities...")
+        print("-" * 50)
         
         # Collect all unique entities from all runs
         all_entities = self._collect_all_entities(raw_runs)
@@ -220,37 +223,9 @@ class MonteCarloEvidenceExtractor(BaseLLM):
         # Create entity list for LLM
         entity_list = "\n".join([f"- {e['name']} ({e['type']})" for e in entities])
         
-        prompt = f"""You are an expert in materials science entity consolidation. Your task is to identify which entities from the list below refer to the same concept and should be consolidated.
-
-Entity List:
-{entity_list}
-
-Instructions:
-1. Identify groups of entities that refer to the same concept (e.g., "temperature" and "thermal conditions")
-2. For each group, choose the most canonical/precise name
-3. Output ONLY valid JSON format - no other text
-
-Required JSON format:
-{{
-    "consolidated_entities": [
-        {{
-            "canonical_name": "temperature",
-            "entity_type": "property",
-            "variations": ["temperature", "thermal conditions", "heat"]
-        }},
-        {{
-            "canonical_name": "crystallinity",
-            "entity_type": "property", 
-            "variations": ["crystallinity", "crystal structure"]
-        }}
-    ]
-}}
-
-IMPORTANT: Return ONLY the JSON object, no explanations or additional text.
-
-Focus on the original text context when making consolidation decisions:
-{text[:500]}...
-"""
+        # Load prompt and format with entity_list and text
+        # Note: text truncation is commented out in the prompt file
+        prompt = load_prompt("entity_consolidation.txt", entity_list=entity_list, text=text)
         
         try:
             response = call_with_backoff(lambda: self.client.models.generate_content(
@@ -364,6 +339,24 @@ Focus on the original text context when making consolidation decisions:
         
         return consolidated
     
+    def _clean_entity_name(self, entity_name: str) -> str:
+        """Clean entity name by removing brackets and type information."""
+        # Remove brackets if present: [temperature (process>)] -> temperature (process>)
+        cleaned = entity_name.strip()
+        if cleaned.startswith('[') and cleaned.endswith(']'):
+            cleaned = cleaned[1:-1].strip()
+        if cleaned.startswith('['):
+            cleaned = cleaned[1:].strip()
+        if cleaned.endswith(']') or cleaned.endswith('>'):
+            cleaned = cleaned.rstrip(']>').strip()
+        
+        # Extract just the entity name part (before the type in parentheses)
+        # e.g., "temperature (process)" -> "temperature"
+        if '(' in cleaned:
+            cleaned = cleaned.split('(')[0].strip()
+        
+        return cleaned.lower()
+    
     def _stage3_validate_relationships(
         self, 
         raw_runs: List[List[Dict]], 
@@ -371,12 +364,21 @@ Focus on the original text context when making consolidation decisions:
     ) -> List[RelationshipEvidence]:
         """Stage 3: Validate relationships against consolidated entities."""
         print("Stage 3: Validating relationships...")
+        print("-" * 50)
         
         # Map entity names to consolidated entities
+        # Include both raw variations and cleaned versions for better matching
         entity_map = {}
         for entity_evidence in consolidated_entities:
+            # Add canonical name
+            cleaned_canonical = self._clean_entity_name(entity_evidence.canonical_name)
+            entity_map[cleaned_canonical] = entity_evidence
+            
+            # Add all variations (both raw and cleaned)
             for variation in entity_evidence.variations:
                 entity_map[variation.lower()] = entity_evidence
+                cleaned_variation = self._clean_entity_name(variation)
+                entity_map[cleaned_variation] = entity_evidence
         
         # Collect relationship evidence
         relationship_counts = defaultdict(list)
@@ -421,16 +423,26 @@ Focus on the original text context when making consolidation decisions:
     
     def _find_matching_entity(self, entity_name: str, entity_map: Dict[str, EntityEvidence]) -> Optional[EntityEvidence]:
         """Find the consolidated entity that matches the given name."""
-        # Direct match
-        if entity_name.lower() in entity_map:
-            return entity_map[entity_name.lower()]
+        # Clean the entity name first
+        cleaned_name = self._clean_entity_name(entity_name)
         
-        # Similarity match
+        # Direct match on cleaned name
+        if cleaned_name in entity_map:
+            return entity_map[cleaned_name]
+        
+        # Also check against all variations in the entity_map
+        for mapped_name, entity_evidence in entity_map.items():
+            # Check if cleaned name matches any variation
+            for variation in entity_evidence.variations:
+                if self._clean_entity_name(variation) == cleaned_name:
+                    return entity_evidence
+        
+        # Similarity match as fallback
         best_match = None
         best_similarity = 0
         
         for mapped_name, entity_evidence in entity_map.items():
-            similarity = self._similarity(entity_name, mapped_name)
+            similarity = self._similarity(cleaned_name, mapped_name)
             if similarity > best_similarity and similarity > self.entity_similarity_threshold:
                 best_similarity = similarity
                 best_match = entity_evidence

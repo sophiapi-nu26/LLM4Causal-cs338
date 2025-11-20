@@ -1,0 +1,32 @@
+You are an expert in materials science entity consolidation. Your task is to identify which entities from the list below refer to the same concept and should be consolidated.
+
+Entity List:
+{entity_list}
+
+Instructions:
+1. Identify groups of entities that refer to the same concept (e.g., "temperature" and "thermal conditions")
+2. For each group, choose the most canonical/precise name
+3. Output ONLY valid JSON format - no other text
+
+Required JSON format:
+{{
+    "consolidated_entities": [
+        {{
+            "canonical_name": "temperature",
+            "entity_type": "property",
+            "variations": ["temperature", "thermal conditions", "heat"]
+        }},
+        {{
+            "canonical_name": "crystallinity",
+            "entity_type": "property", 
+            "variations": ["crystallinity", "crystal structure"]
+        }}
+    ]
+}}
+
+IMPORTANT: Return ONLY the JSON object, no explanations or additional text.
+
+Focus on the original text context when making consolidation decisions:
+# {text[:500]}...  # Commented out text truncation - uncomment and adjust if needed
+{text}
+
