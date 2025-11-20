@@ -1,0 +1,35 @@
+FROM python:3.11-slim
+
+# Prevent Python from buffering stdout/stderr (important for logging!)
+ENV PYTHONUNBUFFERED=1
+
+# Create non-root user for security and gcloud mount compatibility
+# UID 1000 typically matches your local user on Linux/Mac
+RUN useradd -m -u 1000 appuser
+
+# set working directory
+WORKDIR /app
+
+# install dependencies (for only retrieve & parse steps)
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# copy application code
+COPY ./api /app/api
+COPY ./document_preparation /app/document_preparation
+
+# Change ownership of app directory to appuser
+RUN chown -R appuser:appuser /app
+
+# Switch to non-root user
+# This allows the container to access the mounted ~/.config/gcloud directory
+USER appuser
+
+# Set Flask environment variables
+ENV FLASK_APP=api.app
+ENV FLASK_ENV=development
+
+# select 5001 for macOS compatibility
+EXPOSE 5001
+
+CMD ["flask", "run", "--host=0.0.0.0", "--port=5001", "--reload"]

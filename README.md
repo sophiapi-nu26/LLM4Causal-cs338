@@ -2,16 +2,32 @@
 
 A Python package for extracting causal relationships from materials science literature using Large Language Models.
 
+## Quick Links
+
+- **[REST API Documentation](src/README.md)** - Containerized API for article retrieval and parsing
+- **[Deployment Guide](src/DEPLOYMENT.md)** - Deploy to Google Cloud Run
+- **[Dockerfile Comparison](src/DEPLOYMENT.md#dockerfiledev-vs-dockerfile---key-differences-explained)** - Dev vs Production explained
+
 ## Pipeline Overview
 
 The extraction pipeline consists of several sophisticated steps to identify and extract causal relationships from materials science literature:
 
-### 1. Article collection
-- **Input**: Keyword list related to material of interest
+### 1. Article Collection & Retrieval API
+
+Fully containerized REST API for retrieving and parsing scientific papers with asynchronous job processing.
+
+- **Input**: Natural language query (e.g., "spider silk mechanical properties")
 - **Process**:
-  - Collect bibliographic data of papers related to keywords using OpenAlex
-  - Download PDFs of relevant papers using Unpaywall
-- **Output**: Downloaded PDFs
+  - Search OpenAlex API for relevant papers using query-based retrieval
+  - Automatic relevance ranking and filtering (by year, citations, open access)
+  - Download PDFs from multiple sources (Semantic Scholar, OpenAlex, Unpaywall)
+  - Parse PDFs and extract structured text
+  - Upload to Google Cloud Storage
+- **Output**: Parsed paper data with full text, sections, and metadata
+- **Access**:
+  - **REST API** (Recommended): `POST /api/v1/retrieve` - See [API Documentation](src/README.md)
+  - **CLI Tool**: `python article_retriever.py --query "your query"` (Legacy)
+- **Deployment**: Docker-based deployment to Google Cloud Run - See [Deployment Guide](src/DEPLOYMENT.md)
 
 ### 2. PDF Processing and Text Extraction
 - **Input**: Raw PDF documents

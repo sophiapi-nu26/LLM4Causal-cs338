@@ -22,6 +22,7 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+*.gcp
 
 # Virtual Environment
 venv/
@@ -37,3 +38,7 @@ env/
 # OS
 .DS_Store
 Thumbs.db
+
+# Downloaded PDFs (keep folder structure but not content)
+data/article_retrieval/pdfs/*.pdf
+data/article_retrieval/pdfs/manifest.csv
