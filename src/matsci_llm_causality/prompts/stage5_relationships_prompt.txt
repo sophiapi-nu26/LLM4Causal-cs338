@@ -1,0 +1,44 @@
+You are identifying causal or strongly correlative relationships between predefined nodes. Use the methodology, results, and discussion sections to justify edges.
+
+User query focus: {user_query}
+Prioritize edges that help answer this request.
+
+Final nodes to consider:
+{final_nodes}
+
+Paper sections:
+--- Methodology ---
+{methodology_text}
+--- Results ---
+{results_text}
+--- Discussion ---
+{discussion_text}
+
+Output requirements:
+[
+  {
+    "source": "node name exactly as provided",
+    "target": "node name exactly as provided",
+    "relation": "increases|decreases|causes|positively correlates with|negatively correlates with",
+    "evidence": "quoted or paraphrased sentence",
+    "section": "methodology|results|discussion"
+  }
+]
+
+Rules:
+- Return ONLY the JSON array with no commentary.
+- Limit to relationships among the provided nodes; do not introduce new nodes.
+- Each edge must be directional and match one of the allowed relation labels.
+- Provide 3‑8 edges per run; avoid duplicates within the same response.
+
+Example response:
+[
+  {
+    "source": "post-draw alignment",
+    "target": "fiber tensile strength",
+    "relation": "increases",
+    "evidence": "Post-drawn fibers exhibited higher tensile strength due to improved chain orientation.",
+    "section": "results"
+  }
+]
+

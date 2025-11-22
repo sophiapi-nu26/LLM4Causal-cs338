@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Causal Graph (Regenerated)</title>
+  <script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      display: flex;
+      height: 100vh;
+    }
+    #cy {
+      flex: 3;
+      height: 100vh;
+    }
+    #sidebar {
+      flex: 1;
+      padding: 1rem;
+      border-left: 1px solid #ddd;
+      overflow-y: auto;
+      background: #fafafa;
+    }
+    .legend {
+      margin-bottom: 1rem;
+    }
+    .legend h3 {
+      margin-top: 0;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.25rem;
+    }
+    .legend-swatch {
+      width: 16px;
+      height: 16px;
+      margin-right: 0.5rem;
+      border-radius: 3px;
+    }
+    pre {
+      white-space: pre-wrap;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="cy"></div>
+  <div id="sidebar">
+    <h2>Details</h2>
+    <div id="info">Click a node or edge to see details.</div>
+    <div class="legend">
+      <h3>Node Types</h3>
+      <div class="legend-item"><div class="legend-swatch" style="background:#4f81bd"></div>Material</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:#f79646"></div>Process</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:#9bbb59"></div>Structure</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:#8064a2"></div>Property</div>
+    </div>
+    <div class="legend">
+      <h3>Edge Types</h3>
+      <div class="legend-item"><div class="legend-swatch" style="background:#4caf50"></div>Increases</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:#e53935"></div>Decreases</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:#fb8c00"></div>Causes</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:#00897b"></div>Positively correlates</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:#ad1457"></div>Negatively correlates</div>
+    </div>
+  </div>
+
+  <script>
+    const graphData = {"elements": {"nodes": [{"data": {"id": "node_0_tensile_strength", "label": "Tensile Strength", "type": "property", "summary": "A critical mechanical property indicating the maximum stress a fiber can withstand before breaking, reaching high values (e.g., 1.0 GPa) in recombinant spider silk.", "sources": [{"paper_id": "spidroins", "node_name": "192-mer Recombinant Silk Tensile Strength"}, {"paper_id": "bombyx", "node_name": "Maintained Tensile Strength"}], "color": "#8064a2"}}, {"data": {"id": "node_1_stiffness__modulus_", "label": "Stiffness (Modulus)", "type": "property", "summary": "The measure of a fiber's resistance to elastic deformation, with recombinant spider silk achieving high moduli (e.g., 14 GPa) comparable to natural dragline silk.", "sources": [{"paper_id": "spidroins", "node_name": "192-mer Recombinant Silk Stiffness (Modulus)"}], "color": "#8064a2"}}, {"data": {"id": "node_2_toughness_and_extensibility", "label": "Toughness and Extensibility", "type": "property", "summary": "The ability of silk fibers to absorb energy before fracture (toughness) and their capacity to stretch significantly (extensibility), crucial for biomimetic applications.", "sources": [{"paper_id": "spidroins", "node_name": "Recombinant Silk Toughness and Extensibility"}, {"paper_id": "bombyx", "node_name": "Balanced Composite Silk Mechanical Properties"}], "color": "#8064a2"}}, {"data": {"id": "node_3_spidroin_molecular_weight_and_mechanical_performance", "label": "Spidroin Molecular Weight and Mechanical Performance", "type": "property", "summary": "The direct relationship where increasing spidroin molecular weight enhances fiber strength, stiffness, and overall mechanical performance, closely mimicking natural silk.", "sources": [{"paper_id": "spidroins", "node_name": "Spidroin Molecular Weight-Mechanical Property Relationship"}], "color": "#8064a2"}}, {"data": {"id": "node_4_silk_fiber_morphology", "label": "Silk Fiber Morphology", "type": "structure", "summary": "The physical characteristics of silk fibers, including surface smoothness, internal void content, and circular cross-sections, which improve with higher molecular weight spidroins.", "sources": [{"paper_id": "spidroins", "node_name": "Recombinant Silk Fiber Morphology"}], "color": "#9bbb59"}}, {"data": {"id": "node_5_beta_sheet_content_and_crystal_orientation", "label": "Beta-sheet Content and Crystal Orientation", "type": "structure", "summary": "The essential internal structural properties of silk, involving approximately 40% \u03b2-sheet content and strong crystal alignment along the fiber axis, critical for mechanical strength.", "sources": [{"paper_id": "spidroins", "node_name": "Recombinant Silk Beta-sheet Content"}, {"paper_id": "spidroins", "node_name": "Recombinant Silk Beta-sheet Crystal Orientation"}], "color": "#9bbb59"}}, {"data": {"id": "node_6_recombinant_spider_silk_fibers", "label": "Recombinant Spider Silk Fibers", "type": "material", "summary": "Synthetic fibers engineered from spider silk proteins (like MaSp1) or chimeric proteins, designed to achieve the mechanical and structural attributes of natural spider silk.", "sources": [{"paper_id": "spidroins", "node_name": "192-mer Recombinant MaSp1 Fibers"}, {"paper_id": "bombyx", "node_name": "MaSp1\u2013FibH Chimeric Protein"}], "color": "#4f81bd"}}, {"data": {"id": "node_7_natural_dragline_silk", "label": "Natural Dragline Silk", "type": "material", "summary": "The high-performance silk from *Nephila clavipes* spiders, serving as the benchmark for evaluating the specific mechanical and structural properties of synthetic spider silk.", "sources": [{"paper_id": "spidroins", "node_name": "Natural Dragline Silk as Performance Benchmark"}], "color": "#4f81bd"}}, {"data": {"id": "node_8_high_masp1_content_in_chimeric_silk", "label": "High MaSp1 Content in Chimeric Silk", "type": "property", "summary": "A significant proportion of MaSp1 protein (over one-third) within composite fibers, crucial for enabling pronounced changes and enhancements in their mechanical behavior.", "sources": [{"paper_id": "bombyx", "node_name": "High MaSp1 Content"}], "color": "#8064a2"}}], "edges": [{"data": {"id": "edge_0_recombinant_spider_silk_fibers_stiffness__modulus_", "source": "node_6_recombinant_spider_silk_fibers", "target": "node_1_stiffness__modulus_", "relation": "causes", "count": 1, "confidence": 0.5, "source_papers": ["spidroins"], "evidence": ["The 192-mer fibers reached average tensile strengths around 1.0 GPa and moduli near 14 GPa"], "color": "#fb8c00"}}, {"data": {"id": "edge_1_recombinant_spider_silk_fibers_stiffness__modulus_", "source": "node_6_recombinant_spider_silk_fibers", "target": "node_1_stiffness__modulus_", "relation": "positively correlates with", "count": 1, "confidence": 0.5, "source_papers": ["spidroins"], "evidence": ["The 192-mer fibers reached average tensile strengths around 1.0 GPa and moduli near 14 GPa..."], "color": "#00897b"}}, {"data": {"id": "edge_2_recombinant_spider_silk_fibers_tensile_strength", "source": "node_6_recombinant_spider_silk_fibers", "target": "node_0_tensile_strength", "relation": "causes", "count": 2, "confidence": 1.0, "source_papers": ["spidroins"], "evidence": ["The 192-mer fibers reached average tensile strengths around 1.0 GPa", "The 192-mer fibers reached average tensile strengths around 1.0 GPa and moduli near 14 GPa"], "color": "#fb8c00"}}, {"data": {"id": "edge_3_recombinant_spider_silk_fibers_tensile_strength", "source": "node_6_recombinant_spider_silk_fibers", "target": "node_0_tensile_strength", "relation": "positively correlates with", "count": 1, "confidence": 0.5, "source_papers": ["spidroins"], "evidence": ["The 192-mer fibers reached average tensile strengths around 1.0 GPa and moduli near 14 GPa..."], "color": "#00897b"}}, {"data": {"id": "edge_4_recombinant_spider_silk_fibers_beta_sheet_content_and_crystal_orientation", "source": "node_6_recombinant_spider_silk_fibers", "target": "node_5_beta_sheet_content_and_crystal_orientation", "relation": "causes", "count": 2, "confidence": 1.0, "source_papers": ["spidroins"], "evidence": ["Raman analysis of amide I bands indicated \u03b2-sheet contents around 40% and strong orientation of \u03b2-sheet crystals along the fiber axis", "Raman analysis of amide I bands indicated \u03b2-sheet contents around 40% and strong orientation of \u03b2-sheet crystals along the fiber axis"], "color": "#fb8c00"}}, {"data": {"id": "edge_5_stiffness__modulus__natural_dragline_silk", "source": "node_1_stiffness__modulus_", "target": "node_7_natural_dragline_silk", "relation": "positively correlates with", "count": 1, "confidence": 0.5, "source_papers": ["spidroins"], "evidence": ["These performance metrics closely match compiled values for natural N. clavipes dragline silk."], "color": "#00897b"}}, {"data": {"id": "edge_6_tensile_strength_natural_dragline_silk", "source": "node_0_tensile_strength", "target": "node_7_natural_dragline_silk", "relation": "positively correlates with", "count": 3, "confidence": 1.5, "source_papers": ["spidroins"], "evidence": ["These performance metrics closely match compiled values for natural N. clavipes dragline silk."], "color": "#00897b"}}, {"data": {"id": "edge_7_beta_sheet_content_and_crystal_orientation_natural_dragline_silk", "source": "node_5_beta_sheet_content_and_crystal_orientation", "target": "node_7_natural_dragline_silk", "relation": "positively correlates with", "count": 1, "confidence": 0.5, "source_papers": ["spidroins"], "evidence": ["Raman analysis of amide I bands indicated \u03b2-sheet contents around 40%... both consistent with measurements on natural dragline silk."], "color": "#00897b"}}, {"data": {"id": "edge_8_spidroin_molecular_weight_and_mechanical_performance_stiffness__modulus_", "source": "node_3_spidroin_molecular_weight_and_mechanical_performance", "target": "node_1_stiffness__modulus_", "relation": "increases", "count": 3, "confidence": 1.5, "source_papers": ["spidroins"], "evidence": ["Increasing spidroin molecular weight from 96-mer to 128-mer to 192-mer produced a clear trend toward stronger and stiffer fibers."], "color": "#4caf50"}}, {"data": {"id": "edge_9_spidroin_molecular_weight_and_mechanical_performance_tensile_strength", "source": "node_3_spidroin_molecular_weight_and_mechanical_performance", "target": "node_0_tensile_strength", "relation": "increases", "count": 3, "confidence": 1.5, "source_papers": ["spidroins"], "evidence": ["Increasing spidroin molecular weight from 96-mer to 128-mer to 192-mer produced a clear trend toward stronger and stiffer fibers."], "color": "#4caf50"}}, {"data": {"id": "edge_10_spidroin_molecular_weight_and_mechanical_performance_silk_fiber_morphology", "source": "node_3_spidroin_molecular_weight_and_mechanical_performance", "target": "node_4_silk_fiber_morphology", "relation": "improves", "count": 1, "confidence": 0.5, "source_papers": ["spidroins"], "evidence": ["Microscopy revealed that higher\u2013molecular-weight fibers exhibited smoother surfaces, fewer internal voids, and more circular cross-sections than fibers spun from shorter spidroins."], "color": "#546e7a"}}, {"data": {"id": "edge_11_spidroin_molecular_weight_and_mechanical_performance_silk_fiber_morphology", "source": "node_3_spidroin_molecular_weight_and_mechanical_performance", "target": "node_4_silk_fiber_morphology", "relation": "increases", "count": 1, "confidence": 0.5, "source_papers": ["spidroins"], "evidence": ["Microscopy revealed that higher\u2013molecular-weight fibers exhibited smoother surfaces, fewer internal voids, and more circular cross-sections than fibers spun from shorter spidroins."], "color": "#4caf50"}}, {"data": {"id": "edge_12_spidroin_molecular_weight_and_mechanical_performance_silk_fiber_morphology", "source": "node_3_spidroin_molecular_weight_and_mechanical_performance", "target": "node_4_silk_fiber_morphology", "relation": "positively correlates with", "count": 1, "confidence": 0.5, "source_papers": ["spidroins"], "evidence": ["Microscopy revealed that higher\u2013molecular-weight fibers exhibited smoother surfaces, fewer internal voids, and more circular cross-sections than fibers spun from shorter spidroins."], "color": "#00897b"}}, {"data": {"id": "edge_13_spidroin_molecular_weight_and_mechanical_performance_toughness_and_extensibility", "source": "node_3_spidroin_molecular_weight_and_mechanical_performance", "target": "node_2_toughness_and_extensibility", "relation": "decreases", "count": 3, "confidence": 1.5, "source_papers": ["spidroins"], "evidence": ["The 192-mer fibers reached average tensile strengths around 1.0 GPa and moduli near 14 GPa... while extensibility decreased modestly and toughness remained high.", "extensibility decreased modestly and toughness remained high."], "color": "#e53935"}}, {"data": {"id": "edge_14_recombinant_spider_silk_fibers_high_masp1_content_in_chimeric_silk", "source": "node_6_recombinant_spider_silk_fibers", "target": "node_8_high_masp1_content_in_chimeric_silk", "relation": "causes", "count": 3, "confidence": 1.5, "source_papers": ["bombyx"], "evidence": ["Biochemical analysis of cocoons from transgenic animals showed that the chimeric MaSp1 protein could account for more than a third of the total fibroin content in some lines, representing a substantial increase over the few-percent spider silk levels reported previously for transposon-based transgenic silkworms.", "Biochemical analysis of cocoons from transgenic animals showed that the chimeric MaSp1 protein could account for more than a third of the total fibroin content in some lines..."], "color": "#fb8c00"}}, {"data": {"id": "edge_15_high_masp1_content_in_chimeric_silk_tensile_strength", "source": "node_8_high_masp1_content_in_chimeric_silk", "target": "node_0_tensile_strength", "relation": "causes", "count": 2, "confidence": 1.0, "source_papers": ["bombyx"], "evidence": ["Measurements of fiber performance indicated that incorporation of MaSp1 significantly altered the mechanical characteristics of the silk, most notably by enhancing extensibility while maintaining useful strength."], "color": "#fb8c00"}}, {"data": {"id": "edge_16_high_masp1_content_in_chimeric_silk_toughness_and_extensibility", "source": "node_8_high_masp1_content_in_chimeric_silk", "target": "node_2_toughness_and_extensibility", "relation": "causes", "count": 3, "confidence": 1.5, "source_papers": ["bombyx"], "evidence": ["Measurements of fiber performance indicated that incorporation of MaSp1 significantly altered the mechanical characteristics of the silk, most notably by enhancing extensibility while maintaining useful strength."], "color": "#fb8c00"}}, {"data": {"id": "edge_17_high_masp1_content_in_chimeric_silk_tensile_strength", "source": "node_8_high_masp1_content_in_chimeric_silk", "target": "node_0_tensile_strength", "relation": "positively correlates with", "count": 1, "confidence": 0.5, "source_papers": ["bombyx"], "evidence": ["Measurements of fiber performance indicated that incorporation of MaSp1 significantly altered the mechanical characteristics of the silk, most notably by enhancing extensibility while maintaining useful strength."], "color": "#00897b"}}]}, "metadata": {"query": "properties related to spider silk", "num_documents": 2}};
+    const elements = [].concat(graphData.elements.nodes, graphData.elements.edges);
+    const cy = cytoscape({
+      container: document.getElementById('cy'),
+      elements: elements,
+      style: [
+        {
+          selector: 'node',
+          style: {
+            'label': 'data(label)',
+            'background-color': 'data(color)',
+            'color': '#fff',
+            'text-outline-width': 2,
+            'text-outline-color': 'data(color)',
+            'font-size': 12
+          }
+        },
+        {
+          selector: 'edge',
+          style: {
+            'width': 2,
+            'line-color': 'data(color)',
+            'target-arrow-color': 'data(color)',
+            'target-arrow-shape': 'triangle',
+            'curve-style': 'bezier'
+          }
+        },
+        {
+          selector: ':selected',
+          style: {
+            'border-width': 3,
+            'border-color': '#ffa726',
+            'line-color': '#ffa726',
+            'target-arrow-color': '#ffa726'
+          }
+        }
+      ],
+      layout: {
+        name: 'cose',
+        padding: 20
+      }
+    });
+
+    const info = document.getElementById('info');
+
+    function renderNodeInfo(data) {
+      const sources = (data.sources || []).map(
+        src => `- ${src.paper_id}: ${src.node_name}`
+      ).join('\n');
+
+      return `
+        <strong>Node:</strong> ${data.label} (${data.type})<br/>
+        <strong>Summary:</strong> ${data.summary}<br/>
+        <strong>Sources:</strong><br/>
+        <pre>${sources || 'N/A'}</pre>
+      `;
+    }
+
+    function renderEdgeInfo(data) {
+      const evidence = (data.evidence || []).map(
+        item => `- ${item}`
+      ).join('\n');
+      const papers = (data.source_papers || []).join(', ');
+
+      return `
+        <strong>Edge:</strong> ${data.relation}<br/>
+        <strong>Confidence:</strong> ${(data.confidence || 0).toFixed(2)} (count=${data.count})<br/>
+        <strong>Evidence:</strong><br/>
+        <pre>${evidence || 'N/A'}</pre>
+        <strong>Source papers:</strong> ${papers || 'N/A'}
+      `;
+    }
+
+    cy.on('tap', 'node', (evt) => {
+      info.innerHTML = renderNodeInfo(evt.target.data());
+    });
+
+    cy.on('tap', 'edge', (evt) => {
+      info.innerHTML = renderEdgeInfo(evt.target.data());
+    });
+
+    cy.on('tap', (evt) => {
+      if (evt.target === cy) {
+        info.innerHTML = 'Click a node or edge to see details.';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+You are consolidating expanded node proposals. Combine overlapping nodes and produce a final node list that will seed causal extraction.
+
+User query focus: {user_query}
+Ensure the final nodes emphasize aspects relevant to this request.
+
+Input expanded node sets:
+{raw_expanded_nodes}
+
+Output requirements (return valid JSON exactly in this format):
+[
+  {
+    "name": "final node name",
+    "type": "material|structure|process|property",
+    "summary": "succinct description (<= 30 words)",
+    "evidence_sections": ["abstract", "results"],
+    "source_nodes": ["Original name 1", "Original name 2"]
+  }
+]
+
+Rules:
+- Return ONLY the JSON array with no extra commentary.
+- Preserve 6‑12 nodes covering the major concepts.
+- The value of "type" MUST be exactly one of: material, structure, process, property (lowercase).
+- Merge duplicates; list all contributing source node names.
+- If a node combines insights from multiple sections, include each section in "evidence_sections".
+
+Example response:
+[
+  {
+    "name": "192-mer recombinant fibers",
+    "type": "material",
+    "summary": "Highest molecular weight fibers that match natural dragline performance.",
+    "evidence_sections": ["results"],
+    "source_nodes": ["192-mer spidroin fibers", "high molecular weight fibers"]
+  },
+  {
+    "name": "fiber tensile strength",
+    "type": "property",
+    "summary": "Mechanical property that scales with spidroin length and post-drawing.",
+    "evidence_sections": ["results"],
+    "source_nodes": ["fiber tensile strength"]
+  }
+]
+

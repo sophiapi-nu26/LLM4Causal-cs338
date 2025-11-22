@@ -1,0 +1,38 @@
+You are an expert scientific reader. Analyze the abstract below and return ONLY a JSON array describing the most central nodes (concepts, variables, or entities) in the paper.
+
+User query focus: {user_query}
+Prioritize nodes that help answer this request.
+
+Output requirements (return valid JSON exactly in this format):
+[
+  {
+    "name": "concise node name",
+    "type": "material|structure|process|property",
+    "summary": "one sentence describing why this node matters"
+  }
+]
+
+Rules:
+- Return the array directly with no preamble or commentary.
+- The value of "type" MUST be exactly one of: material, structure, process, property (lowercase).
+- Include 3‑6 nodes that capture the core story of the abstract.
+- Use consistent casing for node names.
+- Do not invent information that is not in the abstract.
+
+Example response:
+[
+  {
+    "name": "recombinant spidroins",
+    "type": "material",
+    "summary": "High-molecular-weight proteins produced microbially that mimic native spider silk components."
+  },
+  {
+    "name": "dragline silk mechanical properties",
+    "type": "property",
+    "summary": "Performance benchmarks the synthetic fibers aim to match."
+  }
+]
+
+Abstract:
+{abstract}
+

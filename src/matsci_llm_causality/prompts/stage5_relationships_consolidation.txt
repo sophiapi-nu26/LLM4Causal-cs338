@@ -1,0 +1,55 @@
+You are consolidating edge proposals from multiple reviewers. Each reviewer supplied a JSON array of edges. Produce a combined list that includes how many reviewers agreed on each edge.
+
+User query focus: {user_query}
+Highlight edges most relevant to this request and keep all proposed relationships (with counts).
+
+Input edge proposals:
+{raw_edge_lists}
+
+Output requirements:
+{
+  "edges": [
+    {
+      "source": "node name",
+      "target": "node name",
+      "relation": "increases|decreases|causes|positively correlates with|negatively correlates with",
+      "count": 3,
+      "evidence_samples": ["short quote 1", "short quote 2"],
+      "sections": ["results", "discussion"]
+    }
+  ]
+}
+
+Rules:
+- Return ONLY the JSON object shown above.
+- Do not remove edges; every proposed edge must appear at least once with count ≥ 1.
+- Merge edges that share the same source, target, and relation (case-insensitive).
+- Aggregate representative evidence snippets and section labels from the contributing reviewers.
+
+Example response:
+{
+  "edges": [
+    {
+      "source": "192-mer recombinant fibers",
+      "target": "fiber tensile strength",
+      "relation": "positively correlates with",
+      "count": 1,
+      "evidence_samples": [
+        "Increasing spidroin length from 96-mer to 192-mer correlated with higher tensile strength."
+      ],
+      "sections": ["results"]
+    },
+    {
+      "source": "post-draw alignment",
+      "target": "fiber tensile strength",
+      "relation": "increases",
+      "count": 2,
+      "evidence_samples": [
+        "Post-drawn fibers exhibited higher tensile strength due to improved chain orientation.",
+        "The drawing step aligned polymer chains, increasing strength."
+      ],
+      "sections": ["results", "discussion"]
+    }
+  ]
+}
+
