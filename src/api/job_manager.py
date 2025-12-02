@@ -42,6 +42,7 @@ class JobType(str, Enum):
     "Valid job types in current system"
     RETRIEVAL="retrieval"
     EXTRACTION="extraction"
+    MULTI_EXTRACTION="multi_extraction"
 
 @dataclass
 class Job:

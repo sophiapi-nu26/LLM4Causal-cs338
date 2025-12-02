@@ -142,3 +142,60 @@ class ExtractSingle(Resource):
                 "n_runs": n_runs
             }
         }, 202
+
+@api.route('/extract-graph/multi')
+class ExtractMulti(Resource):
+    @api.expect(api.model('ExtractMulti', {
+        'run_id': fields.String(required=True, description='Run ID containing papers'),
+        'paper_ids': fields.List(fields.String, required=True, description='List of paper IDs'),
+        'n_runs': fields.Integer(default=5, min=1, max=10, description='Monte Carlo runs per paper')
+    }))
+    @api.response(202, 'Multi-extraction job submitted', job_response)
+    @api.response(400, 'Validation error')
+
+    def post(self):
+        """Submit multi-paper Monte Carlo extraction job"""
+        job_manager = current_app.job_manager
+        worker = current_app.worker
+        data = request.json
+
+        # Validation
+        if not data:
+            api.abort(400, "Request body is required")
+
+        run_id = data.get('run_id')
+        paper_ids = data.get('paper_ids')
+
+        if not run_id:
+            api.abort(400, "run_id is required")
+        if not paper_ids or not isinstance(paper_ids, list) or len(paper_ids) == 0:
+            api.abort(400, "paper_ids must be a non-empty list")
+        if len(paper_ids) > 20:
+            api.abort(400, "paper_ids cannot exceed 20 papers")
+
+        n_runs = data.get('n_runs', 5)
+        if not isinstance(n_runs, int) or n_runs < 1 or n_runs > 10:
+            api.abort(400, "n_runs must be an integer between 1 and 10")
+
+        # Create job
+        job_id = datetime.now(UTC).strftime("extract_multi_%Y-%m-%d_%H%M%S")
+        job_manager.create_job(job_id, f"{len(paper_ids)} papers", JobType.MULTI_EXTRACTION)
+
+        # Submit to worker
+        worker.submit_job(job_id, {
+            'run_id': run_id,
+            'paper_ids': paper_ids,
+            'n_runs': n_runs
+        })
+
+        return {
+            "job_id": job_id,
+            "status": "queued",
+            "status_url": f"/api/v1/jobs/{job_id}",
+            "extraction_params": {
+                "run_id": run_id,
+                "paper_count": len(paper_ids),
+                "paper_ids": paper_ids,
+                "n_runs": n_runs
+            }
+        }, 202
