@@ -3,7 +3,9 @@ import queue
 import time
 import logging
 import os
+import json
 from datetime import datetime, UTC
+from .job_manager import JobType
 
 logger = logging.getLogger(__name__)
 
@@ -36,8 +38,16 @@ class JobWorker:
                 # Update status to running (persists to GCS)
                 self.job_manager.update_status(job_id, "running")
 
-                # Run retrieval
-                results = self._run_retrieval(job_id, params)
+                # Get job to check its type
+                job = self.job_manager.get_job(job_id)
+
+                # Route to correct handler based on job type
+                if job.job_type == JobType.RETRIEVAL:
+                    results = self._run_retrieval(job_id, params)
+                elif job.job_type == JobType.EXTRACTION:
+                    results = self._run_extraction(job_id, params)
+                else:
+                    raise ValueError(f"Unknown job type: {job.job_type}")
 
                 # Log performance summary (if timing enabled)
                 if ENABLE_TIMERS:
@@ -84,10 +94,32 @@ class JobWorker:
             max_results=params.get("max_results", 20),
             year_min=params.get("year_min"),
             parse_pdfs=params.get("parse_pdfs", True),
-            progress_callback=progress_callback
+            progress_callback=progress_callback,
+            run_id=job_id  # Use job_id as run_id for consistent naming
         )
         return results
-        
 
+    def _run_extraction(self, job_id, params):
+        """Run Monte Carlo extraction on a parsed paper."""
+        from matsci_llm_causality.models.llm.monte_carlo_extractor import run_extraction
 
+        logger.info(f"Starting extraction for paper {params['paper_id']}")
+
+        # Progress callback to update job status
+        def progress_callback(stage, status):
+            self.job_manager.update_progress(job_id, {
+                "stage": stage,
+                "status": status
+            })
+
+        # Call the extraction module (handles everything internally)
+        results = run_extraction(
+            run_id=params['run_id'],
+            paper_id=params['paper_id'],
+            job_id=job_id,
+            n_runs=params.get('n_runs', 5),
+            progress_callback=progress_callback
+        )
+
+        return results
 

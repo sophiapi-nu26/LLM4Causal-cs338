@@ -983,7 +983,7 @@ def _upload_run_metadata(papers: List[Paper], gcp_connector, run_id: str, query:
 
 
 def run_retrieval(query: str, max_results: int = 20, year_min: Optional[int] = None,
-                  parse_pdfs: bool = True, progress_callback=None) -> dict:
+                  parse_pdfs: bool = True, progress_callback=None, run_id: Optional[str] = None) -> dict:
     """
     API-friendly entry point for article retrieval.
 
@@ -995,6 +995,7 @@ def run_retrieval(query: str, max_results: int = 20, year_min: Optional[int] = N
         year_min: Optional minimum publication year filter
         parse_pdfs: Whether to parse PDFs and upload to cloud (default: True)
         progress_callback: Optional callback(current, total, paper_title) for progress updates
+        run_id: Optional run identifier. If not provided, generates one with "run_" prefix
 
     Returns:
         Dictionary with:
@@ -1002,13 +1003,14 @@ def run_retrieval(query: str, max_results: int = 20, year_min: Optional[int] = N
             "papers": [...],  # List of paper dicts with full parsed JSON data
             "summary": {...},  # Statistics summary
             "run_metadata": {...},  # Query and filter info
-            "gcs_path": "parsed/run_XXX/"  # GCS location
+            "gcs_path": "parsed/{run_id}/"  # GCS location
         }
     """
     from datetime import datetime, UTC
 
-    # Generate run ID
-    run_id = datetime.now(UTC).strftime("run_%Y-%m-%d_%H%M%S")
+    # Generate run ID if not provided
+    if run_id is None:
+        run_id = datetime.now(UTC).strftime("run_%Y-%m-%d_%H%M%S")
 
     # Get Semantic Scholar API key from environment
     ss_api_key = os.getenv("SEMANTIC_SCHOLAR_KEY")

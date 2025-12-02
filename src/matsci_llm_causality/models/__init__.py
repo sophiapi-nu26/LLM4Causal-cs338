@@ -6,32 +6,25 @@ from typing import Dict, Type, Any, Optional
 from abc import ABC, abstractmethod
 
 from ..schema import ModelConfig, ExtractionResult
-from .base import (
-    BaseLLM,
-    create_model, 
-    list_models,
-    register_model
-)
-from .llm.flan import FlanT5Model
-from .llm.gpt import GPT5RelationExtractor
-from .llm.gemini import GeminiImageRelationExtractor, GeminiTableRelationExtractor
+from .base import BaseLLM
+
+# Legacy imports (commented out - not used by Monte Carlo API)
+# from .base import create_model, list_models, register_model
+# from .llm.flan import FlanT5Model
+# from .llm.gpt import GPT5RelationExtractor
+# from .llm.gemini import GeminiImageRelationExtractor, GeminiTableRelationExtractor
+# from .scibert import SciBERTEntityRecognizer
+
+# Monte Carlo extractor (used by API)
 from .llm.monte_carlo_extractor import MonteCarloEvidenceExtractor
-from .scibert import SciBERTEntityRecognizer
+from .llm.gemini import GeminiTextRelationExtractor
 
 __all__ = [
     'BaseLLM',
-    'create_model',
-    'list_models',
-    'register_model',
-    'FlanT5Model',
-    'GPT5RelationExtractor',
-    'GeminiImageRelationExtractor',
-    'GeminiTableRelationExtractor',
     'MonteCarloEvidenceExtractor',
-    'SciBERTEntityRecognizer',
+    'GeminiTextRelationExtractor',
     'ModelConfig',
     'ExtractionResult',
-    'LlamaRelationExtractor',
 ]
 
 # Dictionary of available models

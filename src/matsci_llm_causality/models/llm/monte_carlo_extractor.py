@@ -11,13 +11,16 @@ from typing import List, Dict, Set, Tuple, Optional, Any
 from collections import defaultdict, Counter
 import random
 import json
+import logging
 from dataclasses import dataclass
 from difflib import SequenceMatcher
+from datetime import datetime, UTC
 
 from google import genai
 from google.genai import types, errors
+import google.auth
 from ...schema import (
-    Entity, EntityType, Relationship, RelationType, 
+    Entity, EntityType, Relationship, RelationType,
     ModelConfig, ExtractionResult
 )
 from ..base import BaseLLM
@@ -27,6 +30,8 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass
@@ -81,12 +86,20 @@ class MonteCarloEvidenceExtractor(BaseLLM):
         self.n_runs = n_runs
         self.confidence_threshold = confidence_threshold
         self.entity_similarity_threshold = entity_similarity_threshold
-        
-        # Initialize Gemini client for entity consolidation
-        api_key = os.getenv('GEMINI_API_KEY')
-        if not api_key:
-            raise ValueError("GEMINI_API_KEY environment variable is required")
-        self.client = genai.Client()
+
+        # Initialize Gemini client for entity consolidation using Vertex AI
+        credentials, project_id = google.auth.default()
+        if not project_id:
+            raise ValueError(
+                "Unable to determine GCP project. "
+                "Run 'gcloud auth application-default login' and ensure a project is set."
+            )
+
+        self.client = genai.Client(
+            vertexai=True,
+            project=project_id,
+            location='us-central1'
+        )
     
     def extract_relations_with_evidence(self, text: str) -> MonteCarloResult:
         """Extract relationships using Monte Carlo sampling for evidence gathering.
@@ -97,7 +110,7 @@ class MonteCarloEvidenceExtractor(BaseLLM):
         Returns:
             MonteCarloResult with evidence-based entities and relationships
         """
-        print(f"Starting Monte Carlo extraction with {self.n_runs} runs...")
+        logger.info(f"Starting Monte Carlo extraction with {self.n_runs} runs...")
         
         # Stage 1: Multiple runs to gather evidence
         raw_runs = self._stage1_multiple_runs(text)
@@ -130,12 +143,11 @@ class MonteCarloEvidenceExtractor(BaseLLM):
     
     def _stage1_multiple_runs(self, text: str) -> List[List[Dict[str, Any]]]:
         """Stage 1: Run multiple extractions with varying parameters."""
-        print("Stage 1: Running multiple extractions...")
-        print("-" * 50)
+        logger.info("Stage 1: Running multiple extractions...")
         raw_runs = []
-        
+
         for i in range(self.n_runs):
-            print(f"Running extraction {i+1}/{self.n_runs}...")
+            logger.info(f"Running extraction {i+1}/{self.n_runs}...")
             
             # Vary temperature slightly for diversity
             temp = 0.3 + (i * 0.1) % 0.4  # Range: 0.3-0.7
@@ -162,10 +174,10 @@ class MonteCarloEvidenceExtractor(BaseLLM):
                 
                 # relationships is already in dictionary format from parse_relationships
                 raw_runs.append(relationships)
-                print(f"  Found {len(relationships)} relationships")
-                
+                logger.info(f"  Found {len(relationships)} relationships")
+
             except Exception as e:
-                print(f"  Error in run {i+1}: {e}")
+                logger.error(f"  Error in run {i+1}: {e}")
                 raw_runs.append([])
             
             finally:
@@ -176,16 +188,15 @@ class MonteCarloEvidenceExtractor(BaseLLM):
     
     def _stage2_consolidate_entities(self, raw_runs: List[List[Dict]], text: str) -> List[EntityEvidence]:
         """Stage 2: Consolidate entities using LLM-based clustering."""
-        print("Stage 2: Consolidating entities...")
-        print("-" * 50)
-        
+        logger.info("Stage 2: Consolidating entities...")
+
         # Collect all unique entities from all runs
         all_entities = self._collect_all_entities(raw_runs)
-        
+
         # Use LLM to consolidate similar entities
         consolidated_entities = self._llm_consolidate_entities(all_entities, text)
-        
-        print(f"Consolidated {len(all_entities)} entities into {len(consolidated_entities)} canonical entities")
+
+        logger.info(f"Consolidated {len(all_entities)} entities into {len(consolidated_entities)} canonical entities")
         return consolidated_entities
     
     def _collect_all_entities(self, raw_runs: List[List[Dict]]) -> List[Dict[str, Any]]:
@@ -232,8 +243,8 @@ class MonteCarloEvidenceExtractor(BaseLLM):
                 model="gemini-2.5-flash",
                 contents=[prompt]
             ))
-            
-            print(f"LLM Response: {response.text[:200]}...")  # Debug output
+
+            logger.debug(f"LLM Response: {response.text[:200]}...")  # Debug output
             
             # Extract JSON from markdown code blocks if present
             json_text = response.text.strip()
@@ -267,14 +278,14 @@ class MonteCarloEvidenceExtractor(BaseLLM):
                 consolidated_entities.append(evidence)
             
             return consolidated_entities
-            
+
         except json.JSONDecodeError as e:
-            print(f"JSON parsing error in LLM entity consolidation: {e}")
-            print(f"Response was: {response.text}")
+            logger.error(f"JSON parsing error in LLM entity consolidation: {e}")
+            logger.debug(f"Response was: {response.text}")
             # Fallback to simple frequency-based consolidation
             return self._fallback_entity_consolidation(entities)
         except Exception as e:
-            print(f"Error in LLM entity consolidation: {e}")
+            logger.error(f"Error in LLM entity consolidation: {e}")
             # Fallback to simple frequency-based consolidation
             return self._fallback_entity_consolidation(entities)
     
@@ -363,8 +374,7 @@ class MonteCarloEvidenceExtractor(BaseLLM):
         consolidated_entities: List[EntityEvidence]
     ) -> List[RelationshipEvidence]:
         """Stage 3: Validate relationships against consolidated entities."""
-        print("Stage 3: Validating relationships...")
-        print("-" * 50)
+        logger.info("Stage 3: Validating relationships...")
         
         # Map entity names to consolidated entities
         # Include both raw variations and cleaned versions for better matching
@@ -418,7 +428,7 @@ class MonteCarloEvidenceExtractor(BaseLLM):
                 )
                 relationship_evidence.append(evidence)
         
-        print(f"Validated {len(relationship_evidence)} relationships")
+        logger.info(f"Validated {len(relationship_evidence)} relationships")
         return relationship_evidence
     
     def _find_matching_entity(self, entity_name: str, entity_map: Dict[str, EntityEvidence]) -> Optional[EntityEvidence]:
@@ -451,7 +461,7 @@ class MonteCarloEvidenceExtractor(BaseLLM):
     
     def build_causal_graph(self, result: MonteCarloResult) -> Dict[str, Any]:
         """Build a mathematical causal graph from the evidence."""
-        print("Building mathematical causal graph...")
+        logger.info("Building mathematical causal graph...")
         
         # Create adjacency matrix representation
         entities = result.entities
@@ -601,3 +611,263 @@ class MonteCarloEvidenceExtractor(BaseLLM):
     def _process_response(self, response: Any) -> List[Relationship]:
         """Process response from the base extractor (delegates to base extractor)."""
         return self.base_extractor._process_response(response)
+
+
+# =======================
+# Module-Level Functions
+# =======================
+
+def convert_to_cytoscape(mc_result, causal_graph, paper_id) -> dict:
+    """
+    Convert Monte Carlo results to Cytoscape format.
+
+    Matches the format from graph_renderer.py for consistency with Python visualization.
+
+    Args:
+        mc_result: MonteCarloResult with entities and relationships
+        causal_graph: Causal graph data from build_causal_graph()
+        paper_id: Paper identifier
+
+    Returns:
+        dict: Cytoscape graph data with elements (nodes, edges) and metadata
+    """
+    # Color schemes matching graph_renderer.py
+    NODE_COLORS = {
+        "material": "#4f81bd",
+        "process": "#f79646",
+        "structure": "#9bbb59",
+        "property": "#8064a2",
+    }
+
+    EDGE_COLORS = {
+        "increases": "#4caf50",
+        "decreases": "#e53935",
+        "causes": "#fb8c00",
+        "positively correlates with": "#00897b",
+        "negatively correlates with": "#ad1457",
+    }
+
+    nodes = []
+    edges = []
+
+    # Convert entities to nodes
+    for idx, entity in enumerate(mc_result.entities):
+        # Sanitize ID (remove special chars)
+        sanitized_name = "".join(ch if ch.isalnum() else "_" for ch in entity.canonical_name.lower())
+        node_id = f"{paper_id}_node_{idx}_{sanitized_name}"
+        entity_type = entity.entity_type.value.lower()
+
+        nodes.append({
+            "data": {
+                "id": node_id,
+                "label": entity.canonical_name,
+                "type": entity_type,
+                "summary": f"Appears {entity.frequency} times across extractions",
+                "variations": entity.variations,
+                "frequency": entity.frequency,
+                "confidence": entity.confidence,
+                "color": NODE_COLORS.get(entity_type, "#607d8b"),
+            }
+        })
+
+    # Build entity name to node ID mapping
+    name_to_id = {}
+    for node in nodes:
+        label = node["data"]["label"]
+        node_id = node["data"]["id"]
+        name_to_id[label] = node_id
+        name_to_id[label.lower()] = node_id
+
+    # Convert relationships to edges
+    for idx, relationship in enumerate(mc_result.relationships):
+        source_name = relationship.subject.canonical_name
+        target_name = relationship.object.canonical_name
+
+        # Find source and target node IDs
+        source_id = name_to_id.get(source_name) or name_to_id.get(source_name.lower())
+        target_id = name_to_id.get(target_name) or name_to_id.get(target_name.lower())
+
+        if not source_id or not target_id:
+            logger.warning(f"Skipping edge: couldn't find nodes for {source_name} -> {target_name}")
+            continue
+
+        # Sanitize edge ID
+        sanitized_source = "".join(ch if ch.isalnum() else "_" for ch in source_name.lower())
+        sanitized_target = "".join(ch if ch.isalnum() else "_" for ch in target_name.lower())
+        edge_id = f"{paper_id}_edge_{idx}_{sanitized_source}_{sanitized_target}"
+
+        relation_type = relationship.relation_type.value.lower()
+
+        edges.append({
+            "data": {
+                "id": edge_id,
+                "source": source_id,
+                "target": target_id,
+                "relation": relationship.relation_type.value,
+                "frequency": relationship.frequency,
+                "confidence": relationship.confidence,
+                "count": relationship.frequency,
+                "color": EDGE_COLORS.get(relation_type, "#546e7a"),
+                "evidence": [],  # Could add evidence samples if needed
+            }
+        })
+
+    return {
+        "elements": {
+            "nodes": nodes,
+            "edges": edges
+        },
+        "metadata": {
+            "paper_id": paper_id,
+            "num_entities": len(mc_result.entities),
+            "num_relationships": len(mc_result.relationships),
+            "num_nodes": len(nodes),
+            "num_edges": len(edges),
+            "graph_metrics": causal_graph.get("graph_metrics", {}),
+        }
+    }
+
+
+def run_extraction(
+    run_id: str,
+    paper_id: str,
+    job_id: str,
+    n_runs: int = 5,
+    confidence_threshold: float = 0.6,
+    progress_callback=None
+) -> dict:
+    """
+    Run Monte Carlo extraction on a single paper with GCS persistence.
+
+    This is the main entry point for the extraction workflow.
+    Follows the same pattern as document_preparation.article_retriever.run_retrieval()
+
+    Args:
+        run_id: Retrieval run ID (e.g., "retrieve_2025-12-01_143022")
+        paper_id: Paper ID (e.g., "W1234567890")
+        job_id: Extraction job ID (e.g., "extract_2025-12-01_143022")
+        n_runs: Number of Monte Carlo runs (default: 5)
+        confidence_threshold: Minimum confidence for relationships (default: 0.6)
+        progress_callback: Optional callback(stage, status) for progress updates
+
+    Returns:
+        dict: Cytoscape graph data with nodes, edges, and metadata
+
+    Raises:
+        FileNotFoundError: If parsed data not found in GCS
+        ValueError: If text quality is insufficient
+    """
+    from document_preparation.gcp_connector import GCPBucketConnector
+
+    # Quality thresholds
+    MIN_TEXT_LENGTH = 2000  # ~400 words, more than just abstract
+    MIN_SECTIONS = 3  # Should have intro, methods, results at minimum
+
+    # Step 1: Fetch parsed paper from GCS
+    if progress_callback:
+        progress_callback("fetching", "Fetching parsed paper from GCS...")
+
+    logger.info(f"Starting extraction for paper {paper_id} from run {run_id}")
+
+    gcs_connector = GCPBucketConnector()
+    try:
+        parsed_data = gcs_connector.download_parsed_data_from_run(run_id, paper_id)
+    except FileNotFoundError:
+        raise FileNotFoundError(
+            f"Parsed data not found for paper {paper_id} in run {run_id}. "
+            f"Paper may not have been retrieved/parsed yet."
+        )
+
+    # Step 2: Validate text quality
+    if progress_callback:
+        progress_callback("validation", "Validating text quality...")
+
+    text = parsed_data.get('full_text', '')
+    sections = parsed_data.get('sections', [])
+
+    if len(text) < MIN_TEXT_LENGTH:
+        raise ValueError(
+            f"Insufficient text content ({len(text)} chars, minimum {MIN_TEXT_LENGTH}). "
+            f"Paper likely contains only abstract or failed to extract fully."
+        )
+
+    if len(sections) < MIN_SECTIONS:
+        logger.warning(
+            f"Low section count ({len(sections)}). Results may be limited. "
+            f"Paper may only contain abstract and introduction."
+        )
+
+    logger.info(f"Validated text quality: {len(text)} chars, {len(sections)} sections")
+
+    # Step 3: Initialize and run Monte Carlo extraction
+    if progress_callback:
+        progress_callback("extraction", "Running Monte Carlo extraction...")
+
+    logger.info(f"Initializing Monte Carlo extractor with {n_runs} runs")
+
+    base_extractor = GeminiTextRelationExtractor()
+    monte_carlo_extractor = MonteCarloEvidenceExtractor(
+        base_extractor=base_extractor,
+        n_runs=n_runs,
+        confidence_threshold=confidence_threshold,
+        entity_similarity_threshold=0.8
+    )
+
+    mc_result = monte_carlo_extractor.extract_relations_with_evidence(text)
+
+    logger.info(
+        f"Extraction complete: {len(mc_result.entities)} entities, "
+        f"{len(mc_result.relationships)} relationships"
+    )
+
+    # Step 4: Build causal graph
+    if progress_callback:
+        progress_callback("graph_building", "Building causal graph...")
+
+    causal_graph = monte_carlo_extractor.build_causal_graph(mc_result)
+
+    # Step 5: Convert to Cytoscape format
+    graph_data = convert_to_cytoscape(mc_result, causal_graph, paper_id)
+
+    logger.info(
+        f"Graph data prepared: {len(graph_data['elements']['nodes'])} nodes, "
+        f"{len(graph_data['elements']['edges'])} edges"
+    )
+
+    # Step 6: Upload to GCS for persistence
+    if progress_callback:
+        progress_callback("uploading", "Uploading results to GCS...")
+
+    try:
+        # Upload graph data
+        blob_name = f"extraction/{job_id}/graph_data.json"
+        blob = gcs_connector.bucket.blob(blob_name)
+        blob.upload_from_string(
+            json.dumps(graph_data, indent=2),
+            content_type="application/json"
+        )
+
+        # Upload metadata
+        metadata = {
+            "job_id": job_id,
+            "run_id": run_id,
+            "paper_id": paper_id,
+            "n_runs": n_runs,
+            "timestamp": datetime.now(UTC).isoformat(),
+            "num_entities": len(mc_result.entities),
+            "num_relationships": len(mc_result.relationships)
+        }
+        blob_name = f"extraction/{job_id}/metadata.json"
+        blob = gcs_connector.bucket.blob(blob_name)
+        blob.upload_from_string(
+            json.dumps(metadata, indent=2),
+            content_type="application/json"
+        )
+
+        logger.info(f"Saved extraction results to GCS: extraction/{job_id}/")
+
+    except Exception as e:
+        logger.error(f"Failed to upload extraction results to GCS: {e}")
+        # Don't fail the job if GCS upload fails, just log the error
+
+    return graph_data
