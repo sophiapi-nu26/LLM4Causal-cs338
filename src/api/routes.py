@@ -18,7 +18,13 @@ extract_single_schema = api.model('ExtractSingle', {
     'run_id': fields.String(required=True, description='Unique run identifier containing desired paper'),
     'paper_id': fields.String(required=True, description='Specific paper found under given job run'),
     'n_runs': fields.Integer(default=5, min=1, max=10, description='Number of Monte Carlo extraction runs')
-    })
+})
+
+extract_multi_schema = api.model('ExtractMulti', {
+    'run_id': fields.String(required=True, description='Run ID containing papers'),
+    'paper_ids': fields.List(fields.String, required=True, description='List of paper IDs'),
+    'n_runs': fields.Integer(default=5, min=1, max=10, description='Monte Carlo runs per paper')
+})
 
 job_response = api.model('JobResponse', {
     'job_id': fields.String(description='Unique job identifier'),
@@ -145,11 +151,7 @@ class ExtractSingle(Resource):
 
 @api.route('/extract-graph/multi')
 class ExtractMulti(Resource):
-    @api.expect(api.model('ExtractMulti', {
-        'run_id': fields.String(required=True, description='Run ID containing papers'),
-        'paper_ids': fields.List(fields.String, required=True, description='List of paper IDs'),
-        'n_runs': fields.Integer(default=5, min=1, max=10, description='Monte Carlo runs per paper')
-    }))
+    @api.expect(extract_multi_schema)
     @api.response(202, 'Multi-extraction job submitted', job_response)
     @api.response(400, 'Validation error')
 

@@ -1,91 +1,183 @@
 import React, { useState } from 'react';
-import { Search, FileText, Network, Loader2, Clock, CheckCircle, AlertCircle, X, ExternalLink } from 'lucide-react';
+import { Network, AlertCircle, FileText } from 'lucide-react';
+import SearchBar from './components/SearchBar';
+import InlineProgressBar from './components/InlineProgressBar';
+import PaperList from './components/PaperList';
+import SelectionToolbar from './components/SelectionToolbar';
+import { api } from './services/api';
+import { useJobPoller } from './hooks/useJobPoller';
+import { transformPapers } from './utils/transformers';
 
 export default function CausalGraphSearch() {
+  // Search state
   const [query, setQuery] = useState('');
+  const [yearMin, setYearMin] = useState(2020);
+  const [maxResults, setMaxResults] = useState(20);
   const [isSearching, setIsSearching] = useState(false);
+
+  // Job management
+  const [currentJobId, setCurrentJobId] = useState(null);
+  const [currentRunId, setCurrentRunId] = useState(null); // job_id IS run_id for retrieval
+
+  // Papers
   const [papers, setPapers] = useState([]);
   const [selectedPaper, setSelectedPaper] = useState(null);
-  const [showStatusModal, setShowStatusModal] = useState(false);
-  const [statusPaper, setStatusPaper] = useState(null);
 
-  // Mock data for demonstration - replace with actual API
-  const handleSearch = () => {
+  // Selection state
+  const [selectedPaperIds, setSelectedPaperIds] = useState([]);
+
+  // Extraction state
+  const [nRuns, setNRuns] = useState(3);
+  const [isExtracting, setIsExtracting] = useState(false);
+  const [extractionJobId, setExtractionJobId] = useState(null);
+  const [extractionResults, setExtractionResults] = useState(null);
+
+  // Error handling
+  const [error, setError] = useState(null);
+
+  // API integration for search
+  const handleSearch = async () => {
     if (!query.trim()) return;
+
     setIsSearching(true);
-    
-    // Simulate API call
-    setTimeout(() => {
-      setPapers([
-        { 
-          id: 1, 
-          title: 'Mechanical Properties of Spider Silk',
-          authors: 'Smith et al.',
-          year: 2023,
-          status: 'completed',
-          pdfUrl: '#',
-          progress: {
-            retrieval: 100,
-            parsing: 100,
-            extraction: 100,
-            graph: 100
-          }
-        },
-        { 
-          id: 2, 
-          title: 'Causal Analysis of Steel Manufacturing',
-          authors: 'Johnson et al.',
-          year: 2024,
-          status: 'processing',
-          pdfUrl: '#',
-          progress: {
-            retrieval: 100,
-            parsing: 100,
-            extraction: 60,
-            graph: 0
-          }
-        },
-        { 
-          id: 3, 
-          title: 'Carbon Fiber Composite Materials',
-          authors: 'Lee et al.',
-          year: 2023,
-          status: 'completed',
-          pdfUrl: '#',
-          progress: {
-            retrieval: 100,
-            parsing: 100,
-            extraction: 100,
-            graph: 100
-          }
-        },
-      ]);
+    setError(null);
+    setPapers([]);
+
+    try {
+      // Call API with filters
+      const response = await api.submitRetrieval(query, maxResults, yearMin);
+
+      // Store job_id and run_id (they're the same for retrieval)
+      setCurrentJobId(response.job_id);
+      setCurrentRunId(response.job_id); // Important: job_id IS the run_id
+
+    } catch (err) {
+      console.error('Search error:', err);
+      setError(err.message);
       setIsSearching(false);
-    }, 1500);
+    }
   };
 
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter') handleSearch();
-  };
+  // Polling integration for retrieval
+  const { status, progress } = useJobPoller(
+    currentJobId,
+    (results) => {
+      // Success callback
+      console.log('Retrieval complete:', results);
+
+      // Transform and store papers
+      if (results && results.papers) {
+        const transformedPapers = transformPapers(results.papers);
+        setPapers(transformedPapers);
+      }
+
+      // Reset search state
+      setIsSearching(false);
+      setCurrentJobId(null);
+    },
+    (errorMsg) => {
+      // Error callback
+      console.error('Job failed:', errorMsg);
+      setError(errorMsg);
+      setIsSearching(false);
+      setCurrentJobId(null);
+    }
+  );
 
   const handlePaperClick = (paper) => {
     if (paper.status === 'completed') {
       setSelectedPaper(paper);
-    } else if (paper.status === 'processing') {
-      setStatusPaper(paper);
-      setShowStatusModal(true);
     }
   };
 
-  const getStatusIcon = (status) => {
-    if (status === 'completed') {
-      return <CheckCircle className="w-5 h-5 text-green-500" />;
-    } else if (status === 'processing') {
-      return <Clock className="w-5 h-5 text-yellow-500 animate-pulse" />;
-    } else {
-      return <AlertCircle className="w-5 h-5 text-red-500" />;
+  // Selection handlers
+  const handleToggleSelect = (paperId) => {
+    setSelectedPaperIds(prev => {
+      if (prev.includes(paperId)) {
+        return prev.filter(id => id !== paperId);
+      } else {
+        return [...prev, paperId];
+      }
+    });
+  };
+
+  const handleSelectAll = () => {
+    const selectablePapers = papers.filter(p => p.canExtract);
+    setSelectedPaperIds(selectablePapers.map(p => p.id));
+  };
+
+  const handleDeselectAll = () => {
+    setSelectedPaperIds([]);
+  };
+
+  // Extraction handler
+  const handleExtractSelected = async () => {
+    if (selectedPaperIds.length === 0) return;
+    if (!currentRunId) {
+      setError('No run_id available. Please search for papers first.');
+      return;
+    }
+
+    setIsExtracting(true);
+    setError(null);
+
+    try {
+      let response;
+
+      // Choose endpoint based on selection count
+      if (selectedPaperIds.length === 1) {
+        // Single-paper extraction
+        console.log('Calling single extraction for:', selectedPaperIds[0], 'with n_runs:', nRuns);
+        response = await api.extractSingle(
+          currentRunId,
+          selectedPaperIds[0],
+          nRuns
+        );
+      } else {
+        // Multi-paper extraction
+        console.log('Calling multi extraction for:', selectedPaperIds, 'with n_runs:', nRuns);
+        response = await api.extractMulti(
+          currentRunId,
+          selectedPaperIds,
+          nRuns
+        );
+      }
+
+      // Store extraction job ID
+      console.log('Extraction job started:', response.job_id);
+      setExtractionJobId(response.job_id);
+
+    } catch (err) {
+      console.error('Extraction error:', err);
+      setError(err.message);
+      setIsExtracting(false);
     }
   };
+
+  // Polling integration for extraction
+  const {
+    status: extractionStatus,
+    progress: extractionProgress
+  } = useJobPoller(
+    extractionJobId,
+    (results) => {
+      // Extraction complete
+      console.log('Extraction complete:', results);
+      setExtractionResults(results);
+      setIsExtracting(false);
+      setExtractionJobId(null);
+
+      // TODO Stage 4: Display graph visualization
+      alert('Extraction complete! Check console for results.');
+    },
+    (errorMsg) => {
+      // Extraction failed
+      console.error('Extraction failed:', errorMsg);
+      setError(errorMsg);
+      setIsExtracting(false);
+      setExtractionJobId(null);
+    }
+  );
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex flex-col">
@@ -103,209 +195,138 @@ export default function CausalGraphSearch() {
       </header>
 
       {/* Search Bar */}
-      <div className="bg-slate-800/30 border-b border-slate-700 px-6 py-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="relative">
-            <input
-              type="text"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              onKeyPress={handleKeyPress}
-              placeholder="e.g., mechanical properties of stainless steel"
-              className="w-full px-6 py-3 pr-14 rounded-lg bg-slate-800/80 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            />
-            <button
-              onClick={handleSearch}
-              disabled={isSearching}
-              className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-blue-600 hover:bg-blue-700 disabled:bg-slate-600 rounded-md transition-colors"
-            >
-              {isSearching ? (
-                <Loader2 className="w-5 h-5 text-white animate-spin" />
-              ) : (
-                <Search className="w-5 h-5 text-white" />
-              )}
-            </button>
+      <SearchBar
+        query={query}
+        onQueryChange={setQuery}
+        onSearch={handleSearch}
+        isSearching={isSearching}
+        yearMin={yearMin}
+        onYearMinChange={setYearMin}
+        maxResults={maxResults}
+        onMaxResultsChange={setMaxResults}
+      />
+
+      {/* Progress Bar Area - Below Search Bar */}
+      {(isSearching && currentJobId) || (isExtracting && extractionJobId) ? (
+        <div className="bg-slate-800/30 border-b border-slate-700 px-6 py-4">
+          <div className="max-w-4xl mx-auto">
+            {isSearching && currentJobId ? (
+              <InlineProgressBar
+                jobType="retrieval"
+                progress={progress}
+                status={status}
+              />
+            ) : isExtracting && extractionJobId ? (
+              <InlineProgressBar
+                jobType="extraction"
+                progress={extractionProgress}
+                status={extractionStatus}
+              />
+            ) : null}
           </div>
         </div>
-      </div>
+      ) : null}
 
       {/* Main Content Area */}
       <div className="flex-1 flex overflow-hidden">
         {/* Left Sidebar - Paper List */}
-        <div className="w-80 bg-slate-800/30 border-r border-slate-700 overflow-y-auto">
-          <div className="p-4">
-            <h2 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-              <FileText className="w-5 h-5" />
-              Papers ({papers.length})
-            </h2>
-            
-            {papers.length === 0 ? (
-              <div className="text-center py-12 text-slate-400">
-                <FileText className="w-12 h-12 mx-auto mb-3 opacity-50" />
-                <p className="text-sm">Search for papers to begin</p>
-              </div>
-            ) : (
-              <div className="space-y-2">
-                {papers.map((paper) => (
-                  <button
-                    key={paper.id}
-                    onClick={() => handlePaperClick(paper)}
-                    className={`w-full text-left p-3 rounded-lg border transition-all ${
-                      selectedPaper?.id === paper.id
-                        ? 'bg-blue-500/20 border-blue-500'
-                        : 'bg-slate-700/50 border-slate-600 hover:border-slate-500'
-                    }`}
-                  >
-                    <div className="flex items-start gap-3">
-                      <div className="mt-1">
-                        {getStatusIcon(paper.status)}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h3 className="font-medium text-white text-sm mb-1 line-clamp-2">
-                          {paper.title}
-                        </h3>
-                        <p className="text-xs text-slate-400">
-                          {paper.authors} • {paper.year}
-                        </p>
-                        {paper.status === 'processing' && (
-                          <p className="text-xs text-yellow-400 mt-1">
-                            Processing...
-                          </p>
-                        )}
-                      </div>
-                    </div>
-                  </button>
-                ))}
-              </div>
-            )}
+        <div className="w-1/2 bg-slate-800/30 border-r border-slate-700 flex flex-col">
+          {/* Selection Toolbar */}
+          {papers.length > 0 && (
+            <SelectionToolbar
+              selectedCount={selectedPaperIds.length}
+              totalCount={papers.filter(p => p.canExtract).length}
+              onSelectAll={handleSelectAll}
+              onDeselectAll={handleDeselectAll}
+              onExtract={handleExtractSelected}
+              isExtracting={isExtracting}
+              nRuns={nRuns}
+              onNRunsChange={setNRuns}
+            />
+          )}
+
+          {/* Paper List */}
+          <div className="flex-1 overflow-y-auto p-4">
+            <PaperList
+              papers={papers}
+              selectedPaperIds={selectedPaperIds}
+              onToggleSelect={handleToggleSelect}
+              activePaperId={selectedPaper?.id}
+              onPaperClick={setSelectedPaper}
+            />
           </div>
         </div>
 
         {/* Right Content Area */}
         <div className="flex-1 overflow-y-auto">
           {selectedPaper ? (
-            <div className="p-6 space-y-6">
-              {/* Paper Info */}
-              <div className="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <h2 className="text-2xl font-bold text-white mb-2">
-                      {selectedPaper.title}
-                    </h2>
-                    <p className="text-slate-400">
-                      {selectedPaper.authors} • {selectedPaper.year}
-                    </p>
-                  </div>
-                  <a
-                    href={selectedPaper.pdfUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    Open PDF
-                  </a>
-                </div>
-              </div>
-
-              {/* Graph Visualization */}
-              <div className="bg-slate-800/50 rounded-lg p-8 border border-slate-700">
-                <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
-                  <Network className="w-6 h-6 text-blue-400" />
-                  Causal Graph
-                </h3>
-                <div className="aspect-video bg-slate-900/50 rounded-lg border-2 border-dashed border-slate-600 flex items-center justify-center">
-                  <div className="text-center">
-                    <Network className="w-16 h-16 text-slate-500 mx-auto mb-3" />
-                    <p className="text-slate-400">Graph visualization will render here</p>
-                    <p className="text-sm text-slate-500 mt-2">Process → Structure → Property relationships</p>
-                  </div>
-                </div>
+            <PaperDetailView paper={selectedPaper} />
+          ) : error ? (
+            <div className="h-full flex items-center justify-center p-6">
+              <div className="text-center max-w-md">
+                <AlertCircle className="w-16 h-16 text-red-500 mx-auto mb-4" />
+                <h3 className="text-xl font-semibold text-white mb-2">Error</h3>
+                <p className="text-red-400 mb-4">{error}</p>
+                <button
+                  onClick={() => setError(null)}
+                  className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+                >
+                  Dismiss
+                </button>
               </div>
             </div>
           ) : (
             <div className="h-full flex items-center justify-center p-6">
-              <div className="text-center max-w-md">
-                <Network className="w-20 h-20 text-slate-600 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-white mb-2">
-                  No Paper Selected
-                </h3>
-                <p className="text-slate-400">
-                  {papers.length === 0 
-                    ? 'Search for materials to get started'
-                    : 'Select a paper from the left sidebar to view details and graph'}
-                </p>
+              <div className="text-center text-slate-400">
+                <FileText className="w-12 h-12 mx-auto mb-3 opacity-50" />
+                <p className="text-sm">Select a paper to view abstract</p>
               </div>
             </div>
           )}
         </div>
       </div>
 
-      {/* Status Modal */}
-      {showStatusModal && statusPaper && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <div className="bg-slate-800 rounded-xl border border-slate-700 max-w-md w-full p-6">
-            <div className="flex items-start justify-between mb-4">
-              <div>
-                <h3 className="text-xl font-bold text-white mb-1">Processing Status</h3>
-                <p className="text-sm text-slate-400">{statusPaper.title}</p>
-              </div>
-              <button
-                onClick={() => setShowStatusModal(false)}
-                className="text-slate-400 hover:text-white transition-colors"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            <div className="space-y-4">
-              {/* Progress Steps */}
-              <div className="space-y-3">
-                <ProgressStep 
-                  label="PDF Retrieval" 
-                  progress={statusPaper.progress.retrieval} 
-                />
-                <ProgressStep 
-                  label="Content Parsing" 
-                  progress={statusPaper.progress.parsing} 
-                />
-                <ProgressStep 
-                  label="Entity Extraction" 
-                  progress={statusPaper.progress.extraction} 
-                />
-                <ProgressStep 
-                  label="Graph Construction" 
-                  progress={statusPaper.progress.graph} 
-                />
-              </div>
-
-              <div className="pt-4 border-t border-slate-700">
-                <p className="text-sm text-slate-400">
-                  Estimated time remaining: <span className="text-white font-medium">~2 minutes</span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
 
-function ProgressStep({ label, progress }) {
+// Paper detail view component with expandable abstract
+function PaperDetailView({ paper }) {
+  const [showFullAbstract, setShowFullAbstract] = React.useState(false);
+
+  const abstractLength = paper.abstract?.length || 0;
+  const shouldTruncate = abstractLength > 400;
+  const displayAbstract = shouldTruncate && !showFullAbstract
+    ? paper.abstract.substring(0, 400) + '...'
+    : paper.abstract;
+
   return (
-    <div>
-      <div className="flex items-center justify-between mb-2">
-        <span className="text-sm text-slate-300">{label}</span>
-        <span className="text-sm font-medium text-white">{progress}%</span>
-      </div>
-      <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
-        <div
-          className={`h-full transition-all duration-500 ${
-            progress === 100 ? 'bg-green-500' : 'bg-blue-500'
-          }`}
-          style={{ width: `${progress}%` }}
-        />
+    <div className="p-6">
+      {/* Paper Info */}
+      <div className="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+        <h2 className="text-2xl font-bold text-white mb-2">
+          {paper.title}
+        </h2>
+        <p className="text-slate-400 mb-4">
+          {paper.authors} • {paper.year}
+        </p>
+
+        {/* Abstract */}
+        <div className="mt-4">
+          <h3 className="text-lg font-semibold text-white mb-2">Abstract</h3>
+          <p className="text-slate-300 leading-relaxed whitespace-pre-wrap">
+            {displayAbstract || 'No abstract available'}
+          </p>
+
+          {shouldTruncate && (
+            <button
+              onClick={() => setShowFullAbstract(!showFullAbstract)}
+              className="mt-3 text-sm text-blue-400 hover:text-blue-300 transition-colors"
+            >
+              {showFullAbstract ? 'Show Less' : 'Show More'}
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

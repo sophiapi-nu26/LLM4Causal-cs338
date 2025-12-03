@@ -52,6 +52,7 @@ ENV PYTHONUNBUFFERED=1 \
 # Copy in specific order for better layer caching
 COPY --chown=appuser:appuser ./api /app/api
 COPY --chown=appuser:appuser ./document_preparation /app/document_preparation
+COPY --chown=appuser:appuser ./matsci_llm_causality /app/matsci_llm_causality
 
 # Switch to non-root user
 # All subsequent commands and runtime execution will be as this user

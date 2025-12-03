@@ -23,8 +23,8 @@ def create_app():
     api = Api(
         app,
         version='1.0',
-        title='MCG Retrieval API',
-        description='Retrieve and parse material science documents'
+        title='MCG Extraction API',
+        description='Retrieve, parse, and extract relationships from material science documents'
     )
 
     # Initialize GCS connector for job persistence
