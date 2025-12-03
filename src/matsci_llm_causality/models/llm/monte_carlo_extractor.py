@@ -759,10 +759,6 @@ def run_extraction(
     """
     from document_preparation.gcp_connector import GCPBucketConnector
 
-    # Quality thresholds
-    MIN_TEXT_LENGTH = 2000  # ~400 words, more than just abstract
-    MIN_SECTIONS = 3  # Should have intro, methods, results at minimum
-
     # Step 1: Fetch parsed paper from GCS
     if progress_callback:
         progress_callback("fetching", "Fetching parsed paper from GCS...")
@@ -778,28 +774,13 @@ def run_extraction(
             f"Paper may not have been retrieved/parsed yet."
         )
 
-    # Step 2: Validate text quality
-    if progress_callback:
-        progress_callback("validation", "Validating text quality...")
-
+    # Extract text - validation already happened during document preparation
     text = parsed_data.get('full_text', '')
     sections = parsed_data.get('sections', [])
 
-    if len(text) < MIN_TEXT_LENGTH:
-        raise ValueError(
-            f"Insufficient text content ({len(text)} chars, minimum {MIN_TEXT_LENGTH}). "
-            f"Paper likely contains only abstract or failed to extract fully."
-        )
+    logger.info(f"Loaded parsed data: {len(text)} chars, {len(sections)} sections")
 
-    if len(sections) < MIN_SECTIONS:
-        logger.warning(
-            f"Low section count ({len(sections)}). Results may be limited. "
-            f"Paper may only contain abstract and introduction."
-        )
-
-    logger.info(f"Validated text quality: {len(text)} chars, {len(sections)} sections")
-
-    # Step 3: Initialize and run Monte Carlo extraction
+    # Step 2: Initialize and run Monte Carlo extraction
     if progress_callback:
         progress_callback("extraction", "Running Monte Carlo extraction...")
 

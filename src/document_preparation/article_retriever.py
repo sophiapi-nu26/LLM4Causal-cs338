@@ -735,20 +735,30 @@ class PDFDownloader:
                 logger.info("Parsed successfully (no cloud upload)")
 
         except Exception as e:
-            # Parsing failed
-            logger.error(f"Parsing failed: {e}")
-            paper.parse_status = "failed"
+            # Import here to check exception type
+            from document_preparation.content_validator import ContentValidationError
+
+            # Distinguish validation failures from parsing errors
+            if isinstance(e, ContentValidationError):
+                logger.warning(f"Validation failed: {e}")
+                paper.parse_status = "validation_failed"
+            else:
+                logger.error(f"Parsing failed: {e}")
+                paper.parse_status = "failed"
 
             # Upload failed PDF to cloud for debugging
+            # Include parse_status in error message for filtering
+            error_msg = f"[{paper.parse_status}] {str(e)}"
+
             if self.gcp_connector:
                 try:
                     uri = self.gcp_connector.upload_failed_pdf(
                         pdf_bytes,
                         paper_id,
-                        error_msg=str(e)
+                        error_msg=error_msg
                     )
                     paper.failed_pdf_uri = uri
-                    logger.info("Uploaded failed PDF to cloud for debugging")
+                    logger.info(f"Uploaded failed PDF to cloud for debugging ({paper.parse_status})")
                 except Exception as upload_err:
                     logger.warning(f"Failed to upload failed PDF: {upload_err}")
 
@@ -828,8 +838,11 @@ def _create_components(mailto: str, ss_api_key: Optional[str] = None,
             import sys
             sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
             from parser_adapter import PDFParserAdapter
+
+            # Initialize parser - validation always enabled with hardcoded thresholds
             pdf_parser = PDFParserAdapter()
-            logger.debug("PDF parser initialized")
+
+            logger.debug("PDF parser initialized with validation (MIN_TEXT_LENGTH=2000, MIN_SECTIONS=3)")
         except ImportError as e:
             logger.warning(f"Failed to import parser: {e}")
 
@@ -954,6 +967,7 @@ def _upload_run_metadata(papers: List[Paper], gcp_connector, run_id: str, query:
         # Calculate statistics
         parsed_count = sum(1 for p in papers if p.parse_status == "success")
         failed_count = sum(1 for p in papers if p.parse_status == "failed")
+        validation_failed_count = sum(1 for p in papers if p.parse_status == "validation_failed")
         downloaded_count = sum(1 for p in papers if p.download_status in ["downloaded", "exists"])
 
         # Build metadata dictionary
@@ -971,7 +985,8 @@ def _upload_run_metadata(papers: List[Paper], gcp_connector, run_id: str, query:
                 "papers_retrieved": len(papers),
                 "pdfs_downloaded": downloaded_count,
                 "papers_parsed": parsed_count,
-                "papers_failed": failed_count
+                "papers_failed": failed_count,
+                "papers_validation_failed": validation_failed_count
             }
         }
 
