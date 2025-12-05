@@ -45,7 +45,7 @@ export default function SearchBar({
     // Validate and clamp only when user finishes editing
     const value = parseInt(e.target.value);
     if (isNaN(value) || e.target.value === '') {
-      onMaxResultsChange(20); // Reset to default if invalid
+      onMaxResultsChange(50); // Reset to default if invalid
     } else {
       // Clamp between 1 and 100
       const clamped = Math.max(1, Math.min(100, value));

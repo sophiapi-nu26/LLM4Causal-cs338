@@ -4,6 +4,7 @@ import SearchBar from './components/SearchBar';
 import InlineProgressBar from './components/InlineProgressBar';
 import PaperList from './components/PaperList';
 import SelectionToolbar from './components/SelectionToolbar';
+import GraphViewPage from './components/GraphViewPage';
 import { api } from './services/api';
 import { useJobPoller } from './hooks/useJobPoller';
 import { transformPapers } from './utils/transformers';
@@ -12,7 +13,7 @@ export default function CausalGraphSearch() {
   // Search state
   const [query, setQuery] = useState('');
   const [yearMin, setYearMin] = useState(2020);
-  const [maxResults, setMaxResults] = useState(20);
+  const [maxResults, setMaxResults] = useState(50);
   const [isSearching, setIsSearching] = useState(false);
 
   // Job management
@@ -34,6 +35,9 @@ export default function CausalGraphSearch() {
 
   // Error handling
   const [error, setError] = useState(null);
+
+  // View state ('search' or 'graph')
+  const [currentView, setCurrentView] = useState('search');
 
   // API integration for search
   const handleSearch = async () => {
@@ -166,9 +170,7 @@ export default function CausalGraphSearch() {
       setExtractionResults(results);
       setIsExtracting(false);
       setExtractionJobId(null);
-
-      // TODO Stage 4: Display graph visualization
-      alert('Extraction complete! Check console for results.');
+      setCurrentView('graph');  // Switch to full-page graph view
     },
     (errorMsg) => {
       // Extraction failed
@@ -179,16 +181,31 @@ export default function CausalGraphSearch() {
     }
   );
 
+  // Handler for back button from graph view
+  const handleBackToSearch = () => {
+    setCurrentView('search');
+    setExtractionResults(null);  // Clear results when returning to search
+  };
+
+  // Render graph view
+  if (currentView === 'graph' && extractionResults) {
+    return <GraphViewPage results={extractionResults} onBack={handleBackToSearch} />;
+  }
+
+  // Render search view
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex flex-col">
       {/* Header */}
       <header className="bg-slate-800/50 backdrop-blur-sm border-b border-slate-700">
         <div className="max-w-full mx-auto px-6 py-4">
-          <div className="flex items-center gap-3">
-            <Network className="w-8 h-8 text-blue-400" />
-            <div>
-              <h1 className="text-2xl font-bold text-white">LLM Causal Graph Extractor</h1>
-              <p className="text-sm text-slate-400">Material Science Knowledge Discovery</p>
+          <div className="relative flex items-center justify-center">
+            {/* Centered logo and title */}
+            <div className="flex items-center gap-3">
+              <Network className="w-8 h-8 text-blue-400" />
+              <div className="text-center">
+                <h1 className="text-2xl font-bold text-white">LLM Causal Graph Extractor</h1>
+                <p className="text-sm text-slate-400">Material Science Knowledge Discovery</p>
+              </div>
             </div>
           </div>
         </div>
