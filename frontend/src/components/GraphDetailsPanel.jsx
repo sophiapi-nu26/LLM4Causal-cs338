@@ -1,5 +1,5 @@
 import React from 'react';
-import { formatConfidence } from '../utils/transformGraphData';
+import { formatFrequency } from '../utils/transformGraphData';
 
 /**
  * GraphDetailsPanel Component
@@ -70,26 +70,6 @@ export default function GraphDetailsPanel({ selectedElement, onClose }) {
             </div>
           )}
 
-          {/* Confidence */}
-          {data.confidence !== undefined && (
-            <div>
-              <div className="text-xs text-slate-400 uppercase tracking-wide mb-1">
-                Confidence
-              </div>
-              <div className="text-white">{formatConfidence(data.confidence)}</div>
-            </div>
-          )}
-
-          {/* Summary */}
-          {data.summary && (
-            <div>
-              <div className="text-xs text-slate-400 uppercase tracking-wide mb-1">
-                Summary
-              </div>
-              <div className="text-slate-300 text-sm">{data.summary}</div>
-            </div>
-          )}
-
           {/* Variations */}
           {data.variations && data.variations.length > 0 && (
             <div>
@@ -141,7 +121,7 @@ export default function GraphDetailsPanel({ selectedElement, onClose }) {
                 style={{ backgroundColor: data.color }}
               />
               <span className="text-white font-medium">{data.source}</span>
-              <span className="text-slate-400">’</span>
+              <span className="text-slate-400">ï¿½</span>
               <span className="text-white font-medium">{data.target}</span>
             </div>
           </div>
@@ -168,16 +148,6 @@ export default function GraphDetailsPanel({ selectedElement, onClose }) {
               <div className="text-white">
                 Found in {data.frequency} run{data.frequency !== 1 ? 's' : ''}
               </div>
-            </div>
-          )}
-
-          {/* Confidence */}
-          {data.confidence !== undefined && (
-            <div>
-              <div className="text-xs text-slate-400 uppercase tracking-wide mb-1">
-                Confidence
-              </div>
-              <div className="text-white">{formatConfidence(data.confidence)}</div>
             </div>
           )}
 

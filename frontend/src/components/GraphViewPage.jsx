@@ -28,8 +28,8 @@ export default function GraphViewPage({ results, onBack }) {
             <div className="flex items-center gap-3">
               <Network className="w-8 h-8 text-blue-400" />
               <div className="text-center">
-                <h1 className="text-2xl font-bold text-white">Causal Graph Visualization</h1>
-                <p className="text-sm text-slate-400">Interactive graph exploration</p>
+                <h1 className="text-2xl font-bold text-white">LLM Causal Graph Extractor</h1>
+                <p className="text-sm text-slate-400">Material Science Knowledge Discovery</p>
               </div>
             </div>
           </div>

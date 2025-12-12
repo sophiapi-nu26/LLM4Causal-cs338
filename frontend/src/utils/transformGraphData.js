@@ -157,14 +157,22 @@ export function getGraphStats(graphData) {
 }
 
 /**
- * Format confidence score for display
+ * Format frequency count for display
  *
- * @param {number} confidence - Confidence value (0-1)
- * @returns {string} Formatted percentage
+ * @param {number} frequency - Frequency count
+ * @param {number} total - Total number of runs (optional)
+ * @returns {string} Formatted frequency string
  */
-export function formatConfidence(confidence) {
-  if (typeof confidence !== 'number') return 'N/A';
-  return `${(confidence * 100).toFixed(0)}%`;
+export function formatFrequency(frequency, total) {
+  // If we have both frequency and total, show count format
+  if (typeof frequency === 'number' && typeof total === 'number') {
+    return `${frequency} out of ${total} runs`;
+  }
+  // If only frequency is available, show simple count
+  if (typeof frequency === 'number') {
+    return `Appears ${frequency} time${frequency !== 1 ? 's' : ''}`;
+  }
+  return 'N/A';
 }
 
 /**

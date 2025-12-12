@@ -116,9 +116,7 @@ export function formatExtractionProgress(progress) {
       ((progress.completed_papers + progress.failed_papers) / progress.total_papers) * 100
     );
 
-    const currentStage = progress.stage
-      ? `${progress.stage}: ${progress.status}`
-      : progress.status || 'Processing...';
+    const currentStage = progress.status || 'Processing...';
 
     return {
       message: `Paper ${progress.current_paper_index}/${progress.total_papers} - ${currentStage}`,
@@ -131,9 +129,9 @@ export function formatExtractionProgress(progress) {
   }
 
   // Single-paper extraction
-  if (progress.stage) {
+  if (progress.stage || progress.status) {
     return {
-      message: `${progress.stage}: ${progress.status || 'Processing...'}`,
+      message: progress.status || 'Processing...',
       percentage: 50 // Indeterminate
     };
   }

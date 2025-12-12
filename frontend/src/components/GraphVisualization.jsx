@@ -131,7 +131,6 @@ export default function GraphVisualization({
     <div
       ref={containerRef}
       className="w-full h-full bg-slate-900 rounded-lg border border-slate-700"
-      style={{ minHeight: '500px' }}
     />
   );
 }
