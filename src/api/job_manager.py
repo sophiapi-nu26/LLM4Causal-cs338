@@ -6,6 +6,7 @@ import time
 from dataclasses import dataclass, asdict
 from datetime import datetime, UTC
 from typing import Optional
+from enum import Enum
 
 logger = logging.getLogger(__name__)
 
@@ -37,11 +38,18 @@ class Timer:
         self.elapsed = time.time() - self.start_time
         logger.info(f"  TIMER: {self.operation_name}: {self.elapsed:.3f}s")
 
+class JobType(str, Enum):
+    "Valid job types in current system"
+    RETRIEVAL="retrieval"
+    EXTRACTION="extraction"
+    MULTI_EXTRACTION="multi_extraction"
+
 @dataclass
 class Job:
     job_id: str
+    job_type: JobType # "retrieval" or "extraction"
     status: str
-    query: str
+    query: str # Retrieval: search query, Extraction: paper_id
     progress: dict
     results: dict | None
     error: str | None
@@ -85,12 +93,13 @@ class JobManager:
         else:
             logger.warning("JobManager initialized WITHOUT GCS persistence (memory-only mode)")
 
-    def create_job(self, job_id: str, query: str):
+    def create_job(self, job_id: str, query: str, job_type: JobType = JobType.RETRIEVAL): 
         """Create a new job and persist to GCS"""
         with self._lock:
             now = datetime.now(UTC)
             job = Job(
                 job_id=job_id,
+                job_type=job_type,
                 status="queued",
                 query=query,
                 progress={},
@@ -117,14 +126,23 @@ class JobManager:
         with self._lock:
             # Check memory cache first (fast path)
             if job_id in self._jobs:
-                return self._jobs[job_id]
+                job = self._jobs[job_id]
+            else:
+                # Not in memory - try loading from GCS (slow path)
+                job = self._load_job_from_gcs(job_id)
+                if job:
+                    # Cache it for future requests
+                    self._jobs[job_id] = job
+                    logger.debug(f"Loaded job {job_id} from GCS into memory cache")
 
-            # Not in memory - try loading from GCS (slow path)
-            job = self._load_job_from_gcs(job_id)
-            if job:
-                # Cache it for future requests
-                self._jobs[job_id] = job
-                logger.debug(f"Loaded job {job_id} from GCS into memory cache")
+            # If extraction job and completed, ensure results are loaded from GCS
+            if job and job.job_type == JobType.EXTRACTION and job.status == "completed":
+                if not job.results:
+                    # Load extraction results from GCS
+                    job.results = self._load_extraction_results_from_gcs(job_id)
+                    if job.results:
+                        # Update cached job with results
+                        self._jobs[job_id] = job
 
             return job
 
@@ -240,4 +258,36 @@ class JobManager:
 
         except Exception as e:
             logger.error(f"Failed to load job {job_id} from GCS: {e}")
+            return None
+
+    def _load_extraction_results_from_gcs(self, job_id: str) -> Optional[dict]:
+        """
+        Load extraction results from GCS.
+
+        Extraction results are stored separately from job metadata at:
+        gs://bucket/extraction/{job_id}/graph_data.json
+
+        Returns None if results don't exist or GCS read fails.
+        """
+        if not self.gcs_connector:
+            return None  # GCS persistence disabled
+
+        try:
+            with Timer(f"GCS read (extraction results for {job_id})"):
+                blob_name = f"extraction/{job_id}/graph_data.json"
+                blob = self.gcs_connector.bucket.blob(blob_name)
+
+                if not blob.exists():
+                    logger.warning(f"Extraction results not found in GCS: {blob_name}")
+                    return None
+
+                # Download and parse JSON
+                json_string = blob.download_as_text()
+                graph_data = json.loads(json_string)
+
+            logger.debug(f"Loaded extraction results for {job_id} from GCS")
+            return graph_data
+
+        except Exception as e:
+            logger.error(f"Failed to load extraction results for {job_id} from GCS: {e}")
             return None

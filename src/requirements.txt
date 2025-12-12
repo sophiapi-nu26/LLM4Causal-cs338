@@ -8,3 +8,6 @@ flask-restx
 requests
 urllib3
 gunicorn
+torch
+transformers
+google-genai

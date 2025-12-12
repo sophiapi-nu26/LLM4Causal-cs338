@@ -6,7 +6,6 @@ A Python package for extracting causal relationships from materials science lite
 
 - **[REST API Documentation](src/README.md)** - Containerized API for article retrieval and parsing
 - **[Deployment Guide](src/DEPLOYMENT.md)** - Deploy to Google Cloud Run
-- **[Dockerfile Comparison](src/DEPLOYMENT.md#dockerfiledev-vs-dockerfile---key-differences-explained)** - Dev vs Production explained
 
 ## Pipeline Overview
 

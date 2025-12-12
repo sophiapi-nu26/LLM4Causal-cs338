@@ -14,6 +14,7 @@ services:
       - ./api:/app/api
       - ./document_preparation:/app/document_preparation
       - ../.env:/app/.env:ro
+      - ./matsci_llm_causality:/app/matsci_llm_causality
       # Mount gcloud config for Application Default Credentials
       - ~/.config/gcloud:/home/appuser/.config/gcloud:ro
 

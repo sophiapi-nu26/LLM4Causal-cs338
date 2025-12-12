@@ -66,9 +66,15 @@ class PDFParserAdapter(ParserInterface):
             ScientificPDFExtractor,
             extract_for_causal_analysis
         )
+        from content_validator import ContentValidator
+
         self.extractor_class = ScientificPDFExtractor
         self.extract_causal = extract_for_causal_analysis
-        logger.debug("PDF Parser (v2) initialized successfully")
+
+        # Initialize validator (always enabled with hardcoded thresholds)
+        self.validator = ContentValidator()
+
+        logger.debug("PDF Parser (v2) initialized with validation (MIN_TEXT_LENGTH=2000, MIN_SECTIONS=3)")
 
     def parse(self, pdf_source: Union[str, bytes], paper_id: Optional[str] = None) -> Dict:
         """
@@ -141,6 +147,17 @@ class PDFParserAdapter(ParserInterface):
                 "paper_id": paper_id,
                 "extraction_timestamp": datetime.now(UTC).isoformat() + "Z",
             }
+
+            # Validate content before returning
+            is_valid, error_message = self.validator.validate(parsed_data)
+            if not is_valid:
+                # Add validation metadata
+                parsed_data["validation_failed"] = True
+                parsed_data["validation_error"] = error_message
+
+                # Raise exception to trigger failed_pdf storage
+                from content_validator import ContentValidationError
+                raise ContentValidationError(error_message)
 
             logger.info(f"Successfully parsed PDF (paper_id={paper_id}): {len(result['full_text'])} chars, {len(result['sections'])} sections")
             return parsed_data

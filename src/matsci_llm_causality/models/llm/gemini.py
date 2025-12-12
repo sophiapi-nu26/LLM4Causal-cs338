@@ -1,6 +1,7 @@
 from typing import Optional, Any, List
 from google import genai
 from google.genai import types, errors
+import google.auth
 from ...schema import (
     ExtractionResult, ModelConfig, Entity, EntityType,
     Relationship, RelationType
@@ -14,6 +15,7 @@ load_dotenv()
 
 import re
 import json
+
 def parse_relationships(text: str):
     # Split text into lines, stripping empty ones
     lines = [line.strip() for line in text.split("\n") if line.strip()]
@@ -71,8 +73,6 @@ def _extract_retry_after_seconds(e):
         pass
     return None
 
-api_key = os.getenv('GEMINI_API_KEY')  # This gets a specific variable
-
 
 # Image relation extractor using Gemini
 @register_model("gemini-2-5-flash-lite")  # Match the ID used in process_pdf.py
@@ -85,8 +85,22 @@ class GeminiImageRelationExtractor(BaseLLM):
                 # max_length=512
             )
         self.config = config
-        self.client = genai.Client()
-        
+
+        # Get project ID from Application Default Credentials
+        credentials, project_id = google.auth.default()
+        if not project_id:
+            raise ValueError(
+                "Unable to determine GCP project. "
+                "Run 'gcloud auth application-default login' and ensure a project is set."
+            )
+
+        # Use Vertex AI API with ADC
+        self.client = genai.Client(
+            vertexai=True,
+            project=project_id,
+            location='us-central1'
+        )
+
     def extract_relations(self, image_bytes) -> List[Relationship]:
         """Extract causal relationships between existing entities using GPT-5.
         
@@ -142,8 +156,22 @@ class GeminiTableRelationExtractor(BaseLLM):
                 # max_length=512
             )
         self.config = config
-        self.client = genai.Client()
-        
+
+        # Get project ID from Application Default Credentials
+        credentials, project_id = google.auth.default()
+        if not project_id:
+            raise ValueError(
+                "Unable to determine GCP project. "
+                "Run 'gcloud auth application-default login' and ensure a project is set."
+            )
+
+        # Use Vertex AI API with ADC
+        self.client = genai.Client(
+            vertexai=True,
+            project=project_id,
+            location='us-central1'
+        )
+
     def extract_relations(self, image_bytes) -> List[Relationship]:
         """Extract causal relationships between existing entities using GPT-5.
         
@@ -190,10 +218,10 @@ class GeminiTableRelationExtractor(BaseLLM):
 @register_model("gemini-text-relation")
 class GeminiTextRelationExtractor(BaseLLM):
     """Text-based relation extraction using Google Gemini for materials science text."""
-    
+
     def __init__(self, config: Optional[ModelConfig] = None):
         """Initialize the Gemini text relation extractor.
-        
+
         Args:
             config: Model configuration
         """
@@ -202,14 +230,24 @@ class GeminiTextRelationExtractor(BaseLLM):
                 model_type="gemini-2.5-flash",
                 temperature=0.3,
             )
-        
+
         self.config = config
-        api_key = os.getenv('GEMINI_API_KEY')
-        if not api_key:
-            raise ValueError("GEMINI_API_KEY environment variable is required")
-        
-        self.client = genai.Client()
-        
+
+        # Get project ID from Application Default Credentials
+        credentials, project_id = google.auth.default()
+        if not project_id:
+            raise ValueError(
+                "Unable to determine GCP project. "
+                "Run 'gcloud auth application-default login' and ensure a project is set."
+            )
+
+        # Use Vertex AI API with ADC
+        self.client = genai.Client(
+            vertexai=True,
+            project=project_id,
+            location='us-central1'
+        )
+
     def extract_relations(self, text: str) -> List[Relationship]:
         """Extract causal relationships from text using Gemini.
         
